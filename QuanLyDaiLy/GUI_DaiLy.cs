@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using GUI_QuanLy.CommonClass;
 using BUS_Library;
 using Microsoft.Extensions.Logging;
+using System.Runtime.CompilerServices;
+using System.Net.NetworkInformation;
 
 namespace GUI_QuanLy
 {
@@ -65,27 +67,15 @@ namespace GUI_QuanLy
             }
         }
 
+
         private async Task LoadDaiLyAsync()
         {
             try
             {
                 DataTable dataTable = await _busDaiLy.GetDataTableDaiLyListAsync();
-              
                 _bindingSource.DataSource = dataTable;
-                dgvDaiLy.Columns["MaDaiLy"].HeaderText = "Mã Đại lý";
-                dgvDaiLy.Columns["TenDaiLy"].HeaderText = "Tên Đại lý";
-                dgvDaiLy.Columns["TenLoaiDaiLy"].HeaderText = "Loại Đại lý";
-                dgvDaiLy.Columns["SDT"].HeaderText = "Số điện thoại";
-                dgvDaiLy.Columns["Email"].HeaderText = "Email";
-                dgvDaiLy.Columns["DiaChi"].HeaderText = "Địa chỉ";
-                dgvDaiLy.Columns["TenQuan"].HeaderText = "Quận";
-                dgvDaiLy.Columns["NgayTiepNhan"].HeaderText = "Ngày tiếp nhận";
-                dgvDaiLy.Columns["TongNo"].HeaderText = "Tổng nợ";
-                dgvDaiLy.Columns["MaDaiLy"].Visible = false;
-                foreach (DataGridViewColumn dataColumn in dgvDaiLy.Columns)
-                {
-                    dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }
+
+                ModifyDataGridViewColumns();
 
             }
             catch (BusException busEx)
@@ -101,6 +91,26 @@ namespace GUI_QuanLy
             }
 
         }
+
+        private void ModifyDataGridViewColumns()
+        {
+            dgvDaiLy.Columns["MaDaiLy"].HeaderText = "Mã Đại lý";
+            dgvDaiLy.Columns["TenDaiLy"].HeaderText = "Tên Đại lý";
+            dgvDaiLy.Columns["TenLoaiDaiLy"].HeaderText = "Loại Đại lý";
+            dgvDaiLy.Columns["SDT"].HeaderText = "Số điện thoại";
+            dgvDaiLy.Columns["Email"].HeaderText = "Email";
+            dgvDaiLy.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgvDaiLy.Columns["TenQuan"].HeaderText = "Quận";
+            dgvDaiLy.Columns["NgayTiepNhan"].HeaderText = "Ngày tiếp nhận";
+            dgvDaiLy.Columns["TongNo"].HeaderText = "Tổng nợ";
+            dgvDaiLy.Columns["MaDaiLy"].Visible = false;
+
+            foreach (DataGridViewColumn dataColumn in dgvDaiLy.Columns)
+            {
+                dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
 
         private async Task LoadComboBoxsLoaiDaiLyAsync()
         {
@@ -454,5 +464,49 @@ namespace GUI_QuanLy
             }
         }
 
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void ApplyFilter()
+        {
+            var filters = new List<string>();
+
+            string tenDaiLy = txtTenDaiLy.Text.Trim().Replace("'","''");
+            if (!string.IsNullOrEmpty(tenDaiLy))
+                filters.Add($"TenDaiLy LIKE '%{tenDaiLy}%'");
+
+            string sdt = txtSDT.Text.Trim().Replace("'", "''");
+            if (!string.IsNullOrEmpty(sdt))
+                filters.Add($"SDT LIKE '%{sdt}%'");
+
+            string email = txtEmail.Text.Trim().Replace("'", "''");
+            if (!string.IsNullOrEmpty(email))
+                filters.Add($"Email LIKE '%{email}%'");
+
+            string diaChi = txtDiaChi.Text.Trim().Replace("'", "''");
+            if (!string.IsNullOrEmpty(diaChi))
+                filters.Add($"DiaChi LIKE '%{diaChi}%'");
+
+            string tenLoaiDaiLy = cboLoaiDaiLy.Text.Replace("'", "''");
+            if (!string.IsNullOrEmpty(tenLoaiDaiLy))
+                filters.Add($"TenLoaiDaiLy LIKE '%{tenLoaiDaiLy}%'");
+
+            string tenQuan = cboQuan.Text.Replace("'", "''");
+            if (!string.IsNullOrEmpty(tenQuan))
+                filters.Add($"TenQuan LIKE '%{tenQuan}%'");
+
+            string ngayTiepNhan = dtpNgayTiepNhan.Value.ToString("yyyy-MM-dd");
+            if (!string.IsNullOrEmpty(ngayTiepNhan))
+                filters.Add($"NgayTiepNhan = '{ngayTiepNhan}'");
+
+
+            //Combine and apply
+            string ? filterExpression =  filters.Count > 0
+                ? string.Join(" AND ", filters)
+                : null;
+            _bindingSource.Filter = filterExpression;
+        }
     }
 }
