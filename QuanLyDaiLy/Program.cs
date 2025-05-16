@@ -38,7 +38,7 @@ namespace QuanLyDaiLy
                 .Build();
 
             using var scope = host.Services.CreateScope();
-            var form = scope.ServiceProvider.GetRequiredService<GUI_Admin>();
+            var form = scope.ServiceProvider.GetRequiredService<Menu>();
             Application.Run(form);
         }
     }

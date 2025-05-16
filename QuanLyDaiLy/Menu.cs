@@ -12,11 +12,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GUI_QuanLy
 {
-    public partial class GUI_Menu : Form
+    public partial class Menu : Form
     {
         private readonly IServiceProvider _services;
 
-        public GUI_Menu(IServiceProvider serviceProvider)
+        public Menu(IServiceProvider serviceProvider)
         {
             _services = serviceProvider;
             this.WindowState = FormWindowState.Maximized;

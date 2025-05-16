@@ -59,7 +59,6 @@
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDVT.Size = new Size(520, 200);
             dgvDVT.TabIndex = 2;
-            dgvDVT.SelectionChanged += dgvDVT_Click;
             // 
             // btnAdd
             // 
