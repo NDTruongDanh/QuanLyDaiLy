@@ -55,8 +55,7 @@
             dgvQuan.RowHeadersWidth = 51;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQuan.Size = new Size(500, 200);
-            dgvQuan.TabIndex = 2;
-            dgvQuan.SelectionChanged += dgvQuan_Click;
+            dgvQuan.TabIndex = 2;            
             // 
             // btnAdd
             // 

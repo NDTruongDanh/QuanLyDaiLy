@@ -15,8 +15,7 @@ namespace GUI_QuanLy
 {
     public partial class GUI_BaoCaoCongNo : Form
     {
-        private BUS_BaoCaoCongNo busBaoCaoCongNo = new BUS_BaoCaoCongNo();
-        private BUS_DaiLy busDaiLy = new BUS_DaiLy();
+
 
         //Tháng và năm được tạo báo cáo công nợ
         int thang = 0;

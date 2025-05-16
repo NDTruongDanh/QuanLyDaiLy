@@ -15,9 +15,7 @@ namespace GUI_QuanLy
 {
     public partial class GUI_BaoCaoDoanhSo : Form
     {
-        private BUS_BaoCaoDoanhSo busBaoCaoDoanhSo = new BUS_BaoCaoDoanhSo();
-        private BUS_ChiTietBaoCaoDoanhSo busChiTietBaoCaoDoanhSo = new BUS_ChiTietBaoCaoDoanhSo();
-
+       
         int maBaoCaoDoanhSo = 0;
         decimal tongDoanhSo = 0;
 

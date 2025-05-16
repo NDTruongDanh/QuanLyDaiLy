@@ -81,7 +81,6 @@
             dtpNgayThuTien.Name = "dtpNgayThuTien";
             dtpNgayThuTien.Size = new Size(1414, 34);
             dtpNgayThuTien.TabIndex = 3;
-            dtpNgayThuTien.ValueChanged += dtpNgayThuTien_ValueChanged;
             // 
             // txtSoTienThu
             // 
@@ -115,7 +114,6 @@
             lblDanhSachPhieuThu.Size = new Size(363, 32);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách phiếu thu của đại lý";
-            lblDanhSachPhieuThu.Click += lblDanhSachPhieuThu_Click;
             // 
             // label2
             // 
@@ -390,7 +388,6 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.0425529F));
             tableLayoutPanel2.Size = new Size(1634, 940);
             tableLayoutPanel2.TabIndex = 26;
-            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
             // GUI_PhieuThu
             // 
