@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace GUI_QuanLy
 {
-    public partial class Menu : Form
+    public partial class GUI_Menu : Form
     {
-        public Menu()
+        private readonly IServiceProvider _services;
+
+        public GUI_Menu(IServiceProvider serviceProvider)
         {
+            _services = serviceProvider;
+            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
             SetPlaceholder(tbTimKiem, "     Tìm kiếm...");
             this.WindowState = FormWindowState.Maximized;
-            OpenChildForm(new GUI_DaiLy());
         }
 
         int menuContainerMaxHeight = 204;
@@ -46,6 +51,8 @@ namespace GUI_QuanLy
             }
         }
 
+
+
         private void SetPlaceholder(TextBox textBox, string placeholder)
         {
             textBox.Text = placeholder;
@@ -70,6 +77,7 @@ namespace GUI_QuanLy
             };
         }
 
+
         private Form? activeForm = null;
         private void OpenChildForm(Form childForm)
         {
@@ -90,35 +98,42 @@ namespace GUI_QuanLy
 
         private void btnDaily_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_DaiLy());
+            var form_DaiLy = _services.GetRequiredService<GUI_DaiLy>();
+            OpenChildForm(form_DaiLy);
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
             menuTransition.Start();
+
         }
 
         private void btnPhieuNhapHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_PhieuNhap());
+            var form_PhieuNhap = _services.GetRequiredService<GUI_PhieuNhap>();
+            OpenChildForm(form_PhieuNhap);
         }
 
         private void btnPhieuXuatHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_PhieuXuat());
+            var form_PhieuXuat = _services.GetRequiredService<GUI_PhieuXuat>();
+            OpenChildForm(form_PhieuXuat);
         }
 
         private void btnPhieuThuTien_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_PhieuThu());
+            var form_PhieuThu = _services.GetRequiredService<GUI_PhieuThu>();
+            OpenChildForm(form_PhieuThu);
         }
         private void btnBaoCaoDoanhSo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_BaoCaoDoanhSo());
+            var form_BaoCaoDoanhSo = _services.GetRequiredService<GUI_BaoCaoDoanhSo>();
+            OpenChildForm(form_BaoCaoDoanhSo);
         }
 
         private void btnBaoCaoCongNo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI_BaoCaoCongNo());
+            var form_BaoCaoCongNo = _services.GetRequiredService<GUI_BaoCaoCongNo>();
+            OpenChildForm(form_BaoCaoCongNo);
         }
 
         private void pbSettingThamSo_Click_1(object sender, EventArgs e)
