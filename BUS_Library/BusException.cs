@@ -29,7 +29,9 @@ namespace BUS_Library
         public const int DeleteQuanFailure = 0104;
 
         //DaiLy
-        public const int GetDaiLyListFailure = 0201;
+        public const int GetDTODaiLyListAsync = 0201;
+        public const int GetDataTableDaiLyListFailure = 0206;
+        public const int GetDaiLyByMaFailure = 0207;
         public const int AddDaiLyFailure = 0202;
         public const int UpdateDaiLyFailure = 0203;
         public const int UpdateDaiLySauXuatHangFailure = 0204;

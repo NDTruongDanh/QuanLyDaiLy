@@ -11,7 +11,7 @@ namespace DAL_QuanLy
 {
     public class DBConnect
     {
-        protected SqlConnection _conn = new SqlConnection("Data Source=localho;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True");
-        public string connString = "Data Source=ADMIN-PC;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
+        protected SqlConnection _conn = new SqlConnection("Data Source=localhost;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True");
+        public static string connString = "Data Source=localhost;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
     }
 }

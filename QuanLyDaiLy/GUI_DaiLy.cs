@@ -69,15 +69,14 @@ namespace GUI_QuanLy
         {
             try
             {
-                var data = await _busDaiLy.GetDaiLyListAsync();
+                DataTable dataTable = await _busDaiLy.GetDataTableDaiLyListAsync();
                 if (dgvDaiLy.InvokeRequired)
                 {
-                    dgvDaiLy.Invoke(() => _bindingSource.DataSource = data);
+                    dgvDaiLy.Invoke(() => _bindingSource.DataSource = dataTable);
                 }
                 else
-                    _bindingSource.DataSource = data;
+                    _bindingSource.DataSource = dataTable;
 
-                dgvDaiLy.AutoResizeColumns();
             }
             catch (BusException busEx)
             {
@@ -314,7 +313,7 @@ namespace GUI_QuanLy
                     {
                         int maDL = Convert.ToInt32(dgvDaiLy.SelectedRows[0].Cells[0].Value);
 
-                        if (await _busDaiLy.DeleteDaiLyAsync(maDL))
+                        if (await _busDaiLy.DeleteDailyAsync(maDL))
                         {
                             MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await LoadDaiLyAsync();
@@ -380,8 +379,8 @@ namespace GUI_QuanLy
                     txtSDT.Text = row.Cells["SDT"].Value?.ToString();
                     txtEmail.Text = row.Cells["Email"].Value?.ToString();
                     txtDiaChi.Text = row.Cells["DiaChi"].Value?.ToString();
-                    cboLoaiDaiLy.SelectedValue = row.Cells["MaLoaiDaiLy"]?.Value;
-                    cboQuan.SelectedValue = row.Cells["MaQuan"]?.Value;
+                    cboLoaiDaiLy.Text = row.Cells["TenLoaiDaiLy"]?.Value.ToString();
+                    cboQuan.Text = row.Cells["TenQuan"]?.Value.ToString();
 
                     if (DateTime.TryParse(row.Cells["NgayTiepNhan"]?.Value?.ToString(), out DateTime ngayTiepNhan))
                     {
