@@ -70,12 +70,22 @@ namespace GUI_QuanLy
             try
             {
                 DataTable dataTable = await _busDaiLy.GetDataTableDaiLyListAsync();
-                if (dgvDaiLy.InvokeRequired)
+              
+                _bindingSource.DataSource = dataTable;
+                dgvDaiLy.Columns["MaDaiLy"].HeaderText = "Mã Đại lý";
+                dgvDaiLy.Columns["TenDaiLy"].HeaderText = "Tên Đại lý";
+                dgvDaiLy.Columns["TenLoaiDaiLy"].HeaderText = "Loại Đại lý";
+                dgvDaiLy.Columns["SDT"].HeaderText = "Số điện thoại";
+                dgvDaiLy.Columns["Email"].HeaderText = "Email";
+                dgvDaiLy.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                dgvDaiLy.Columns["TenQuan"].HeaderText = "Quận";
+                dgvDaiLy.Columns["NgayTiepNhan"].HeaderText = "Ngày tiếp nhận";
+                dgvDaiLy.Columns["TongNo"].HeaderText = "Tổng nợ";
+                dgvDaiLy.Columns["MaDaiLy"].Visible = false;
+                foreach (DataGridViewColumn dataColumn in dgvDaiLy.Columns)
                 {
-                    dgvDaiLy.Invoke(() => _bindingSource.DataSource = dataTable);
+                    dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
-                else
-                    _bindingSource.DataSource = dataTable;
 
             }
             catch (BusException busEx)

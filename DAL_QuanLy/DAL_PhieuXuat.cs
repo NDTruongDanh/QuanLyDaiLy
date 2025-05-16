@@ -19,8 +19,8 @@ namespace DAL_QuanLy
     public class DAL_PhieuXuat : IDAL_PhieuXuat
     {
         // Get PhieuXuat List
-        readonly string _connectionString = "Data Source=ADMIN-PC;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
-        
+        readonly string _connectionString = DBConnect.connString;
+
         public async Task<List<DTO_PhieuXuat>> GetPhieuXuatListAsync()
         {
             try

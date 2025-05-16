@@ -22,7 +22,7 @@ namespace DAL_QuanLy
 
     public class DAL_BaoCaoDoanhSo : IDAL_BaoCaoDoanhSo
     {
-        readonly string _connectionString = "Data Source=ADMIN-PC;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
+        readonly string _connectionString = DBConnect.connString;
 
         //Get BaoCaoDoanhSo List
         public async Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoListAsync()

@@ -57,9 +57,9 @@
             // 
             lblNgayThuTien.AutoSize = true;
             lblNgayThuTien.Font = new Font("Segoe UI", 12F);
-            lblNgayThuTien.Location = new Point(3, 160);
+            lblNgayThuTien.Location = new Point(3, 180);
             lblNgayThuTien.Name = "lblNgayThuTien";
-            lblNgayThuTien.Size = new Size(141, 28);
+            lblNgayThuTien.Size = new Size(176, 32);
             lblNgayThuTien.TabIndex = 2;
             lblNgayThuTien.Text = "Ngày Thu Tiền:";
             // 
@@ -67,9 +67,9 @@
             // 
             lblSoTienThu.AutoSize = true;
             lblSoTienThu.Font = new Font("Segoe UI", 12F);
-            lblSoTienThu.Location = new Point(3, 200);
+            lblSoTienThu.Location = new Point(3, 225);
             lblSoTienThu.Name = "lblSoTienThu";
-            lblSoTienThu.Size = new Size(117, 28);
+            lblSoTienThu.Size = new Size(147, 21);
             lblSoTienThu.TabIndex = 4;
             lblSoTienThu.Text = "Số Tiền Thu:";
             // 
@@ -77,18 +77,18 @@
             // 
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-            dtpNgayThuTien.Location = new Point(150, 163);
+            dtpNgayThuTien.Location = new Point(185, 183);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1414, 34);
+            dtpNgayThuTien.Size = new Size(1414, 39);
             dtpNgayThuTien.TabIndex = 3;
             // 
             // txtSoTienThu
             // 
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
-            txtSoTienThu.Location = new Point(150, 203);
+            txtSoTienThu.Location = new Point(185, 228);
             txtSoTienThu.Name = "txtSoTienThu";
-            txtSoTienThu.Size = new Size(1414, 34);
+            txtSoTienThu.Size = new Size(1414, 39);
             txtSoTienThu.TabIndex = 5;
             // 
             // panel1
@@ -111,7 +111,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(363, 32);
+            lblDanhSachPhieuThu.Size = new Size(420, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách phiếu thu của đại lý";
             // 
@@ -190,9 +190,9 @@
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Location = new Point(1173, 325);
+            flowLayoutPanel1.Location = new Point(1173, 321);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(410, 46);
+            flowLayoutPanel1.Size = new Size(410, 50);
             flowLayoutPanel1.TabIndex = 24;
             // 
             // btnAdd
@@ -203,7 +203,7 @@
             btnAdd.Font = new Font("Segoe UI", 12F);
             btnAdd.Location = new Point(3, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 40);
+            btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
@@ -216,7 +216,7 @@
             btnEdit.Font = new Font("Segoe UI", 12F);
             btnEdit.Location = new Point(137, 3);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 40);
+            btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
@@ -229,7 +229,7 @@
             btnDelete.Font = new Font("Segoe UI", 12F);
             btnDelete.Location = new Point(271, 3);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 40);
+            btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
@@ -267,17 +267,17 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1567, 246);
+            tableLayoutPanel1.Size = new Size(1602, 246);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // txtTenDaiLy
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(150, 3);
+            txtTenDaiLy.Location = new Point(185, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
             txtTenDaiLy.ReadOnly = true;
-            txtTenDaiLy.Size = new Size(1414, 34);
+            txtTenDaiLy.Size = new Size(1414, 39);
             txtTenDaiLy.TabIndex = 7;
             // 
             // lblDiaChi
@@ -285,9 +285,9 @@
             lblDiaChi.AutoSize = true;
             lblDiaChi.BackColor = Color.Transparent;
             lblDiaChi.Font = new Font("Segoe UI", 12F);
-            lblDiaChi.Location = new Point(3, 40);
+            lblDiaChi.Location = new Point(3, 45);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(78, 28);
+            lblDiaChi.Size = new Size(96, 32);
             lblDiaChi.TabIndex = 3;
             lblDiaChi.Text = "Địa Chỉ:";
             // 
@@ -295,10 +295,10 @@
             // 
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
-            txtDiaChi.Location = new Point(150, 43);
+            txtDiaChi.Location = new Point(185, 48);
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.ReadOnly = true;
-            txtDiaChi.Size = new Size(1414, 34);
+            txtDiaChi.Size = new Size(1414, 39);
             txtDiaChi.TabIndex = 8;
             // 
             // lblSDT
@@ -306,9 +306,9 @@
             lblSDT.AutoSize = true;
             lblSDT.BackColor = Color.Transparent;
             lblSDT.Font = new Font("Segoe UI", 12F);
-            lblSDT.Location = new Point(3, 80);
+            lblSDT.Location = new Point(3, 90);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(51, 28);
+            lblSDT.Size = new Size(62, 32);
             lblSDT.TabIndex = 4;
             lblSDT.Text = "SĐT:";
             // 
@@ -316,10 +316,10 @@
             // 
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
-            txtSDT.Location = new Point(150, 83);
+            txtSDT.Location = new Point(185, 93);
             txtSDT.Name = "txtSDT";
             txtSDT.ReadOnly = true;
-            txtSDT.Size = new Size(1414, 34);
+            txtSDT.Size = new Size(1414, 39);
             txtSDT.TabIndex = 9;
             // 
             // lblEmail
@@ -327,9 +327,9 @@
             lblEmail.AutoSize = true;
             lblEmail.BackColor = Color.Transparent;
             lblEmail.Font = new Font("Segoe UI", 12F);
-            lblEmail.Location = new Point(3, 120);
+            lblEmail.Location = new Point(3, 135);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(63, 28);
+            lblEmail.Size = new Size(76, 32);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email:";
             // 
@@ -337,10 +337,10 @@
             // 
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(150, 123);
+            txtEmail.Location = new Point(185, 138);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(1414, 34);
+            txtEmail.Size = new Size(1414, 39);
             txtEmail.TabIndex = 10;
             // 
             // lblTenDaiLy
@@ -350,7 +350,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(102, 28);
+            lblTenDaiLy.Size = new Size(128, 32);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại Lý:";
             // 
@@ -360,7 +360,7 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(9, 16);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(221, 32);
+            lblThongTinPhieuThu.Size = new Size(257, 38);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Lập Phiếu thu tiền";
             // 

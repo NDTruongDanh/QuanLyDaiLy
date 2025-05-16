@@ -17,7 +17,7 @@ namespace DAL_QuanLy
     }
     public class DAL_ChiTietPhieuXuat : IDAL_ChiTietPhieuXuat
     {
-        readonly string _connectionString = "Data Source=ADMIN-PC;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
+        readonly string _connectionString = DBConnect.connString;
 
         //Get All ChiTietPhieuXuat List
         public async Task<List<DTO_ChiTietPhieuXuat>> GetAllChiTietPhieuXuatListAsync()
