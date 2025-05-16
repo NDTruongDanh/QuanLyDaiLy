@@ -17,7 +17,7 @@ namespace BUS_QuanLy
         Task<bool> UpdateDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateTongNoSauKhiXuatHangAsync(int maDaiLy, decimal conLai);
         Task<bool> DeleteDailyAsync(int maDaiLy);
-
+        Task<DataTable> FindDaiLyAsync(DTO_DaiLy daiLy);
     }
 
     public partial class BUS_DaiLy : IBUS_DaiLy
@@ -279,6 +279,39 @@ namespace BUS_QuanLy
                         dalEx);
                 }
             }          
+        }
+
+
+        //Find DaiLy
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.FindDaiLyFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in FindDaiLyAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalFindDaiLyFailure(
+            ILogger logger, int ErrorCode, string ErrorMessage, Exception ex);
+        public async Task<DataTable> FindDaiLyAsync(DTO_DaiLy daiLy)
+        {
+            using (_logger.BeginScope("BUS_DaiLy.FindDaiLyAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalDaiLy.FindDaiLyAsync(daiLy);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalFindDaiLyFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tìm thấy đại lý. Vui lòng kiểm tra và thử lại",
+                        dalEx);
+                }
+            }
         }
     }
 }
