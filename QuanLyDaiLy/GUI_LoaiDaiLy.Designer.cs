@@ -76,7 +76,6 @@
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLoaiDaiLy.Size = new Size(550, 200);
             dgvLoaiDaiLy.TabIndex = 4;
-            dgvLoaiDaiLy.SelectionChanged += dgvLoaiDaiLy_Click;
             // 
             // btnAdd
             // 

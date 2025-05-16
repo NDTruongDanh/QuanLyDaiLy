@@ -18,7 +18,7 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tblPhieuNhap = new TableLayoutPanel();
             pnlData = new Panel();
-            dgvDsPhieuNhap = new DataGridView();
+            dgvPhieuNhap = new DataGridView();
             dgvtxtMaPhieuNhap = new DataGridViewTextBoxColumn();
             dgvtxtNgayLapPhieu = new DataGridViewTextBoxColumn();
             dgvtxtTongTien = new DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             tblPhieuNhap.SuspendLayout();
             pnlData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDsPhieuNhap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
             pnlInput.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tblThongTinPhieuNhap.SuspendLayout();
@@ -67,7 +67,7 @@
             // pnlData
             // 
             pnlData.BackColor = Color.White;
-            pnlData.Controls.Add(dgvDsPhieuNhap);
+            pnlData.Controls.Add(dgvPhieuNhap);
             pnlData.Controls.Add(lblDanhSachDaiLy);
             pnlData.Controls.Add(label2);
             pnlData.Dock = DockStyle.Fill;
@@ -78,16 +78,16 @@
             pnlData.Size = new Size(1602, 567);
             pnlData.TabIndex = 24;
             // 
-            // dgvDsPhieuNhap
+            // dgvPhieuNhap
             // 
-            dgvDsPhieuNhap.AllowUserToResizeColumns = false;
-            dgvDsPhieuNhap.AllowUserToResizeRows = false;
-            dgvDsPhieuNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvDsPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDsPhieuNhap.BackgroundColor = Color.White;
-            dgvDsPhieuNhap.BorderStyle = BorderStyle.None;
-            dgvDsPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
-            dgvDsPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPhieuNhap.AllowUserToResizeColumns = false;
+            dgvPhieuNhap.AllowUserToResizeRows = false;
+            dgvPhieuNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhieuNhap.BackgroundColor = Color.White;
+            dgvPhieuNhap.BorderStyle = BorderStyle.None;
+            dgvPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
+            dgvPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
@@ -95,9 +95,9 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvDsPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvDsPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDsPhieuNhap.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMaPhieuNhap, dgvtxtNgayLapPhieu, dgvtxtTongTien });
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhieuNhap.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMaPhieuNhap, dgvtxtNgayLapPhieu, dgvtxtTongTien });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
@@ -105,12 +105,12 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvDsPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
-            dgvDsPhieuNhap.EnableHeadersVisualStyles = false;
-            dgvDsPhieuNhap.GridColor = Color.White;
-            dgvDsPhieuNhap.Location = new Point(15, 82);
-            dgvDsPhieuNhap.Name = "dgvDsPhieuNhap";
-            dgvDsPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvPhieuNhap.EnableHeadersVisualStyles = false;
+            dgvPhieuNhap.GridColor = Color.White;
+            dgvPhieuNhap.Location = new Point(15, 82);
+            dgvPhieuNhap.Name = "dgvPhieuNhap";
+            dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -118,12 +118,12 @@
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvDsPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dgvDsPhieuNhap.RowHeadersVisible = false;
-            dgvDsPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvDsPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDsPhieuNhap.Size = new Size(1569, 467);
-            dgvDsPhieuNhap.TabIndex = 17;
+            dgvPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgvPhieuNhap.RowHeadersVisible = false;
+            dgvPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPhieuNhap.Size = new Size(1569, 467);
+            dgvPhieuNhap.TabIndex = 17;
             // 
             // dgvtxtMaPhieuNhap
             // 
@@ -350,7 +350,7 @@
             tblPhieuNhap.ResumeLayout(false);
             pnlData.ResumeLayout(false);
             pnlData.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDsPhieuNhap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             pnlInput.ResumeLayout(false);
             pnlInput.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -362,7 +362,7 @@
 
         private TableLayoutPanel tblPhieuNhap;
         private Panel pnlData;
-        private DataGridView dgvDsPhieuNhap;
+        private DataGridView dgvPhieuNhap;
         private Label lblDanhSachDaiLy;
         private Label label2;
         private Panel pnlInput;

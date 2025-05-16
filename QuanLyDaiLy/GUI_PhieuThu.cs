@@ -10,112 +10,141 @@ using System.Windows.Forms;
 
 using BUS_QuanLy;
 using DTO_QuanLy;
+using GUI_QuanLy.CommonClass;
 
 namespace GUI_QuanLy
 {
     public partial class GUI_PhieuThu : Form
     {
-        static int maDaiLy = 0;
-        private BUS_PhieuThu busPhieuThu = new BUS_PhieuThu();
-        private BUS_DaiLy busDaiLy = new BUS_DaiLy();
-        DTO_DaiLy? selectedDaiLy;
-        DTO_PhieuThu? selectedPhieuThu;
-        public GUI_PhieuThu()
+        private readonly IBUS_PhieuThu _busPhieuThu;
+
+        private readonly IServiceProvider _service;
+
+        private readonly BindingSource _bindingSource = new BindingSource();
+
+        private int _maDaiLy = 0;
+        public GUI_PhieuThu(IBUS_PhieuThu busPhieuThu, IServiceProvider service)
         {
+            _busPhieuThu = busPhieuThu;
+            _service = service;
             InitializeComponent();
+            dgvPhieuThu.DataSource = _bindingSource;
         }
 
-        public GUI_PhieuThu(int maDL)
+        public void SetMaDaiLy(int maDaiLy)
         {
-            maDaiLy = maDL;
-            InitializeComponent();
-            selectedDaiLy = busDaiLy.GetByMaDaiLy(maDaiLy);
+            _maDaiLy = maDaiLy;
         }
 
-        private void GUI_PhieuThu_Load(object sender, EventArgs e)
+        private async void GUI_PhieuThu_Load(object sender, EventArgs e)
         {
-            LoadPhieuThu();
-        }
-
-        private void LoadPhieuThu()
-        {
-            DataTable dt = busPhieuThu.GetPhieuThuByDaiLy(maDaiLy);
-
-            dgvPhieuThu.DataSource = dt;
-            dgvPhieuThu.Columns["MaPhieuThu"].HeaderText = "Mã Phiếu Thu";
-            dgvPhieuThu.Columns["NgayThuTien"].HeaderText = "Ngày Thu Tiền";
-            dgvPhieuThu.Columns["SoTienThu"].HeaderText = "Số Tiền Thu";
-
-            foreach (DataGridViewColumn column in dgvPhieuThu.Columns)
+            try
             {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                await LoadPhieuThuAsync();
             }
-
-            txtDiaChi.Text = selectedDaiLy?.DiaChi;
-            txtSDT.Text = selectedDaiLy?.Sdt;
-            txtEmail.Text = selectedDaiLy?.Email;
-            txtTenDaiLy.Text = selectedDaiLy?.TenDaiLy;
-            txtSoTienThu.Text = "";
-            dgvPhieuThu.ClearSelection();
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void dgvPhieuThu_SelectionChanged(object sender, EventArgs e)
+        private async Task LoadPhieuThuAsync()
+        {
+            try
+            {
+                var data = await _busPhieuThu.GetPhieuThuCuaDaiLyListAsync(_maDaiLy);
+                if (dgvPhieuThu.InvokeRequired)
+                {
+                    dgvPhieuThu.Invoke(() => _bindingSource.DataSource = data);
+                }
+                else
+                {
+                    _bindingSource.DataSource = data;
+                }
+
+                dgvPhieuThu.AutoResizeColumns();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi load: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal tienThu;
+                if (decimal.TryParse(txtSoTienThu.Text, out tienThu))
+                {
+                    DTO_PhieuThu pt = new DTO_PhieuThu(0, _maDaiLy, dtpNgayThuTien.Value, tienThu);
+
+                    if (await _busPhieuThu.AddPhieuThuAsync(pt))
+                    {
+                        MessageBox.Show("Thêm phiếu thu thành công!");
+                        await LoadPhieuThuAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm phiếu thu thất bại!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập số tiền thu hợp lệ!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgvPhieuThu.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dgvPhieuThu.SelectedRows[0];
-                if (row.Cells["NgayThuTien"].Value != DBNull.Value)
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa phiếu thu này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
-                    dtpNgayThuTien.Value = Convert.ToDateTime(row.Cells["NgayThuTien"].Value);
-                }
-                else
-                {
-                    dtpNgayThuTien.Value = DateTime.Now; // Or set a default value
-                }
-                txtSoTienThu.Text = row.Cells["SoTienThu"].Value?.ToString() ?? string.Empty;
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtSoTienThu.Text))
-            {
-                DTO_PhieuThu pt = new DTO_PhieuThu(0, maDaiLy, dtpNgayThuTien.Value, Convert.ToDecimal(txtSoTienThu.Text));
-
-                if (busPhieuThu.ThemPhieuThu(pt))
-                {
-                    MessageBox.Show("Thêm phiếu thu thành công!");
-                    LoadPhieuThu();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm phiếu thu thất bại!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-            }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvPhieuThu.SelectedRows.Count > 0)
-            {
-                int maPhieuThu = Convert.ToInt32(dgvPhieuThu.SelectedRows[0].Cells["MaPhieuThu"].Value);
-                DTO_PhieuThu pt = new DTO_PhieuThu(maPhieuThu, maDaiLy, dtpNgayThuTien.Value, Convert.ToDecimal(txtSoTienThu.Text));
 
 
-                if (busPhieuThu.SuaPhieuThu(pt))
-                {
-                    MessageBox.Show("Sửa phiếu thu thành công!");
-                    LoadPhieuThu();
+                    try
+                    {
+                        decimal soTienThu;
+
+                        if (decimal.TryParse(txtSoTienThu.Text, out soTienThu))
+                        {
+                            var row = dgvPhieuThu.SelectedRows[0];
+
+                            DateTime dtpNgayThuTien = Convert.ToDateTime(row.Cells["NgayThuTien"].Value);
+                            int maPhieuThu = Convert.ToInt32(row.Cells["MaPhieuThu"].Value);
+
+                            DTO_PhieuThu pt = new DTO_PhieuThu(maPhieuThu, _maDaiLy, dtpNgayThuTien, soTienThu);
+
+
+                            if (await _busPhieuThu.UpdatePhieuThuAsync(pt))
+                            {
+                                MessageBox.Show("Sửa phiếu thu thành công!");
+                                await LoadPhieuThuAsync();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sửa phiếu thu thất bại!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng nhập số tiền thu hợp lệ!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Sửa phiếu thu thất bại!");
-                }
+
             }
             else
             {
@@ -123,21 +152,35 @@ namespace GUI_QuanLy
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvPhieuThu.SelectedRows.Count > 0)
             {
-                int maPhieuThu = Convert.ToInt32(dgvPhieuThu.SelectedRows[0].Cells["MaPhieuThu"].Value);
-                if (busPhieuThu.XoaPhieuThu(maPhieuThu))
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa Phiếu thu này không?", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa phiếu thu thành công!");
-                    LoadPhieuThu();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa phiếu thu thất bại!");
+
+
+                    try
+                    {
+                        int maPhieuThu = Convert.ToInt32(dgvPhieuThu.SelectedRows[0].Cells["MaPhieuThu"].Value);
+                        if (await _busPhieuThu.DeletePhieuThuAsync(maPhieuThu))
+                        {
+                            MessageBox.Show("Xóa phiếu thu thành công!");
+                            await LoadPhieuThuAsync();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa phiếu thu thất bại!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+
             else
             {
                 MessageBox.Show("Vui lòng chọn phiếu thu cần xóa!");
@@ -149,24 +192,22 @@ namespace GUI_QuanLy
             this.Close();
         }
 
-        private void dgvPhieuThu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPhieuThu_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvPhieuThu.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvPhieuThu.SelectedRows[0];
+                    dtpNgayThuTien.Value = Convert.ToDateTime(row.Cells["NgayThuTien"].Value);
+                    txtSoTienThu.Text = row.Cells["SoTienThu"].Value.ToString();
+                }
 
-        }
-
-        private void lblDanhSachPhieuThu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpNgayThuTien_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

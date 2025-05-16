@@ -1,101 +1,250 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Windows.Forms;
+using BUS_Library;
 using BUS_QuanLy;
 using DTO_QuanLy;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace GUI_QuanLy
 {
     public partial class GUI_Quan : Form
     {
-        BUS_Quan busQuan = new BUS_Quan();
+        private readonly IBUS_Quan _busQuan;
 
-        public GUI_Quan()
+        private readonly IServiceProvider _services;
+
+        private readonly ILogger<GUI_Quan> _logger;
+
+        private readonly BindingSource _bindingSource = new BindingSource();
+
+        public GUI_Quan(IBUS_Quan busQuan, IServiceProvider services, ILogger<GUI_Quan> logger)
         {
+            _busQuan = busQuan;
+            _services = services;
+            _logger = logger;
             InitializeComponent();
+            dgvQuan.DataSource = _bindingSource;
         }
 
-        private void GUI_Quan_Load(object sender, EventArgs e)
+        private async void GUI_Quan_Load(object sender, EventArgs e)
         {
-            dgvQuan.DataSource = busQuan.GetQuan();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtTenQuan.Text))
+            try
             {
-                DTO_Quan quan = new DTO_Quan(0, txtTenQuan.Text);
-                if (busQuan.ThemQuan(quan))
+                await LoadDataGridViewAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form Quan load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task LoadDataGridViewAsync()
+        {
+
+            try
+            {
+                var data = await _busQuan.GetQuanListAsync();
+                _bindingSource.DataSource = data;
+                dgvQuan.AutoResizeColumns();
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading grid Quan: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+
+        }
+        private void ClearInputFields()
+        {
+            txtTenQuan.Clear();
+        }
+
+        private void ValidateInputFields()
+        {
+            if (string.IsNullOrWhiteSpace(txtTenQuan.Text))
+            {
+                throw new ValidationException("Tên quận không được để trống");
+            }
+        }
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidateInputFields();
+
+                DTO_Quan quan = new DTO_Quan(0, txtTenQuan.Text.Trim());
+                if (await _busQuan.AddQuanAsync(quan))
                 {
-                    MessageBox.Show("Thêm thành công!");
-                    dgvQuan.DataSource = busQuan.GetQuan();
+                    MessageBox.Show("Thêm Quận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadDataGridViewAsync();
+                    ClearInputFields();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại!");
+                    MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (ValidationException valEx)
             {
-                MessageBox.Show("Vui lòng nhập tên quận.");
+                _logger.LogInformation(valEx,
+                    "Validation failed on Add: {Input}",
+                    txtTenQuan.Text);
+
+                MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in Add button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in Add button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void dgvQuan_Click(object sender, EventArgs e)
+
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgvQuan.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dgvQuan.SelectedRows[0];
-                txtTenQuan.Text = row.Cells[1].Value.ToString();
-            }
-        }
+                try
+                {
+                    ValidateInputFields();
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvQuan.SelectedRows.Count > 0 && !string.IsNullOrEmpty(txtTenQuan.Text))
-            {
-                int maQuan = Convert.ToInt32(dgvQuan.SelectedRows[0].Cells[0].Value.ToString());
-                DTO_Quan quan = new DTO_Quan(maQuan, txtTenQuan.Text);
-                if (busQuan.SuaQuan(quan))
-                {
-                    MessageBox.Show("Sửa thành công!");
-                    dgvQuan.DataSource = busQuan.GetQuan();
+                    int maQuan = Convert.ToInt32(dgvQuan.SelectedRows[0].Cells[0].Value.ToString());
+                    string tenQuan = txtTenQuan.Text.Trim();
+                    DTO_Quan quan = new DTO_Quan(maQuan, tenQuan);
+
+                    if (await _busQuan.UpdateQuanAsync(quan))
+                    {
+                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadDataGridViewAsync();
+                        ClearInputFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
+                catch (ValidationException valEx)
                 {
-                    MessageBox.Show("Sửa thất bại!");
+                    _logger.LogInformation(valEx,
+                        "Validation failed on Update: {Input}",
+                        txtTenQuan.Text);
+
+                    MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                catch (BusException busEx)
+                {
+                    _logger.LogError(busEx,
+                        "BusException in Update button");
+
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Update button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần sửa và nhập tên mới.");
+                MessageBox.Show("Vui lòng chọn dòng cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvQuan.SelectedRows.Count > 0)
             {
                 int maQuan = Convert.ToInt32(dgvQuan.SelectedRows[0].Cells[0].Value.ToString());
-                if (busQuan.XoaQuan(maQuan))
+
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa quận này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa thành công!");
-                    dgvQuan.DataSource = busQuan.GetQuan();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại!");
+                    try
+                    {
+                        if (await _busQuan.DeleteQuanAsync(maQuan))
+                        {
+                            MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadDataGridViewAsync();
+                            ClearInputFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Delete button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Delete button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn quận để xóa.");
+                MessageBox.Show("Vui lòng chọn dòng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvQuan_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvQuan.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvQuan.SelectedRows[0];
+                    txtTenQuan.Text = row.Cells["TenQuan"].Value?.ToString();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in dgv change selection");
+
+                    MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
