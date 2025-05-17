@@ -13,13 +13,15 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
             dgvPhieuThu = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
@@ -27,15 +29,13 @@
             btnDelete = new Button();
             button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBox2 = new TextBox();
+            label1 = new Label();
+            textBox1 = new TextBox();
             lblTenDaiLy = new Label();
             lblThongTinPhieuThu = new Label();
             label4 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuThu).BeginInit();
             panel2.SuspendLayout();
@@ -64,9 +64,9 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(363, 32);
+            lblDanhSachPhieuThu.Size = new Size(254, 32);
             lblDanhSachPhieuThu.TabIndex = 16;
-            lblDanhSachPhieuThu.Text = "Danh sách phiếu thu của đại lý";
+            lblDanhSachPhieuThu.Text = "Danh sách Loại đại lý";
             // 
             // label2
             // 
@@ -84,42 +84,56 @@
             dgvPhieuThu.BorderStyle = BorderStyle.None;
             dgvPhieuThu.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvPhieuThu.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvPhieuThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhieuThu.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle5;
             dgvPhieuThu.EnableHeadersVisualStyles = false;
             dgvPhieuThu.GridColor = Color.White;
             dgvPhieuThu.Location = new Point(19, 77);
             dgvPhieuThu.Name = "dgvPhieuThu";
             dgvPhieuThu.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvPhieuThu.RowHeadersVisible = false;
             dgvPhieuThu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuThu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPhieuThu.Size = new Size(1564, 400);
             dgvPhieuThu.TabIndex = 14;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Tên Loại Đại Lý";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Tiền Nợ Tối Đa";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
             // 
             // panel2
             // 
@@ -232,6 +246,35 @@
             tableLayoutPanel1.Size = new Size(1604, 246);
             tableLayoutPanel1.TabIndex = 19;
             // 
+            // textBox2
+            // 
+            textBox2.Dock = DockStyle.Fill;
+            textBox2.Font = new Font("Segoe UI", 12F);
+            textBox2.Location = new Point(152, 43);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(1449, 34);
+            textBox2.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(3, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(136, 28);
+            label1.TabIndex = 7;
+            label1.Text = "Tiền nợ tối đa:";
+            // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Font = new Font("Segoe UI", 12F);
+            textBox1.Location = new Point(152, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(1449, 34);
+            textBox1.TabIndex = 6;
+            // 
             // lblTenDaiLy
             // 
             lblTenDaiLy.AutoSize = true;
@@ -249,9 +292,9 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(9, 16);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(221, 32);
+            lblThongTinPhieuThu.Size = new Size(247, 32);
             lblThongTinPhieuThu.TabIndex = 16;
-            lblThongTinPhieuThu.Text = "Lập Phiếu thu tiền";
+            lblThongTinPhieuThu.Text = "Nhập liệu Loại đại lý";
             // 
             // label4
             // 
@@ -278,55 +321,12 @@
             tableLayoutPanel2.Size = new Size(1634, 940);
             tableLayoutPanel2.TabIndex = 26;
             // 
-            // textBox1
-            // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(152, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(1449, 34);
-            textBox1.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(136, 28);
-            label1.TabIndex = 7;
-            label1.Text = "Tiền nợ tối đa:";
-            // 
-            // textBox2
-            // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(152, 43);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(1449, 34);
-            textBox2.TabIndex = 8;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Tên Loại Đại Lý";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tiền Nợ Tối Đa";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
-            // 
             // GUI_LoaiDaiLy
             // 
             ClientSize = new Size(1634, 940);
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_LoaiDaiLy";
-            Text = "Quản Lý Phiếu Thu";
+            Text = "Quản Lý Loại Đại Lý";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuThu).EndInit();
