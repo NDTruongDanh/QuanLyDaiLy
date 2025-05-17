@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using DTO_QuanLy;
+using System.Net.WebSockets;
 
 namespace DAL_QuanLy
 {
@@ -10,16 +11,20 @@ namespace DAL_QuanLy
     {
         Task<List<DTO_ChiTietPhieuXuat>> GetAllChiTietPhieuXuatListAsync();
         Task<List<DTO_ChiTietPhieuXuat>> GetChiTietPhieuXuatListByMPXAsync(int maPhieuXuat);
-
+        Task<DataTable> GetDataTableChiTietPhieuXuatAllAsync();
+        Task<DataTable> GetDataTableChiTietPhieuXuatByMPXAsync(int maPhieuXuat);
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
     }
+
+
+
     public class DAL_ChiTietPhieuXuat : IDAL_ChiTietPhieuXuat
     {
         readonly string _connectionString = DBConnect.connString;
 
-        //Get All ChiTietPhieuXuat List
+        //Get list DTO All ChiTietPhieuXuat
         public async Task<List<DTO_ChiTietPhieuXuat>> GetAllChiTietPhieuXuatListAsync()
         {
             try
@@ -64,7 +69,9 @@ namespace DAL_QuanLy
 
         }
 
-        //Get ChiTietPhieuXuat List by MaPhieuXuat
+
+
+        //Get List DTO ChiTietPhieuXuat by MaPhieuXuat
         public async Task<List<DTO_ChiTietPhieuXuat>> GetChiTietPhieuXuatListByMPXAsync(int maPhieuXuat)
         {
             try
@@ -108,6 +115,74 @@ namespace DAL_QuanLy
             }
         }
 
+
+
+        //Get DataTable ChiTietPhieuXuat All
+        public async Task<DataTable> GetDataTableChiTietPhieuXuatAllAsync()
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuXuat, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongXuat, DonGiaXuat, ThanhTien
+                                                    FROM CHITIET_PHIEUXUAT ct
+                                                    JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
+                                                    JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh", conn))
+                    {
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            var dataTable = new DataTable();
+                            dataTable.Load(reader);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching ChiTietPhieuXuat DataTable: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+        //Get DataTable ChiTietPhieuXuat by MaPhieuXuat
+        public async Task<DataTable> GetDataTableChiTietPhieuXuatByMPXAsync(int maPhieuXuat)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT ct.MaPhieuXuat, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongXuat, DonGiaXuat, ThanhTien
+                                                    FROM CHITIET_PHIEUXUAT ct
+                                                    JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
+                                                    JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh
+                                                    WHERE ct.MaPhieuXuat = @MaPhieuXuat", conn))
+                    {
+                        cmd.Parameters.Add("@MaPhieuXuat", SqlDbType.Int).Value = maPhieuXuat;
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            var dataTable = new DataTable();
+                            dataTable.Load(reader);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching ChiTietPhieuXuat DataTable by MaPhieuXuat: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
         //Add ChiTietPhieuXuat
         public async Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat)
         {
@@ -137,6 +212,9 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+
 
 
         //Update ChiTietPhieuXuat

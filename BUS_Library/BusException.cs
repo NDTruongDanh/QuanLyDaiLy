@@ -77,7 +77,8 @@ namespace BUS_Library
         public const int AddChiTietPhieuXuatFailure = 0608;
         public const int UpdateChiTietPhieuXuatFailure = 0609;
         public const int DeleteChiTietPhieuXuatFailure = 0610;
-
+        public const int GetChiTietPhieuXuatDataTableFailure = 0611;
+        public const int GetChiTietPhieuXuatDataTableByMPXFailure = 0612;
 
         //PhieuThu
         public const int GetPhieuThuListFailure = 0701;

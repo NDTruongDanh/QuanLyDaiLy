@@ -12,6 +12,8 @@ namespace BUS_QuanLy
     {
         Task<List<DTO_ChiTietPhieuXuat>> GetAllChiTietPhieuXuatListAsync();
         Task<List<DTO_ChiTietPhieuXuat>> GetChiTietPhieuXuatListByMPXAsync(int maPhieuXuat);
+        Task<DataTable> GetDataTableChiTietPhieuXuatAllAsync();
+        Task<DataTable> GetDataTableChiTietPhieuXuatByMPXAsync(int maPhieuXuat);
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
@@ -27,6 +29,8 @@ namespace BUS_QuanLy
             _dalChiTietPhieuXuat = dalChiTietPhieuXuat;
             _logger = logger;
         }
+
+
 
         //Get ChiTietPhieuXuat List
         // Source-generated high-performance log for DAL failures
@@ -65,6 +69,7 @@ namespace BUS_QuanLy
         }
 
 
+
         //Get ChiTietPhieuXuat List By MaPhieuXuat
         // Source-generated high-performance log for DAL failures
         [LoggerMessage(
@@ -101,6 +106,82 @@ namespace BUS_QuanLy
         }
 
 
+
+        //Get ChiTietPhieuXuat DataTable
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetChiTietPhieuXuatDataTableFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTableChiTietPhieuXuatAllAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetChiTietPhieuXuatDataTableFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableChiTietPhieuXuatAllAsync()
+        {
+            using (_logger.BeginScope("BUS_ChiTietPhieuXuat.GetDataTableChiTietPhieuXuatAllAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalChiTietPhieuXuat.GetDataTableChiTietPhieuXuatAllAsync();
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetChiTietPhieuXuatDataTableFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách chi tiết phiếu xuất. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+        //Get ChiTietPhieuXuat DataTable By MaPhieuXuat
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetChiTietPhieuXuatDataTableByMPXFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTableChiTietPhieuXuatByMPXAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetChiTietPhieuXuatDataTableByMPXFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableChiTietPhieuXuatByMPXAsync(int maPhieuXuat)
+        {
+            using (_logger.BeginScope("BUS_ChiTietPhieuXuat.GetDataTableChiTietPhieuXuatByMPXAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalChiTietPhieuXuat.GetDataTableChiTietPhieuXuatByMPXAsync(maPhieuXuat);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetChiTietPhieuXuatDataTableByMPXFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách chi tiết phiếu xuất. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+
         //Add ChiTietPhieuXuat
         // Source-generated high-performance log for DAL failures
         [LoggerMessage(
@@ -135,6 +216,7 @@ namespace BUS_QuanLy
                 }
             }
         }
+
 
 
         //Update ChiTietPhieuXuat
