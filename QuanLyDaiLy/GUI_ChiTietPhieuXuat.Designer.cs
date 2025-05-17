@@ -49,17 +49,17 @@
             lblTongTien = new Label();
             txtTongTien = new TextBox();
             dgvDsChiTiet = new DataGridView();
+            dgvtxtMatHang = new DataGridViewTextBoxColumn();
+            dgvtxtDCT = new DataGridViewTextBoxColumn();
+            dgvtxtSL = new DataGridViewTextBoxColumn();
+            dgvtxtDG = new DataGridViewTextBoxColumn();
+            dgvtxtThanhTien = new DataGridViewTextBoxColumn();
             flpButtons = new FlowLayoutPanel();
             btnDone = new Button();
             btnRefresh = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
             btnAdd = new Button();
-            dgvtxtMatHang = new DataGridViewTextBoxColumn();
-            dgvtxtDCT = new DataGridViewTextBoxColumn();
-            dgvtxtSL = new DataGridViewTextBoxColumn();
-            dgvtxtDG = new DataGridViewTextBoxColumn();
-            dgvtxtThanhTien = new DataGridViewTextBoxColumn();
             flpForm.SuspendLayout();
             flpMaPhieu.SuspendLayout();
             tlbChiTiet.SuspendLayout();
@@ -321,6 +321,43 @@
             dgvDsChiTiet.Size = new Size(1587, 569);
             dgvDsChiTiet.TabIndex = 0;
             // 
+            // dgvtxtMatHang
+            // 
+            dgvtxtMatHang.HeaderText = "Tên Mặt Hàng";
+            dgvtxtMatHang.MinimumWidth = 6;
+            dgvtxtMatHang.Name = "dgvtxtMatHang";
+            dgvtxtMatHang.ReadOnly = true;
+            dgvtxtMatHang.Resizable = DataGridViewTriState.True;
+            dgvtxtMatHang.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvtxtDCT
+            // 
+            dgvtxtDCT.HeaderText = "Đơn Vị Tính";
+            dgvtxtDCT.MinimumWidth = 6;
+            dgvtxtDCT.Name = "dgvtxtDCT";
+            dgvtxtDCT.ReadOnly = true;
+            dgvtxtDCT.Resizable = DataGridViewTriState.True;
+            dgvtxtDCT.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvtxtSL
+            // 
+            dgvtxtSL.HeaderText = "Số Lượng";
+            dgvtxtSL.MinimumWidth = 6;
+            dgvtxtSL.Name = "dgvtxtSL";
+            // 
+            // dgvtxtDG
+            // 
+            dgvtxtDG.HeaderText = "Đơn Giá";
+            dgvtxtDG.MinimumWidth = 6;
+            dgvtxtDG.Name = "dgvtxtDG";
+            // 
+            // dgvtxtThanhTien
+            // 
+            dgvtxtThanhTien.HeaderText = "Thành Tiền";
+            dgvtxtThanhTien.MinimumWidth = 6;
+            dgvtxtThanhTien.Name = "dgvtxtThanhTien";
+            dgvtxtThanhTien.ReadOnly = true;
+            // 
             // flpButtons
             // 
             flpButtons.AutoSize = true;
@@ -400,43 +437,6 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // dgvtxtMatHang
-            // 
-            dgvtxtMatHang.HeaderText = "Tên Mặt Hàng";
-            dgvtxtMatHang.MinimumWidth = 6;
-            dgvtxtMatHang.Name = "dgvtxtMatHang";
-            dgvtxtMatHang.ReadOnly = true;
-            dgvtxtMatHang.Resizable = DataGridViewTriState.True;
-            dgvtxtMatHang.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgvtxtDCT
-            // 
-            dgvtxtDCT.HeaderText = "Đơn Vị Tính";
-            dgvtxtDCT.MinimumWidth = 6;
-            dgvtxtDCT.Name = "dgvtxtDCT";
-            dgvtxtDCT.ReadOnly = true;
-            dgvtxtDCT.Resizable = DataGridViewTriState.True;
-            dgvtxtDCT.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgvtxtSL
-            // 
-            dgvtxtSL.HeaderText = "Số Lượng";
-            dgvtxtSL.MinimumWidth = 6;
-            dgvtxtSL.Name = "dgvtxtSL";
-            // 
-            // dgvtxtDG
-            // 
-            dgvtxtDG.HeaderText = "Đơn Giá";
-            dgvtxtDG.MinimumWidth = 6;
-            dgvtxtDG.Name = "dgvtxtDG";
-            // 
-            // dgvtxtThanhTien
-            // 
-            dgvtxtThanhTien.HeaderText = "Thành Tiền";
-            dgvtxtThanhTien.MinimumWidth = 6;
-            dgvtxtThanhTien.Name = "dgvtxtThanhTien";
-            dgvtxtThanhTien.ReadOnly = true;
             // 
             // GUI_ChiTietPhieuXuat
             // 

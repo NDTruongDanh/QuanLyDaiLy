@@ -425,7 +425,8 @@ namespace GUI_QuanLy
             {
                 // Resolve từ container, truyền _maDaiLy qua phương thức
                 var phieuThu = _services.GetRequiredService<GUI_PhieuThu>();
-                phieuThu.SetMaDaiLy(_maDaiLy);
+                DTO_DaiLy curDaiLy = await _busDaiLy.GetDaiLyByMaAsync(_maDaiLy);
+                phieuThu.SetDaiLy(curDaiLy);
 
                 this.Enabled = false;
                 phieuThu.ShowDialog();
