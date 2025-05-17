@@ -54,6 +54,7 @@ namespace GUI_QuanLy
                 await LoadDaiLyAsync();
                 await LoadComboBoxsLoaiDaiLyAsync();
                 await LoadComboBoxsQuanAsync();
+                ClearInputFields();
             }
             catch (Exception ex)
             {
@@ -76,7 +77,7 @@ namespace GUI_QuanLy
                 _bindingSource.DataSource = dataTable;
 
                 ModifyDataGridViewColumns();
-
+               
             }
             catch (BusException busEx)
             {
@@ -161,9 +162,11 @@ namespace GUI_QuanLy
             txtSDT.Clear();
             txtEmail.Clear();
             txtDiaChi.Clear();
-            //txtTongNo.Clear();
+            //txtTongNo.Clear();  
             cboLoaiDaiLy.SelectedIndex = -1;
             cboQuan.SelectedIndex = -1;
+            dtpNgayTiepNhan.Value = DateTime.Now; // Set to current date instead of attempting to clear  
+            dgvDaiLy.ClearSelection(); // Clear selection in DataGridView
         }
 
         private void ValidateInputFields()
@@ -389,6 +392,7 @@ namespace GUI_QuanLy
 
         private void dgvDaiLy_SelectionChanged(object sender, EventArgs e)
         {
+            
             if (dgvDaiLy.SelectedRows.Count > 0)
             {
                 try
@@ -417,6 +421,10 @@ namespace GUI_QuanLy
                     MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                ClearInputFields();
+            }
         }
 
         private async void mnPhieuThu_Click(object sender, EventArgs e)
@@ -425,7 +433,8 @@ namespace GUI_QuanLy
             {
                 // Resolve từ container, truyền _maDaiLy qua phương thức
                 var phieuThu = _services.GetRequiredService<GUI_PhieuThu>();
-                phieuThu.SetMaDaiLy(_maDaiLy);
+                DTO_DaiLy curDaiLy = await _busDaiLy.GetDaiLyByMaAsync(_maDaiLy);
+                phieuThu.SetDaiLy(curDaiLy);
 
                 this.Enabled = false;
                 phieuThu.ShowDialog();
@@ -473,7 +482,7 @@ namespace GUI_QuanLy
         {
             var filters = new List<string>();
 
-            string tenDaiLy = txtTenDaiLy.Text.Trim().Replace("'","''");
+            string tenDaiLy = txtTenDaiLy.Text.Trim().Replace("'", "''");
             if (!string.IsNullOrEmpty(tenDaiLy))
                 filters.Add($"TenDaiLy LIKE '%{tenDaiLy}%'");
 
@@ -497,16 +506,21 @@ namespace GUI_QuanLy
             if (!string.IsNullOrEmpty(tenQuan))
                 filters.Add($"TenQuan LIKE '%{tenQuan}%'");
 
-            string ngayTiepNhan = dtpNgayTiepNhan.Value.ToString("yyyy-MM-dd");
-            if (!string.IsNullOrEmpty(ngayTiepNhan))
-                filters.Add($"NgayTiepNhan = '{ngayTiepNhan}'");
+            //string ngayTiepNhan = dtpNgayTiepNhan.Value.ToString("yyyy-MM-dd");
+            //if (!string.IsNullOrEmpty(ngayTiepNhan))
+            //    filters.Add($"NgayTiepNhan. = '{ngayTiepNhan}'");
 
 
             //Combine and apply
-            string ? filterExpression =  filters.Count > 0
+            string? filterExpression = filters.Count > 0
                 ? string.Join(" AND ", filters)
                 : null;
             _bindingSource.Filter = filterExpression;
+        }
+
+        private void txtDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

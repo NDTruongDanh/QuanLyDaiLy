@@ -19,7 +19,7 @@ namespace DAL_QuanLy
 
     public class DAL_MatHang : IDAL_MatHang
     {
-        readonly string _connectionString = "Data Source=ADMIN-PC;Initial Catalog=QUANLYDAILY;Integrated Security=True;TrustServerCertificate=True;";
+        readonly string _connectionString = DBConnect.connString;   
 
         public async Task<List<DTO_MatHang>> GetMatHangListAsync()
         {
