@@ -116,7 +116,6 @@
             cboMaMatHang.Name = "cboMaMatHang";
             cboMaMatHang.Size = new Size(811, 40);
             cboMaMatHang.TabIndex = 3;
-          
             // 
             // txtSoLuongXuat
             // 
@@ -125,7 +124,6 @@
             txtSoLuongXuat.Name = "txtSoLuongXuat";
             txtSoLuongXuat.Size = new Size(811, 39);
             txtSoLuongXuat.TabIndex = 5;
-          
             // 
             // txtDonGiaXuat
             // 
@@ -153,7 +151,6 @@
             btnAdd.TabIndex = 11;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
-        
             // 
             // btnEdit
             // 
@@ -163,7 +160,6 @@
             btnEdit.TabIndex = 12;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = true;
-           
             // 
             // btnDelete
             // 
@@ -173,7 +169,6 @@
             btnDelete.TabIndex = 13;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
-         
             // 
             // panel1
             // 
@@ -252,7 +247,6 @@
             txtTraTruoc.Name = "txtTraTruoc";
             txtTraTruoc.Size = new Size(282, 39);
             txtTraTruoc.TabIndex = 26;
-  
             // 
             // txtConLai
             // 
@@ -494,7 +488,6 @@
             Controls.Add(panel1);
             Name = "GUI_ChiTietPhieuXuat";
             Text = "Quản Lý Chi Tiết Phiếu Xuất";
-         
             Load += GUI_ChiTietPhieuXuat_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

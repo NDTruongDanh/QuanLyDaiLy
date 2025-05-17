@@ -22,21 +22,6 @@ namespace GUI_QuanLy
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            string newItem = cbbThamSo.Text.Trim();
-            if (!string.IsNullOrEmpty(newItem) && !cbbThamSo.Items.Contains(newItem))
-            {
-                cbbThamSo.Items.Add(newItem);
-                cbbThamSo.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Không hợp lệ!", "Thông báo");
-            }
-
-        }
-
         //private void GUI_ThamSo_Load(object sender, EventArgs e)
         //{
         //    LoadThamSo();
