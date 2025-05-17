@@ -13,9 +13,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tblPhieuNhap = new TableLayoutPanel();
             pnlData = new Panel();
             dgvPhieuNhap = new DataGridView();
@@ -25,10 +25,6 @@
             lblDanhSachDaiLy = new Label();
             label2 = new Label();
             pnlInput = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
             tblThongTinPhieuNhap = new TableLayoutPanel();
             lblNgayLapPhieu = new Label();
             lblTongTien = new Label();
@@ -39,12 +35,17 @@
             lblThongTinDaiLy = new Label();
             label4 = new Label();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnFind = new Button();
             tblPhieuNhap.SuspendLayout();
             pnlData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
             pnlInput.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             tblThongTinPhieuNhap.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tblPhieuNhap
@@ -88,37 +89,37 @@
             dgvPhieuNhap.BorderStyle = BorderStyle.None;
             dgvPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhieuNhap.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMaPhieuNhap, dgvtxtNgayLapPhieu, dgvtxtTongTien });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuNhap.EnableHeadersVisualStyles = false;
             dgvPhieuNhap.GridColor = Color.White;
             dgvPhieuNhap.Location = new Point(15, 82);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuNhap.RowHeadersVisible = false;
             dgvPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -179,57 +180,6 @@
             pnlInput.Padding = new Padding(15);
             pnlInput.Size = new Size(1602, 310);
             pnlInput.TabIndex = 23;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAdd);
-            flowLayoutPanel1.Controls.Add(btnEdit);
-            flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Location = new Point(1174, 246);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(410, 46);
-            flowLayoutPanel1.TabIndex = 23;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.Lime;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 40);
-            btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSize = true;
-            btnEdit.BackColor = Color.Yellow;
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(137, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 40);
-            btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSize = true;
-            btnDelete.BackColor = Color.Red;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(271, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 40);
-            btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
             // 
             // tblThongTinPhieuNhap
             // 
@@ -338,6 +288,71 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(btnFind);
+            flowLayoutPanel1.Location = new Point(1040, 240);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(544, 52);
+            flowLayoutPanel1.TabIndex = 27;
+            // 
+            // btnAdd
+            // 
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(128, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Location = new Point(137, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "✏️ Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(271, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnFind
+            // 
+            btnFind.AutoSize = true;
+            btnFind.BackColor = Color.FromArgb(33, 150, 243);
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Segoe UI", 12F);
+            btnFind.Location = new Point(405, 3);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 44);
+            btnFind.TabIndex = 23;
+            btnFind.Text = "🔍 Tìm ";
+            btnFind.UseVisualStyleBackColor = false;
+            // 
             // GUI_PhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -353,10 +368,10 @@
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             pnlInput.ResumeLayout(false);
             pnlInput.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             tblThongTinPhieuNhap.ResumeLayout(false);
             tblThongTinPhieuNhap.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -366,10 +381,6 @@
         private Label lblDanhSachDaiLy;
         private Label label2;
         private Panel pnlInput;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button btnAdd;
-        private Button btnEdit;
-        private Button btnDelete;
         private TableLayoutPanel tblThongTinPhieuNhap;
         private Label lblNgayLapPhieu;
         private TextBox txtTenDaiLy;
@@ -383,5 +394,10 @@
         private DataGridViewTextBoxColumn dgvtxtMaPhieuNhap;
         private DataGridViewTextBoxColumn dgvtxtNgayLapPhieu;
         private DataGridViewTextBoxColumn dgvtxtTongTien;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Button btnFind;
     }
 }

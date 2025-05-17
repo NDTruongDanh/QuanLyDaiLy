@@ -17,7 +17,7 @@ namespace DAL_QuanLy
         Task<bool> UpdateDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateTongNoSauKhiXuatHangAsync(int maDaiLy, decimal conLai);
         Task<bool> DeleteDailyAsync(int maDaiLy);
-
+        Task<DataTable> FindDaiLyAsync(DTO_DaiLy daiLy);
     }
 
     public class DAL_DaiLy : IDAL_DaiLy
@@ -279,6 +279,95 @@ namespace DAL_QuanLy
             {
                 throw new DalException(
                     $"DAL error deleting DaiLy: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+        // Tìm đại lý
+        public async Task<DataTable> FindDaiLyAsync(DTO_DaiLy daiLy)
+        {
+            try
+            {
+                var dataTable = new DataTable();
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    string sqlString = @"SELECT d.MaDaiLy, TenDaiLy, TenLoaiDaiLy, SDT, Email, DiaChi, TenQuan, NgayTiepNhan, TongNo 
+                                                        FROM DAILY d 
+                                                        JOIN LOAIDAILY l ON d.MaLoaiDaiLy = l.MaLoaiDaiLy
+                                                        JOIN QUAN q ON q.MaQuan = d.MaQuan
+                                                        WHERE 1=1 ";
+
+                    var parameter = new Dictionary<string, object>();
+
+                    if (!string.IsNullOrEmpty(daiLy.TenDaiLy))
+                    {
+                        sqlString += " AND d.TenDaiLy LIKE @TenDaiLy";
+                        parameter.Add("@TenDaiLy", "%" + daiLy.TenDaiLy + "%");
+                    }
+                    if (!string.IsNullOrEmpty(daiLy.Sdt))
+                    {
+                        sqlString += " AND d.SDT LIKE @SDT";
+                        parameter.Add("@SDT", "%" + daiLy.Sdt + "%");
+                    }
+                    if (!string.IsNullOrEmpty(daiLy.Email))
+                    {
+                        sqlString += " AND d.Email LIKE @Email";
+                        parameter.Add("@Email", "%" + daiLy.Email + "%");
+                    }
+                    if (!string.IsNullOrEmpty(daiLy.DiaChi))
+                    {
+                        sqlString += " AND d.DiaChi LIKE @DiaChi";
+                        parameter.Add("@DiaChi", "%" + daiLy.DiaChi + "%");
+                    }
+                    if (daiLy.MaQuan != 0)
+                    {
+                        sqlString += " AND d.MaQuan = @MaQuan";
+                        parameter.Add("@MaQuan", daiLy.MaQuan);
+                    }
+                    if (daiLy.MaLoaiDaiLy != 0)
+                    {
+                        sqlString += " AND d.MaLoaiDaiLy = @MaLoaiDaiLy";
+                        parameter.Add("@MaLoaiDaiLy", daiLy.MaLoaiDaiLy);
+                    }
+                    if (daiLy.NgayTiepNhan != DateTime.MinValue)
+                    {
+                        sqlString += " AND d.NgayTiepNhan = @NgayTiepNhan";
+                        parameter.Add("@NgayTiepNhan", daiLy.NgayTiepNhan);
+                    }
+                    if (daiLy.TongNo != 0)
+                    {
+                        sqlString += " AND d.TongNo = @TongNo";
+                        parameter.Add("@TongNo", daiLy.TongNo);
+                    }
+
+                    using (var cmd = new SqlCommand(sqlString, conn))
+                    {
+                        foreach (var param in parameter)
+                        {
+                            if (param.Value is int)
+                                cmd.Parameters.Add(param.Key, SqlDbType.Int).Value = param.Value;
+                            else if (param.Value is decimal)
+                                cmd.Parameters.Add(param.Key, SqlDbType.Decimal).Value = param.Value;
+                            else if (param.Value is DateTime)
+                                cmd.Parameters.Add(param.Key, SqlDbType.DateTime).Value = param.Value;
+                            else
+                                cmd.Parameters.Add(param.Key, SqlDbType.NVarChar).Value = param.Value;
+                        }
+                        using (var adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dataTable);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error finding DaiLy: {sqlEx.Message}",
                     sqlEx,
                     sqlEx.Number);
             }

@@ -198,81 +198,6 @@ ALTER TABLE BAOCAO_CONGNO
 ADD CONSTRAINT FK_MaDaiLy_BAOCAO_CONGNO FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy)
 
 
-
-
-CREATE TABLE CHUCNANG 
-( 
-MaChucNang VARCHAR(6) PRIMARY KEY,
-TenChucNang NVARCHAR(30),
-TenManHinhDuocLoad NVARCHAR(30)
-)
-
-CREATE TABLE NHOMNGUOIDUNG
-(
-MaNhom VARCHAR(6) PRIMARY KEY,
-TenNhom NVARCHAR(30)
-)
-
-
-CREATE TABLE PHANQUYEN
-(
-MaNhom VARCHAR(6) REFERENCES NHOMNGUOIDUNG (MaNhom),
-MaChucNang VARCHAR(6) REFERENCES CHUCNANG (MaChucNang),
-CONSTRAINT PK11 PRIMARY KEY (MaNhom,MaChucNang)
-)
-
-
-CREATE TABLE NGUOIDUNG
-(
-TenDangNhap NVARCHAR(30) PRIMARY KEY,
-MaKhau VARCHAR(30),
-MaNhom VARCHAR(6) REFERENCES NHOMNGUOIDUNG(MaNhom)
-)
-
-
-SELECT c.TenManHinhDuocLoad
-FROM CHUCNANG c 
-JOIN PHANQUYEN p ON c.MaChucNang = p.MaChucNang
-JOIN NGUOIDUNG n ON n.MaNhom = p.MaNhom
-WHERE n.TenDangNhap = 'nhanvien1'
-
-SELECT * FROM NGUOIDUNG
-											
-
-											SELECT
--- Bảng chức năng
-INSERT INTO CHUCNANG VALUES 
-('CN001', N'Quản lý người dùng', 'GUI_DaiLy'),
-('CN002', N'Quản lý sản phẩm', 'GUI_DonViTinh'),
-('CN003', N'Báo cáo doanh thu', 'GUI_LoaiDaiLy'),
-('CN004', N'Phân quyền', 'GUI_MatHang');
-
-SELECT * FROM CHUCNANG
--- Bảng nhóm người dùng
-INSERT INTO NHOMNGUOIDUNG VALUES 
-('N001', N'Quản trị viên'),
-('N002', N'Nhân viên');
-
--- Bảng phân quyền
--- Quản trị viên có tất cả các quyền
-INSERT INTO PHANQUYEN VALUES 
-('N001', 'CN001'),
-('N001', 'CN002'),
-('N001', 'CN003'),
-('N001', 'CN004');
-
--- Nhân viên chỉ được xem sản phẩm và báo cáo
-INSERT INTO PHANQUYEN VALUES 
-('N002', 'CN002'),
-('N002', 'CN003');
-
--- Bảng người dùng
-INSERT INTO NGUOIDUNG VALUES 
-(N'admin', '123456', 'N001'),
-(N'nhanvien1', '654321', 'N002');
-
-
-SELECT * FROM NGUOIDUNG WHERE TenDangNhap = 'admin' AND MaKhau = '123456'
 ------------------------TRIGGER-------------------------------
 
 -- 1.Trong mỗi Quận có tối đa 4 Đại lý-- OK
@@ -300,7 +225,7 @@ BEGIN
 END
 
 
--- 2.Đại lý loại 1 có tiền nợ tối đa là 10.000.000đ, loại 2 nợ tối đa là 5.000.000đ--
+-- 2.Đại lý loại 1 có tiền nợ tối đa là 10.000.000đ, loại 2 nợ tối đa là 5.000.000đ-- ok
 /*			Thêm				Xoá		Sửa
 LOAIDAILY	 -					 -		+(TienNoToiDa)
 DAILY		 +(TongNo=0:Code)	 -      +(MaLoaiDaiLy,TongNo)
@@ -341,7 +266,7 @@ BEGIN
 			print 'OK: t3'
 END
 
--- 4.Số tiền thu không vượt quá số tiền đại lý đang nợ--
+-- 4.Số tiền thu không vượt quá số tiền đại lý đang nợ-- ok
 /*			Thêm		Xoá		Sửa
 PHIEUTHU	 +			 -		 + (SoTienThu = READONLY)
 */
@@ -357,20 +282,20 @@ BEGIN
 										   WHERE I.SoTienThu > D.TongNo
 										   )
 					BEGIN
-						print 'LOI: t5'
+						print 'LOI: t4'
 						ROLLBACK TRAN
 					END
 		ELSE
-			print 'OK: t5'
+			print 'OK: t4'
 END
 
 
 
 --5.DAILY.TongNo = SUM(PHIEUXUAT.ConLai) - SUM(PHIEUTHU.SoTienThu)--
 /*				Thêm				Xoá							Sửa
-DAILY		 +(TongNo=0:Code)		 -							+(TongNo = READONLY)
-PHIEUXUAT		+					 +(Không cho xoá PX)		+(MaDaiLy,ConLai)
-PHIEUTHU		+					 +							+(MaDaiLy,SoTienThu)
+DAILY		   	 +(TongNo=0:Code)	 -							+(TongNo = READONLY)
+PHIEUXUAT		 +					 +(Không cho xoá PX)		+(MaDaiLy,ConLai)
+PHIEUTHU		 +					 +							+(MaDaiLy,SoTienThu)
 */
 
 GO
@@ -379,13 +304,13 @@ AFTER INSERT
 AS
 BEGIN
 				UPDATE DAILY
-				SET TongNo = TongNo +  (SELECT ConLai
-										FROM INSERTED I
+				SET TongNo = TongNo +  (SELECT SUM(ConLai)
+										FROM INSERTED I 
 										WHERE I.MaDaiLy=DAILY.MaDaiLy
 										)
 				FROM INSERTED I
 				WHERE I.MaDaiLy=DAILY.MaDaiLy
-END
+END 
 
 
 GO
@@ -396,7 +321,7 @@ BEGIN
 		IF UPDATE(MaDaiLy) OR UPDATE(ConLai)
 			BEGIN
 				UPDATE DAILY
-				SET TongNo = TongNo +  (SELECT ConLai
+				SET TongNo = TongNo +  (SELECT SUM(ConLai)
 										FROM INSERTED I
 										WHERE I.MaDaiLy=DAILY.MaDaiLy
 										)
@@ -404,7 +329,7 @@ BEGIN
 				WHERE I.MaDaiLy=DAILY.MaDaiLy
 
 				UPDATE DAILY
-				SET TongNo = TongNo -  (SELECT ConLai
+				SET TongNo = TongNo -  (SELECT SUM(ConLai)
 										FROM DELETED D
 										WHERE D.MaDaiLy=DAILY.MaDaiLy
 										)
@@ -490,7 +415,7 @@ BEGIN
 		UPDATE MATHANG
 		SET DonGiaHienTai =	(SELECT DonGiaNhap
 							 FROM INSERTED I
-							 WHERE I.MaMatHang=MATHANG.MaMatHang
+							  WHERE I.MaMatHang=MATHANG.MaMatHang
 							 ) --Mặc định 1 CHITIET chỉ có 1 MATHANG
 		FROM INSERTED I
 		WHERE I.MaMatHang=MATHANG.MaMatHang
@@ -799,11 +724,11 @@ BEGIN
 							WHERE I.NgayTiepNhan > P.NgayLapPhieu
 							)
 					BEGIN
-						print 'LOI: t26'
+						print 'LOI: t25'
 						ROLLBACK TRAN
 					END
 				ELSE
-					print 'OK: t26'
+					print 'OK: t25'
 			END
 END
 
@@ -817,11 +742,11 @@ BEGIN
 					WHERE I.NgayLapPhieu < D.NgayTiepNhan
 					)
 			BEGIN
-				print 'LOI: t27'
+				print 'LOI: t26'
 				ROLLBACK TRAN
 			END
 		ELSE
-			print 'OK: t27'
+			print 'OK: t26'
 END
 
 
@@ -843,11 +768,11 @@ BEGIN
 							WHERE I.NgayTiepNhan > P.NgayThuTien
 							)
 					BEGIN
-						print 'LOI: t28'
+						print 'LOI: t27'
 						ROLLBACK TRAN
 					END
 				ELSE
-					print 'OK: t28'
+					print 'OK: t27'
 			END
 END
 
@@ -862,11 +787,11 @@ BEGIN
 					WHERE I.NgayThuTien < D.NgayTiepNhan
 					)
 			BEGIN
-				print 'LOI: t29'
+				print 'LOI: t28'
 				ROLLBACK TRAN
 			END
 		ELSE
-			print 'OK: t29'
+			print 'OK: t28'
 END
 
 
@@ -876,42 +801,68 @@ PHIEUXUAT		 -		 +		+ (MaDaiLy,NgayLapPhieu)
 PHIEUTHU		 +		 -      + (MaDaiLy,NgayThuTien)
 */
 
+--CHECK data nhớ chú ý ngày có thể giống nhau -> nên để DATETIME thay vì DATE
+
 GO
 CREATE TRIGGER t29 ON PHIEUXUAT
-AFTER DELETE  -- chỉ được DELETE trên từng Record --
+AFTER DELETE  --DELETE nhiều dòng cùng lúc được nha
 AS
 BEGIN
-		IF ((SELECT COUNT(*)
-			FROM PHIEUXUAT PX,DELETED D
-			WHERE PX.MaDaiLy=D.MaDaiLy) = 0) AND ((SELECT COUNT(*)
-												   FROM PHIEUTHU PT,DELETED D
-												   WHERE PT.MaDaiLy=D.MaDaiLy) > 0)
+	DECLARE @maphieuxuat INT
+	DECLARE @madaily INT
+	DECLARE @ngay DATE
+	DECLARE @error BIT = 0
+
+	DECLARE cur29 CURSOR FOR
+    SELECT MaPhieuXuat, MaDaiLy, NgayLapPhieu FROM deleted  
+
+    OPEN cur29
+    FETCH NEXT FROM cur29 INTO @maphieuxuat, @madaily, @ngay
+
+    WHILE @@FETCH_STATUS = 0
+		BEGIN
+			IF ((SELECT COUNT(*)
+			FROM PHIEUXUAT PX
+			WHERE PX.MaDaiLy=@madaily) = 0) AND ((SELECT COUNT(*)
+												   FROM PHIEUTHU PT
+												   WHERE PT.MaDaiLy=@madaily) > 0)
 						BEGIN
-							print 'LOI: t30.1'
-							ROLLBACK TRAN
+							print N'LỖI t29.1 tại MaPhieuXuat = ' + CAST(@maphieuxuat AS NVARCHAR)
+							SET @error = 1
 						END
-			
-		ELSE IF (SELECT NgayLapPhieu FROM DELETED ) < (SELECT TOP 1 PX.NgayLapPhieu	
-													FROM DELETED D INNER JOIN PHIEUXUAT PX ON D.MaDaiLy=PX.MaDaiLy
-													ORDER BY PX.NgayLapPhieu
-													) -- kiểm tra có phải xoá PHIEUXUAT đầu tiên của DAILY đó không?
+			ELSE IF @ngay < (SELECT MIN(PX.NgayLapPhieu)
+							FROM PHIEUXUAT PX 
+							WHERE PX.MaDaiLy = @madaily
+							) -- kiểm tra có phải xoá PHIEUXUAT đầu tiên của DAILY đó không?
 				BEGIN
-					IF (SELECT TOP 1 PX.NgayLapPhieu
-						FROM PHIEUXUAT PX, DELETED D
-						WHERE PX.MaDaiLy=D.MaDaiLy
-						ORDER BY PX.NgayLapPhieu)	>	(SELECT TOP 1 Pt.NgayThuTien
-														 FROM PHIEUTHU PT,DELETED D
-														 WHERE PT.MaDaiLy=D.MaDaiLy
-														 ORDER BY PT.NgayThuTien		
-														 )  -- kiểm tra PHIEUXUAT đầu tiên có lớn hơn PHIEUTHU đầu tiên của DAILY đó không
+					IF (SELECT MIN(PX.NgayLapPhieu)
+						FROM PHIEUXUAT PX
+						WHERE PX.MaDaiLy=@madaily
+						)	>	(SELECT MIN(PT.NgayThuTien)
+								 FROM PHIEUTHU PT
+								 WHERE PT.MaDaiLy=@madaily
+								 )  -- kiểm tra PHIEUXUAT đầu tiên có lớn hơn PHIEUTHU đầu tiên của DAILY đó không
 								BEGIN	
-									print 'LOI: t30.2'
-									ROLLBACK TRAN
+									print N'LỖI tại 29.2 tại MaPhieuXuat = ' + CAST(@maphieuxuat AS NVARCHAR)
+									SET @error = 1
 								END
-					ELSE
-						print 'OK: t30'
+       
 				END
-END 
+			 FETCH NEXT FROM cur29 INTO @maphieuxuat, @madaily, @ngay
+		END
+
+
+    CLOSE cur29
+    DEALLOCATE cur29
+
+    IF (@error = 1)
+    BEGIN
+        ROLLBACK TRAN
+        RETURN 
+    END
+
+END
+
 		
 
 GO				
@@ -927,7 +878,7 @@ BEGIN
 																	   FROM PHIEUTHU PT,DELETED D
 																	   WHERE PT.MaDaiLy=D.MaDaiLy) > 0)
 											BEGIN
-												print 'LOI: t31.1'
+												print 'LOI: t30.1'
 												ROLLBACK TRAN
 											END
 								ELSE
@@ -940,40 +891,57 @@ BEGIN
 																				 WHERE PT.MaDaiLy=D.MaDaiLy
 																				 ORDER BY PT.NgayThuTien)
 													BEGIN
-														print 'LOI: t31.2'
+														print 'LOI: t30.2'
 														ROLLBACK TRAN
 													END
 										ELSE
-											print 'OK: t31'
+											print 'OK: t30'
 									END
 					END
 END
 
-
 GO
 CREATE TRIGGER t31 ON PHIEUTHU
-AFTER INSERT	-- chỉ được INSERT mỗi lần 1 Record
+AFTER INSERT	
 AS 
 BEGIN
-		IF (SELECT COUNT(*)	
-			FROM INSERTED I, PHIEUXUAT PX
-			WHERE I.MaDaiLy=PX.MaDaiLy
-			) = 0
-					BEGIN
-						print 'LOI: t32.1'
-						ROLLBACK TRAN
-					END
-		ELSE IF (SELECT TOP 1 PX.NgayLapPhieu
-			 	 FROM PHIEUXUAT PX, INSERTED I
-				 WHERE PX.MaDaiLy=I.MaDaiLy
-				 ORDER BY PX.NgayLapPhieu) > (SELECT NgayThuTien
-											  FROM INSERTED)
-					BEGIN
-						print 'LOI: t32.2'
-						ROLLBACK TRAN
-					END
-		ELSE
-			print 'OK: t32'
+    DECLARE @ngay DATE
+    DECLARE @madaily INT
+    DECLARE @error BIT = 0
+
+    DECLARE cur1 CURSOR FOR
+    SELECT MaDaiLy, NgayThuTien FROM inserted 
+
+    OPEN cur1
+    FETCH NEXT FROM cur1 INTO @madaily, @ngay
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Kiểm tra phiếu xuất tồn tại
+        IF (SELECT COUNT(*) FROM PHIEUXUAT PX WHERE PX.MaDaiLy = @madaily) = 0
+        BEGIN
+            PRINT N'LỖI: t31.1 tại dòng có MaDaiLy = ' + CAST(@madaily AS NVARCHAR) + ' ngày ' + CAST(@ngay AS NVARCHAR)
+            SET @error = 1
+        END
+
+        -- Kiểm tra ngày thu tiền nhỏ hơn ngày xuất
+        ELSE IF (SELECT MIN(PX.NgayLapPhieu) FROM PHIEUXUAT PX WHERE PX.MaDaiLy = @madaily) > @ngay
+        BEGIN
+            PRINT N'LỖI: t31.2 tại dòng có MaDaiLy = ' + CAST(@madaily AS NVARCHAR) + ' ngày ' + CAST(@ngay AS NVARCHAR)
+            SET @error = 1
+        END
+
+        FETCH NEXT FROM cur1 INTO @madaily, @ngay
+    END
+
+    CLOSE cur1
+    DEALLOCATE cur1
+
+    IF (@error = 1)
+    BEGIN
+        ROLLBACK TRAN
+        RETURN  -- Dừng thực thi tiếp theo
+    END
 END
 
 
@@ -989,20 +957,21 @@ BEGIN
 					WHERE I.MaDaiLy=PX.MaDaiLy
 					) = 0
 							BEGIN
-								print 'LOI: t33.1'
+								print 'LOI: t32.1'
 								ROLLBACK TRAN
 							END
+
 				ELSE IF (SELECT TOP 1 PX.NgayLapPhieu
 			 			 FROM PHIEUXUAT PX, INSERTED I
 						 WHERE PX.MaDaiLy=I.MaDaiLy
 						 ORDER BY PX.NgayLapPhieu) > (SELECT NgayThuTien
 													  FROM INSERTED)
 							BEGIN
-								print 'LOI: t33.2'
+								print 'LOI: t32.2'
 								ROLLBACK TRAN
 							END
 				ELSE
-					print 'OK: t33'
+					print 'OK: t32'
 			END
 END
 
@@ -1018,11 +987,11 @@ AS
 BEGIN
 		IF (SELECT COUNT(*) FROM THAMSO) > 1
 			BEGIN
-				print 'LOI: t34'
+				print 'LOI: t33'
 				ROLLBACK TRAN
 			END
 		ELSE
-			print 'OK: t34'
+			print 'OK: t33'
 END
 
 
@@ -1033,17 +1002,45 @@ AS
 BEGIN
 		IF (SELECT COUNT(*) FROM THAMSO) < 1
 			BEGIN 
-				print 'LOI: t35'
+				print 'LOI: t34'
 				ROLLBACK TRAN
 			END
 		ELSE
-			print 'OK: t35'
+			print 'OK: t34'
 END
-			 
 		
-			
+		
+
+-- 17.MATHANG.TonKho ≥ 0 --
+/*				Thêm			Xoá		Sửa
+MATHANG			 -(CODE:0)		 -		 + (TonKho)
+*/
+
+GO 
+CREATE TRIGGER t35 ON MATHANG
+AFTER UPDATE
+AS
+BEGIN
+		IF UPDATE(TonKho)
+			BEGIN	
+				IF EXISTS (SELECT *
+						   FROM INSERTED I
+						   WHERE TonKho < 0
+						   )
+					BEGIN
+						print 'LOI: t35'
+						ROLLBACK TRAN
+					END
+				ELSE 
+					print 'OK: t35'
+			END
+END
 
 
+
+
+
+------------------------------------
 
 USE QUANLYDAILY;
 GO
@@ -1152,6 +1149,13 @@ GO
 INSERT INTO NGUOIDUNG (TenDangNhap, MaKhau, MaNhom) VALUES
   (N'ke_toan', 'acct2025', 'N003');
 GO
+
+		
+			
+
+
+
+
 
 
 
