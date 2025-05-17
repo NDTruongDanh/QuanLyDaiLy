@@ -29,14 +29,14 @@ namespace GUI_QuanLy
         int menuContainerMinHeight = 68;
         bool menuExpand = false;
 
-        private void menuTransition_Tick(object sender, EventArgs e)
+        private void menuTransition1_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
             {
                 reportContainer.Height += 10;
                 if (reportContainer.Height >= menuContainerMaxHeight)
                 {
-                    menuTransition.Stop();
+                    menuTransition1.Stop();
                     menuExpand = true;
                 }
             }
@@ -45,12 +45,33 @@ namespace GUI_QuanLy
                 reportContainer.Height -= 10;
                 if (reportContainer.Height <= menuContainerMinHeight)
                 {
-                    menuTransition.Stop();
+                    menuTransition1.Stop();
                     menuExpand = false;
                 }
             }
         }
 
+        private void menuTransition2_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+                flpLuuTruContainer.Height += 10;
+                if (flpLuuTruContainer.Height >= 1.8*menuContainerMaxHeight)
+                {
+                    menuTransition2.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                flpLuuTruContainer.Height -= 10;
+                if (flpLuuTruContainer.Height <= menuContainerMinHeight)
+                {
+                    menuTransition2.Stop();
+                    menuExpand = false;
+                }
+            }
+        }
 
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -103,7 +124,7 @@ namespace GUI_QuanLy
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
-            menuTransition.Start();
+            menuTransition1.Start();
 
         }
 
@@ -139,6 +160,11 @@ namespace GUI_QuanLy
         private void pbSettingThamSo_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new GUI_ThamSo());
+        }
+
+        private void btnLuuTru_Click(object sender, EventArgs e)
+        {
+            menuTransition2.Start();
         }
     }
 }
