@@ -9,6 +9,9 @@ namespace DAL_QuanLy
     public interface IDAL_ChiTietPhieuNhap
     {
         Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapListAsync();
+        Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapsByMPN(int maPhieuNhap);
+        Task<DataTable> GetDataTableChiTietPhieuNhapAsync();
+        Task<DataTable> GetDataTableChiTietPhieuNhapsByMPN(int maPhieuNhap);
         Task<bool> AddChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> UpdateChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> DeleteChiTietPhieuNhapAsync(int maPhieuNhap, int maMatHang);
@@ -63,6 +66,122 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+
+        //Get ChiTietPhieuNhaps By MaPhieuNhap
+        public async Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapsByMPN(int maPhieuNhap)
+        {
+            var list = new List<DTO_ChiTietPhieuNhap>();
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("SELECT * FROM CHITIET_PHIEUNHAP WHERE MaPhieuNhap = @MaPhieuNhap", conn))
+                    {
+                        cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Int).Value = maPhieuNhap;
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            while (await reader.ReadAsync().ConfigureAwait(false))
+                            {
+                                int maMatHangIndex = reader.GetOrdinal("MaMatHang");
+                                int soLuongNhapIndex = reader.GetOrdinal("SoLuongNhap");
+                                int donGiaNhapIndex = reader.GetOrdinal("DonGiaNhap");
+                                int thanhTienIndex = reader.GetOrdinal("ThanhTien");
+
+                                list.Add(new DTO_ChiTietPhieuNhap
+                                {
+                                    MaPhieuNhap = maPhieuNhap,
+                                    MaMatHang = reader.GetInt32(maMatHangIndex),
+                                    SoLuongNhap = reader.GetInt32(soLuongNhapIndex),
+                                    DonGiaNhap = reader.GetDecimal(donGiaNhapIndex),
+                                    ThanhTien = reader.GetDecimal(thanhTienIndex)
+                                });
+                            }
+                        }
+                    }
+                }
+                return list;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching ChiTietPhieuNhaps by MaPhieuNhap: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+        //Get DataTable ChiTietPhieuNhap
+        public async Task<DataTable> GetDataTableChiTietPhieuNhapAsync()
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongNhap, DonGiaNhap, ThanhTien
+                                                    FROM CHITIET_PHIEUNHAP ct
+                                                    JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
+                                                    JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh", conn))
+                    {
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            var dataTable = new DataTable();
+                            dataTable.Load(reader);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching ChiTietPhieuNhap DataTable: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+        //Get DataTable ChiTietPhieuNhaps By MaPhieuNhap
+        public async Task<DataTable> GetDataTableChiTietPhieuNhapsByMPN(int maPhieuNhap)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongNhap, DonGiaNhap, ThanhTien
+                                                    FROM CHITIET_PHIEUNHAP ct
+                                                    JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
+                                                    JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh
+                                                    WHERE MaPhieuNhap = @MaPhieuNhap", conn))
+                    {
+                        cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Int).Value = maPhieuNhap;
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            var dataTable = new DataTable();
+                            dataTable.Load(reader);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching ChiTietPhieuNhaps DataTable by MaPhieuNhap: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
 
 
         //Add ChiTietPhieuNhap
