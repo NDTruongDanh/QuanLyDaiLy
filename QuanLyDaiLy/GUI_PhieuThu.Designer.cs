@@ -3,6 +3,9 @@
     partial class GUI_PhieuThu
     {
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblNgayThuTien;
+        private System.Windows.Forms.Label lblSoTienThu;
+        private System.Windows.Forms.DateTimePicker dtpNgayThuTien;
 
         protected override void Dispose(bool disposing)
         {
@@ -16,6 +19,9 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            lblNgayThuTien = new Label();
+            lblSoTienThu = new Label();
+            dtpNgayThuTien = new DateTimePicker();
             panel1 = new Panel();
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
@@ -34,11 +40,8 @@
             btnFind = new Button();
             button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            txtTienThu = new TextBox();
-            label3 = new Label();
-            dtpNgayThuTien = new DateTimePicker();
-            label1 = new Label();
-            txtTenDaiLy = new TextBox();
+            cboLoaiDaiLy = new ComboBox();
+            txtSoTienThu = new TextBox();
             lblTenDaiLy = new Label();
             lblThongTinPhieuThu = new Label();
             label4 = new Label();
@@ -50,6 +53,35 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // lblNgayThuTien
+            // 
+            lblNgayThuTien.AutoSize = true;
+            lblNgayThuTien.Font = new Font("Segoe UI", 12F);
+            lblNgayThuTien.Location = new Point(3, 42);
+            lblNgayThuTien.Name = "lblNgayThuTien";
+            lblNgayThuTien.Size = new Size(141, 28);
+            lblNgayThuTien.TabIndex = 2;
+            lblNgayThuTien.Text = "Ngày Thu Tiền:";
+            // 
+            // lblSoTienThu
+            // 
+            lblSoTienThu.AutoSize = true;
+            lblSoTienThu.Font = new Font("Segoe UI", 12F);
+            lblSoTienThu.Location = new Point(3, 82);
+            lblSoTienThu.Name = "lblSoTienThu";
+            lblSoTienThu.Size = new Size(117, 28);
+            lblSoTienThu.TabIndex = 4;
+            lblSoTienThu.Text = "Số Tiền Thu:";
+            // 
+            // dtpNgayThuTien
+            // 
+            dtpNgayThuTien.Dock = DockStyle.Fill;
+            dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
+            dtpNgayThuTien.Location = new Point(150, 45);
+            dtpNgayThuTien.Name = "dtpNgayThuTien";
+            dtpNgayThuTien.Size = new Size(1449, 34);
+            dtpNgayThuTien.TabIndex = 3;
             // 
             // panel1
             // 
@@ -145,7 +177,7 @@
             // 
             // Column3
             // 
-            Column3.HeaderText = "SĐT";
+            Column3.HeaderText = "Điện Thoại";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.Width = 125;
@@ -275,78 +307,48 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.Controls.Add(txtTienThu, 1, 2);
-            tableLayoutPanel1.Controls.Add(label3, 0, 2);
-            tableLayoutPanel1.Controls.Add(dtpNgayThuTien, 1, 1);
-            tableLayoutPanel1.Controls.Add(label1, 0, 1);
-            tableLayoutPanel1.Controls.Add(txtTenDaiLy, 1, 0);
+            tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 0);
+            tableLayoutPanel1.Controls.Add(txtSoTienThu, 1, 10);
+            tableLayoutPanel1.Controls.Add(lblSoTienThu, 0, 10);
+            tableLayoutPanel1.Controls.Add(dtpNgayThuTien, 1, 9);
+            tableLayoutPanel1.Controls.Add(lblNgayThuTien, 0, 9);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel1.Location = new Point(16, 66);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 11;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1615, 246);
+            tableLayoutPanel1.Size = new Size(1602, 246);
             tableLayoutPanel1.TabIndex = 19;
             // 
-            // txtTienThu
+            // cboLoaiDaiLy
             // 
-            txtTienThu.Dock = DockStyle.Fill;
-            txtTienThu.Font = new Font("Segoe UI", 12F);
-            txtTienThu.Location = new Point(163, 83);
-            txtTienThu.Name = "txtTienThu";
-            txtTienThu.Size = new Size(1449, 34);
-            txtTienThu.TabIndex = 16;
+            cboLoaiDaiLy.Dock = DockStyle.Fill;
+            cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
+            cboLoaiDaiLy.FormattingEnabled = true;
+            cboLoaiDaiLy.Location = new Point(150, 3);
+            cboLoaiDaiLy.Name = "cboLoaiDaiLy";
+            cboLoaiDaiLy.Size = new Size(1449, 36);
+            cboLoaiDaiLy.TabIndex = 12;
             // 
-            // label3
+            // txtSoTienThu
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(3, 80);
-            label3.Name = "label3";
-            label3.Size = new Size(111, 28);
-            label3.TabIndex = 15;
-            label3.Text = "Số tiền thu:";
-            // 
-            // dtpNgayThuTien
-            // 
-            dtpNgayThuTien.Dock = DockStyle.Fill;
-            dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-            dtpNgayThuTien.Location = new Point(163, 43);
-            dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1449, 34);
-            dtpNgayThuTien.TabIndex = 14;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(154, 28);
-            label1.TabIndex = 8;
-            label1.Text = "Ngày lập phiếu: ";
-            // 
-            // txtTenDaiLy
-            // 
-            txtTenDaiLy.Dock = DockStyle.Fill;
-            txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(163, 3);
-            txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.ReadOnly = true;
-            txtTenDaiLy.Size = new Size(1449, 34);
-            txtTenDaiLy.TabIndex = 7;
+            txtSoTienThu.Dock = DockStyle.Fill;
+            txtSoTienThu.Font = new Font("Segoe UI", 12F);
+            txtSoTienThu.Location = new Point(150, 85);
+            txtSoTienThu.Name = "txtSoTienThu";
+            txtSoTienThu.Size = new Size(1449, 34);
+            txtSoTienThu.TabIndex = 5;
+            txtSoTienThu.KeyPress += txtSoTienThu_KeyPress;
             // 
             // lblTenDaiLy
             // 
@@ -417,9 +419,9 @@
         private Panel panel1;
         private Label lblDanhSachPhieuThu;
         private Label label2;
+        private DataGridView dgvPhieuThu;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel1;
-        private TextBox txtTenDaiLy;
         private Label lblTenDaiLy;
         private Label lblThongTinPhieuThu;
         private Label label4;
@@ -429,17 +431,14 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
-        private Label label1;
-        private DateTimePicker dtpNgayThuTien;
-        private Label label3;
-        private TextBox txtTienThu;
-        private Button button1;
-        private DataGridView dgvPhieuThu;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private Button button1;
+        private TextBox txtSoTienThu;
+        private ComboBox cboLoaiDaiLy;
     }
 }

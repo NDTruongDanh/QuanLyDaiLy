@@ -17,7 +17,6 @@ namespace GUI_QuanLy
 {
     public partial class GUI_PhieuThu : Form
     {
-        
         private readonly IBUS_PhieuThu _busPhieuThu;
 
         private readonly IServiceProvider _service;
@@ -64,33 +63,32 @@ namespace GUI_QuanLy
 
         private void LoadControlsContent()
         {
-            txtTenDaiLy.Text = _DaiLy.TenDaiLy;
-            txtTienThu.Text = _DaiLy.Sdt;
-          
+            //txtTenDaiLy.Text = _DaiLy.TenDaiLy;
+            //txtSDT.Text = _DaiLy.Sdt;
+            //txtEmail.Text = _DaiLy.Email;
+            //txtDiaChi.Text = _DaiLy.DiaChi;
         }
 
 
         private async Task LoadPhieuThuListByDaiLyAsync()
         {
-            /*
-            try
-            {
-                var data = await _busPhieuThu.GetPhieuThuCuaDaiLyListAsync(_DaiLy.MaDaiLy);
-                _bindingSource.DataSource = data;
-                ModifyDataGridViewColumns();
-            }
-            catch (BusException busEx)
-            {
-                _logger.LogWarning(busEx,
-                    "Business error loading grid PhieuThu by DaiLy: {Message}",
-                    busEx.Message);
+            //try
+            //{
+            //    var data = await _busPhieuThu.GetPhieuThuCuaDaiLyListAsync(_DaiLy.MaDaiLy);
+            //    _bindingSource.DataSource = data;
+            //    ModifyDataGridViewColumns();
+            //}
+            //catch (BusException busEx)
+            //{
+            //    _logger.LogWarning(busEx,
+            //        "Business error loading grid PhieuThu by DaiLy: {Message}",
+            //        busEx.Message);
 
-                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
-            */
+            //    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+            //        "Thông báo",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Warning);
+            //}
         }
 
 
@@ -114,7 +112,7 @@ namespace GUI_QuanLy
             {
                 ValidateInputFields();
 
-                decimal soTienThu = Convert.ToDecimal(txtTienThu.Text);
+                decimal soTienThu = Convert.ToDecimal(txtSoTienThu.Text);
                 DTO_PhieuThu phieuThu = new DTO_PhieuThu(0, _DaiLy.MaDaiLy, DateTime.Now, soTienThu);
 
                 if (await _busPhieuThu.AddPhieuThuAsync(phieuThu))
@@ -128,7 +126,7 @@ namespace GUI_QuanLy
                 else
                 {
                     MessageBox.Show("Thêm Phiếu thu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }     
+                }
             }
             catch (ValidationException valEx)
             {
@@ -162,7 +160,7 @@ namespace GUI_QuanLy
                     {
                         ValidateInputFields();
 
-                        decimal soTienThu = Convert.ToDecimal(txtTienThu.Text);
+                        decimal soTienThu = Convert.ToDecimal(txtSoTienThu.Text);
                         DateTime ngayThu = dtpNgayThuTien.Value;
                         DTO_PhieuThu phieuThu = new DTO_PhieuThu(_maPhieuThu, _DaiLy.MaLoaiDaiLy, ngayThu, soTienThu);
 
@@ -205,12 +203,12 @@ namespace GUI_QuanLy
 
         private void ValidateInputFields()
         {
-            if (string.IsNullOrWhiteSpace(txtTienThu.Text) || txtTienThu.Text == "." )
+            if (string.IsNullOrWhiteSpace(txtSoTienThu.Text) || txtSoTienThu.Text == ".")
             {
                 var valEx = new ValidationException("Vui lòng nhập Số tiền thu!");
-                _logger.LogWarning(valEx, 
+                _logger.LogWarning(valEx,
                                     "Validation failed: {Input}",
-                                    txtTienThu.Text);
+                                    txtSoTienThu.Text);
                 throw valEx;
             }
         }
@@ -261,7 +259,7 @@ namespace GUI_QuanLy
 
         private void ClearInputFields()
         {
-            txtTienThu.Clear();
+            txtSoTienThu.Clear();
             dtpNgayThuTien.Value = DateTime.Now;
         }
 
@@ -279,7 +277,7 @@ namespace GUI_QuanLy
                     DataGridViewRow row = dgvPhieuThu.SelectedRows[0];
                     _maPhieuThu = Convert.ToInt32(row.Cells["MaPhieuThu"].Value);
                     dtpNgayThuTien.Value = Convert.ToDateTime(row.Cells["NgayThuTien"].Value);
-                    txtTienThu.Text = row.Cells["SoTienThu"].Value.ToString();
+                    txtSoTienThu.Text = row.Cells["SoTienThu"].Value.ToString();
                 }
 
                 catch (Exception ex)
@@ -301,11 +299,12 @@ namespace GUI_QuanLy
             }
 
             // Chỉ cho phép một dấu chấm
-            if (e.KeyChar == '.' && txtTienThu.Text.IndexOf('.') > -1)
+            if (e.KeyChar == '.' && txtSoTienThu.Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
         }
+
         
     }
 }
