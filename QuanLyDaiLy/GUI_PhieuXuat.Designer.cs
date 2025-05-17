@@ -22,7 +22,10 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
+            button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
+            txtEmail = new TextBox();
+            label5 = new Label();
             label4 = new Label();
             label7 = new Label();
             comboBoxDaiLy = new ComboBox();
@@ -50,11 +53,11 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(label3);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(16, 668);
+            panel2.Location = new Point(16, 633);
             panel2.Margin = new Padding(16, 8, 16, 16);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(1602, 256);
+            panel2.Size = new Size(1602, 291);
             panel2.TabIndex = 26;
             panel2.Paint += panel2_Paint;
             // 
@@ -66,9 +69,10 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Location = new Point(1039, 185);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(910, 220);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(544, 52);
+            flowLayoutPanel1.Size = new Size(673, 52);
             flowLayoutPanel1.TabIndex = 25;
             // 
             // btnAdd
@@ -81,7 +85,7 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
+            btnAdd.Text = "➕  CTPX";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -125,34 +129,60 @@
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(33, 150, 243);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(539, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 44);
+            button1.TabIndex = 24;
+            button1.Text = "🔍 Làm mới";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(txtEmail, 1, 2);
+            tableLayoutPanel2.Controls.Add(label5, 0, 2);
             tableLayoutPanel2.Controls.Add(label4, 0, 1);
             tableLayoutPanel2.Controls.Add(label7, 0, 0);
             tableLayoutPanel2.Controls.Add(comboBoxDaiLy, 1, 0);
             tableLayoutPanel2.Controls.Add(dtpNgayLapPhieu, 1, 1);
-            tableLayoutPanel2.Location = new Point(19, 80);
+            tableLayoutPanel2.Location = new Point(8, 51);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
-            tableLayoutPanel2.Size = new Size(1564, 84);
+            tableLayoutPanel2.Size = new Size(1564, 124);
             tableLayoutPanel2.TabIndex = 21;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Dock = DockStyle.Fill;
+            txtEmail.Font = new Font("Segoe UI", 12F);
+            txtEmail.Location = new Point(154, 85);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(1417, 34);
+            txtEmail.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(3, 82);
+            label5.Name = "label5";
+            label5.Size = new Size(145, 42);
+            label5.TabIndex = 10;
+            label5.Text = "Số tiền trả:";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -161,7 +191,7 @@
             label4.Font = new Font("Segoe UI", 12F);
             label4.Location = new Point(3, 42);
             label4.Name = "label4";
-            label4.Size = new Size(145, 42);
+            label4.Size = new Size(145, 40);
             label4.TabIndex = 9;
             label4.Text = "Ngày lập phiếu";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -175,7 +205,7 @@
             label7.Name = "label7";
             label7.Size = new Size(145, 42);
             label7.TabIndex = 2;
-            label7.Text = "Đại lý";
+            label7.Text = "Tên Đại lý:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // comboBoxDaiLy
@@ -185,7 +215,7 @@
             comboBoxDaiLy.FormattingEnabled = true;
             comboBoxDaiLy.Location = new Point(154, 3);
             comboBoxDaiLy.Name = "comboBoxDaiLy";
-            comboBoxDaiLy.Size = new Size(1407, 36);
+            comboBoxDaiLy.Size = new Size(1417, 36);
             comboBoxDaiLy.TabIndex = 7;
             // 
             // dtpNgayLapPhieu
@@ -194,7 +224,7 @@
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F);
             dtpNgayLapPhieu.Location = new Point(154, 45);
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
-            dtpNgayLapPhieu.Size = new Size(1407, 34);
+            dtpNgayLapPhieu.Size = new Size(1417, 34);
             dtpNgayLapPhieu.TabIndex = 8;
             // 
             // label1
@@ -292,7 +322,7 @@
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(1602, 636);
+            panel1.Size = new Size(1602, 601);
             panel1.TabIndex = 25;
             // 
             // tableLayoutPanel1
@@ -306,8 +336,8 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 70.21277F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 29.7872334F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 66.4893646F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.51064F));
             tableLayoutPanel1.Size = new Size(1634, 940);
             tableLayoutPanel1.TabIndex = 27;
             // 
@@ -349,5 +379,8 @@
         private DateTimePicker dtpNgayLapPhieu;
         private Button btnFind;
         private Label label4;
+        private Label label5;
+        private TextBox txtEmail;
+        private Button button1;
     }
 }

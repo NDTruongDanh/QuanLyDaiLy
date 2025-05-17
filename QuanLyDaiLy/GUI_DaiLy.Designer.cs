@@ -36,6 +36,7 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
+            button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             cboLoaiDaiLy = new ComboBox();
             lblLoaiDaiLy = new Label();
@@ -70,9 +71,9 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(157, 40);
+            lblTenDaiLy.Size = new Size(150, 40);
             lblTenDaiLy.TabIndex = 0;
-            lblTenDaiLy.Text = "Tên Đại Lý:";
+            lblTenDaiLy.Text = "Tên Đại lý:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblDiaChi
@@ -83,16 +84,16 @@
             lblDiaChi.Font = new Font("Segoe UI", 12F);
             lblDiaChi.Location = new Point(3, 82);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(157, 40);
+            lblDiaChi.Size = new Size(150, 40);
             lblDiaChi.TabIndex = 3;
-            lblDiaChi.Text = "Địa Chỉ:";
+            lblDiaChi.Text = "Địa chỉ:";
             lblDiaChi.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtTenDaiLy
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(166, 3);
+            txtTenDaiLy.Location = new Point(159, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
             txtTenDaiLy.Size = new Size(1417, 34);
             txtTenDaiLy.TabIndex = 7;
@@ -101,11 +102,10 @@
             // 
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
-            txtDiaChi.Location = new Point(166, 85);
+            txtDiaChi.Location = new Point(159, 85);
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(1417, 34);
             txtDiaChi.TabIndex = 8;
-            txtDiaChi.TextChanged += txtDiaChi_TextChanged;
             // 
             // dgvDaiLy
             // 
@@ -209,9 +209,10 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Location = new Point(1043, 377);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(908, 377);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(544, 52);
+            flowLayoutPanel1.Size = new Size(679, 52);
             flowLayoutPanel1.TabIndex = 27;
             // 
             // btnAdd
@@ -270,6 +271,19 @@
             btnFind.UseVisualStyleBackColor = false;
             btnFind.Click += btnFind_Click;
             // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(33, 150, 243);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(545, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 44);
+            button1.TabIndex = 24;
+            button1.Text = "🔍 Làm mới";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -312,7 +326,7 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(166, 43);
+            cboLoaiDaiLy.Location = new Point(159, 43);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
             cboLoaiDaiLy.Size = new Size(1417, 36);
             cboLoaiDaiLy.TabIndex = 11;
@@ -325,9 +339,9 @@
             lblLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             lblLoaiDaiLy.Location = new Point(3, 40);
             lblLoaiDaiLy.Name = "lblLoaiDaiLy";
-            lblLoaiDaiLy.Size = new Size(157, 42);
+            lblLoaiDaiLy.Size = new Size(150, 42);
             lblLoaiDaiLy.TabIndex = 1;
-            lblLoaiDaiLy.Text = "Loại Đại Lý:";
+            lblLoaiDaiLy.Text = "Loại Đại lý:";
             lblLoaiDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // cboQuan
@@ -335,7 +349,7 @@
             cboQuan.Dock = DockStyle.Fill;
             cboQuan.Font = new Font("Segoe UI", 12F);
             cboQuan.FormattingEnabled = true;
-            cboQuan.Location = new Point(166, 125);
+            cboQuan.Location = new Point(159, 125);
             cboQuan.Name = "cboQuan";
             cboQuan.Size = new Size(1417, 36);
             cboQuan.TabIndex = 12;
@@ -344,7 +358,7 @@
             // 
             dtpNgayTiepNhan.Dock = DockStyle.Fill;
             dtpNgayTiepNhan.Font = new Font("Segoe UI", 12F);
-            dtpNgayTiepNhan.Location = new Point(166, 247);
+            dtpNgayTiepNhan.Location = new Point(159, 247);
             dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
             dtpNgayTiepNhan.Size = new Size(1417, 34);
             dtpNgayTiepNhan.TabIndex = 13;
@@ -357,7 +371,7 @@
             lblSDT.Font = new Font("Segoe UI", 12F);
             lblSDT.Location = new Point(3, 164);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(157, 40);
+            lblSDT.Size = new Size(150, 40);
             lblSDT.TabIndex = 4;
             lblSDT.Text = "SĐT:";
             lblSDT.TextAlign = ContentAlignment.MiddleLeft;
@@ -370,16 +384,16 @@
             lblNgayTiepNhan.Font = new Font("Segoe UI", 12F);
             lblNgayTiepNhan.Location = new Point(3, 244);
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
-            lblNgayTiepNhan.Size = new Size(157, 72);
+            lblNgayTiepNhan.Size = new Size(150, 72);
             lblNgayTiepNhan.TabIndex = 6;
-            lblNgayTiepNhan.Text = "Ngày Tiếp Nhận:";
+            lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtSDT
             // 
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
-            txtSDT.Location = new Point(166, 167);
+            txtSDT.Location = new Point(159, 167);
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(1417, 34);
             txtSDT.TabIndex = 9;
@@ -392,7 +406,7 @@
             lblEmail.Font = new Font("Segoe UI", 12F);
             lblEmail.Location = new Point(3, 204);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(157, 40);
+            lblEmail.Size = new Size(150, 40);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email:";
             lblEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -401,7 +415,7 @@
             // 
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(166, 207);
+            txtEmail.Location = new Point(159, 207);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(1417, 34);
             txtEmail.TabIndex = 10;
@@ -414,7 +428,7 @@
             lblQuan.Font = new Font("Segoe UI", 12F);
             lblQuan.Location = new Point(3, 122);
             lblQuan.Name = "lblQuan";
-            lblQuan.Size = new Size(157, 42);
+            lblQuan.Size = new Size(150, 42);
             lblQuan.TabIndex = 2;
             lblQuan.Text = "Quận:";
             lblQuan.TextAlign = ContentAlignment.MiddleLeft;
@@ -508,7 +522,6 @@
         private ComboBox cboLoaiDaiLy;
         private Label lblLoaiDaiLy;
         private Label lblQuan;
-        private ComboBox cboQuan;
         private DateTimePicker dtpNgayTiepNhan;
         private Label lblSDT;
         private Label lblNgayTiepNhan;
@@ -524,5 +537,7 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
+        private ComboBox cboQuan;
+        private Button button1;
     }
 }
