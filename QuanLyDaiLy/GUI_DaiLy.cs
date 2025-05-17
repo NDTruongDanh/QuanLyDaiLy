@@ -518,9 +518,6 @@ namespace GUI_QuanLy
             _bindingSource.Filter = filterExpression;
         }
 
-        private void txtDiaChi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
