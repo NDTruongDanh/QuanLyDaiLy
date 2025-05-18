@@ -444,6 +444,7 @@ namespace GUI_QuanLy
             Controls.Add(flpForm);
             Name = "GUI_ChiTietPhieuNhap";
             Text = "GUI_ChiTietPhieuNhap";
+            Load += GUI_ChiTietPhieuNhap_Load;
             flpForm.ResumeLayout(false);
             flpForm.PerformLayout();
             flpMaPhieu.ResumeLayout(false);
