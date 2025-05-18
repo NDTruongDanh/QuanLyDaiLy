@@ -95,6 +95,7 @@ namespace GUI_QuanLy
                 var data = await _busCTPN.GetDataTableChiTietPhieuNhapsByMPNAsync(_phieuNhap.MaPhieuNhap);
                 _bindingSource.DataSource = data;
                 ModifyDataGridViewColumns();
+                ClearInputFields();
 
                 txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
             }
@@ -115,8 +116,8 @@ namespace GUI_QuanLy
         {
             dgvChiTietPhieuNhap.Columns["MaPhieuNhap"].HeaderText = "Mã Phiếu Nhập";
             dgvChiTietPhieuNhap.Columns["Display"].HeaderText = "Mặt Hàng";
-            dgvChiTietPhieuNhap.Columns["SoLuong"].HeaderText = "Số Lượng";
-            dgvChiTietPhieuNhap.Columns["DonGia"].HeaderText = "Đơn Giá";
+            dgvChiTietPhieuNhap.Columns["SoLuongNhap"].HeaderText = "Số Lượng";
+            dgvChiTietPhieuNhap.Columns["DonGiaNhap"].HeaderText = "Đơn Giá";
             dgvChiTietPhieuNhap.Columns["ThanhTien"].HeaderText = "Thành Tiền";
             dgvChiTietPhieuNhap.Columns["MaMatHang"].Visible = false;
 
@@ -145,9 +146,9 @@ namespace GUI_QuanLy
                     txtDonGiaNhap.Text);
                 throw valEx;
             }
-            if (!int.TryParse(txtDonGiaNhap.Text, out int soLuongNhap) || soLuongNhap <= 0)
+            if (!int.TryParse(txtSoLuong.Text, out int soLuongNhap) || soLuongNhap <= 0)
             {
-                var valEx = new ValidationException("Số lượng nhập đa phải là số dương");
+                var valEx = new ValidationException("Số lượng nhập phải > 0");
                 _logger.LogWarning(valEx,
                     "Validation failed: {Input}",
                     txtSoLuong.Text);
@@ -162,6 +163,7 @@ namespace GUI_QuanLy
             txtSoLuong.Text = "0";
             txtDonGiaNhap.Text = "0";
             txtThanhTien.Text = "0";
+            dgvChiTietPhieuNhap.ClearSelection();
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -186,6 +188,7 @@ namespace GUI_QuanLy
                 {
                     MessageBox.Show("Thêm Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _phieuNhap.TongTien += ctpn.ThanhTien;
+                    txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
                     await LoadGridChiTietPhieuNhapAsync();
                     ClearInputFields();
                 }
@@ -242,6 +245,7 @@ namespace GUI_QuanLy
                             MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _phieuNhap.TongTien -= _thanhTien;
                             _phieuNhap.TongTien += ctpn.ThanhTien;
+                            txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
                             await LoadGridChiTietPhieuNhapAsync();
                             ClearInputFields();
                         }
@@ -290,6 +294,7 @@ namespace GUI_QuanLy
                         {
                             MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _phieuNhap.TongTien -= _thanhTien;
+                            txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
                             await LoadGridChiTietPhieuNhapAsync();
                             ClearInputFields();
                         }
@@ -345,6 +350,48 @@ namespace GUI_QuanLy
                     MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+
+        private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập số và dấu chấm
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Chỉ cho phép một dấu chấm
+            if (e.KeyChar == '.' && txtDonGiaNhap.Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
+            if (!string.IsNullOrEmpty(txtDonGiaNhap.Text))
+                txtThanhTien.Text = (Convert.ToInt32(txtSoLuong.Text) * Convert.ToDecimal(txtDonGiaNhap.Text)).ToString("N0");
+        }
+
+        private void txtDonGiaNhap_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDonGiaNhap.Text))
+                txtThanhTien.Text = (Convert.ToInt32(txtSoLuong.Text) * Convert.ToDecimal(txtDonGiaNhap.Text)).ToString("N0");
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSoLuong.Text))
+                txtThanhTien.Text = (Convert.ToInt32(txtSoLuong.Text) * Convert.ToDecimal(txtDonGiaNhap.Text)).ToString("N0");
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearInputFields();
         }
     }
 }

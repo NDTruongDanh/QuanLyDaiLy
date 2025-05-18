@@ -21,6 +21,9 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             lblMaPhieuNhap = new Label();
             txtMaPhieuNhap = new TextBox();
+            flpDaiLy = new FlowLayoutPanel();
+            lblDaily = new Label();
+            txtDaiLy = new TextBox();
             flpNgayLap = new FlowLayoutPanel();
             lblNgayLapPhieu = new Label();
             dtpNgayLap = new DateTimePicker();
@@ -33,6 +36,12 @@
             flpTongTien = new FlowLayoutPanel();
             lblTongTien = new Label();
             textBox1 = new TextBox();
+            flpTienTra = new FlowLayoutPanel();
+            lblSoTienTra = new Label();
+            txtSoTienTra = new TextBox();
+            flpConLai = new FlowLayoutPanel();
+            lblConLai = new Label();
+            txtConLai = new TextBox();
             tblInput = new TableLayoutPanel();
             lblDG = new Label();
             cbbMatHang = new ComboBox();
@@ -51,27 +60,18 @@
             panel2 = new Panel();
             btnDelete = new Button();
             panel3 = new Panel();
-            btnFind = new Button();
-            flpDaiLy = new FlowLayoutPanel();
-            lblDaily = new Label();
-            txtDaiLy = new TextBox();
-            flpConLai = new FlowLayoutPanel();
-            lblConLai = new Label();
-            txtConLai = new TextBox();
-            flpTienTra = new FlowLayoutPanel();
-            lblSoTienTra = new Label();
-            txtSoTienTra = new TextBox();
+            btnRefresh = new Button();
             flpForm.SuspendLayout();
             flpMaPhieu.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            flpDaiLy.SuspendLayout();
             flpNgayLap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDsChiTiet).BeginInit();
             flpTongTien.SuspendLayout();
+            flpTienTra.SuspendLayout();
+            flpConLai.SuspendLayout();
             tblInput.SuspendLayout();
             flpButtons.SuspendLayout();
-            flpDaiLy.SuspendLayout();
-            flpConLai.SuspendLayout();
-            flpTienTra.SuspendLayout();
             SuspendLayout();
             // 
             // flpForm
@@ -136,6 +136,39 @@
             txtMaPhieuNhap.Name = "txtMaPhieuNhap";
             txtMaPhieuNhap.Size = new Size(150, 31);
             txtMaPhieuNhap.TabIndex = 2;
+            // 
+            // flpDaiLy
+            // 
+            flpDaiLy.AutoSize = true;
+            flpDaiLy.Controls.Add(lblDaily);
+            flpDaiLy.Controls.Add(txtDaiLy);
+            flpDaiLy.Location = new Point(289, 3);
+            flpDaiLy.Name = "flpDaiLy";
+            flpDaiLy.Size = new Size(247, 41);
+            flpDaiLy.TabIndex = 6;
+            // 
+            // lblDaily
+            // 
+            lblDaily.AutoSize = true;
+            lblDaily.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDaily.Location = new Point(3, 3);
+            lblDaily.Margin = new Padding(3);
+            lblDaily.Name = "lblDaily";
+            lblDaily.Size = new Size(81, 31);
+            lblDaily.TabIndex = 2;
+            lblDaily.Text = "Đại lý:";
+            lblDaily.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtDaiLy
+            // 
+            txtDaiLy.BackColor = Color.White;
+            txtDaiLy.BorderStyle = BorderStyle.None;
+            txtDaiLy.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDaiLy.Location = new Point(92, 5);
+            txtDaiLy.Margin = new Padding(5);
+            txtDaiLy.Name = "txtDaiLy";
+            txtDaiLy.Size = new Size(150, 31);
+            txtDaiLy.TabIndex = 3;
             // 
             // flpNgayLap
             // 
@@ -269,6 +302,69 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(300, 43);
             textBox1.TabIndex = 1;
+            // 
+            // flpTienTra
+            // 
+            flpTienTra.AutoSize = true;
+            flpTienTra.Controls.Add(lblSoTienTra);
+            flpTienTra.Controls.Add(txtSoTienTra);
+            flpTienTra.Dock = DockStyle.Right;
+            flpTienTra.Location = new Point(682, 387);
+            flpTienTra.Margin = new Padding(10, 5, 10, 5);
+            flpTienTra.Name = "flpTienTra";
+            flpTienTra.Size = new Size(467, 49);
+            flpTienTra.TabIndex = 34;
+            // 
+            // lblSoTienTra
+            // 
+            lblSoTienTra.AutoSize = true;
+            lblSoTienTra.Dock = DockStyle.Fill;
+            lblSoTienTra.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
+            lblSoTienTra.Location = new Point(3, 0);
+            lblSoTienTra.Name = "lblSoTienTra";
+            lblSoTienTra.Size = new Size(155, 49);
+            lblSoTienTra.TabIndex = 0;
+            lblSoTienTra.Text = "Số tiền trả:";
+            // 
+            // txtSoTienTra
+            // 
+            txtSoTienTra.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
+            txtSoTienTra.Location = new Point(164, 3);
+            txtSoTienTra.Name = "txtSoTienTra";
+            txtSoTienTra.Size = new Size(300, 43);
+            txtSoTienTra.TabIndex = 1;
+            // 
+            // flpConLai
+            // 
+            flpConLai.AutoSize = true;
+            flpConLai.Controls.Add(lblConLai);
+            flpConLai.Controls.Add(txtConLai);
+            flpConLai.Dock = DockStyle.Right;
+            flpConLai.Location = new Point(726, 446);
+            flpConLai.Margin = new Padding(10, 5, 10, 5);
+            flpConLai.Name = "flpConLai";
+            flpConLai.Size = new Size(423, 49);
+            flpConLai.TabIndex = 33;
+            // 
+            // lblConLai
+            // 
+            lblConLai.AutoSize = true;
+            lblConLai.Dock = DockStyle.Fill;
+            lblConLai.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
+            lblConLai.Location = new Point(3, 0);
+            lblConLai.Name = "lblConLai";
+            lblConLai.Size = new Size(111, 49);
+            lblConLai.TabIndex = 0;
+            lblConLai.Text = "Còn lại:";
+            // 
+            // txtConLai
+            // 
+            txtConLai.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
+            txtConLai.Location = new Point(120, 3);
+            txtConLai.Name = "txtConLai";
+            txtConLai.ReadOnly = true;
+            txtConLai.Size = new Size(300, 43);
+            txtConLai.TabIndex = 1;
             // 
             // tblInput
             // 
@@ -409,7 +505,7 @@
             flpButtons.Controls.Add(panel2);
             flpButtons.Controls.Add(btnDelete);
             flpButtons.Controls.Add(panel3);
-            flpButtons.Controls.Add(btnFind);
+            flpButtons.Controls.Add(btnRefresh);
             flpButtons.Dock = DockStyle.Right;
             flpButtons.Location = new Point(535, 684);
             flpButtons.Margin = new Padding(10);
@@ -483,116 +579,21 @@
             panel3.Size = new Size(20, 20);
             panel3.TabIndex = 26;
             // 
-            // btnFind
+            // btnRefresh
             // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
-            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFind.Location = new Point(483, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "   Làm mới";
-            btnFind.UseVisualStyleBackColor = false;
-            // 
-            // flpDaiLy
-            // 
-            flpDaiLy.AutoSize = true;
-            flpDaiLy.Controls.Add(lblDaily);
-            flpDaiLy.Controls.Add(txtDaiLy);
-            flpDaiLy.Location = new Point(289, 3);
-            flpDaiLy.Name = "flpDaiLy";
-            flpDaiLy.Size = new Size(247, 41);
-            flpDaiLy.TabIndex = 6;
-            // 
-            // lblDaily
-            // 
-            lblDaily.AutoSize = true;
-            lblDaily.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDaily.Location = new Point(3, 3);
-            lblDaily.Margin = new Padding(3);
-            lblDaily.Name = "lblDaily";
-            lblDaily.Size = new Size(81, 31);
-            lblDaily.TabIndex = 2;
-            lblDaily.Text = "Đại lý:";
-            lblDaily.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtDaiLy
-            // 
-            txtDaiLy.BackColor = Color.White;
-            txtDaiLy.BorderStyle = BorderStyle.None;
-            txtDaiLy.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDaiLy.Location = new Point(92, 5);
-            txtDaiLy.Margin = new Padding(5);
-            txtDaiLy.Name = "txtDaiLy";
-            txtDaiLy.Size = new Size(150, 31);
-            txtDaiLy.TabIndex = 3;
-            // 
-            // flpConLai
-            // 
-            flpConLai.AutoSize = true;
-            flpConLai.Controls.Add(lblConLai);
-            flpConLai.Controls.Add(txtConLai);
-            flpConLai.Dock = DockStyle.Right;
-            flpConLai.Location = new Point(726, 446);
-            flpConLai.Margin = new Padding(10, 5, 10, 5);
-            flpConLai.Name = "flpConLai";
-            flpConLai.Size = new Size(423, 49);
-            flpConLai.TabIndex = 33;
-            // 
-            // lblConLai
-            // 
-            lblConLai.AutoSize = true;
-            lblConLai.Dock = DockStyle.Fill;
-            lblConLai.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
-            lblConLai.Location = new Point(3, 0);
-            lblConLai.Name = "lblConLai";
-            lblConLai.Size = new Size(111, 49);
-            lblConLai.TabIndex = 0;
-            lblConLai.Text = "Còn lại:";
-            // 
-            // txtConLai
-            // 
-            txtConLai.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
-            txtConLai.Location = new Point(120, 3);
-            txtConLai.Name = "txtConLai";
-            txtConLai.ReadOnly = true;
-            txtConLai.Size = new Size(300, 43);
-            txtConLai.TabIndex = 1;
-            // 
-            // flpTienTra
-            // 
-            flpTienTra.AutoSize = true;
-            flpTienTra.Controls.Add(lblSoTienTra);
-            flpTienTra.Controls.Add(txtSoTienTra);
-            flpTienTra.Dock = DockStyle.Right;
-            flpTienTra.Location = new Point(682, 387);
-            flpTienTra.Margin = new Padding(10, 5, 10, 5);
-            flpTienTra.Name = "flpTienTra";
-            flpTienTra.Size = new Size(467, 49);
-            flpTienTra.TabIndex = 34;
-            // 
-            // lblSoTienTra
-            // 
-            lblSoTienTra.AutoSize = true;
-            lblSoTienTra.Dock = DockStyle.Fill;
-            lblSoTienTra.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
-            lblSoTienTra.Location = new Point(3, 0);
-            lblSoTienTra.Name = "lblSoTienTra";
-            lblSoTienTra.Size = new Size(155, 49);
-            lblSoTienTra.TabIndex = 0;
-            lblSoTienTra.Text = "Số tiền trả:";
-            // 
-            // txtSoTienTra
-            // 
-            txtSoTienTra.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold);
-            txtSoTienTra.Location = new Point(164, 3);
-            txtSoTienTra.Name = "txtSoTienTra";
-            txtSoTienTra.Size = new Size(300, 43);
-            txtSoTienTra.TabIndex = 1;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRefresh.Location = new Point(483, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(128, 44);
+            btnRefresh.TabIndex = 23;
+            btnRefresh.Text = "   Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // GUI_ChiTietPhieuXuat
             // 
@@ -607,23 +608,24 @@
             flpMaPhieu.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
+            flpDaiLy.ResumeLayout(false);
+            flpDaiLy.PerformLayout();
             flpNgayLap.ResumeLayout(false);
             flpNgayLap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDsChiTiet).EndInit();
             flpTongTien.ResumeLayout(false);
             flpTongTien.PerformLayout();
+            flpTienTra.ResumeLayout(false);
+            flpTienTra.PerformLayout();
+            flpConLai.ResumeLayout(false);
+            flpConLai.PerformLayout();
             tblInput.ResumeLayout(false);
             tblInput.PerformLayout();
             flpButtons.ResumeLayout(false);
             flpButtons.PerformLayout();
-            flpDaiLy.ResumeLayout(false);
-            flpDaiLy.PerformLayout();
-            flpConLai.ResumeLayout(false);
-            flpConLai.PerformLayout();
-            flpTienTra.ResumeLayout(false);
-            flpTienTra.PerformLayout();
             ResumeLayout(false);
         }
+
         private FlowLayoutPanel flpForm;
         private FlowLayoutPanel flpMaPhieu;
         private FlowLayoutPanel flowLayoutPanel2;
@@ -662,7 +664,7 @@
         private Panel panel2;
         private Button btnDelete;
         private Panel panel3;
-        private Button btnFind;
+        private Button btnRefresh;
         private FlowLayoutPanel flpTienTra;
         private Label lblSoTienTra;
         private TextBox txtSoTienTra;

@@ -30,8 +30,8 @@ namespace GUI_QuanLy
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_ChiTietPhieuNhap));
             flpForm = new FlowLayoutPanel();
             flpMaPhieu = new FlowLayoutPanel();
@@ -61,7 +61,7 @@ namespace GUI_QuanLy
             panel2 = new Panel();
             btnDelete = new Button();
             panel3 = new Panel();
-            btnFind = new Button();
+            btnRefresh = new Button();
             flpForm.SuspendLayout();
             flpMaPhieu.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -169,31 +169,33 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.AllowUserToResizeRows = false;
             dgvChiTietPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChiTietPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle4;
             dgvChiTietPhieuNhap.Dock = DockStyle.Top;
             dgvChiTietPhieuNhap.Location = new Point(10, 80);
             dgvChiTietPhieuNhap.Margin = new Padding(10);
             dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
             dgvChiTietPhieuNhap.RowHeadersVisible = false;
             dgvChiTietPhieuNhap.RowHeadersWidth = 51;
+            dgvChiTietPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvChiTietPhieuNhap.Size = new Size(1183, 371);
             dgvChiTietPhieuNhap.TabIndex = 0;
+            dgvChiTietPhieuNhap.SelectionChanged += dgvChiTietPhieuNhap_SelectionChanged;
             // 
             // flpTongTien
             // 
@@ -226,6 +228,7 @@ namespace GUI_QuanLy
             txtTongTien.ReadOnly = true;
             txtTongTien.Size = new Size(300, 43);
             txtTongTien.TabIndex = 1;
+            txtTongTien.Text = "0";
             // 
             // tblInput
             // 
@@ -259,17 +262,20 @@ namespace GUI_QuanLy
             // 
             // txtDonGiaNhap
             // 
-            txtDonGiaNhap.Location = new Point(826, 3);
+            txtDonGiaNhap.Location = new Point(857, 3);
             txtDonGiaNhap.Name = "txtDonGiaNhap";
             txtDonGiaNhap.Size = new Size(200, 27);
             txtDonGiaNhap.TabIndex = 10;
+            txtDonGiaNhap.Text = "0";
+            txtDonGiaNhap.TextChanged += txtDonGiaNhap_TextChanged;
+            txtDonGiaNhap.KeyPress += txtDonGiaNhap_KeyPress;
             // 
             // lblDG
             // 
             lblDG.AutoSize = true;
             lblDG.Dock = DockStyle.Right;
             lblDG.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDG.Location = new Point(662, 58);
+            lblDG.Location = new Point(693, 58);
             lblDG.Name = "lblDG";
             lblDG.Size = new Size(158, 38);
             lblDG.TabIndex = 6;
@@ -290,25 +296,29 @@ namespace GUI_QuanLy
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(200, 27);
             txtSoLuong.TabIndex = 1;
+            txtSoLuong.Text = "1";
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
+            txtSoLuong.KeyPress += txtSoLuong_KeyPress;
             // 
             // txtThanhTien
             // 
-            txtThanhTien.Location = new Point(826, 61);
+            txtThanhTien.Location = new Point(857, 61);
             txtThanhTien.Name = "txtThanhTien";
             txtThanhTien.ReadOnly = true;
             txtThanhTien.Size = new Size(200, 27);
             txtThanhTien.TabIndex = 8;
+            txtThanhTien.Text = "0";
             // 
             // lblDVT
             // 
             lblDVT.AutoSize = true;
             lblDVT.Dock = DockStyle.Right;
             lblDVT.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDVT.Location = new Point(696, 0);
+            lblDVT.Location = new Point(662, 0);
             lblDVT.Name = "lblDVT";
-            lblDVT.Size = new Size(124, 38);
+            lblDVT.Size = new Size(189, 38);
             lblDVT.TabIndex = 4;
-            lblDVT.Text = "Đơn giá:";
+            lblDVT.Text = "Đơn giá nhập";
             lblDVT.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblSL
@@ -344,7 +354,7 @@ namespace GUI_QuanLy
             flpButtons.Controls.Add(panel2);
             flpButtons.Controls.Add(btnDelete);
             flpButtons.Controls.Add(panel3);
-            flpButtons.Controls.Add(btnFind);
+            flpButtons.Controls.Add(btnRefresh);
             flpButtons.Dock = DockStyle.Right;
             flpButtons.Location = new Point(579, 676);
             flpButtons.Margin = new Padding(10);
@@ -421,20 +431,21 @@ namespace GUI_QuanLy
             panel3.Size = new Size(20, 20);
             panel3.TabIndex = 26;
             // 
-            // btnFind
+            // btnRefresh
             // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
-            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFind.Location = new Point(483, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "   Làm mới";
-            btnFind.UseVisualStyleBackColor = false;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRefresh.Location = new Point(483, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(128, 44);
+            btnRefresh.TabIndex = 23;
+            btnRefresh.Text = "   Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // GUI_ChiTietPhieuNhap
             // 
@@ -487,7 +498,7 @@ namespace GUI_QuanLy
         private Panel panel2;
         private Button btnDelete;
         private Panel panel3;
-        private Button btnFind;
+        private Button btnRefresh;
         private FlowLayoutPanel flpTongTien;
         private Label lblTongTien;
         private TextBox txtTongTien;

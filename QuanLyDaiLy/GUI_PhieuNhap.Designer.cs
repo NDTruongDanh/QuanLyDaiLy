@@ -18,9 +18,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_PhieuNhap));
             dgvPhieuNhap = new DataGridView();
-            dgvtxtMaPhieuNhap = new DataGridViewTextBoxColumn();
-            dgvtxtNgayLapPhieu = new DataGridViewTextBoxColumn();
-            dgvtxtTongTien = new DataGridViewTextBoxColumn();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             flpPhieuNhap = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -63,7 +60,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhieuNhap.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMaPhieuNhap, dgvtxtNgayLapPhieu, dgvtxtTongTien });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
@@ -91,27 +87,7 @@
             dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPhieuNhap.Size = new Size(1630, 467);
             dgvPhieuNhap.TabIndex = 17;
-            // 
-            // dgvtxtMaPhieuNhap
-            // 
-            dgvtxtMaPhieuNhap.HeaderText = "Mã phiếu nhập";
-            dgvtxtMaPhieuNhap.MinimumWidth = 6;
-            dgvtxtMaPhieuNhap.Name = "dgvtxtMaPhieuNhap";
-            dgvtxtMaPhieuNhap.ReadOnly = true;
-            // 
-            // dgvtxtNgayLapPhieu
-            // 
-            dgvtxtNgayLapPhieu.HeaderText = "Ngày lập phiếu";
-            dgvtxtNgayLapPhieu.MinimumWidth = 6;
-            dgvtxtNgayLapPhieu.Name = "dgvtxtNgayLapPhieu";
-            dgvtxtNgayLapPhieu.ReadOnly = true;
-            // 
-            // dgvtxtTongTien
-            // 
-            dgvtxtTongTien.HeaderText = "Tổng tiền";
-            dgvtxtTongTien.MinimumWidth = 6;
-            dgvtxtTongTien.Name = "dgvtxtTongTien";
-            dgvtxtTongTien.ReadOnly = true;
+            dgvPhieuNhap.SelectionChanged += dgvPhieuNhap_SelectionChanged;
             // 
             // sqlCommand1
             // 
@@ -344,6 +320,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "GUI_PhieuNhap";
             Text = "Quản Lý Phiếu Nhập";
+            Load += GUI_PhieuNhap_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             flpPhieuNhap.ResumeLayout(false);
             flpPhieuNhap.PerformLayout();
@@ -358,9 +335,6 @@
 
         private DataGridView dgvPhieuNhap;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
-        private DataGridViewTextBoxColumn dgvtxtMaPhieuNhap;
-        private DataGridViewTextBoxColumn dgvtxtNgayLapPhieu;
-        private DataGridViewTextBoxColumn dgvtxtTongTien;
         private FlowLayoutPanel flpPhieuNhap;
         private TableLayoutPanel tblThongTinPhieuNhap;
         private Label lblNgayLapPhieu;
