@@ -22,6 +22,7 @@ namespace GUI_QuanLy
     public partial class GUI_PhieuNhap : Form
     {
         private readonly IBUS_PhieuNhap _busPhieuNhap;
+        private readonly IBUS_ChiTietPhieuNhap _busCTPN;
         private readonly ILogger<GUI_PhieuNhap> _logger;
         private readonly IServiceProvider _services;
         private readonly BindingSource _bindingSource = new BindingSource();
@@ -29,9 +30,10 @@ namespace GUI_QuanLy
         private decimal _tongTien = 0;
         private int _maPhieuNhap = 0;
 
-        public GUI_PhieuNhap(IBUS_PhieuNhap busPhieuNhap, ILogger<GUI_PhieuNhap> logger, IServiceProvider services)
+        public GUI_PhieuNhap(IBUS_PhieuNhap busPhieuNhap, IBUS_ChiTietPhieuNhap busCTPN, ILogger<GUI_PhieuNhap> logger, IServiceProvider services)
         {
             _busPhieuNhap = busPhieuNhap;
+            _busCTPN = busCTPN;
             _logger = logger;
             _services = services;
             InitializeComponent();
@@ -89,15 +91,38 @@ namespace GUI_QuanLy
         {
             try
             {
-                DTO_PhieuNhap phieuNhap = new DTO_PhieuNhap(0, DateTime.Now, 0);
-                if (await _busPhieuNhap.AddPhieuNhapAsync(phieuNhap))
+                DateTime ngayLap = dtpNgayLapPhieu.Value;
+                DTO_PhieuNhap phieuNhap = new DTO_PhieuNhap(0, ngayLap, 0);
+                int maPhieuNhap = await _busPhieuNhap.GetMaPhieuNhapDefault(phieuNhap);
+                phieuNhap.MaPhieuNhap = maPhieuNhap;
+
+                using (var CTPN = _services.GetRequiredService<GUI_ChiTietPhieuNhap>())
                 {
-                    MessageBox.Show("Thêm Phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await LoadPhieuNhapAsync();
+                    this.Enabled = false;
+                    CTPN.SetPhieuNhap(phieuNhap);
+                    CTPN.ShowDialog();
+                    phieuNhap.TongTien = CTPN.GetTongTien();
+                    this.Enabled = true;
+                }
+
+                if (phieuNhap.TongTien != 0)
+                {
+                    if (await _busPhieuNhap.UpdatePhieuNhapAsync(phieuNhap)) 
+                    {
+                        MessageBox.Show("Thêm Phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadPhieuNhapAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thêm Đại lý thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (await _busPhieuNhap.DeletePhieuNhapAsync(phieuNhap.MaPhieuNhap))
+                    {
+                        MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch (BusException busEx)
@@ -116,64 +141,66 @@ namespace GUI_QuanLy
             }
         }
 
-        //private async void btnEdit_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvPhieuNhap.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa Phiếu nhập này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (confirm == DialogResult.Yes)
-        //        {
-        //            try
-        //            {
-        //                using (var CTPN = _services.GetRequiredService<GUI_ChiTietPhieuNhap>())
-        //                {
-        //                    this.Enabled = false;
-        //                    CTPN.SetMaPhieuNhap(_maPhieuNhap);
-        //                    CTPN.SetTongTien(_tongTien);
-        //                    CTPN.ShowDialog();
-        //                    _tongTien = CTPN.GetTongTien();
-        //                    this.Enabled = true;
-        //                }
+        private async void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvPhieuNhap.SelectedRows.Count > 0)
+            {
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa Phiếu nhập này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        DTO_PhieuNhap phieuNhap = new DTO_PhieuNhap
+                        {
+                            MaPhieuNhap = _maPhieuNhap,
+                            NgayLapPhieu = dtpNgayLapPhieu.Value,
+                            TongTien = _tongTien
+                        };
 
-        //                DTO_PhieuNhap phieuNhap = new DTO_PhieuNhap
-        //                {
-        //                    MaPhieuNhap = _maPhieuNhap,
-        //                    NgayLapPhieu = dtpNgayLapPhieu.Value,
-        //                    TongTien = _tongTien
-        //                };
+                        using (var CTPN = _services.GetRequiredService<GUI_ChiTietPhieuNhap>())
+                        {
+                            this.Enabled = false;
+                            CTPN.SetPhieuNhap(phieuNhap);
+                            CTPN.ShowDialog();
+                            phieuNhap.TongTien = CTPN.GetTongTien();
+                            this.Enabled = true;
+                        }
+
+                        if (await _busPhieuNhap.UpdatePhieuNhapAsync(phieuNhap))
+                        {
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadPhieuNhapAsync();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Update button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Update button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhập để sửa!");
+            }
+        }
 
 
-        //                if (await _busPhieuNhap.UpdatePhieuNhapAsync(phieuNhap))
-        //                {
-        //                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                    await LoadPhieuNhapAsync();
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                }
-        //            }
-        //            catch (BusException busEx)
-        //            {
-        //                _logger.LogError(busEx,
-        //                    "BusException in Update button");
 
-        //                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                _logger.LogCritical(ex,
-        //                    "Unexpected exception in Update button");
 
-        //                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Vui lòng chọn phiếu nhập để sửa!");
-        //    }
-        //}
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
@@ -184,10 +211,21 @@ namespace GUI_QuanLy
                 {
                     try
                     {
-                        if (await _busPhieuNhap.DeletePhieuNhapAsync(_maPhieuNhap))
+                        if (await _busCTPN.DeleteChiTietPhieuNhapByMPNAsync(_maPhieuNhap))
                         {
-                            MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            await LoadPhieuNhapAsync();
+                            if (await _busPhieuNhap.DeletePhieuNhapAsync(_maPhieuNhap))
+                            {
+                                MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                await LoadPhieuNhapAsync();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xoá Chi tiết phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (BusException busEx)
@@ -212,6 +250,9 @@ namespace GUI_QuanLy
                 MessageBox.Show("Vui lòng chọn phiếu nhập để xóa!");
             }
         }
+
+
+
 
         private void dgvPhieuNhap_SelectionChanged(object sender, EventArgs e)
         {

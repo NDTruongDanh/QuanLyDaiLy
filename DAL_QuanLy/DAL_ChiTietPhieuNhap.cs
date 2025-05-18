@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using DTO_QuanLy;
+using System.Runtime.CompilerServices;
 
 namespace DAL_QuanLy
 {
@@ -11,11 +12,11 @@ namespace DAL_QuanLy
         Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapListAsync();
         Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapsByMPN(int maPhieuNhap);
         Task<DataTable> GetDataTableChiTietPhieuNhapAsync();
-        Task<DataTable> GetDataTableChiTietPhieuNhapsByMPN(int maPhieuNhap);
+        Task<DataTable> GetDataTableChiTietPhieuNhapsByMPNAsync(int maPhieuNhap);
         Task<bool> AddChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> UpdateChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> DeleteChiTietPhieuNhapAsync(int maPhieuNhap, int maMatHang);
-
+        Task<bool> DeleteChiTietPhieuNhapByMPNAsync(int maPhieuNhap);
     }
 
 
@@ -123,7 +124,7 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongNhap, DonGiaNhap, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
                                                     FROM CHITIET_PHIEUNHAP ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh", conn))
@@ -149,14 +150,14 @@ namespace DAL_QuanLy
 
 
         //Get DataTable ChiTietPhieuNhaps By MaPhieuNhap
-        public async Task<DataTable> GetDataTableChiTietPhieuNhapsByMPN(int maPhieuNhap)
+        public async Task<DataTable> GetDataTableChiTietPhieuNhapsByMPNAsync(int maPhieuNhap)
         {
             try
             {
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongNhap, DonGiaNhap, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, ct.MaMatHang, mh.TenMatHang' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
                                                     FROM CHITIET_PHIEUNHAP ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh
@@ -202,7 +203,7 @@ namespace DAL_QuanLy
                         cmd.Parameters.Add("@ThanhTien", SqlDbType.Decimal).Value = chiTietPhieuNhap.ThanhTien;
 
                         return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false) > 0;
-                    }          
+                    }
                 }
             }
             catch (SqlException sqlEx)
@@ -269,6 +270,33 @@ namespace DAL_QuanLy
                     sqlEx,
                     sqlEx.Number);
             }
+        }
+
+
+
+        public async Task<bool> DeleteChiTietPhieuNhapByMPNAsync(int maPhieuNhap)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("DELETE FROM CHITIET_PHIEUNHAP WHERE MaPhieuNhap = @MaPhieuNhap", conn))
+                    {
+                        cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Int).Value = maPhieuNhap;
+
+                        return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false) > 0;
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error deleting ChiTietPhieuNhap by MaPhieuNhap: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+
         }
     }
 }

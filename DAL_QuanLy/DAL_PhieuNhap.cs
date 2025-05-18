@@ -9,6 +9,7 @@ namespace DAL_QuanLy
     public interface IDAL_PhieuNhap
     {
         Task<List<DTO_PhieuNhap>> GetPhieuNhapListAsync();
+        Task<int> GetMaPhieuNhapDefault(DTO_PhieuNhap phieuNhap);
         Task<bool> AddPhieuNhapAsync(DTO_PhieuNhap phieuNhap);
         Task<bool> UpdatePhieuNhapAsync(DTO_PhieuNhap phieuNhap);
         Task<bool> DeletePhieuNhapAsync(int maPhieuNhap);
@@ -59,6 +60,48 @@ namespace DAL_QuanLy
             }
         }
 
+
+
+
+
+        //Get PhieuNhap Default
+        public async Task<int> GetMaPhieuNhapDefault(DTO_PhieuNhap phieuNhap)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"INSERT INTO PHIEUNHAP(NgayLapPhieu,TongTien)
+                                                    OUTPUT INSERTED.MaPhieuNhap
+                                                    VALUES (@NgayLapPhieu,@TongTien);", conn))
+                    {   
+                        cmd.Parameters.Add("@NgayLapPhieu", SqlDbType.Date).Value = phieuNhap.NgayLapPhieu;
+                        cmd.Parameters.Add("@TongTien", SqlDbType.Decimal).Value = phieuNhap.TongTien;
+
+                        object ? result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
+                        if (result == null || result == DBNull.Value)
+                            throw new DalException("Insert failed: no ID returned", null, 0);
+
+                        return Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching PhieuNhap default: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+
+
+
+
         //Add PhieuNhap
         public async Task<bool> AddPhieuNhapAsync(DTO_PhieuNhap phieuNhap)
         {
@@ -84,6 +127,10 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+
+
 
         //Update PhieuNhap
         public async Task<bool> UpdatePhieuNhapAsync(DTO_PhieuNhap phieuNhap)
