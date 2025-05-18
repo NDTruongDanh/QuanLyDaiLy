@@ -91,7 +91,7 @@ namespace GUI_QuanLy
         {
             try
             {
-                var data = await _busCTPN.GetDataTableChiTietPhieuNhapsByMPN(_phieuNhap.MaPhieuNhap);
+                var data = await _busCTPN.GetDataTableChiTietPhieuNhapsByMPNAsync(_phieuNhap.MaPhieuNhap);
                 _bindingSource.DataSource = data;
                 ModifyDataGridViewColumns();
 

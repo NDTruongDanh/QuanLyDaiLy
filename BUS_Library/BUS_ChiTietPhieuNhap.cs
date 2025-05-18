@@ -11,7 +11,7 @@ namespace BUS_QuanLy
     {
         Task<List<DTO_ChiTietPhieuNhap>> GetChiTietPhieuNhapListAsync();
         Task<DataTable> GetDataTableChiTietPhieuNhapAsync();
-        Task<DataTable> GetDataTableChiTietPhieuNhapsByMPN(int maPhieuNhap);
+        Task<DataTable> GetDataTableChiTietPhieuNhapsByMPNAsync(int maPhieuNhap);
         Task<bool> AddChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> UpdateChiTietPhieuNhapAsync(DTO_ChiTietPhieuNhap chiTietPhieuNhap);
         Task<bool> DeleteChiTietPhieuNhapAsync(int maPhieuNhap, int maMatHang);
