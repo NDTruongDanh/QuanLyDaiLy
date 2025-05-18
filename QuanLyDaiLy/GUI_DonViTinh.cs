@@ -83,7 +83,7 @@ namespace GUI_QuanLy
 
         private void ClearInputFields()
         {
-           // txtTenDonViTinh.Clear();
+            // txtTenDonViTinh.Clear();
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -175,45 +175,45 @@ namespace GUI_QuanLy
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-        //    if (dgvDVT.SelectedRows.Count > 0)
-        //    {
-        //        try
-        //        {
-        //            if (await _busDVT.DeleteDonViTinhAsync(_maDVT))
-        //            {
-        //                MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                await LoadDonViTinhAsync();
-        //                ClearInputFields();
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            }
-        //        }
-        //        catch (BusException busEx)
-        //        {
-        //            _logger.LogError(busEx,
-        //                "BusException in Delete button");
+            //    if (dgvDVT.SelectedRows.Count > 0)
+            //    {
+            //        try
+            //        {
+            //            if (await _busDVT.DeleteDonViTinhAsync(_maDVT))
+            //            {
+            //                MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                await LoadDonViTinhAsync();
+            //                ClearInputFields();
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //            }
+            //        }
+            //        catch (BusException busEx)
+            //        {
+            //            _logger.LogError(busEx,
+            //                "BusException in Delete button");
 
-        //            MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            _logger.LogCritical(ex,
-        //                "Unexpected exception in Delete button");
+            //            MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            _logger.LogCritical(ex,
+            //                "Unexpected exception in Delete button");
 
-        //            MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Vui lòng chọn đơn vị tính để xóa.");
-        //    }
+            //            MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Vui lòng chọn đơn vị tính để xóa.");
+            //    }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-          //  this.Close();
+            //  this.Close();
         }
 
         private void dgvDVT_SelectionChanged(object sender, EventArgs e)
