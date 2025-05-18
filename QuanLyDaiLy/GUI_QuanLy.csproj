@@ -37,15 +37,15 @@
   </ItemGroup>
 
   <ItemGroup>
-  <Compile Update="GUI_LoaiDaiLy.cs">
+  <Compile Update="GUI_DaiLy.cs">
     <SubType>Form</SubType>
   </Compile>
-  <Compile Update="GUI_LoaiDaiLy.Designer.cs">
-    <DependentUpon>GUI_LoaiDaiLy
+  <Compile Update="GUI_DaiLy.Designer.cs">
+    <DependentUpon>GUI_DaiLy
 .cs</DependentUpon>
   </Compile>
-  <EmbeddedResource Update="GUI_LoaiDaiLy.resx">
-    <DependentUpon>GUI_LoaiDaiLy
+  <EmbeddedResource Update="GUI_DaiLy.resx">
+    <DependentUpon>GUI_DaiLy
 .cs</DependentUpon>
   </EmbeddedResource>
 </ItemGroup>
