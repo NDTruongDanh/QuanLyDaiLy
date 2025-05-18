@@ -457,7 +457,7 @@ namespace GUI_QuanLy
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(138, 49);
             lblTongTien.TabIndex = 0;
-            lblTongTien.Text = "Tổng tiền";
+            lblTongTien.Text = "Tổng tiền:";
             // 
             // textBox1
             // 
