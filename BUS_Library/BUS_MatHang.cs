@@ -10,6 +10,7 @@ namespace BUS_QuanLy
     public interface IBUS_MatHang
     {
         Task<List<DTO_MatHang>> GetMatHangListAsync();
+        Task<DataTable> GetMatHangForNhapXuatAsync();
         Task<bool> AddMatHangAsync(DTO_MatHang matHang);
         Task<bool> AddMatHangDefault(string tenMatHang, int maDonViTinh);
         Task<bool> UpdateMatHangAsync(DTO_MatHang matHang);
@@ -64,6 +65,45 @@ namespace BUS_QuanLy
                 }
             }
         }
+
+
+
+        //Get MatHang For NhapXuat
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetMatHangForNhapXuatFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetMatHangForNhapXuatAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetMatHangForNhapXuatFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetMatHangForNhapXuatAsync()
+        {
+            using (_logger.BeginScope("BUS_MatHang.GetMatHangForNhapXuatAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalMatHang.GetMatHangForNhapXuatAsync();
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetMatHangForNhapXuatFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách mặt hàng. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
 
 
         //Add MatHang

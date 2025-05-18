@@ -11,6 +11,7 @@ namespace BUS_QuanLy
     public interface IBUS_PhieuNhap
     {
         Task<List<DTO_PhieuNhap>> GetPhieuNhapListAsync();
+        Task<int> GetMaPhieuNhapDefault(DTO_PhieuNhap phieuNhap);
         Task<bool> AddPhieuNhapAsync(DTO_PhieuNhap phieuNhap);
         Task<bool> UpdatePhieuNhapAsync(DTO_PhieuNhap phieuNhap);
         Task<bool> DeletePhieuNhapAsync(int maPhieuNhap);
@@ -63,6 +64,48 @@ namespace BUS_QuanLy
                 }
             }
         }
+
+
+
+
+
+        //Get PhieuNhap Default
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetMaPhieuNhapDefaultFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetMaPhieuNhapDefault (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetMaPhieuNhapDefaultFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<int> GetMaPhieuNhapDefault(DTO_PhieuNhap phieuNhap)
+        {
+            using (_logger.BeginScope("BUS_PhieuNhap.GetMaPhieuNhapDefault at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuNhap.GetMaPhieuNhapDefault(phieuNhap);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetMaPhieuNhapDefaultFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được mã phiếu nhập. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
 
 
         //Add PhieuNhap

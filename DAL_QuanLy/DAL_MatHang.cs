@@ -9,6 +9,7 @@ namespace DAL_QuanLy
     public interface IDAL_MatHang
     {
         Task<List<DTO_MatHang>> GetMatHangListAsync();
+        Task<DataTable> GetMatHangForNhapXuatAsync();
         Task<bool> AddMatHangAsync(DTO_MatHang matHang);
         Task<bool> AddMatHangDefault(string tenMatHang, int maDonViTinh);
         Task<bool> UpdateMatHangAsync(DTO_MatHang matHang);
@@ -60,6 +61,39 @@ namespace DAL_QuanLy
             {
                 throw new DalException(
                     $"DAL error fetching Mat Hang list: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+        //Get MatHang for Nhap Xuat
+        public async Task<DataTable> GetMatHangForNhapXuatAsync()
+        {
+            try
+            {
+                var dataTable = new DataTable();
+
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaMatHang, TenMatHang + ' (' + TenDonViTinh + ')' AS Display
+                                                    FROM MATHANG mh
+                                                    JOIN DONVITINH dvt ON mh.MaDonViTinh = mh.MaDonViTinh", conn))
+                    {
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching Mat Hang for Nhap Xuat: {sqlEx.Message}",
                     sqlEx,
                     sqlEx.Number);
             }

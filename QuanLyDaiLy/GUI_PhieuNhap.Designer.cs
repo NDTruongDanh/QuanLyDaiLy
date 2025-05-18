@@ -265,6 +265,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // panel1
             // 
@@ -287,6 +288,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // panel2
             // 
@@ -309,6 +311,7 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // panel3
             // 
@@ -352,6 +355,7 @@
             flpButtons.PerformLayout();
             ResumeLayout(false);
         }
+
         private DataGridView dgvPhieuNhap;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridViewTextBoxColumn dgvtxtMaPhieuNhap;

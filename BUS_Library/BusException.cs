@@ -50,18 +50,23 @@ namespace BUS_Library
         public const int AddMatHangDefaultFailure = 0403;
         public const int UpdateMatHangFailure = 0404;
         public const int DeleteMatHangFailure = 0405;
+        public const int GetMatHangForNhapXuatFailure = 0406;
 
         //PhieuNhap
         public const int GetPhieuNhapListFailure = 0501;
         public const int AddPhieuNhapFailure = 0502;
         public const int UpdatePhieuNhapFailure = 0503;
         public const int DeletePhieuNhapFailure = 0504;
+        public const int GetMaPhieuNhapDefaultFailure = 0505;
 
         //ChitietPhieuNhap
         public const int GetChiTietPhieuNhapListFailure = 0505;
         public const int AddChiTietPhieuNhapFailure = 0506;
         public const int UpdateChiTietPhieuNhapFailure = 0507;
         public const int DeleteChiTietPhieuNhapFailure = 0508;
+        public const int GetDataTableChiTietPhieuNhapFailure = 0509;
+        public const int GetDataTableChiTietPhieuNhapsByMPNFailure = 0510;
+        public const int DeleteChiTietPhieuNhapByMPNFailure = 0511;
 
         //PhieuXuat
         public const int GetPhieuXuatListFailure = 0601;
