@@ -99,10 +99,10 @@ namespace GUI_QuanLy
 
         private void ClearInputFields()
         {
-        //    txtTenMatHang.Clear();
-        //    cboDonViTinh.SelectedIndex = -1;
-        //    txtDonGiaHienTai.Clear();
-        //    txtTonKho.Clear();
+            //    txtTenMatHang.Clear();
+            //    cboDonViTinh.SelectedIndex = -1;
+            //    txtDonGiaHienTai.Clear();
+            //    txtTonKho.Clear();
         }
 
         private void ValidateInputFields()
@@ -278,7 +278,7 @@ namespace GUI_QuanLy
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-           // this.Close();
+            // this.Close();
         }
 
         private void dgvMatHang_SelectionChanged(object sender, EventArgs e)
@@ -303,7 +303,5 @@ namespace GUI_QuanLy
             //    }
             //}
         }
-
-      
     }
 }
