@@ -26,17 +26,20 @@ namespace GUI_QuanLy
         private readonly BUS_ChiTietPhieuXuat busChiTietPhieuXuat;
 
         public DTO_PhieuXuat phieuXuat;
-        DTO_DaiLy daiLy; 
+        DTO_DaiLy daiLy;
         public GUI_ChiTietPhieuXuat(int maPhieuXuat)
         {
             InitializeComponent();
-        
+
 
         }
         private void GUI_ChiTietPhieuXuat_Load(object sender, EventArgs e)
         {
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
 

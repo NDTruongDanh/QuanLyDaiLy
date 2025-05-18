@@ -124,7 +124,7 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
                                                     FROM CHITIET_PHIEUNHAP ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh", conn))
@@ -157,7 +157,7 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, ct.MaMatHang, mh.TenMatHang' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuNhap, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongNhap, DonGiaNhap, ThanhTien
                                                     FROM CHITIET_PHIEUNHAP ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh
@@ -193,8 +193,8 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand("INSERT INTO CHITIET_PHIEUNHAP(MaPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap, ThanhTien " +
-                                                        "VALUES @MaPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap, @ThanhTien", conn))
+                    using (var cmd = new SqlCommand(@"INSERT INTO CHITIET_PHIEUNHAP(MaPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap, ThanhTien)
+VALUES (@MaPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap, @ThanhTien)", conn))
                     {
                         cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Int).Value = chiTietPhieuNhap.MaPhieuNhap;
                         cmd.Parameters.Add("@MaMatHang", SqlDbType.Int).Value = chiTietPhieuNhap.MaMatHang;

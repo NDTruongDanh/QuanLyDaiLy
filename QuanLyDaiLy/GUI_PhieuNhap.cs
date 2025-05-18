@@ -63,16 +63,9 @@ namespace GUI_QuanLy
             try
             {
                 var data = await _busPhieuNhap.GetPhieuNhapListAsync();
-                if (dgvPhieuNhap.InvokeRequired)
-                {
-                    dgvPhieuNhap.Invoke(() => _bindingSource.DataSource = data);
-                }
-                else
-                {
-                    _bindingSource.DataSource = data;
-                    dgvPhieuNhap.DataSource = _bindingSource;
-                }
-                dgvPhieuNhap.AutoResizeColumns();
+                _bindingSource.DataSource = data;
+                ModifyDataGridViewColumns();
+
             }
             catch (BusException busEx)
             {
@@ -85,6 +78,20 @@ namespace GUI_QuanLy
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
+        }
+
+
+        private void ModifyDataGridViewColumns()
+        {
+            dgvPhieuNhap.Columns["MaPhieuNhap"].HeaderText = "Mã Phiếu Nhập";
+            dgvPhieuNhap.Columns["NgayLapPhieu"].HeaderText = "Ngày Lập Phiếu";
+            dgvPhieuNhap.Columns["TongTien"].HeaderText = "Tổng Tiền";
+
+            foreach (DataGridViewColumn dataColumn in dgvPhieuNhap.Columns)
+            {
+                dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)
