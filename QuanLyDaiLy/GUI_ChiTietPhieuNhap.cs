@@ -52,6 +52,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                txtMaPhieuNhap.Text = _phieuNhap.MaPhieuNhap.ToString();
                 await LoadComboBoxesMatHangAsync();
                 await LoadGridChiTietPhieuNhapAsync();
             }
