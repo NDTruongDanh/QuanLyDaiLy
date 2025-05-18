@@ -133,13 +133,11 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCTPN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAALZJREFUSEvt
-        lLEJwmAUhG8K93ALG2exs84UWmYUS0EhK6SxcgKxMTzwD+f5mpALROLB1+R/3AdXBFhaVgD2ACoT0RWd
-        aW4AXhNxV9kmOXITjj7n5MDNhYUtPZz4YWSiq/SGo89shDqLwiX8veQv/BIOiUWofw5lR7cWIZdk2CdV
-        gWIX6oSKfdIhsQi5JMM+qQqU3xeOzXyEV5lkChoWbpMDN+H4yCM5cvFUWckawBFAbeLw7lxQOvQokV+9
-        qffRAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAFpJREFUSEvt
+        0tEJACEMA9Dsv5Sj3AiO4BFQKAWlaPUrDwIF0YAKiDxQALQeztepMJ0Kt3yLVFPI2a/bhI0DTxPmN+4m
+        jG8zC69qHMjZr9ukuPJpVlSYToUiuX6rtnLhgKV27wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -238,31 +238,10 @@ namespace GUI_QuanLy
                 }
             }
         }
-
-        private void dgvPhieuXuat_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvPhieuXuat.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = dgvPhieuXuat.SelectedRows[0];
-                _maPhieuXuat = Convert.ToInt32(row.Cells["MaPhieuXuat"].Value);
-                //dtpNgayLapPhieu.Value = Convert.ToDateTime(row.Cells["NgayLapPhieu"].Value);
-                //txtTongTien.Text = row.Cells["TongTien"].Value.ToString();
-                //txtTienTra.Text = row.Cells["TienTra"].Value.ToString();
-                //txtConLai.Text = row.Cells["ConLai"].Value.ToString();
-            }
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
     }
 }
 

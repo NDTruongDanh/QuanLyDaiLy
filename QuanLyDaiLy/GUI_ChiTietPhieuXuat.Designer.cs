@@ -13,8 +13,8 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_ChiTietPhieuXuat));
             flpForm = new FlowLayoutPanel();
             flpMaPhieu = new FlowLayoutPanel();
@@ -45,7 +45,7 @@
             lblSL = new Label();
             lblTenMatHang = new Label();
             flpButtons = new FlowLayoutPanel();
-            btnCTPN = new Button();
+            btnAdd = new Button();
             panel1 = new Panel();
             btnEdit = new Button();
             panel2 = new Panel();
@@ -174,24 +174,24 @@
             dgvDsChiTiet.AllowUserToResizeRows = false;
             dgvDsChiTiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDsChiTiet.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvDsChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvDsChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvDsChiTiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDsChiTiet.Columns.AddRange(new DataGridViewColumn[] { dgvtxtMatHang, dgvtxtDCT, dgvtxtSL, dgvtxtDG, dgvtxtThanhTien });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvDsChiTiet.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvDsChiTiet.DefaultCellStyle = dataGridViewCellStyle4;
             dgvDsChiTiet.Dock = DockStyle.Top;
             dgvDsChiTiet.Location = new Point(10, 80);
             dgvDsChiTiet.Margin = new Padding(10);
@@ -403,7 +403,7 @@
             // flpButtons
             // 
             flpButtons.AutoSize = true;
-            flpButtons.Controls.Add(btnCTPN);
+            flpButtons.Controls.Add(btnAdd);
             flpButtons.Controls.Add(panel1);
             flpButtons.Controls.Add(btnEdit);
             flpButtons.Controls.Add(panel2);
@@ -417,20 +417,20 @@
             flpButtons.Size = new Size(614, 50);
             flpButtons.TabIndex = 30;
             // 
-            // btnCTPN
+            // btnAdd
             // 
-            btnCTPN.AutoSize = true;
-            btnCTPN.BackColor = Color.FromArgb(76, 175, 80);
-            btnCTPN.FlatStyle = FlatStyle.Flat;
-            btnCTPN.Font = new Font("Segoe UI", 12F);
-            btnCTPN.Image = (Image)resources.GetObject("btnCTPN.Image");
-            btnCTPN.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCTPN.Location = new Point(3, 3);
-            btnCTPN.Name = "btnCTPN";
-            btnCTPN.Size = new Size(128, 44);
-            btnCTPN.TabIndex = 22;
-            btnCTPN.Text = "CTPN";
-            btnCTPN.UseVisualStyleBackColor = false;
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(128, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -656,7 +656,7 @@
         private Label lblSL;
         private Label lblTenMatHang;
         private FlowLayoutPanel flpButtons;
-        private Button btnCTPN;
+        private Button btnAdd;
         private Panel panel1;
         private Button btnEdit;
         private Panel panel2;

@@ -23,14 +23,16 @@
             dgvtxtTongTien = new DataGridViewTextBoxColumn();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             flpPhieuNhap = new FlowLayoutPanel();
-            pnSpace = new Panel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            lblDanhSachPhieuXuat = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             tblThongTinPhieuNhap = new TableLayoutPanel();
             lblNgayLapPhieu = new Label();
             lblTongTien = new Label();
             dtpNgayLapPhieu = new DateTimePicker();
             txtTongTien = new TextBox();
             flpButtons = new FlowLayoutPanel();
-            btnCTPN = new Button();
+            btnAdd = new Button();
             panel1 = new Panel();
             btnEdit = new Button();
             panel2 = new Panel();
@@ -39,6 +41,7 @@
             btnFind = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
             flpPhieuNhap.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             tblThongTinPhieuNhap.SuspendLayout();
             flpButtons.SuspendLayout();
             SuspendLayout();
@@ -69,11 +72,10 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvPhieuNhap.Dock = DockStyle.Right;
             dgvPhieuNhap.EnableHeadersVisualStyles = false;
             dgvPhieuNhap.GridColor = Color.White;
-            dgvPhieuNhap.Location = new Point(20, 76);
-            dgvPhieuNhap.Margin = new Padding(20);
+            dgvPhieuNhap.Location = new Point(5, 47);
+            dgvPhieuNhap.Margin = new Padding(5);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -118,8 +120,8 @@
             // 
             // flpPhieuNhap
             // 
-            flpPhieuNhap.Controls.Add(pnSpace);
-            flpPhieuNhap.Controls.Add(dgvPhieuNhap);
+            flpPhieuNhap.Controls.Add(flowLayoutPanel2);
+            flpPhieuNhap.Controls.Add(flowLayoutPanel1);
             flpPhieuNhap.Controls.Add(tblThongTinPhieuNhap);
             flpPhieuNhap.Controls.Add(flpButtons);
             flpPhieuNhap.Dock = DockStyle.Fill;
@@ -130,12 +132,40 @@
             flpPhieuNhap.TabIndex = 18;
             flpPhieuNhap.WrapContents = false;
             // 
-            // pnSpace
+            // flowLayoutPanel2
             // 
-            pnSpace.Location = new Point(3, 3);
-            pnSpace.Name = "pnSpace";
-            pnSpace.Size = new Size(614, 50);
-            pnSpace.TabIndex = 30;
+            flowLayoutPanel2.AutoSize = true;
+            flowLayoutPanel2.BackColor = Color.White;
+            flowLayoutPanel2.Controls.Add(lblDanhSachPhieuXuat);
+            flowLayoutPanel2.Controls.Add(dgvPhieuNhap);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel2.Location = new Point(20, 5);
+            flowLayoutPanel2.Margin = new Padding(20, 5, 0, 5);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1640, 519);
+            flowLayoutPanel2.TabIndex = 31;
+            // 
+            // lblDanhSachPhieuXuat
+            // 
+            lblDanhSachPhieuXuat.AutoSize = true;
+            lblDanhSachPhieuXuat.BackColor = Color.White;
+            lblDanhSachPhieuXuat.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDanhSachPhieuXuat.Location = new Point(20, 5);
+            lblDanhSachPhieuXuat.Margin = new Padding(20, 5, 5, 5);
+            lblDanhSachPhieuXuat.Name = "lblDanhSachPhieuXuat";
+            lblDanhSachPhieuXuat.Size = new Size(266, 32);
+            lblDanhSachPhieuXuat.TabIndex = 17;
+            lblDanhSachPhieuXuat.Text = "Danh sách phiếu nhập";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(3, 532);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(0, 0);
+            flowLayoutPanel1.TabIndex = 30;
             // 
             // tblThongTinPhieuNhap
             // 
@@ -148,7 +178,7 @@
             tblThongTinPhieuNhap.Controls.Add(dtpNgayLapPhieu, 1, 1);
             tblThongTinPhieuNhap.Controls.Add(txtTongTien, 1, 3);
             tblThongTinPhieuNhap.Dock = DockStyle.Left;
-            tblThongTinPhieuNhap.Location = new Point(200, 566);
+            tblThongTinPhieuNhap.Location = new Point(200, 538);
             tblThongTinPhieuNhap.Margin = new Padding(200, 3, 3, 3);
             tblThongTinPhieuNhap.Name = "tblThongTinPhieuNhap";
             tblThongTinPhieuNhap.RowCount = 6;
@@ -196,6 +226,7 @@
             // 
             // txtTongTien
             // 
+            txtTongTien.BackColor = Color.White;
             txtTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTongTien.Location = new Point(159, 123);
             txtTongTien.Name = "txtTongTien";
@@ -206,7 +237,7 @@
             // flpButtons
             // 
             flpButtons.AutoSize = true;
-            flpButtons.Controls.Add(btnCTPN);
+            flpButtons.Controls.Add(btnAdd);
             flpButtons.Controls.Add(panel1);
             flpButtons.Controls.Add(btnEdit);
             flpButtons.Controls.Add(panel2);
@@ -214,26 +245,26 @@
             flpButtons.Controls.Add(panel3);
             flpButtons.Controls.Add(btnFind);
             flpButtons.Dock = DockStyle.Right;
-            flpButtons.Location = new Point(856, 812);
+            flpButtons.Location = new Point(846, 784);
             flpButtons.Margin = new Padding(3, 3, 200, 3);
             flpButtons.Name = "flpButtons";
             flpButtons.Size = new Size(614, 50);
             flpButtons.TabIndex = 29;
             // 
-            // btnCTPN
+            // btnAdd
             // 
-            btnCTPN.AutoSize = true;
-            btnCTPN.BackColor = Color.FromArgb(76, 175, 80);
-            btnCTPN.FlatStyle = FlatStyle.Flat;
-            btnCTPN.Font = new Font("Segoe UI", 12F);
-            btnCTPN.Image = (Image)resources.GetObject("btnCTPN.Image");
-            btnCTPN.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCTPN.Location = new Point(3, 3);
-            btnCTPN.Name = "btnCTPN";
-            btnCTPN.Size = new Size(128, 44);
-            btnCTPN.TabIndex = 22;
-            btnCTPN.Text = "CTPN";
-            btnCTPN.UseVisualStyleBackColor = false;
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(128, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -313,6 +344,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             flpPhieuNhap.ResumeLayout(false);
             flpPhieuNhap.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
             tblThongTinPhieuNhap.ResumeLayout(false);
             tblThongTinPhieuNhap.PerformLayout();
             flpButtons.ResumeLayout(false);
@@ -325,19 +358,21 @@
         private DataGridViewTextBoxColumn dgvtxtNgayLapPhieu;
         private DataGridViewTextBoxColumn dgvtxtTongTien;
         private FlowLayoutPanel flpPhieuNhap;
-        private Panel pnSpace;
         private TableLayoutPanel tblThongTinPhieuNhap;
         private Label lblNgayLapPhieu;
         private Label lblTongTien;
         private DateTimePicker dtpNgayLapPhieu;
         private TextBox txtTongTien;
         private FlowLayoutPanel flpButtons;
-        private Button btnCTPN;
+        private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblDanhSachPhieuXuat;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }
