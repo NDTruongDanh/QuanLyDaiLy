@@ -144,9 +144,9 @@
             tblThongTinPhieuNhap.ColumnStyles.Add(new ColumnStyle());
             tblThongTinPhieuNhap.ColumnStyles.Add(new ColumnStyle());
             tblThongTinPhieuNhap.Controls.Add(lblNgayLapPhieu, 0, 1);
-            tblThongTinPhieuNhap.Controls.Add(lblTongTien, 0, 2);
+            tblThongTinPhieuNhap.Controls.Add(lblTongTien, 0, 3);
             tblThongTinPhieuNhap.Controls.Add(dtpNgayLapPhieu, 1, 1);
-            tblThongTinPhieuNhap.Controls.Add(txtTongTien, 1, 2);
+            tblThongTinPhieuNhap.Controls.Add(txtTongTien, 1, 3);
             tblThongTinPhieuNhap.Dock = DockStyle.Left;
             tblThongTinPhieuNhap.Location = new Point(200, 566);
             tblThongTinPhieuNhap.Margin = new Padding(200, 3, 3, 3);
@@ -179,7 +179,7 @@
             lblTongTien.AutoSize = true;
             lblTongTien.Dock = DockStyle.Fill;
             lblTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTongTien.Location = new Point(3, 80);
+            lblTongTien.Location = new Point(3, 120);
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(150, 40);
             lblTongTien.TabIndex = 24;
@@ -197,7 +197,7 @@
             // txtTongTien
             // 
             txtTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTongTien.Location = new Point(159, 83);
+            txtTongTien.Location = new Point(159, 123);
             txtTongTien.Name = "txtTongTien";
             txtTongTien.ReadOnly = true;
             txtTongTien.Size = new Size(350, 34);
