@@ -71,7 +71,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(229, 45);
+            lblTenDaiLy.Size = new Size(184, 45);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại lý:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -84,7 +84,7 @@
             lblDiaChi.Font = new Font("Segoe UI", 12F);
             lblDiaChi.Location = new Point(3, 91);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(229, 45);
+            lblDiaChi.Size = new Size(184, 45);
             lblDiaChi.TabIndex = 3;
             lblDiaChi.Text = "Địa chỉ:";
             lblDiaChi.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,18 +93,18 @@
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(238, 3);
+            txtTenDaiLy.Location = new Point(193, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.Size = new Size(1331, 39);
+            txtTenDaiLy.Size = new Size(1376, 39);
             txtTenDaiLy.TabIndex = 7;
             // 
             // txtDiaChi
             // 
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
-            txtDiaChi.Location = new Point(238, 94);
+            txtDiaChi.Location = new Point(193, 94);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(1331, 39);
+            txtDiaChi.Size = new Size(1376, 39);
             txtDiaChi.TabIndex = 8;
             // 
             // dgvDaiLy
@@ -292,8 +292,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(txtTenDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 3);
             tableLayoutPanel1.Controls.Add(lblLoaiDaiLy, 0, 3);
@@ -330,9 +330,9 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(238, 48);
+            cboLoaiDaiLy.Location = new Point(193, 48);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1331, 40);
+            cboLoaiDaiLy.Size = new Size(1376, 40);
             cboLoaiDaiLy.TabIndex = 11;
             // 
             // lblLoaiDaiLy
@@ -343,7 +343,7 @@
             lblLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             lblLoaiDaiLy.Location = new Point(3, 45);
             lblLoaiDaiLy.Name = "lblLoaiDaiLy";
-            lblLoaiDaiLy.Size = new Size(229, 46);
+            lblLoaiDaiLy.Size = new Size(184, 46);
             lblLoaiDaiLy.TabIndex = 1;
             lblLoaiDaiLy.Text = "Loại Đại lý:";
             lblLoaiDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -353,18 +353,18 @@
             cboQuan.Dock = DockStyle.Fill;
             cboQuan.Font = new Font("Segoe UI", 12F);
             cboQuan.FormattingEnabled = true;
-            cboQuan.Location = new Point(238, 139);
+            cboQuan.Location = new Point(193, 139);
             cboQuan.Name = "cboQuan";
-            cboQuan.Size = new Size(1331, 40);
+            cboQuan.Size = new Size(1376, 40);
             cboQuan.TabIndex = 12;
             // 
             // dtpNgayTiepNhan
             // 
             dtpNgayTiepNhan.Dock = DockStyle.Fill;
             dtpNgayTiepNhan.Font = new Font("Segoe UI", 12F);
-            dtpNgayTiepNhan.Location = new Point(238, 275);
+            dtpNgayTiepNhan.Location = new Point(193, 275);
             dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
-            dtpNgayTiepNhan.Size = new Size(1331, 39);
+            dtpNgayTiepNhan.Size = new Size(1376, 39);
             dtpNgayTiepNhan.TabIndex = 13;
             // 
             // lblSDT
@@ -375,7 +375,7 @@
             lblSDT.Font = new Font("Segoe UI", 12F);
             lblSDT.Location = new Point(3, 182);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(229, 45);
+            lblSDT.Size = new Size(184, 45);
             lblSDT.TabIndex = 4;
             lblSDT.Text = "SĐT:";
             lblSDT.TextAlign = ContentAlignment.MiddleLeft;
@@ -388,7 +388,7 @@
             lblNgayTiepNhan.Font = new Font("Segoe UI", 12F);
             lblNgayTiepNhan.Location = new Point(3, 272);
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
-            lblNgayTiepNhan.Size = new Size(229, 45);
+            lblNgayTiepNhan.Size = new Size(184, 45);
             lblNgayTiepNhan.TabIndex = 6;
             lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
@@ -397,9 +397,9 @@
             // 
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
-            txtSDT.Location = new Point(238, 185);
+            txtSDT.Location = new Point(193, 185);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(1331, 39);
+            txtSDT.Size = new Size(1376, 39);
             txtSDT.TabIndex = 9;
             // 
             // lblEmail
@@ -410,7 +410,7 @@
             lblEmail.Font = new Font("Segoe UI", 12F);
             lblEmail.Location = new Point(3, 227);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(229, 45);
+            lblEmail.Size = new Size(184, 45);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email:";
             lblEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -419,9 +419,9 @@
             // 
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(238, 230);
+            txtEmail.Location = new Point(193, 230);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(1331, 39);
+            txtEmail.Size = new Size(1376, 39);
             txtEmail.TabIndex = 10;
             // 
             // lblQuan
@@ -432,7 +432,7 @@
             lblQuan.Font = new Font("Segoe UI", 12F);
             lblQuan.Location = new Point(3, 136);
             lblQuan.Name = "lblQuan";
-            lblQuan.Size = new Size(229, 46);
+            lblQuan.Size = new Size(184, 46);
             lblQuan.TabIndex = 2;
             lblQuan.Text = "Quận:";
             lblQuan.TextAlign = ContentAlignment.MiddleLeft;

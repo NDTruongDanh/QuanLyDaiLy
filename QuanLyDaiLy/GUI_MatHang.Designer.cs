@@ -63,18 +63,21 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(229, 40);
+
+            lblTenDaiLy.Size = new Size(183, 45);
+
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Mặt hàng:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
+
             // txtTenMatHang
             // 
             txtTenMatHang.Dock = DockStyle.Fill;
             txtTenMatHang.Font = new Font("Segoe UI", 12F);
-            txtTenMatHang.Location = new Point(238, 3);
+            txtTenMatHang.Location = new Point(192, 3);
             txtTenMatHang.Name = "txtTenMatHang";
-            txtTenMatHang.Size = new Size(1328, 34);
+            txtTenMatHang.Size = new Size(1374, 39);
             txtTenMatHang.TabIndex = 7;
             // 
             // dgvMatHang
@@ -86,6 +89,7 @@
             dgvMatHang.BorderStyle = BorderStyle.None;
             dgvMatHang.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvMatHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
@@ -93,9 +97,11 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+
             dgvMatHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvMatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMatHang.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
@@ -103,12 +109,14 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+
             dgvMatHang.DefaultCellStyle = dataGridViewCellStyle5;
             dgvMatHang.EnableHeadersVisualStyles = false;
             dgvMatHang.GridColor = Color.White;
             dgvMatHang.Location = new Point(18, 82);
             dgvMatHang.Name = "dgvMatHang";
             dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -116,12 +124,14 @@
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+
             dgvMatHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvMatHang.RowHeadersVisible = false;
             dgvMatHang.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvMatHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMatHang.Size = new Size(1569, 492);
             dgvMatHang.TabIndex = 14;
+
             // 
             // Column1
             // 
@@ -286,9 +296,11 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(cmbDonViTinh, 1, 1);
+
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(txtTenMatHang, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
@@ -301,14 +313,15 @@
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cmbDonViTinh
-            // 
+
             cmbDonViTinh.Dock = DockStyle.Fill;
             cmbDonViTinh.Font = new Font("Segoe UI", 12F);
             cmbDonViTinh.FormattingEnabled = true;
-            cmbDonViTinh.Location = new Point(238, 43);
+            cmbDonViTinh.Location = new Point(192, 43);
             cmbDonViTinh.Name = "cmbDonViTinh";
-            cmbDonViTinh.Size = new Size(1328, 36);
+            cmbDonViTinh.Size = new Size(1374, 40);
             cmbDonViTinh.TabIndex = 13;
+
             // 
             // label1
             // 
@@ -318,7 +331,8 @@
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(3, 40);
             label1.Name = "label1";
-            label1.Size = new Size(229, 52);
+            label1.Size = new Size(183, 47);
+
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;

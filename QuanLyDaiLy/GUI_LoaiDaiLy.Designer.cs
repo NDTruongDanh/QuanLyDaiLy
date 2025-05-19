@@ -226,9 +226,11 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
-            tableLayoutPanel1.Controls.Add(txtTienNoToiDa, 1, 1);
+
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
+
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(txtTenLoaiDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
@@ -242,12 +244,14 @@
             // 
             // txtTienNoToiDa
             // 
+
             txtTienNoToiDa.Dock = DockStyle.Fill;
             txtTienNoToiDa.Font = new Font("Segoe UI", 12F);
-            txtTienNoToiDa.Location = new Point(238, 43);
+            txtTienNoToiDa.Location = new Point(187, 48);
             txtTienNoToiDa.Name = "txtTienNoToiDa";
-            txtTienNoToiDa.Size = new Size(1326, 34);
+            txtTienNoToiDa.Size = new Size(1377, 39);
             txtTienNoToiDa.TabIndex = 8;
+
             // 
             // label1
             // 
@@ -262,12 +266,14 @@
             // 
             // txtTenLoaiDaiLy
             // 
+
             txtTenLoaiDaiLy.Dock = DockStyle.Fill;
             txtTenLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenLoaiDaiLy.Location = new Point(238, 3);
+            txtTenLoaiDaiLy.Location = new Point(187, 3);
             txtTenLoaiDaiLy.Name = "txtTenLoaiDaiLy";
-            txtTenLoaiDaiLy.Size = new Size(1326, 34);
+            txtTenLoaiDaiLy.Size = new Size(1377, 39);
             txtTenLoaiDaiLy.TabIndex = 6;
+
             // 
             // lblTenDaiLy
             // 
