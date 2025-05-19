@@ -20,14 +20,9 @@
             panel2 = new Panel();
             flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
-            panel3 = new Panel();
             btnEdit = new Button();
-            panel4 = new Panel();
             btnDelete = new Button();
-            panel5 = new Panel();
             btnRefresh = new Button();
-            panel6 = new Panel();
-            btnFind = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             txtEmail = new TextBox();
             label5 = new Label();
@@ -69,18 +64,13 @@
             // 
             flpButtons.AutoSize = true;
             flpButtons.Controls.Add(btnAdd);
-            flpButtons.Controls.Add(panel3);
             flpButtons.Controls.Add(btnEdit);
-            flpButtons.Controls.Add(panel4);
             flpButtons.Controls.Add(btnDelete);
-            flpButtons.Controls.Add(panel5);
             flpButtons.Controls.Add(btnRefresh);
-            flpButtons.Controls.Add(panel6);
-            flpButtons.Controls.Add(btnFind);
-            flpButtons.Location = new Point(802, 222);
-            flpButtons.Margin = new Padding(3, 3, 200, 3);
+            flpButtons.Location = new Point(940, 222);
+            flpButtons.Margin = new Padding(3, 3, 150, 3);
             flpButtons.Name = "flpButtons";
-            flpButtons.Size = new Size(774, 50);
+            flpButtons.Size = new Size(604, 50);
             flpButtons.TabIndex = 30;
             // 
             // btnAdd
@@ -92,18 +82,12 @@
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(137, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(20, 20);
-            panel3.TabIndex = 24;
             // 
             // btnEdit
             // 
@@ -113,19 +97,13 @@
             btnEdit.Font = new Font("Segoe UI", 12F);
             btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(163, 3);
+            btnEdit.Location = new Point(154, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Location = new Point(297, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(20, 20);
-            panel4.TabIndex = 25;
             // 
             // btnDelete
             // 
@@ -135,19 +113,13 @@
             btnDelete.Font = new Font("Segoe UI", 12F);
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(323, 3);
+            btnDelete.Location = new Point(305, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            panel5.Location = new Point(457, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(20, 20);
-            panel5.TabIndex = 26;
             // 
             // btnRefresh
             // 
@@ -157,32 +129,13 @@
             btnRefresh.Font = new Font("Segoe UI", 12F);
             btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
             btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRefresh.Location = new Point(483, 3);
+            btnRefresh.Location = new Point(456, 3);
+            btnRefresh.Margin = new Padding(3, 3, 20, 3);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(128, 44);
             btnRefresh.TabIndex = 23;
             btnRefresh.Text = "   Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            panel6.Location = new Point(617, 3);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(20, 20);
-            panel6.TabIndex = 27;
-            // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(643, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "🔍 Tìm ";
-            btnFind.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel2
             // 
@@ -415,19 +368,14 @@
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private DateTimePicker dtpNgayLapPhieu;
-        private Button btnFind;
         private Label label4;
         private Label label5;
         private TextBox txtEmail;
         private FlowLayoutPanel flpButtons;
         private Button btnAdd;
-        private Panel panel3;
         private Button btnEdit;
-        private Panel panel4;
         private Button btnDelete;
-        private Panel panel5;
         private Button btnRefresh;
-        private Panel panel6;
         private DataGridView dgvPhieuXuat;
         private FlowLayoutPanel flpDs;
     }

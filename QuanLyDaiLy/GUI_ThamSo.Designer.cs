@@ -27,7 +27,6 @@
             cbApDungKTQD = new CheckBox();
             panel1 = new Panel();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            pCanLe = new Panel();
             flpLayoutThamSo.SuspendLayout();
             flpDLToiDa.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -47,7 +46,6 @@
             // 
             // flpLayoutThamSo
             // 
-            flpLayoutThamSo.Controls.Add(pCanLe);
             flpLayoutThamSo.Controls.Add(flpDLToiDa);
             flpLayoutThamSo.Controls.Add(flowLayoutPanel1);
             flpLayoutThamSo.Controls.Add(flowLayoutPanel2);
@@ -65,7 +63,8 @@
             flpDLToiDa.AutoSize = true;
             flpDLToiDa.Controls.Add(lblSoQLToiDa);
             flpDLToiDa.Controls.Add(txtSoQLToiDa);
-            flpDLToiDa.Location = new Point(8, 45);
+            flpDLToiDa.Location = new Point(8, 25);
+            flpDLToiDa.Margin = new Padding(3, 20, 3, 3);
             flpDLToiDa.Name = "flpDLToiDa";
             flpDLToiDa.Padding = new Padding(5);
             flpDLToiDa.Size = new Size(423, 50);
@@ -96,7 +95,7 @@
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(lblTiLeDonGiaXuat);
             flowLayoutPanel1.Controls.Add(txtTiLeDGXuat);
-            flowLayoutPanel1.Location = new Point(8, 101);
+            flowLayoutPanel1.Location = new Point(8, 81);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(5);
             flowLayoutPanel1.Size = new Size(427, 50);
@@ -127,7 +126,7 @@
             flowLayoutPanel2.AutoSize = true;
             flowLayoutPanel2.Controls.Add(label1);
             flowLayoutPanel2.Controls.Add(cbApDungKTQD);
-            flowLayoutPanel2.Location = new Point(8, 157);
+            flowLayoutPanel2.Location = new Point(8, 137);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Padding = new Padding(5);
             flowLayoutPanel2.Size = new Size(373, 48);
@@ -160,7 +159,7 @@
             // panel1
             // 
             panel1.Controls.Add(btnEdit);
-            panel1.Location = new Point(8, 211);
+            panel1.Location = new Point(8, 191);
             panel1.Name = "panel1";
             panel1.Size = new Size(504, 57);
             panel1.TabIndex = 14;
@@ -169,13 +168,6 @@
             // 
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
-            // 
-            // pCanLe
-            // 
-            pCanLe.Location = new Point(8, 8);
-            pCanLe.Name = "pCanLe";
-            pCanLe.Size = new Size(250, 31);
-            pCanLe.TabIndex = 15;
             // 
             // GUI_ThamSo
             // 
@@ -206,6 +198,5 @@
         private Label label1;
         private CheckBox cbApDungKTQD;
         private Panel panel1;
-        private Panel pCanLe;
     }
 }

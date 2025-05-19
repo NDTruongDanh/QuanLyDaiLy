@@ -13,9 +13,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_PhieuThu));
             lblDanhSachPhieuThu = new Label();
             dgvPhieuThu = new DataGridView();
@@ -38,11 +38,8 @@
             txtSoTienThu = new TextBox();
             flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
-            panel3 = new Panel();
             btnEdit = new Button();
-            panel4 = new Panel();
             btnDelete = new Button();
-            panel5 = new Panel();
             btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuThu).BeginInit();
             tblFormPhieuThu.SuspendLayout();
@@ -71,37 +68,37 @@
             dgvPhieuThu.BorderStyle = BorderStyle.None;
             dgvPhieuThu.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvPhieuThu.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhieuThu.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuThu.EnableHeadersVisualStyles = false;
             dgvPhieuThu.GridColor = Color.White;
             dgvPhieuThu.Location = new Point(3, 45);
             dgvPhieuThu.Name = "dgvPhieuThu";
             dgvPhieuThu.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuThu.RowHeadersVisible = false;
             dgvPhieuThu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuThu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -206,6 +203,7 @@
             // 
             // flpNhap
             // 
+            flpNhap.BackColor = Color.White;
             flpNhap.Controls.Add(lblThongTinPhieuThu);
             flpNhap.Controls.Add(tblNhap);
             flpNhap.Controls.Add(flpButtons);
@@ -228,7 +226,7 @@
             tblNhap.Controls.Add(txtSoTienThu, 1, 2);
             tblNhap.Controls.Add(cbbDaiLy, 1, 0);
             tblNhap.Dock = DockStyle.Right;
-            tblNhap.Location = new Point(132, 92);
+            tblNhap.Location = new Point(122, 92);
             tblNhap.Margin = new Padding(5, 50, 5, 50);
             tblNhap.Name = "tblNhap";
             tblNhap.RowCount = 3;
@@ -281,17 +279,14 @@
             // 
             flpButtons.AutoSize = true;
             flpButtons.Controls.Add(btnAdd);
-            flpButtons.Controls.Add(panel3);
             flpButtons.Controls.Add(btnEdit);
-            flpButtons.Controls.Add(panel4);
             flpButtons.Controls.Add(btnDelete);
-            flpButtons.Controls.Add(panel5);
             flpButtons.Controls.Add(btnRefresh);
             flpButtons.Dock = DockStyle.Right;
             flpButtons.Location = new Point(900, 273);
             flpButtons.Margin = new Padding(900, 5, 5, 5);
             flpButtons.Name = "flpButtons";
-            flpButtons.Size = new Size(614, 50);
+            flpButtons.Size = new Size(604, 50);
             flpButtons.TabIndex = 31;
             // 
             // btnAdd
@@ -303,18 +298,12 @@
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(137, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(20, 20);
-            panel3.TabIndex = 24;
             // 
             // btnEdit
             // 
@@ -324,19 +313,13 @@
             btnEdit.Font = new Font("Segoe UI", 12F);
             btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(163, 3);
+            btnEdit.Location = new Point(154, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Location = new Point(297, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(20, 20);
-            panel4.TabIndex = 25;
             // 
             // btnDelete
             // 
@@ -346,19 +329,13 @@
             btnDelete.Font = new Font("Segoe UI", 12F);
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(323, 3);
+            btnDelete.Location = new Point(305, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            panel5.Location = new Point(457, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(20, 20);
-            panel5.TabIndex = 26;
             // 
             // btnRefresh
             // 
@@ -368,7 +345,8 @@
             btnRefresh.Font = new Font("Segoe UI", 12F);
             btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
             btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRefresh.Location = new Point(483, 3);
+            btnRefresh.Location = new Point(456, 3);
+            btnRefresh.Margin = new Padding(3, 3, 20, 3);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(128, 44);
             btnRefresh.TabIndex = 23;
@@ -413,11 +391,8 @@
         private FlowLayoutPanel flpNhap;
         private FlowLayoutPanel flpButtons;
         private Button btnAdd;
-        private Panel panel3;
         private Button btnEdit;
-        private Panel panel4;
         private Button btnDelete;
-        private Panel panel5;
         private Button btnRefresh;
         private FlowLayoutPanel flowLayoutPanel1;
         private DateTimePicker dtpNgayThuTien;

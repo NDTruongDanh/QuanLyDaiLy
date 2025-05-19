@@ -14,42 +14,39 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_MatHang));
             contextMenuStrip1 = new ContextMenuStrip(components);
             mnItemPhieuXuat = new ToolStripMenuItem();
             mnItemPhieuThu = new ToolStripMenuItem();
             tableLayoutPanel2 = new TableLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            lblDsMatHang = new Label();
             dgvMatHang = new DataGridView();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
-            this.lblDsMatHang = new Label();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            flpNhap = new FlowLayoutPanel();
             lblNhapLieu = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            lblTenMatHang = new Label();
-            txtMatHang = new TextBox();
-            lblDVT = new Label();
             cboDVT = new ComboBox();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            flpNhap = new FlowLayoutPanel();
+            lblDVT = new Label();
+            txtMatHang = new TextBox();
+            lblTenMatHang = new Label();
             flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
-            panel3 = new Panel();
             btnEdit = new Button();
-            panel4 = new Panel();
             btnDelete = new Button();
-            panel5 = new Panel();
-            btnFind = new Button();
+            btnRefresh = new Button();
             contextMenuStrip1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvMatHang).BeginInit();
-            tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatHang).BeginInit();
             flpNhap.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             flpButtons.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,6 +85,28 @@
             tableLayoutPanel2.Size = new Size(1634, 925);
             tableLayoutPanel2.TabIndex = 23;
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.AutoSize = true;
+            flowLayoutPanel2.Controls.Add(lblDsMatHang);
+            flowLayoutPanel2.Controls.Add(dgvMatHang);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel2.Location = new Point(3, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1628, 585);
+            flowLayoutPanel2.TabIndex = 17;
+            // 
+            // lblDsMatHang
+            // 
+            lblDsMatHang.AutoSize = true;
+            lblDsMatHang.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDsMatHang.Location = new Point(3, 0);
+            lblDsMatHang.Name = "lblDsMatHang";
+            lblDsMatHang.Size = new Size(247, 32);
+            lblDsMatHang.TabIndex = 16;
+            lblDsMatHang.Text = "Danh sách Mặt hàng";
+            // 
             // dgvMatHang
             // 
             dgvMatHang.AllowUserToResizeColumns = false;
@@ -96,61 +115,43 @@
             dgvMatHang.BorderStyle = BorderStyle.None;
             dgvMatHang.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvMatHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvMatHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvMatHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvMatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMatHang.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvMatHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvMatHang.DefaultCellStyle = dataGridViewCellStyle5;
             dgvMatHang.EnableHeadersVisualStyles = false;
             dgvMatHang.GridColor = Color.White;
             dgvMatHang.Location = new Point(5, 37);
             dgvMatHang.Margin = new Padding(5);
             dgvMatHang.Name = "dgvMatHang";
             dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvMatHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvMatHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvMatHang.RowHeadersVisible = false;
             dgvMatHang.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvMatHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMatHang.Size = new Size(1616, 531);
             dgvMatHang.TabIndex = 14;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Tồn kho";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Đơn giá hiện tại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên Đơn Vị Tính";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
             // 
             // Column1
             // 
@@ -158,15 +159,37 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             // 
-            // lblDsMatHang
+            // Column2
             // 
-            this.lblDsMatHang.AutoSize = true;
-            this.lblDsMatHang.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.lblDsMatHang.Location = new Point(3, 0);
-            this.lblDsMatHang.Name = "lblDsMatHang";
-            this.lblDsMatHang.Size = new Size(247, 32);
-            this.lblDsMatHang.TabIndex = 16;
-            this.lblDsMatHang.Text = "Danh sách Mặt hàng";
+            Column2.HeaderText = "Tên Đơn Vị Tính";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Đơn giá hiện tại";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Tồn kho";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            // 
+            // flpNhap
+            // 
+            flpNhap.AutoSize = true;
+            flpNhap.BackColor = Color.White;
+            flpNhap.Controls.Add(lblNhapLieu);
+            flpNhap.Controls.Add(tableLayoutPanel1);
+            flpNhap.Controls.Add(flpButtons);
+            flpNhap.Dock = DockStyle.Fill;
+            flpNhap.Location = new Point(5, 596);
+            flpNhap.Margin = new Padding(5);
+            flpNhap.Name = "flpNhap";
+            flpNhap.Size = new Size(1624, 324);
+            flpNhap.TabIndex = 17;
             // 
             // lblNhapLieu
             // 
@@ -205,26 +228,14 @@
             tableLayoutPanel1.Size = new Size(1569, 87);
             tableLayoutPanel1.TabIndex = 19;
             // 
-            // lblTenMatHang
+            // cboDVT
             // 
-            lblTenMatHang.AutoSize = true;
-            lblTenMatHang.BackColor = Color.Transparent;
-            lblTenMatHang.Dock = DockStyle.Fill;
-            lblTenMatHang.Font = new Font("Segoe UI", 12F);
-            lblTenMatHang.Location = new Point(3, 0);
-            lblTenMatHang.Name = "lblTenMatHang";
-            lblTenMatHang.Size = new Size(146, 40);
-            lblTenMatHang.TabIndex = 0;
-            lblTenMatHang.Text = "Tên Mặt hàng:";
-            lblTenMatHang.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtMatHang
-            // 
-            txtMatHang.Font = new Font("Segoe UI", 12F);
-            txtMatHang.Location = new Point(155, 3);
-            txtMatHang.Name = "txtMatHang";
-            txtMatHang.Size = new Size(400, 34);
-            txtMatHang.TabIndex = 7;
+            cboDVT.Font = new Font("Segoe UI", 12F);
+            cboDVT.FormattingEnabled = true;
+            cboDVT.Location = new Point(155, 43);
+            cboDVT.Name = "cboDVT";
+            cboDVT.Size = new Size(400, 36);
+            cboDVT.TabIndex = 13;
             // 
             // lblDVT
             // 
@@ -239,55 +250,39 @@
             lblDVT.Text = "Tên Đơn vị tính:";
             lblDVT.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cboDVT
+            // txtMatHang
             // 
-            cboDVT.Font = new Font("Segoe UI", 12F);
-            cboDVT.FormattingEnabled = true;
-            cboDVT.Location = new Point(155, 43);
-            cboDVT.Name = "cboDVT";
-            cboDVT.Size = new Size(400, 36);
-            cboDVT.TabIndex = 13;
+            txtMatHang.Font = new Font("Segoe UI", 12F);
+            txtMatHang.Location = new Point(155, 3);
+            txtMatHang.Name = "txtMatHang";
+            txtMatHang.Size = new Size(400, 34);
+            txtMatHang.TabIndex = 7;
             // 
-            // flowLayoutPanel2
+            // lblTenMatHang
             // 
-            flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.Controls.Add(this.lblDsMatHang);
-            flowLayoutPanel2.Controls.Add(dgvMatHang);
-            flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(3, 3);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1628, 585);
-            flowLayoutPanel2.TabIndex = 17;
-            // 
-            // flpNhap
-            // 
-            flpNhap.AutoSize = true;
-            flpNhap.Controls.Add(lblNhapLieu);
-            flpNhap.Controls.Add(tableLayoutPanel1);
-            flpNhap.Controls.Add(flpButtons);
-            flpNhap.Dock = DockStyle.Fill;
-            flpNhap.Location = new Point(5, 596);
-            flpNhap.Margin = new Padding(5);
-            flpNhap.Name = "flpNhap";
-            flpNhap.Size = new Size(1624, 324);
-            flpNhap.TabIndex = 17;
+            lblTenMatHang.AutoSize = true;
+            lblTenMatHang.BackColor = Color.Transparent;
+            lblTenMatHang.Dock = DockStyle.Fill;
+            lblTenMatHang.Font = new Font("Segoe UI", 12F);
+            lblTenMatHang.Location = new Point(3, 0);
+            lblTenMatHang.Name = "lblTenMatHang";
+            lblTenMatHang.Size = new Size(146, 40);
+            lblTenMatHang.TabIndex = 0;
+            lblTenMatHang.Text = "Tên Mặt hàng:";
+            lblTenMatHang.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // flpButtons
             // 
             flpButtons.AutoSize = true;
             flpButtons.Controls.Add(btnAdd);
-            flpButtons.Controls.Add(panel3);
             flpButtons.Controls.Add(btnEdit);
-            flpButtons.Controls.Add(panel4);
             flpButtons.Controls.Add(btnDelete);
-            flpButtons.Controls.Add(panel5);
-            flpButtons.Controls.Add(btnFind);
+            flpButtons.Controls.Add(btnRefresh);
             flpButtons.Dock = DockStyle.Top;
             flpButtons.Location = new Point(900, 224);
             flpButtons.Margin = new Padding(900, 5, 5, 50);
             flpButtons.Name = "flpButtons";
-            flpButtons.Size = new Size(614, 50);
+            flpButtons.Size = new Size(604, 50);
             flpButtons.TabIndex = 31;
             // 
             // btnAdd
@@ -299,18 +294,12 @@
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(137, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(20, 20);
-            panel3.TabIndex = 24;
             // 
             // btnEdit
             // 
@@ -320,19 +309,13 @@
             btnEdit.Font = new Font("Segoe UI", 12F);
             btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(163, 3);
+            btnEdit.Location = new Point(154, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Location = new Point(297, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(20, 20);
-            panel4.TabIndex = 25;
             // 
             // btnDelete
             // 
@@ -342,34 +325,29 @@
             btnDelete.Font = new Font("Segoe UI", 12F);
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(323, 3);
+            btnDelete.Location = new Point(305, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // btnRefresh
             // 
-            panel5.Location = new Point(457, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(20, 20);
-            panel5.TabIndex = 26;
-            // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
-            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFind.Location = new Point(483, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "   Làm mới";
-            btnFind.UseVisualStyleBackColor = false;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRefresh.Location = new Point(456, 3);
+            btnRefresh.Margin = new Padding(3, 3, 20, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(128, 44);
+            btnRefresh.TabIndex = 23;
+            btnRefresh.Text = "   Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // GUI_MatHang
             // 
@@ -381,13 +359,13 @@
             contextMenuStrip1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvMatHang).EndInit();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatHang).EndInit();
             flpNhap.ResumeLayout(false);
             flpNhap.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             flpButtons.ResumeLayout(false);
             flpButtons.PerformLayout();
             ResumeLayout(false);
@@ -422,7 +400,7 @@
         private Panel panel4;
         private Button btnDelete;
         private Panel panel5;
-        private Button btnFind;
+        private Button btnRefresh;
         private Label lblDsMatHang;
     }
 }
