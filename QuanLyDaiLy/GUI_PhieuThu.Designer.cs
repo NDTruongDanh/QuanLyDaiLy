@@ -90,11 +90,11 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(dgvPhieuThu);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 8);
-            panel1.Margin = new Padding(16, 8, 16, 16);
+            panel1.Location = new Point(16, 16);
+            panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(16, 16, 16, 8);
-            panel1.Size = new Size(1602, 502);
+            panel1.Padding = new Padding(16);
+            panel1.Size = new Size(1602, 601);
             panel1.TabIndex = 24;
             // 
             // lblDanhSachPhieuThu
@@ -157,7 +157,7 @@
             dgvPhieuThu.RowHeadersVisible = false;
             dgvPhieuThu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuThu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPhieuThu.Size = new Size(1564, 400);
+            dgvPhieuThu.Size = new Size(1564, 505);
             dgvPhieuThu.TabIndex = 14;
             dgvPhieuThu.SelectionChanged += dgvPhieuThu_SelectionChanged;
             // 
@@ -211,11 +211,11 @@
             panel2.Controls.Add(lblThongTinPhieuThu);
             panel2.Controls.Add(label4);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(16, 534);
+            panel2.Location = new Point(16, 633);
             panel2.Margin = new Padding(16, 8, 16, 16);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(1602, 390);
+            panel2.Size = new Size(1602, 291);
             panel2.TabIndex = 25;
             // 
             // flowLayoutPanel1
@@ -227,7 +227,7 @@
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(910, 319);
+            flowLayoutPanel1.Location = new Point(910, 220);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(673, 52);
             flowLayoutPanel1.TabIndex = 26;
@@ -327,7 +327,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1602, 246);
+            tableLayoutPanel1.Size = new Size(1602, 128);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cboLoaiDaiLy
@@ -391,8 +391,8 @@
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.9574471F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.0425529F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 66.4893646F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.51064F));
             tableLayoutPanel2.Size = new Size(1634, 940);
             tableLayoutPanel2.TabIndex = 26;
             // 
