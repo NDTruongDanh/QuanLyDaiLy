@@ -16,6 +16,7 @@ namespace DAL_QuanLy
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
+        Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat);
     }
 
 
@@ -125,7 +126,7 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT MaPhieuXuat, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongXuat, DonGiaXuat, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT ct.MaPhieuXuat, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongXuat, DonGiaXuat, ThanhTien
                                                     FROM CHITIET_PHIEUXUAT ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh", conn))
@@ -156,7 +157,7 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"SELECT ct.MaPhieuXuat, ct.MaMatHang, mh.TenMatHang, dvt.TenDonViTinh, SoLuongXuat, DonGiaXuat, ThanhTien
+                    using (var cmd = new SqlCommand(@"SELECT ct.MaPhieuXuat, ct.MaMatHang, mh.TenMatHang + ' (' + dvt.TenDonViTinh + ')' AS Display, SoLuongXuat, DonGiaXuat, ThanhTien
                                                     FROM CHITIET_PHIEUXUAT ct
                                                     JOIN MATHANG mh ON ct.MaMatHang = mh.MaMatHang
                                                     JOIN DONVITINH dvt ON dvt.MaDonViTinh = mh.MaDonViTinh
@@ -271,6 +272,32 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
-       
+
+
+        //Delete ChiTietPhieuXuat by MaPhieuXuat
+        public async Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("DELETE FROM CHITIET_PHIEUXUAT WHERE MaPhieuXuat = @MaPhieuXuat", conn))
+                    {
+                        cmd.Parameters.Add("@MaPhieuXuat", SqlDbType.Int).Value = maPhieuXuat;
+
+                        return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false) > 0;
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error deleting ChiTietPhieuXuat by MaPhieuXuat: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
     }
 }

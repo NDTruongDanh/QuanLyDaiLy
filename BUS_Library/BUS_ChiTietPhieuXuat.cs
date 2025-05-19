@@ -17,6 +17,7 @@ namespace BUS_QuanLy
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
+        Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat);
     }
 
     public partial class BUS_ChiTietPhieuXuat : IBUS_ChiTietPhieuXuat
@@ -288,5 +289,42 @@ namespace BUS_QuanLy
                 }
             }
         }
-    }
+
+
+
+        //Delete ChiTietPhieuXuat By MaPhieuXuat
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.DeleteChiTietPhieuXuatByMPXFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in DeleteChiTietPhieuXuatByMPX (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalDeleteChiTietPhieuXuatByMPXFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat)
+        {
+            using (_logger.BeginScope("BUS_ChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPX at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPX(maPhieuXuat);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalDeleteChiTietPhieuXuatByMPXFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không xóa được chi tiết phiếu xuất. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+
+        }
 }

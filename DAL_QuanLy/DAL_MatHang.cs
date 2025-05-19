@@ -9,7 +9,8 @@ namespace DAL_QuanLy
     public interface IDAL_MatHang
     {
         Task<List<DTO_MatHang>> GetMatHangListAsync();
-        Task<DataTable> GetMatHangForNhapXuatAsync();
+        Task<DataTable> GetMatHangForNhapAsync();
+        Task<DataTable> GetMatHangForXuatAsync();
         Task<bool> AddMatHangAsync(DTO_MatHang matHang);
         Task<bool> AddMatHangDefault(string tenMatHang, int maDonViTinh);
         Task<bool> UpdateMatHangAsync(DTO_MatHang matHang);
@@ -68,8 +69,8 @@ namespace DAL_QuanLy
 
 
 
-        //Get MatHang for Nhap Xuat
-        public async Task<DataTable> GetMatHangForNhapXuatAsync()
+        //Get MatHang for Nhap 
+        public async Task<DataTable> GetMatHangForNhapAsync()
         {
             try
             {
@@ -80,7 +81,7 @@ namespace DAL_QuanLy
                     await conn.OpenAsync().ConfigureAwait(false);
                     using (var cmd = new SqlCommand(@"SELECT MaMatHang, TenMatHang + ' (' + TenDonViTinh + ')' AS Display
                                                     FROM MATHANG mh
-                                                    JOIN DONVITINH dvt ON mh.MaDonViTinh = mh.MaDonViTinh", conn))
+                                                    JOIN DONVITINH dvt ON mh.MaDonViTinh = dvt.MaDonViTinh", conn))
                     {
                         using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
                         {
@@ -98,6 +99,50 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+
+
+        //Get MatHang for Xuat
+        public async Task<DataTable> GetMatHangForXuatAsync()
+        {
+            try
+            {
+                var dataTable = new DataTable();
+
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT 
+                                                            MaMatHang, 
+                                                            CONCAT(TenMatHang, ' (', TenDonViTinh, N') - Tồn kho ', TonKho) AS DISPLAY, 
+                                                            DonGiaHienTai,
+                                                            TonKho  
+                                                        FROM 
+                                                            MATHANG mh
+                                                        JOIN 
+                                                            DONVITINH dvt ON mh.MaDonViTinh = dvt.MaDonViTinh;
+                                                        ", conn))
+                    {
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching Mat Hang for Xuat: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
 
 
         //Add MatHang
