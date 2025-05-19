@@ -15,7 +15,7 @@ namespace GUI_QuanLy
 {
     public partial class GUI_ThamSo : Form
     {
-        //private BUS_ThamSo busThamSo = new BUS_ThamSo();
+        private BUS_ThamSo busThamSo = new BUS_ThamSo();
 
         public GUI_ThamSo()
         {

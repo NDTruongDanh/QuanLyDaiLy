@@ -1,159 +1,36 @@
 ﻿using System;
 using System.Data;
-using BUS_Library;
 using DAL_QuanLy;
 using DTO_QuanLy;
-using Microsoft.Extensions.Logging;
 
 namespace BUS_QuanLy
 {
-    public interface IBUS_ThamSo
+    public class BUS_ThamSo
     {
-        Task<float> GetTiLeDonGiaXuatAsync();
-        Task<int> GetDaiLyToiDaMoiQuanAsync();
-        Task<bool> ApDungQDKiemTraTienThuAsync();
-        Task<bool> UpdateThamSoAsync(DTO_ThamSo thamSo);
-    }
+        DAL_ThamSo dalThamSo = new DAL_ThamSo();
 
-
-
-    public partial class BUS_ThamSo : IBUS_ThamSo
-    {
-        private readonly IDAL_ThamSo _dalThamSo;
-        private readonly ILogger<BUS_ThamSo> _logger;
-
-        public BUS_ThamSo(IDAL_ThamSo dalThamSo, ILogger<BUS_ThamSo> logger)
+        // Lấy tất cả tham số
+        public DataTable GetThamSo()
         {
-            _dalThamSo = dalThamSo;
-            _logger = logger;
+            return dalThamSo.GetAllThamSo();
         }
 
-
-
-        //Get TiLeDonGiaXuat
-        // Source-generated high-performance log for DAL failures
-        [LoggerMessage(
-            EventId = MyLogEvents.GetTiLeXuatFailure,
-            Level = LogLevel.Error,
-            Message = "DAL failure in GetTiLeDonGiaXuatAsync (Code={ErrorCode}): {ErrorMessage}")]
-        private static partial void LogGetTiLeXuatFailure(
-            ILogger logger,
-            int ErrorCode,
-            string ErrorMessage,
-            Exception ex);
-        public async Task<float> GetTiLeDonGiaXuatAsync()
+        // Thêm tham số
+        public bool ThemThamSo(DTO_ThamSo thamSo)
         {
-            try
-            {
-                return await _dalThamSo.GetTiLeDonGiaXuatAsync().ConfigureAwait(false);
-            }
-            catch (DalException dalEx)
-            {
-                LogGetTiLeXuatFailure(_logger,
-                        dalEx.ErrorCode,
-                        dalEx.Message,
-                        dalEx);
-
-                throw new BusException(
-                        "Không lấy được Tỷ lệ đơn giá xuất. Vui lòng thử lại sau.",
-                        dalEx);
-            }
+            return dalThamSo.ThemThamSo(thamSo);
         }
 
-
-
-        //Get DaiLyToiDa
-        // Source-generated high-performance log for DAL failures
-        [LoggerMessage(
-            EventId = MyLogEvents.GetDaiLyToiDaFailure,
-            Level = LogLevel.Error,
-            Message = "DAL failure in GetDaiLyToiDaAsync (Code={ErrorCode}): {ErrorMessage}")]
-        private static partial void LogGetDaiLyToiDaFailure(
-            ILogger logger,
-            int ErrorCode,
-            string ErrorMessage,
-            Exception ex);
-        public async Task<int> GetDaiLyToiDaMoiQuanAsync()
+        // Sửa tham số
+        public bool SuaThamSo(DTO_ThamSo thamSo)
         {
-            try
-            {
-                return await _dalThamSo.GetDaiLyToiDaMoiQuanAsync().ConfigureAwait(false);
-            }
-            catch (DalException dalEx)
-            {
-                LogGetDaiLyToiDaFailure(_logger,
-                        dalEx.ErrorCode,
-                        dalEx.Message,
-                        dalEx);
-
-                throw new BusException(
-                        "Không lấy được Đại lý tối đa mỗi quận. Vui lòng thử lại sau.",
-                        dalEx);
-            }
+            return dalThamSo.SuaThamSo(thamSo);
         }
 
-
-        //Get ApDungQDKiemTraTienThu
-        // Source-generated high-performance log for DAL failures
-        [LoggerMessage(
-            EventId = MyLogEvents.GetApDungQDKiemTraTienThuFailure,
-            Level = LogLevel.Error,
-            Message = "DAL failure in GetApDungQDKiemTraTienThuAsync (Code={ErrorCode}): {ErrorMessage}")]
-        private static partial void LogGetApDungQDKiemTraTienThuFailure(
-            ILogger logger,
-            int ErrorCode,
-            string ErrorMessage,
-            Exception ex);
-        public async Task<bool> ApDungQDKiemTraTienThuAsync()
+        // Xóa tham số
+        public bool XoaThamSo(string tenThamSo)
         {
-            try
-            {
-                return await _dalThamSo.ApDungQDKiemTraTienThuAsync().ConfigureAwait(false);
-            }
-            catch (DalException dalEx)
-            {
-                LogGetApDungQDKiemTraTienThuFailure(_logger,
-                        dalEx.ErrorCode,
-                        dalEx.Message,
-                        dalEx);
-
-                throw new BusException(
-                        "Không kiểm tra tiền thu. Vui lòng thử lại sau.",
-                        dalEx);
-            }
+            return dalThamSo.XoaThamSo(tenThamSo);
         }
-
-
-        //Update ThamSo
-        // Source-generated high-performance log for DAL failures
-        [LoggerMessage(
-            EventId = MyLogEvents.UpdateThamSoFailure,
-            Level = LogLevel.Error,
-            Message = "DAL failure in UpdateThamSoAsync (Code={ErrorCode}): {ErrorMessage}")]
-        private static partial void LogUpdateThamSoFailure(
-            ILogger logger,
-            int ErrorCode,
-            string ErrorMessage,
-            Exception ex);
-        public async Task<bool> UpdateThamSoAsync(DTO_ThamSo thamSo)
-        {
-            try
-            {
-                return await _dalThamSo.UpdateThamSoAsync(thamSo).ConfigureAwait(false);
-            }
-            catch (DalException dalEx)
-            {
-                LogUpdateThamSoFailure(_logger,
-                        dalEx.ErrorCode,
-                        dalEx.Message,
-                        dalEx);
-
-                throw new BusException(
-                        "Không cập nhật được Tham số. Vui lòng thử lại sau.",
-                        dalEx);
-            }
-        }
-
-
     }
 }
