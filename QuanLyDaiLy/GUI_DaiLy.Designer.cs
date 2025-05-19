@@ -32,6 +32,14 @@
             lblDanhSachDaiLy = new Label();
             label2 = new Label();
             pnlInput = new Panel();
+            flpButtons = new FlowLayoutPanel();
+            btnAdd = new Button();
+            panel3 = new Panel();
+            btnEdit = new Button();
+            panel4 = new Panel();
+            btnDelete = new Button();
+            panel5 = new Panel();
+            btnFind = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             cboLoaiDaiLy = new ComboBox();
             lblLoaiDaiLy = new Label();
@@ -49,22 +57,13 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             mnItemPhieuXuat = new ToolStripMenuItem();
             mnItemPhieuThu = new ToolStripMenuItem();
-            flpButtons = new FlowLayoutPanel();
-            btnAdd = new Button();
-            panel3 = new Panel();
-            btnEdit = new Button();
-            panel4 = new Panel();
-            btnDelete = new Button();
-            panel5 = new Panel();
-            btnFind = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDaiLy).BeginInit();
             pnlData.SuspendLayout();
             pnlInput.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            flpButtons.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
-            flpButtons.SuspendLayout();
             SuspendLayout();
             // 
             // lblTenDaiLy
@@ -204,19 +203,21 @@
             pnlInput.Size = new Size(1602, 536);
             pnlInput.TabIndex = 22;
             // 
-            // flowLayoutPanel1
+            // flpButtons
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAdd);
-            flowLayoutPanel1.Controls.Add(btnEdit);
-            flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(908, 377);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(679, 52);
-            flowLayoutPanel1.TabIndex = 27;
+            flpButtons.AutoSize = true;
+            flpButtons.Controls.Add(btnAdd);
+            flpButtons.Controls.Add(panel3);
+            flpButtons.Controls.Add(btnEdit);
+            flpButtons.Controls.Add(panel4);
+            flpButtons.Controls.Add(btnDelete);
+            flpButtons.Controls.Add(panel5);
+            flpButtons.Controls.Add(btnFind);
+            flpButtons.Location = new Point(970, 466);
+            flpButtons.Margin = new Padding(900, 5, 5, 5);
+            flpButtons.Name = "flpButtons";
+            flpButtons.Size = new Size(614, 50);
+            flpButtons.TabIndex = 32;
             // 
             // btnAdd
             // 
@@ -224,13 +225,21 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 44);
+            btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
+            btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(137, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(20, 20);
+            panel3.TabIndex = 24;
             // 
             // btnEdit
             // 
@@ -238,13 +247,21 @@
             btnEdit.BackColor = Color.FromArgb(255, 152, 0);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(143, 3);
+            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
+            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEdit.Location = new Point(163, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "✏️ Sửa";
+            btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
+            // 
+            // panel4
+            // 
+            panel4.Location = new Point(297, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(20, 20);
+            panel4.TabIndex = 25;
             // 
             // btnDelete
             // 
@@ -252,13 +269,21 @@
             btnDelete.BackColor = Color.FromArgb(244, 67, 54);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(277, 3);
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(323, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "🗑 Xóa";
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
+            // 
+            // panel5
+            // 
+            panel5.Location = new Point(457, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(20, 20);
+            panel5.TabIndex = 26;
             // 
             // btnFind
             // 
@@ -266,26 +291,14 @@
             btnFind.BackColor = Color.FromArgb(33, 150, 243);
             btnFind.FlatStyle = FlatStyle.Flat;
             btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(411, 3);
+            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
+            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFind.Location = new Point(483, 3);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(128, 44);
             btnFind.TabIndex = 23;
-            btnFind.Text = "🔍 Tìm ";
+            btnFind.Text = "   Làm mới";
             btnFind.UseVisualStyleBackColor = false;
-            btnFind.Click += btnFind_Click;
-            // 
-            // button1
-            // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(33, 150, 243);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(545, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 44);
-            button1.TabIndex = 24;
-            button1.Text = "🔍 Làm mới";
-            button1.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel1
             // 
@@ -492,103 +505,6 @@
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             mnItemPhieuThu.Click += mnPhieuThu_Click;
             // 
-            // flpButtons
-            // 
-            flpButtons.AutoSize = true;
-            flpButtons.Controls.Add(btnAdd);
-            flpButtons.Controls.Add(panel3);
-            flpButtons.Controls.Add(btnEdit);
-            flpButtons.Controls.Add(panel4);
-            flpButtons.Controls.Add(btnDelete);
-            flpButtons.Controls.Add(panel5);
-            flpButtons.Controls.Add(btnFind);
-            flpButtons.Location = new Point(970, 466);
-            flpButtons.Margin = new Padding(900, 5, 5, 5);
-            flpButtons.Name = "flpButtons";
-            flpButtons.Size = new Size(614, 50);
-            flpButtons.TabIndex = 32;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 44);
-            btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(137, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(20, 20);
-            panel3.TabIndex = 24;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSize = true;
-            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
-            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(163, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 44);
-            btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Location = new Point(297, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(20, 20);
-            panel4.TabIndex = 25;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSize = true;
-            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(323, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 44);
-            btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            panel5.Location = new Point(457, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(20, 20);
-            panel5.TabIndex = 26;
-            // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
-            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFind.Location = new Point(483, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "   Làm mới";
-            btnFind.UseVisualStyleBackColor = false;
-            // 
             // GUI_DaiLy
             // 
             BackColor = Color.FromArgb(236, 240, 241);
@@ -602,15 +518,13 @@
             pnlData.PerformLayout();
             pnlInput.ResumeLayout(false);
             pnlInput.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            flpButtons.ResumeLayout(false);
+            flpButtons.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
-            flpButtons.ResumeLayout(false);
-            flpButtons.PerformLayout();
             ResumeLayout(false);
         }
 
