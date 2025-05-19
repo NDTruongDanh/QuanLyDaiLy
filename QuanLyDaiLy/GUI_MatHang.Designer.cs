@@ -423,6 +423,6 @@
         private Button btnDelete;
         private Panel panel5;
         private Button btnFind;
-        private Label label4;
+        private Label lblDsMatHang;
     }
 }

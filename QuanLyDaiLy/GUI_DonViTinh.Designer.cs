@@ -314,10 +314,10 @@
         private Label label2;
         private DataGridView dgvDVT;
         private Panel panel2;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tblNhapDVT;
         private Label lblTenDVT;
         private Label lblThongTinPhieuThu;
-        private Label label4;
+        private Label lblNhapDVT;
         private TableLayoutPanel tblFormDVT;
         private TextBox txtDonViTinh;
         private DataGridViewTextBoxColumn Column1;

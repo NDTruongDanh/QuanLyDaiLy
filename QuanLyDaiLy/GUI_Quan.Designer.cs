@@ -17,16 +17,16 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Quan));
-            this.lblDsQuan = new Label();
+            lblDsQuan = new Label();
             dgvQuan = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             tlbFormQuan = new TableLayoutPanel();
             flpDanhSachQuan = new FlowLayoutPanel();
+            flpControls = new FlowLayoutPanel();
             lblNhapQuan = new Label();
+            flpNhapQuan = new FlowLayoutPanel();
             lblTenQuan = new Label();
             txtTenQuan = new TextBox();
-            flpControls = new FlowLayoutPanel();
-            flpNhapQuan = new FlowLayoutPanel();
             flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
             panel1 = new Panel();
@@ -45,16 +45,16 @@
             // 
             // lblDsQuan
             // 
-            this.lblDsQuan.AutoSize = true;
-            this.lblDsQuan.BackColor = SystemColors.Control;
-            this.lblDsQuan.Dock = DockStyle.Top;
-            this.lblDsQuan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.lblDsQuan.Location = new Point(5, 5);
-            this.lblDsQuan.Margin = new Padding(5);
-            this.lblDsQuan.Name = "lblDsQuan";
-            this.lblDsQuan.Size = new Size(1617, 38);
-            this.lblDsQuan.TabIndex = 16;
-            this.lblDsQuan.Text = "Danh sách Quận";
+            lblDsQuan.AutoSize = true;
+            lblDsQuan.BackColor = SystemColors.Control;
+            lblDsQuan.Dock = DockStyle.Top;
+            lblDsQuan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDsQuan.Location = new Point(5, 5);
+            lblDsQuan.Margin = new Padding(5);
+            lblDsQuan.Name = "lblDsQuan";
+            lblDsQuan.Size = new Size(1617, 38);
+            lblDsQuan.TabIndex = 16;
+            lblDsQuan.Text = "Danh sách Quận";
             // 
             // dgvQuan
             // 
@@ -127,7 +127,7 @@
             // 
             flpDanhSachQuan.AutoSize = true;
             flpDanhSachQuan.BackColor = SystemColors.Control;
-            flpDanhSachQuan.Controls.Add(this.lblDsQuan);
+            flpDanhSachQuan.Controls.Add(lblDsQuan);
             flpDanhSachQuan.Controls.Add(dgvQuan);
             flpDanhSachQuan.Dock = DockStyle.Fill;
             flpDanhSachQuan.FlowDirection = FlowDirection.TopDown;
@@ -135,6 +135,19 @@
             flpDanhSachQuan.Name = "flpDanhSachQuan";
             flpDanhSachQuan.Size = new Size(1628, 677);
             flpDanhSachQuan.TabIndex = 26;
+            // 
+            // flpControls
+            // 
+            flpControls.AutoSize = true;
+            flpControls.Controls.Add(lblNhapQuan);
+            flpControls.Controls.Add(flpNhapQuan);
+            flpControls.Controls.Add(flpButtons);
+            flpControls.Dock = DockStyle.Top;
+            flpControls.FlowDirection = FlowDirection.TopDown;
+            flpControls.Location = new Point(3, 686);
+            flpControls.Name = "flpControls";
+            flpControls.Size = new Size(1628, 251);
+            flpControls.TabIndex = 27;
             // 
             // lblNhapQuan
             // 
@@ -146,6 +159,17 @@
             lblNhapQuan.Size = new Size(222, 38);
             lblNhapQuan.TabIndex = 16;
             lblNhapQuan.Text = "Nhập liệu Quận";
+            // 
+            // flpNhapQuan
+            // 
+            flpNhapQuan.AutoSize = true;
+            flpNhapQuan.Controls.Add(lblTenQuan);
+            flpNhapQuan.Controls.Add(txtTenQuan);
+            flpNhapQuan.Location = new Point(5, 68);
+            flpNhapQuan.Margin = new Padding(5, 20, 5, 50);
+            flpNhapQuan.Name = "flpNhapQuan";
+            flpNhapQuan.Size = new Size(616, 28);
+            flpNhapQuan.TabIndex = 27;
             // 
             // lblTenQuan
             // 
@@ -167,30 +191,6 @@
             txtTenQuan.Name = "txtTenQuan";
             txtTenQuan.Size = new Size(500, 34);
             txtTenQuan.TabIndex = 7;
-            // 
-            // flpControls
-            // 
-            flpControls.AutoSize = true;
-            flpControls.Controls.Add(lblNhapQuan);
-            flpControls.Controls.Add(flpNhapQuan);
-            flpControls.Controls.Add(flpButtons);
-            flpControls.Dock = DockStyle.Top;
-            flpControls.FlowDirection = FlowDirection.TopDown;
-            flpControls.Location = new Point(3, 686);
-            flpControls.Name = "flpControls";
-            flpControls.Size = new Size(1628, 251);
-            flpControls.TabIndex = 27;
-            // 
-            // flpNhapQuan
-            // 
-            flpNhapQuan.AutoSize = true;
-            flpNhapQuan.Controls.Add(lblTenQuan);
-            flpNhapQuan.Controls.Add(txtTenQuan);
-            flpNhapQuan.Location = new Point(5, 68);
-            flpNhapQuan.Margin = new Padding(5, 20, 5, 50);
-            flpNhapQuan.Name = "flpNhapQuan";
-            flpNhapQuan.Size = new Size(616, 28);
-            flpNhapQuan.TabIndex = 27;
             // 
             // flpButtons
             // 
@@ -328,5 +328,6 @@
         private Button btnDelete;
         private Panel panel3;
         private Button btnFind;
+        private Label lblDsQuan;
     }
 }
