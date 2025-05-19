@@ -51,10 +51,9 @@ namespace GUI_QuanLy
         {
             try
             {
-                await LoadDaiLyAsync();
                 await LoadComboBoxsLoaiDaiLyAsync();
                 await LoadComboBoxsQuanAsync();
-                ClearInputFields();
+                await LoadDaiLyAsync();
             }
             catch (Exception ex)
             {
@@ -77,7 +76,8 @@ namespace GUI_QuanLy
                 _bindingSource.DataSource = dataTable;
 
                 ModifyDataGridViewColumns();
-               
+                await LoadDaiLyAsync();
+
             }
             catch (BusException busEx)
             {

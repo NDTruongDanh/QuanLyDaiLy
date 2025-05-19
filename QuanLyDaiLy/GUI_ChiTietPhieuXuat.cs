@@ -134,8 +134,7 @@ namespace GUI_QuanLy
                 var dataTable = await _busCTPX.GetDataTableChiTietPhieuXuatByMPXAsync(_phieuXuat.MaPhieuXuat);
                 _bindingSource.DataSource = dataTable;
                 ModifyDataGridViewColumns();
-
-
+                ClearInputFields();
             }
             catch (BusException busEx)
             {

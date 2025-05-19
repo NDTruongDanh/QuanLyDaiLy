@@ -78,11 +78,9 @@
             // 
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-
-            dtpNgayThuTien.Location = new Point(185, 49);
+            dtpNgayThuTien.Location = new Point(150, 45);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1376, 39);
-
+            dtpNgayThuTien.Size = new Size(1411, 34);
             dtpNgayThuTien.TabIndex = 3;
             // 
             // panel1
@@ -333,22 +331,18 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(185, 3);
+            cboLoaiDaiLy.Location = new Point(150, 3);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-
-            cboLoaiDaiLy.Size = new Size(1376, 40);
-
+            cboLoaiDaiLy.Size = new Size(1411, 36);
             cboLoaiDaiLy.TabIndex = 12;
             // 
             // txtSoTienThu
             // 
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
-
-            txtSoTienThu.Location = new Point(185, 94);
+            txtSoTienThu.Location = new Point(150, 85);
             txtSoTienThu.Name = "txtSoTienThu";
-            txtSoTienThu.Size = new Size(1376, 39);
-
+            txtSoTienThu.Size = new Size(1411, 34);
             txtSoTienThu.TabIndex = 5;
             txtSoTienThu.KeyPress += txtSoTienThu_KeyPress;
             // 
