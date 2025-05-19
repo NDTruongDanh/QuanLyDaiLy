@@ -229,7 +229,7 @@
 
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
+            //tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
 
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(txtTenLoaiDaiLy, 1, 0);
