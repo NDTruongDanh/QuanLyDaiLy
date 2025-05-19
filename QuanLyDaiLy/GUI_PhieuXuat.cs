@@ -38,10 +38,6 @@ namespace GUI_QuanLy
         private int _maDaiLy = 0;
         private int _maPhieuXuat = 0;
 
-        private decimal _tongTien = 0;
-        private decimal _traTruoc = 0;
-        private decimal _conLai = 0;
-
         public GUI_PhieuXuat(IBUS_DaiLy busDaiLy, IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, ILogger<GUI_PhieuXuat> logger, IServiceProvider service)
         {
             _busDaiLy = busDaiLy;
@@ -127,6 +123,7 @@ namespace GUI_QuanLy
                 {
                     var data = await _busPhieuXuat.GetDataTablePhieuXuatCuaDaiLyAsync(_daiLy.MaDaiLy);
                     _bindingSource.DataSource = data;
+                    ModifyDataGridViewColumns();
                 }
 
                 dgvPhieuXuat.AutoResizeColumns();
@@ -237,9 +234,9 @@ namespace GUI_QuanLy
                             MaPhieuXuat = _maPhieuXuat,
                             MaDaiLy = _maDaiLy,
                             NgayLapPhieu = dtpNgayLapPhieu.Value,
-                            TongTien = _tongTien,
-                            TienTra = _traTruoc,
-                            ConLai = _conLai
+                            TongTien = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TongTien"].Value),
+                            TienTra = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value),
+                            ConLai = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["ConLai"].Value)
                         };
 
                         using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
@@ -292,7 +289,7 @@ namespace GUI_QuanLy
                 {
                     try
                     {
-                        if (await _busCTPX.DeleteChiTietPhieuXuatByMPX(_maPhieuXuat))
+                        if (await _busCTPX.DeleteChiTietPhieuXuatByMPXAsync(_maPhieuXuat))
                         {
                             if (await _busPhieuXuat.DeletePhieuXuatAsync(_maPhieuXuat))
                             {

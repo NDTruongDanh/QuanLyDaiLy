@@ -17,7 +17,7 @@ namespace BUS_QuanLy
 
 
 
-    public class BUS_ThamSo : IBUS_ThamSo
+    public partial class BUS_ThamSo : IBUS_ThamSo
     {
         private readonly IDAL_ThamSo _dalThamSo;
         private readonly ILogger<BUS_ThamSo> _logger;
@@ -124,40 +124,36 @@ namespace BUS_QuanLy
         }
 
 
-
-
-
-
-
-
-
-
-    }
-    {
-        DAL_ThamSo dalThamSo = new DAL_ThamSo();
-
-        // Lấy tất cả tham số
-        public DataTable GetThamSo()
+        //Update ThamSo
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.UpdateThamSoFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in UpdateThamSoAsync (Code={ErrorCode}): {ErrorMessage}")]
+        private static partial void LogUpdateThamSoFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<bool> UpdateThamSoAsync(DTO_ThamSo thamSo)
         {
-            return dalThamSo.GetAllThamSo();
+            try
+            {
+                return await _dalThamSo.UpdateThamSoAsync(thamSo).ConfigureAwait(false);
+            }
+            catch (DalException dalEx)
+            {
+                LogUpdateThamSoFailure(_logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                throw new BusException(
+                        "Không cập nhật được Tham số. Vui lòng thử lại sau.",
+                        dalEx);
+            }
         }
 
-        // Thêm tham số
-        public bool ThemThamSo(DTO_ThamSo thamSo)
-        {
-            return dalThamSo.ThemThamSo(thamSo);
-        }
 
-        // Sửa tham số
-        public bool SuaThamSo(DTO_ThamSo thamSo)
-        {
-            return dalThamSo.SuaThamSo(thamSo);
-        }
-
-        // Xóa tham số
-        public bool XoaThamSo(string tenThamSo)
-        {
-            return dalThamSo.XoaThamSo(tenThamSo);
-        }
     }
 }
