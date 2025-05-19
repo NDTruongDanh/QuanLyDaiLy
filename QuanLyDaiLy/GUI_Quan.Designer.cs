@@ -48,8 +48,8 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(dgvQuan);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 8);
-            panel1.Margin = new Padding(16, 8, 16, 16);
+            panel1.Location = new Point(16, 16);
+            panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16, 16, 16, 8);
             panel1.Size = new Size(1602, 502);
@@ -148,10 +148,10 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(1043, 319);
+            flowLayoutPanel1.Location = new Point(984, 319);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(540, 52);
-            flowLayoutPanel1.TabIndex = 26;
+            flowLayoutPanel1.Size = new Size(599, 52);
+            flowLayoutPanel1.TabIndex = 30;
             // 
             // btnAdd
             // 
@@ -160,12 +160,12 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
             btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 44);
+            btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -173,13 +173,13 @@
             btnEdit.BackColor = Color.FromArgb(255, 152, 0);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(137, 3);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -187,13 +187,13 @@
             btnDelete.BackColor = Color.FromArgb(244, 67, 54);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(271, 3);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // button1
             // 
@@ -201,7 +201,7 @@
             button1.BackColor = Color.FromArgb(33, 150, 243);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(405, 3);
+            button1.Location = new Point(462, 3);
             button1.Name = "button1";
             button1.Size = new Size(131, 44);
             button1.TabIndex = 24;
@@ -231,7 +231,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1602, 246);
+            tableLayoutPanel1.Size = new Size(1602, 63);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // txtTenQuan
@@ -318,12 +318,12 @@
         private Label lblThongTinPhieuThu;
         private Label label4;
         private TableLayoutPanel tableLayoutPanel2;
+        private DataGridViewTextBoxColumn Column1;
+        private TextBox txtTenQuan;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
         private Button button1;
-        private DataGridViewTextBoxColumn Column1;
-        private TextBox txtTenQuan;
     }
 }
