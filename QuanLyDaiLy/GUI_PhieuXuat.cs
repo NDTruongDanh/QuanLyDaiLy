@@ -63,6 +63,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                
                 await LoadComboBoxDaiLyAsync();
                 await LoadDataGridViewAsync();
             }
@@ -123,10 +124,10 @@ namespace GUI_QuanLy
                 {
                     var data = await _busPhieuXuat.GetDataTablePhieuXuatCuaDaiLyAsync(_daiLy.MaDaiLy);
                     _bindingSource.DataSource = data;
-                    ModifyDataGridViewColumns();
                 }
 
-                dgvPhieuXuat.AutoResizeColumns();
+                ModifyDataGridViewColumns();
+
             }
             catch (BusException busEx)
             {
@@ -174,16 +175,20 @@ namespace GUI_QuanLy
         {
             try
             {
-                DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat(0, _daiLy.MaDaiLy, dtpNgayLapPhieu.Value, 0, 0, 0);
+                int maDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue);
+                string tenDaiLy = cmbDaiLy.Text;
+                DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat(0, maDaiLy, dtpNgayLapPhieu.Value, 0, 0, 0);
 
-                int maPhieuXuat = await _busPhieuXuat.GetMaPhieuXuatDefaultAsync(phieuXuat);
+                phieuXuat.MaPhieuXuat = await _busPhieuXuat.GetMaPhieuXuatDefaultAsync(phieuXuat);
 
                 using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
                 {
                     this.Enabled = false;
                     CTPX.SetPhieuXuat(phieuXuat);
+                    CTPX.SetTenDaiLy(tenDaiLy);
                     CTPX.ShowDialog();
                     phieuXuat = CTPX.GetPhieuXuat();
+                    this.Enabled = true;
                 }
                 if (phieuXuat.TongTien != 0)
                 {
@@ -199,7 +204,7 @@ namespace GUI_QuanLy
                 }
                 else
                 {
-                    await _busPhieuXuat.DeletePhieuXuatAsync(maPhieuXuat);
+                    await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat);
                     MessageBox.Show("Thêm Phiếu xuất thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -232,17 +237,20 @@ namespace GUI_QuanLy
                         DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat
                         {
                             MaPhieuXuat = _maPhieuXuat,
-                            MaDaiLy = _maDaiLy,
+                            MaDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue),
                             NgayLapPhieu = dtpNgayLapPhieu.Value,
                             TongTien = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TongTien"].Value),
                             TienTra = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value),
                             ConLai = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["ConLai"].Value)
                         };
 
+                        string tenDaiLy = cmbDaiLy.Text;
+
                         using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
                         {
                             this.Enabled = false;
                             CTPX.SetPhieuXuat(phieuXuat);
+                            CTPX.SetTenDaiLy(tenDaiLy);
                             CTPX.ShowDialog();
                             this.Enabled = true;
                         }
@@ -278,6 +286,23 @@ namespace GUI_QuanLy
                 MessageBox.Show("Vui lòng chọn phiếu xuất để sửa!");
             }
         }
+
+
+        private void ValidateInputFields()
+        {
+            if (cmbDaiLy.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn đại lý!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTraTruoc.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tiền trả trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
@@ -335,6 +360,7 @@ namespace GUI_QuanLy
                 cmbDaiLy.SelectedValue = dgvPhieuXuat.SelectedRows[0].Cells["MaDaiLy"].Value;
                 dtpNgayLapPhieu.Value = Convert.ToDateTime(dgvPhieuXuat.SelectedRows[0].Cells["NgayLapPhieu"].Value);
                 txtTraTruoc.Text = dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value.ToString();
+                _maPhieuXuat = Convert.ToInt32(dgvPhieuXuat.SelectedRows[0].Cells["MaPhieuXuat"].Value);
             }
         }
 

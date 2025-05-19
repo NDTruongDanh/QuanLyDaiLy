@@ -226,8 +226,10 @@
             // 
             txtTraTruoc.Location = new Point(167, 77);
             txtTraTruoc.Name = "txtTraTruoc";
+            txtTraTruoc.ReadOnly = true;
             txtTraTruoc.Size = new Size(125, 27);
             txtTraTruoc.TabIndex = 12;
+            txtTraTruoc.Text = "0";
             // 
             // label1
             // 

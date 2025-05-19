@@ -236,7 +236,7 @@
             label5.Name = "label5";
             label5.Size = new Size(145, 46);
             label5.TabIndex = 27;
-            label5.Text = "Số tiền trả:";
+            label5.Text = "Tổng tiền";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -331,7 +331,7 @@
             dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuNhap.EnableHeadersVisualStyles = false;
             dgvPhieuNhap.GridColor = Color.White;
-            dgvPhieuNhap.Location = new Point(19, 90);
+            dgvPhieuNhap.Location = new Point(-57, 53);
             dgvPhieuNhap.Margin = new Padding(5);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -348,6 +348,7 @@
             dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPhieuNhap.Size = new Size(1564, 449);
             dgvPhieuNhap.TabIndex = 30;
+            dgvPhieuNhap.SelectionChanged += dgvPhieuNhap_SelectionChanged;
             // 
             // GUI_PhieuNhap
             // 
@@ -372,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             ResumeLayout(false);
         }
+
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
