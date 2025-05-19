@@ -134,7 +134,7 @@
             dgvDaiLy.DefaultCellStyle = dataGridViewCellStyle2;
             dgvDaiLy.EnableHeadersVisualStyles = false;
             dgvDaiLy.GridColor = Color.White;
-            dgvDaiLy.Location = new Point(18, 82);
+            dgvDaiLy.Location = new Point(18, 100);
             dgvDaiLy.Name = "dgvDaiLy";
             dgvDaiLy.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -148,7 +148,7 @@
             dgvDaiLy.RowHeadersVisible = false;
             dgvDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDaiLy.Size = new Size(1569, 330);
+            dgvDaiLy.Size = new Size(1569, 299);
             dgvDaiLy.TabIndex = 14;
             dgvDaiLy.SelectionChanged += dgvDaiLy_SelectionChanged;
             dgvDaiLy.MouseDown += dgvDaiLy_MouseDown;
@@ -164,7 +164,7 @@
             pnlData.Margin = new Padding(16, 16, 16, 8);
             pnlData.Name = "pnlData";
             pnlData.Padding = new Padding(15);
-            pnlData.Size = new Size(1602, 430);
+            pnlData.Size = new Size(1602, 417);
             pnlData.TabIndex = 21;
             // 
             // lblDanhSachDaiLy
@@ -194,11 +194,11 @@
             pnlInput.Controls.Add(lblThongTinDaiLy);
             pnlInput.Controls.Add(label4);
             pnlInput.Dock = DockStyle.Fill;
-            pnlInput.Location = new Point(16, 462);
+            pnlInput.Location = new Point(16, 449);
             pnlInput.Margin = new Padding(16, 8, 16, 16);
             pnlInput.Name = "pnlInput";
             pnlInput.Padding = new Padding(15);
-            pnlInput.Size = new Size(1602, 447);
+            pnlInput.Size = new Size(1602, 460);
             pnlInput.TabIndex = 22;
             // 
             // flowLayoutPanel1
@@ -210,9 +210,9 @@
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(908, 377);
+            flowLayoutPanel1.Location = new Point(840, 390);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(679, 52);
+            flowLayoutPanel1.Size = new Size(747, 52);
             flowLayoutPanel1.TabIndex = 27;
             // 
             // btnAdd
@@ -222,6 +222,7 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
             btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
@@ -235,7 +236,8 @@
             btnEdit.BackColor = Color.FromArgb(255, 152, 0);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(143, 3);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
@@ -249,7 +251,8 @@
             btnDelete.BackColor = Color.FromArgb(244, 67, 54);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(277, 3);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
@@ -263,7 +266,8 @@
             btnFind.BackColor = Color.FromArgb(33, 150, 243);
             btnFind.FlatStyle = FlatStyle.Flat;
             btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(411, 3);
+            btnFind.Location = new Point(462, 3);
+            btnFind.Margin = new Padding(3, 3, 20, 3);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(128, 44);
             btnFind.TabIndex = 23;
@@ -277,7 +281,7 @@
             button1.BackColor = Color.FromArgb(33, 150, 243);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(545, 3);
+            button1.Location = new Point(613, 3);
             button1.Name = "button1";
             button1.Size = new Size(131, 44);
             button1.TabIndex = 24;
@@ -318,7 +322,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1569, 316);
+            tableLayoutPanel1.Size = new Size(1569, 280);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cboLoaiDaiLy
@@ -384,7 +388,7 @@
             lblNgayTiepNhan.Font = new Font("Segoe UI", 12F);
             lblNgayTiepNhan.Location = new Point(3, 244);
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
-            lblNgayTiepNhan.Size = new Size(150, 72);
+            lblNgayTiepNhan.Size = new Size(150, 40);
             lblNgayTiepNhan.TabIndex = 6;
             lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
@@ -463,8 +467,8 @@
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 49.08108F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50.91892F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 47.6756744F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 52.3243256F));
             tableLayoutPanel2.Size = new Size(1634, 925);
             tableLayoutPanel2.TabIndex = 23;
             // 

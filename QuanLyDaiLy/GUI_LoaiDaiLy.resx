@@ -123,39 +123,4 @@
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAFpJREFUSEvt
-        0tEJACEMA9Dsv5Sj3AiO4BFQKAWlaPUrDwIF0YAKiDxQALQeztepMJ0Kt3yLVFPI2a/bhI0DTxPmN+4m
-        jG8zC69qHMjZr9ukuPJpVlSYToUiuX6rtnLhgKV27wAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAALVJREFUSEvt
-        0zsOwjAQRdEpWAhLoaVmBVRsg5ZV8gvfmh40EpasKwfnJTZKkStNk7F9qphNaS3NbMOPtdqb2TuaOQ+U
-        jFhVtA2rguawMDNe7FNXzGfHy2oK5rPiA0oq5ud7R+xlZtsEEubAB5RSWGj9T8x7Yn/EXkrFTthLjRo7
-        Yy+lYg32UqPGLthL8QfOYVfs5QjGFce8NpDYLdoNimBq7rw0pBxYFPN+gQ8eLtHii6ZmqnMfcKrQVUyz
-        w1QAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAIZJREFUSEvt
-        kMsJgDAQRAfBqzXYgD1YgyebEFuwM0uxFCW5GIb8NrkE3Qdz2WT2hQDKywXgjqSIMZKUkO+7CXJ6FtXG
-        PDTI94UG8+duQYrbnfnQRzPCkpkKLSqUzFRoUaFkViXMpX3hQKWaTLw8BBdLk83iKUuz8tIUHYANwCHM
-        DqDnZf/hAZFLLrZnIyx4AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAARVJREFUSEvt
-        ljELQXEUxU/ZDMogkzKZbQYMFotBNpt8DT6Ej2DxNWSg+AxKYrPJIBvdom6n+67/e14y+NWZ7jn31OPd
-        HvDnBygB6ABoAsjw8MlAqcrDENoA7o6OAArKv1czKY0FL/e0e2YSFeaMhaFKVMhLRCM2AZgZPq2gwguF
-        VmwwOBtlQYUNCszZ4HBKUsiBKLoAFoY4H6uwx0OFLOLlltzCIpk9UinkF9xDLoi+KFFyL42crNDCVJA7
-        +dVCQRfWeRhAH8BU6S268MrDAHR+w0OLIYUmbHBYUzbPhih0SDRmg8GSMls2vINL5fFav2nN8IpiUzaW
-        hOojeJmnA4eTwn8k1g1AhUNp8fqIagHI8vDP13kA8efOTbErDKwAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>
