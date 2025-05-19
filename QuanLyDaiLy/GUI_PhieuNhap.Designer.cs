@@ -13,20 +13,14 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_PhieuNhap));
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel6 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            btnRefresh = new Button();
             label1 = new Label();
             label3 = new Label();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -47,14 +41,20 @@
             btnDelete = new Button();
             panel4 = new Panel();
             btnFind = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
             flpButtons.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // sqlCommand1
@@ -103,98 +103,6 @@
             panel6.Padding = new Padding(16);
             panel6.Size = new Size(1602, 309);
             panel6.TabIndex = 1;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button2);
-            flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(845, 223);
-            flowLayoutPanel1.Margin = new Padding(3, 3, 200, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(738, 50);
-            flowLayoutPanel1.TabIndex = 31;
-            // 
-            // button1
-            // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(76, 175, 80);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 3);
-            button1.Margin = new Padding(3, 3, 20, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 44);
-            button1.TabIndex = 22;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.AutoSize = true;
-            button2.BackColor = Color.FromArgb(255, 152, 0);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(154, 3);
-            button2.Margin = new Padding(3, 3, 20, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(128, 44);
-            button2.TabIndex = 21;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.AutoSize = true;
-            button3.BackColor = Color.FromArgb(244, 67, 54);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F);
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(305, 3);
-            button3.Margin = new Padding(3, 3, 20, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 44);
-            button3.TabIndex = 20;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.AutoSize = true;
-            button4.BackColor = Color.FromArgb(33, 150, 243);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(456, 3);
-            button4.Margin = new Padding(3, 3, 20, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 44);
-            button4.TabIndex = 23;
-            button4.Text = "🔍 Tìm ";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.AutoSize = true;
-            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.Font = new Font("Segoe UI", 12F);
-            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
-            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRefresh.Location = new Point(607, 3);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(128, 44);
-            btnRefresh.TabIndex = 23;
-            btnRefresh.Text = "   Làm mới";
-            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -329,37 +237,37 @@
             dgvPhieuNhap.BackgroundColor = Color.White;
             dgvPhieuNhap.BorderStyle = BorderStyle.None;
             dgvPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.White;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuNhap.EnableHeadersVisualStyles = false;
             dgvPhieuNhap.GridColor = Color.White;
             dgvPhieuNhap.Location = new Point(19, 90);
             dgvPhieuNhap.Margin = new Padding(5);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.White;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgvPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuNhap.RowHeadersVisible = false;
             dgvPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -463,6 +371,89 @@
             btnFind.Text = "   Làm mới";
             btnFind.UseVisualStyleBackColor = false;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Location = new Point(836, 238);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(747, 52);
+            flowLayoutPanel1.TabIndex = 30;
+            // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(76, 175, 80);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(3, 3);
+            button1.Margin = new Padding(3, 3, 20, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(134, 44);
+            button1.TabIndex = 22;
+            button1.Text = "➕  Thêm";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.AutoSize = true;
+            button2.BackColor = Color.FromArgb(255, 152, 0);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F);
+            button2.Location = new Point(160, 3);
+            button2.Margin = new Padding(3, 3, 20, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(128, 44);
+            button2.TabIndex = 21;
+            button2.Text = "✏️ Sửa";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.AutoSize = true;
+            button3.BackColor = Color.FromArgb(244, 67, 54);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 12F);
+            button3.Location = new Point(311, 3);
+            button3.Margin = new Padding(3, 3, 20, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(128, 44);
+            button3.TabIndex = 20;
+            button3.Text = "🗑 Xóa";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.AutoSize = true;
+            button4.BackColor = Color.FromArgb(33, 150, 243);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 12F);
+            button4.Location = new Point(462, 3);
+            button4.Margin = new Padding(3, 3, 20, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(128, 44);
+            button4.TabIndex = 23;
+            button4.Text = "🔍 Tìm ";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.AutoSize = true;
+            button5.BackColor = Color.FromArgb(33, 150, 243);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.Location = new Point(613, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(131, 44);
+            button5.TabIndex = 24;
+            button5.Text = "🔍 Làm mới";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // GUI_PhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -478,8 +469,6 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel5.ResumeLayout(false);
@@ -487,6 +476,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             flpButtons.ResumeLayout(false);
             flpButtons.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
@@ -517,7 +508,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private Button btnRefresh;
         private Button button4;
+        private Button button5;
     }
 }
