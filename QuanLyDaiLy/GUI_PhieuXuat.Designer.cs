@@ -24,9 +24,11 @@
             btnFind = new Button();
             button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
+
             label5 = new Label();
             label4 = new Label();
             label7 = new Label();
+
             dtpNgayLapPhieu = new DateTimePicker();
             cmbDaiLy = new ComboBox();
             txtTraTruoc = new TextBox();
@@ -132,7 +134,6 @@
             btnFind.TabIndex = 23;
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
-            btnFind.Click += btnFind_Click;
             // 
             // button1
             // 
@@ -154,9 +155,11 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+
             tableLayoutPanel2.Controls.Add(label5, 0, 2);
             tableLayoutPanel2.Controls.Add(label4, 0, 1);
             tableLayoutPanel2.Controls.Add(label7, 0, 0);
+
             tableLayoutPanel2.Controls.Add(dtpNgayLapPhieu, 1, 1);
             tableLayoutPanel2.Controls.Add(cmbDaiLy, 1, 0);
             tableLayoutPanel2.Controls.Add(txtTraTruoc, 1, 2);
@@ -169,6 +172,7 @@
             tableLayoutPanel2.Size = new Size(1571, 124);
             tableLayoutPanel2.TabIndex = 21;
             // 
+
             // label5
             // 
             label5.AutoSize = true;
@@ -176,9 +180,11 @@
             label5.Font = new Font("Segoe UI", 12F);
             label5.Location = new Point(3, 74);
             label5.Name = "label5";
+
             label5.Size = new Size(158, 50);
+
             label5.TabIndex = 10;
-            label5.Text = "Số tiền trả trước:";
+            label5.Text = "Số tiền trả:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -188,7 +194,7 @@
             label4.Font = new Font("Segoe UI", 12F);
             label4.Location = new Point(3, 34);
             label4.Name = "label4";
-            label4.Size = new Size(158, 40);
+            label4.Size = new Size(145, 40);
             label4.TabIndex = 9;
             label4.Text = "Ngày lập phiếu";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -200,16 +206,21 @@
             label7.Font = new Font("Segoe UI", 12F);
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
+
             label7.Size = new Size(158, 34);
+
             label7.TabIndex = 2;
             label7.Text = "Tên Đại lý:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
+
             // dtpNgayLapPhieu
             // 
             dtpNgayLapPhieu.Dock = DockStyle.Fill;
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F);
+
             dtpNgayLapPhieu.Location = new Point(167, 37);
+
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
             dtpNgayLapPhieu.Size = new Size(1417, 34);
             dtpNgayLapPhieu.TabIndex = 8;
@@ -367,21 +378,17 @@
         private Label label3;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label7;
-
         private ComboBox comboBoxDaiLy;
-
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private DateTimePicker dtpNgayLapPhieu;
         private Label label4;
         private Label label5;
-
         private TextBox txtEmail;
         private DataGridView dgvPhieuXuat;
         private Label label2;
         private Label label6;
         private FlowLayoutPanel flowLayoutPanel1;
-
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;

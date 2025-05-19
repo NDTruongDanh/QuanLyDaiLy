@@ -8,18 +8,27 @@ namespace DTO_QuanLy
 {
     public class DTO_ThamSo
     {
-        public int DaiLyToiDa { get; set; }
-        public bool ApDungQDKiemTraTienThu { get; set; }
-        public float TiLeTinhDonGiaXuat { get; set; }
-        
+        private string _tenThamSo;
+        private int _giaTri;
+
+        public string TenThamSo
+        {
+            get { return _tenThamSo; }
+            set { _tenThamSo = value; }
+        }
+
+        public int GiaTri
+        {
+            get { return _giaTri; }
+            set { _giaTri = value; }
+        }
 
         public DTO_ThamSo() { }
 
-        public DTO_ThamSo(int daiLyToiDa, bool apDungQDKiemTraTienThu, float tiLeTinhDonGiaXuat)
+        public DTO_ThamSo(string tenThamSo, int giaTri)
         {
-            DaiLyToiDa = daiLyToiDa;
-            ApDungQDKiemTraTienThu = apDungQDKiemTraTienThu;
-            TiLeTinhDonGiaXuat = tiLeTinhDonGiaXuat;
+            TenThamSo = tenThamSo;
+            GiaTri = giaTri;
         }
     }
 }

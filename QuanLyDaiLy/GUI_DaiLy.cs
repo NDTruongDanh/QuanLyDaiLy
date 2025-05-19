@@ -454,28 +454,13 @@ namespace GUI_QuanLy
         {
             try
             {
-                string tenDaiLy = txtTenDaiLy.Text.Trim();
-                string sdt = txtSDT.Text.Trim();
-                string email = txtEmail.Text.Trim();
-                string diaChi = txtDiaChi.Text.Trim();
-                int maLoaiDaiLy = Convert.ToInt32(cboLoaiDaiLy.SelectedValue);
-                int maQuan = Convert.ToInt32(cboQuan.SelectedValue);
-                DateTime ngayTiepNhan = dtpNgayTiepNhan.Value;
-                decimal tongNo = Convert.ToDecimal(dgvDaiLy.SelectedRows[0].Cells["TongNo"].Value);
+                // Resolve từ container, truyền _maDaiLy qua phương thức
+                var phieuXuat = _services.GetRequiredService<GUI_PhieuXuat>();
+                phieuXuat.SetMaDaiLy(_maDaiLy);
 
-                DTO_DaiLy daiLy = new DTO_DaiLy(_maDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
-
-
-                using (var phieuXuat = _services.GetRequiredService<GUI_PhieuXuat>())
-                {
-                    this.Enabled = false;
-                    phieuXuat.SetDaiLy(daiLy);
-                    phieuXuat.ShowDialog();
-                    this.Enabled = true;
-                    await LoadDaiLyAsync();
-                }
-
-                
+                this.Enabled = false;
+                phieuXuat.ShowDialog();
+                this.Enabled = true;
                 await LoadDaiLyAsync();
             }
             catch (Exception ex)
