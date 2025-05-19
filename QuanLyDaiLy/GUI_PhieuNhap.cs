@@ -114,7 +114,7 @@ namespace GUI_QuanLy
 
                 if (phieuNhap.TongTien != 0)
                 {
-                    if (await _busPhieuNhap.UpdatePhieuNhapAsync(phieuNhap)) 
+                    if (await _busPhieuNhap.UpdatePhieuNhapAsync(phieuNhap))
                     {
                         MessageBox.Show("Thêm Phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await LoadPhieuNhapAsync();
@@ -127,7 +127,7 @@ namespace GUI_QuanLy
                 else
                 {
                     await _busPhieuNhap.DeletePhieuNhapAsync(phieuNhap.MaPhieuNhap);
-                    MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);       
+                    MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (BusException busEx)
@@ -248,7 +248,7 @@ namespace GUI_QuanLy
                         MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                  
+
             }
             else
             {
@@ -285,6 +285,7 @@ namespace GUI_QuanLy
         {
             this.Close();
         }
+
     }
 }
 
