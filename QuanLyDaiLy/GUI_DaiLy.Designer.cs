@@ -277,13 +277,6 @@
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // panel5
-            // 
-            panel5.Location = new Point(457, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(20, 20);
-            panel5.TabIndex = 26;
-            // 
             // btnRefresh
             // 
             btnRefresh.AutoSize = true;
@@ -488,7 +481,103 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tạoPhiếuXuấtHàngToolStripMenuItem, tạoPhiếuThuTiềnToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(218, 52);
+            contextMenuStrip1.Size = new Size(186, 52);
+            // 
+            // mnItemPhieuXuat
+            // 
+            mnItemPhieuXuat.Name = "mnItemPhieuXuat";
+            mnItemPhieuXuat.Size = new Size(185, 24);
+            mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
+            mnItemPhieuXuat.Click += mnPhieuXuatHang_Click;
+            // 
+            // mnItemPhieuThu
+            // 
+            mnItemPhieuThu.Name = "mnItemPhieuThu";
+            mnItemPhieuThu.Size = new Size(185, 24);
+            mnItemPhieuThu.Text = "Phiếu Thu tiền";
+            mnItemPhieuThu.Click += mnPhieuThu_Click;
+            // 
+            // flpButtons
+            // 
+            flpButtons.AutoSize = true;
+            flpButtons.Controls.Add(btnAdd);
+            flpButtons.Controls.Add(panel3);
+            flpButtons.Controls.Add(btnEdit);
+            flpButtons.Controls.Add(panel4);
+            flpButtons.Controls.Add(btnDelete);
+            flpButtons.Controls.Add(panel5);
+            flpButtons.Controls.Add(btnFind);
+            flpButtons.Location = new Point(970, 466);
+            flpButtons.Margin = new Padding(900, 5, 5, 5);
+            flpButtons.Name = "flpButtons";
+            flpButtons.Size = new Size(614, 50);
+            flpButtons.TabIndex = 32;
+            // 
+            // btnAdd
+            // 
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(128, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(137, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(20, 20);
+            panel3.TabIndex = 24;
+            // 
+            // btnEdit
+            // 
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
+            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEdit.Location = new Point(163, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            panel4.Location = new Point(297, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(20, 20);
+            panel4.TabIndex = 25;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(323, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            panel5.Location = new Point(457, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(20, 20);
+            panel5.TabIndex = 26;
             // 
             // tạoPhiếuXuấtHàngToolStripMenuItem
             // 

@@ -17,7 +17,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Quan));
-            lblDsQuan = new Label();
+            lblDsQuan = new Label(); 
             dgvQuan = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             tlbFormQuan = new TableLayoutPanel();
