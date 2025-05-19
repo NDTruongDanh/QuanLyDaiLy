@@ -418,6 +418,11 @@ namespace GUI_QuanLy
                 txtConLai.Text = (_phieuXuat.TongTien - traTruoc).ToString("N0");
             }
         }
+
+        private void cbbMatHang_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtDonGiaXuat.Text = _listDonGiaXuat[cbbMatHang.SelectedIndex].ToString("N0");
+        }
     }
 }
 
