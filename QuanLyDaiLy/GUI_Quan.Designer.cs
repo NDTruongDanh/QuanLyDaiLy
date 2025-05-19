@@ -212,11 +212,10 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(txtTenQuan, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel1.Location = new Point(16, 77);
@@ -230,9 +229,9 @@
             // 
             txtTenQuan.Dock = DockStyle.Fill;
             txtTenQuan.Font = new Font("Segoe UI", 12F);
-            txtTenQuan.Location = new Point(237, 3);
+            txtTenQuan.Location = new Point(131, 3);
             txtTenQuan.Name = "txtTenQuan";
-            txtTenQuan.Size = new Size(1324, 39);
+            txtTenQuan.Size = new Size(1430, 39);
             txtTenQuan.TabIndex = 7;
             // 
             // lblTenDaiLy

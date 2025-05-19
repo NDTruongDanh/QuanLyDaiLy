@@ -223,8 +223,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
@@ -241,9 +241,9 @@
             // 
             textBox2.Dock = DockStyle.Fill;
             textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(238, 48);
+            textBox2.Location = new Point(187, 48);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(1326, 39);
+            textBox2.Size = new Size(1377, 39);
             textBox2.TabIndex = 8;
             // 
             // label1
@@ -261,9 +261,9 @@
             // 
             textBox1.Dock = DockStyle.Fill;
             textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(238, 3);
+            textBox1.Location = new Point(187, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(1326, 39);
+            textBox1.Size = new Size(1377, 39);
             textBox1.TabIndex = 6;
             // 
             // lblTenDaiLy

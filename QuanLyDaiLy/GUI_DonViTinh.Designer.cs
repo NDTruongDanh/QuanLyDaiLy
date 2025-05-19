@@ -213,8 +213,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(txtDonViTinh, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel1.Location = new Point(16, 70);
@@ -228,9 +228,9 @@
             // 
             txtDonViTinh.Dock = DockStyle.Fill;
             txtDonViTinh.Font = new Font("Segoe UI", 12F);
-            txtDonViTinh.Location = new Point(237, 3);
+            txtDonViTinh.Location = new Point(192, 3);
             txtDonViTinh.Name = "txtDonViTinh";
-            txtDonViTinh.Size = new Size(1324, 39);
+            txtDonViTinh.Size = new Size(1369, 39);
             txtDonViTinh.TabIndex = 7;
             // 
             // lblTenDaiLy

@@ -78,9 +78,9 @@
             // 
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-            dtpNgayThuTien.Location = new Point(237, 49);
+            dtpNgayThuTien.Location = new Point(185, 49);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1324, 39);
+            dtpNgayThuTien.Size = new Size(1376, 39);
             dtpNgayThuTien.TabIndex = 3;
             // 
             // panel1
@@ -301,8 +301,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(txtSoTienThu, 1, 10);
             tableLayoutPanel1.Controls.Add(lblSoTienThu, 0, 10);
@@ -331,18 +331,18 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(237, 3);
+            cboLoaiDaiLy.Location = new Point(185, 3);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1324, 40);
+            cboLoaiDaiLy.Size = new Size(1376, 40);
             cboLoaiDaiLy.TabIndex = 12;
             // 
             // txtSoTienThu
             // 
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
-            txtSoTienThu.Location = new Point(237, 94);
+            txtSoTienThu.Location = new Point(185, 94);
             txtSoTienThu.Name = "txtSoTienThu";
-            txtSoTienThu.Size = new Size(1324, 39);
+            txtSoTienThu.Size = new Size(1376, 39);
             txtSoTienThu.TabIndex = 5;
             txtSoTienThu.KeyPress += txtSoTienThu_KeyPress;
             // 
