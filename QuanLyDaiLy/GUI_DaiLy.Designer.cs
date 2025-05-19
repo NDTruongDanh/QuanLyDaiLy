@@ -19,9 +19,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lblTenDaiLy = new Label();
             lblDiaChi = new Label();
             txtTenDaiLy = new TextBox();
@@ -71,7 +71,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(150, 40);
+            lblTenDaiLy.Size = new Size(184, 45);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại lý:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -82,9 +82,9 @@
             lblDiaChi.BackColor = Color.Transparent;
             lblDiaChi.Dock = DockStyle.Fill;
             lblDiaChi.Font = new Font("Segoe UI", 12F);
-            lblDiaChi.Location = new Point(3, 82);
+            lblDiaChi.Location = new Point(3, 91);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(150, 40);
+            lblDiaChi.Size = new Size(184, 45);
             lblDiaChi.TabIndex = 3;
             lblDiaChi.Text = "Địa chỉ:";
             lblDiaChi.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,18 +93,18 @@
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(159, 3);
+            txtTenDaiLy.Location = new Point(193, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.Size = new Size(1417, 34);
+            txtTenDaiLy.Size = new Size(1417, 39);
             txtTenDaiLy.TabIndex = 7;
             // 
             // txtDiaChi
             // 
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
-            txtDiaChi.Location = new Point(159, 85);
+            txtDiaChi.Location = new Point(193, 94);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(1417, 34);
+            txtDiaChi.Size = new Size(1417, 39);
             txtDiaChi.TabIndex = 8;
             // 
             // dgvDaiLy
@@ -115,36 +115,36 @@
             dgvDaiLy.BorderStyle = BorderStyle.None;
             dgvDaiLy.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvDaiLy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvDaiLy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvDaiLy.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvDaiLy.DefaultCellStyle = dataGridViewCellStyle5;
             dgvDaiLy.EnableHeadersVisualStyles = false;
             dgvDaiLy.GridColor = Color.White;
             dgvDaiLy.Location = new Point(18, 100);
             dgvDaiLy.Name = "dgvDaiLy";
             dgvDaiLy.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvDaiLy.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvDaiLy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvDaiLy.RowHeadersVisible = false;
             dgvDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -173,7 +173,7 @@
             lblDanhSachDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachDaiLy.Location = new Point(15, 15);
             lblDanhSachDaiLy.Name = "lblDanhSachDaiLy";
-            lblDanhSachDaiLy.Size = new Size(200, 32);
+            lblDanhSachDaiLy.Size = new Size(232, 38);
             lblDanhSachDaiLy.TabIndex = 16;
             lblDanhSachDaiLy.Text = "Danh sách đại lý";
             // 
@@ -183,7 +183,7 @@
             label2.Location = new Point(0, 64);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(2000, 2);
+            label2.Size = new Size(3000, 2);
             label2.TabIndex = 15;
             // 
             // pnlInput
@@ -210,9 +210,9 @@
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(840, 390);
+            flowLayoutPanel1.Location = new Point(813, 390);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(747, 52);
+            flowLayoutPanel1.Size = new Size(774, 52);
             flowLayoutPanel1.TabIndex = 27;
             // 
             // btnAdd
@@ -283,7 +283,7 @@
             button1.Font = new Font("Segoe UI", 12F);
             button1.Location = new Point(613, 3);
             button1.Name = "button1";
-            button1.Size = new Size(131, 44);
+            button1.Size = new Size(158, 44);
             button1.TabIndex = 24;
             button1.Text = "🔍 Làm mới";
             button1.UseVisualStyleBackColor = false;
@@ -322,7 +322,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1569, 280);
+            tableLayoutPanel1.Size = new Size(1569, 321);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cboLoaiDaiLy
@@ -330,9 +330,9 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(159, 43);
+            cboLoaiDaiLy.Location = new Point(193, 48);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1417, 36);
+            cboLoaiDaiLy.Size = new Size(1417, 40);
             cboLoaiDaiLy.TabIndex = 11;
             // 
             // lblLoaiDaiLy
@@ -341,9 +341,9 @@
             lblLoaiDaiLy.BackColor = Color.Transparent;
             lblLoaiDaiLy.Dock = DockStyle.Fill;
             lblLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            lblLoaiDaiLy.Location = new Point(3, 40);
+            lblLoaiDaiLy.Location = new Point(3, 45);
             lblLoaiDaiLy.Name = "lblLoaiDaiLy";
-            lblLoaiDaiLy.Size = new Size(150, 42);
+            lblLoaiDaiLy.Size = new Size(184, 46);
             lblLoaiDaiLy.TabIndex = 1;
             lblLoaiDaiLy.Text = "Loại Đại lý:";
             lblLoaiDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -353,18 +353,18 @@
             cboQuan.Dock = DockStyle.Fill;
             cboQuan.Font = new Font("Segoe UI", 12F);
             cboQuan.FormattingEnabled = true;
-            cboQuan.Location = new Point(159, 125);
+            cboQuan.Location = new Point(193, 139);
             cboQuan.Name = "cboQuan";
-            cboQuan.Size = new Size(1417, 36);
+            cboQuan.Size = new Size(1417, 40);
             cboQuan.TabIndex = 12;
             // 
             // dtpNgayTiepNhan
             // 
             dtpNgayTiepNhan.Dock = DockStyle.Fill;
             dtpNgayTiepNhan.Font = new Font("Segoe UI", 12F);
-            dtpNgayTiepNhan.Location = new Point(159, 247);
+            dtpNgayTiepNhan.Location = new Point(193, 275);
             dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
-            dtpNgayTiepNhan.Size = new Size(1417, 34);
+            dtpNgayTiepNhan.Size = new Size(1417, 39);
             dtpNgayTiepNhan.TabIndex = 13;
             // 
             // lblSDT
@@ -373,9 +373,9 @@
             lblSDT.BackColor = Color.Transparent;
             lblSDT.Dock = DockStyle.Fill;
             lblSDT.Font = new Font("Segoe UI", 12F);
-            lblSDT.Location = new Point(3, 164);
+            lblSDT.Location = new Point(3, 182);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(150, 40);
+            lblSDT.Size = new Size(184, 45);
             lblSDT.TabIndex = 4;
             lblSDT.Text = "SĐT:";
             lblSDT.TextAlign = ContentAlignment.MiddleLeft;
@@ -386,9 +386,9 @@
             lblNgayTiepNhan.BackColor = Color.Transparent;
             lblNgayTiepNhan.Dock = DockStyle.Fill;
             lblNgayTiepNhan.Font = new Font("Segoe UI", 12F);
-            lblNgayTiepNhan.Location = new Point(3, 244);
+            lblNgayTiepNhan.Location = new Point(3, 272);
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
-            lblNgayTiepNhan.Size = new Size(150, 40);
+            lblNgayTiepNhan.Size = new Size(184, 49);
             lblNgayTiepNhan.TabIndex = 6;
             lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
@@ -397,9 +397,9 @@
             // 
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
-            txtSDT.Location = new Point(159, 167);
+            txtSDT.Location = new Point(193, 185);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(1417, 34);
+            txtSDT.Size = new Size(1417, 39);
             txtSDT.TabIndex = 9;
             // 
             // lblEmail
@@ -408,9 +408,9 @@
             lblEmail.BackColor = Color.Transparent;
             lblEmail.Dock = DockStyle.Fill;
             lblEmail.Font = new Font("Segoe UI", 12F);
-            lblEmail.Location = new Point(3, 204);
+            lblEmail.Location = new Point(3, 227);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(150, 40);
+            lblEmail.Size = new Size(184, 45);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email:";
             lblEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -419,9 +419,9 @@
             // 
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(159, 207);
+            txtEmail.Location = new Point(193, 230);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(1417, 34);
+            txtEmail.Size = new Size(1417, 39);
             txtEmail.TabIndex = 10;
             // 
             // lblQuan
@@ -430,9 +430,9 @@
             lblQuan.BackColor = Color.Transparent;
             lblQuan.Dock = DockStyle.Fill;
             lblQuan.Font = new Font("Segoe UI", 12F);
-            lblQuan.Location = new Point(3, 122);
+            lblQuan.Location = new Point(3, 136);
             lblQuan.Name = "lblQuan";
-            lblQuan.Size = new Size(150, 42);
+            lblQuan.Size = new Size(184, 46);
             lblQuan.TabIndex = 2;
             lblQuan.Text = "Quận:";
             lblQuan.TextAlign = ContentAlignment.MiddleLeft;
@@ -443,7 +443,7 @@
             lblThongTinDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinDaiLy.Location = new Point(18, 15);
             lblThongTinDaiLy.Name = "lblThongTinDaiLy";
-            lblThongTinDaiLy.Size = new Size(194, 32);
+            lblThongTinDaiLy.Size = new Size(225, 38);
             lblThongTinDaiLy.TabIndex = 16;
             lblThongTinDaiLy.Text = "Thông tin đại lý";
             // 
@@ -453,7 +453,7 @@
             label4.Location = new Point(0, 64);
             label4.Margin = new Padding(0);
             label4.Name = "label4";
-            label4.Size = new Size(2000, 2);
+            label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
             // 
             // tableLayoutPanel2
@@ -478,19 +478,19 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(186, 52);
+            contextMenuStrip1.Size = new Size(214, 68);
             // 
             // mnItemPhieuXuat
             // 
             mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(185, 24);
+            mnItemPhieuXuat.Size = new Size(213, 32);
             mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
             mnItemPhieuXuat.Click += mnPhieuXuatHang_Click;
             // 
             // mnItemPhieuThu
             // 
             mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(185, 24);
+            mnItemPhieuThu.Size = new Size(213, 32);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             mnItemPhieuThu.Click += mnPhieuThu_Click;
             // 
