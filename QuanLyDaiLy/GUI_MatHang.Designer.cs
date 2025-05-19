@@ -4,8 +4,8 @@
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblTenDaiLy;
-        private System.Windows.Forms.TextBox txtTenDaiLy;
-        private System.Windows.Forms.DataGridView dgvDaiLy;
+        private System.Windows.Forms.TextBox txtTenMatHang;
+        private System.Windows.Forms.DataGridView dgvMatHang;
 
         protected override void Dispose(bool disposing)
         {
@@ -21,8 +21,8 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lblTenDaiLy = new Label();
-            txtTenDaiLy = new TextBox();
-            dgvDaiLy = new DataGridView();
+            txtTenMatHang = new TextBox();
+            dgvMatHang = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -32,13 +32,13 @@
             label2 = new Label();
             pnlInput = new Panel();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnFind = new Button();
+            btnRefresh = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            cboLoaiDaiLy = new ComboBox();
+            cmbDonViTinh = new ComboBox();
             label1 = new Label();
             lblThongTinDaiLy = new Label();
             label4 = new Label();
@@ -46,7 +46,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             mnItemPhieuXuat = new ToolStripMenuItem();
             mnItemPhieuThu = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dgvDaiLy).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMatHang).BeginInit();
             pnlData.SuspendLayout();
             pnlInput.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -63,29 +63,33 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
+
             lblTenDaiLy.Size = new Size(183, 45);
+
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Mặt hàng:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtTenDaiLy
+
+            // txtTenMatHang
             // 
-            txtTenDaiLy.Dock = DockStyle.Fill;
-            txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(192, 3);
-            txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.Size = new Size(1374, 39);
-            txtTenDaiLy.TabIndex = 7;
+            txtTenMatHang.Dock = DockStyle.Fill;
+            txtTenMatHang.Font = new Font("Segoe UI", 12F);
+            txtTenMatHang.Location = new Point(192, 3);
+            txtTenMatHang.Name = "txtTenMatHang";
+            txtTenMatHang.Size = new Size(1374, 39);
+            txtTenMatHang.TabIndex = 7;
             // 
-            // dgvDaiLy
+            // dgvMatHang
             // 
-            dgvDaiLy.AllowUserToResizeColumns = false;
-            dgvDaiLy.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDaiLy.BackgroundColor = Color.White;
-            dgvDaiLy.BorderStyle = BorderStyle.None;
-            dgvDaiLy.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
-            dgvDaiLy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvMatHang.AllowUserToResizeColumns = false;
+            dgvMatHang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvMatHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMatHang.BackgroundColor = Color.White;
+            dgvMatHang.BorderStyle = BorderStyle.None;
+            dgvMatHang.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
+            dgvMatHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
@@ -93,9 +97,11 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvDaiLy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDaiLy.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+
+            dgvMatHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvMatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMatHang.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
@@ -103,12 +109,14 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvDaiLy.DefaultCellStyle = dataGridViewCellStyle5;
-            dgvDaiLy.EnableHeadersVisualStyles = false;
-            dgvDaiLy.GridColor = Color.White;
-            dgvDaiLy.Location = new Point(18, 82);
-            dgvDaiLy.Name = "dgvDaiLy";
-            dgvDaiLy.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgvMatHang.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvMatHang.EnableHeadersVisualStyles = false;
+            dgvMatHang.GridColor = Color.White;
+            dgvMatHang.Location = new Point(18, 82);
+            dgvMatHang.Name = "dgvMatHang";
+            dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -116,12 +124,14 @@
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvDaiLy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dgvDaiLy.RowHeadersVisible = false;
-            dgvDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDaiLy.Size = new Size(1569, 492);
-            dgvDaiLy.TabIndex = 14;
+
+            dgvMatHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgvMatHang.RowHeadersVisible = false;
+            dgvMatHang.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvMatHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMatHang.Size = new Size(1569, 492);
+            dgvMatHang.TabIndex = 14;
+
             // 
             // Column1
             // 
@@ -152,7 +162,7 @@
             pnlData.BackColor = Color.White;
             pnlData.Controls.Add(lblDanhSachDaiLy);
             pnlData.Controls.Add(label2);
-            pnlData.Controls.Add(dgvDaiLy);
+            pnlData.Controls.Add(dgvMatHang);
             pnlData.Dock = DockStyle.Fill;
             pnlData.Location = new Point(16, 16);
             pnlData.Margin = new Padding(16, 16, 16, 8);
@@ -167,7 +177,7 @@
             lblDanhSachDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachDaiLy.Location = new Point(15, 15);
             lblDanhSachDaiLy.Name = "lblDanhSachDaiLy";
-            lblDanhSachDaiLy.Size = new Size(287, 38);
+            lblDanhSachDaiLy.Size = new Size(247, 32);
             lblDanhSachDaiLy.TabIndex = 16;
             lblDanhSachDaiLy.Text = "Danh sách Mặt hàng";
             // 
@@ -199,94 +209,100 @@
             // 
             flowLayoutPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.Controls.Add(button2);
-            flowLayoutPanel2.Controls.Add(button3);
-            flowLayoutPanel2.Controls.Add(button4);
-            flowLayoutPanel2.Controls.Add(button5);
-            flowLayoutPanel2.Controls.Add(button6);
+            flowLayoutPanel2.Controls.Add(btnAdd);
+            flowLayoutPanel2.Controls.Add(btnUpdate);
+            flowLayoutPanel2.Controls.Add(btnDelete);
+            flowLayoutPanel2.Controls.Add(btnFind);
+            flowLayoutPanel2.Controls.Add(btnRefresh);
             flowLayoutPanel2.Location = new Point(810, 215);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(774, 52);
             flowLayoutPanel2.TabIndex = 30;
             // 
-            // button2
+            // btnAdd
             // 
-            button2.AutoSize = true;
-            button2.BackColor = Color.FromArgb(76, 175, 80);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(3, 3);
-            button2.Margin = new Padding(3, 3, 20, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(134, 44);
-            button2.TabIndex = 22;
-            button2.Text = "➕  Thêm";
-            button2.UseVisualStyleBackColor = false;
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // button3
+            // btnUpdate
             // 
-            button3.AutoSize = true;
-            button3.BackColor = Color.FromArgb(255, 152, 0);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F);
-            button3.Location = new Point(160, 3);
-            button3.Margin = new Padding(3, 3, 20, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 44);
-            button3.TabIndex = 21;
-            button3.Text = "✏️ Sửa";
-            button3.UseVisualStyleBackColor = false;
+            btnUpdate.AutoSize = true;
+            btnUpdate.BackColor = Color.FromArgb(255, 152, 0);
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 12F);
+            btnUpdate.Location = new Point(160, 3);
+            btnUpdate.Margin = new Padding(3, 3, 20, 3);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(128, 44);
+            btnUpdate.TabIndex = 21;
+            btnUpdate.Text = "✏️ Sửa";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnEdit_Click;
             // 
-            // button4
+            // btnDelete
             // 
-            button4.AutoSize = true;
-            button4.BackColor = Color.FromArgb(244, 67, 54);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(311, 3);
-            button4.Margin = new Padding(3, 3, 20, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 44);
-            button4.TabIndex = 20;
-            button4.Text = "🗑 Xóa";
-            button4.UseVisualStyleBackColor = false;
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // button5
+            // btnFind
             // 
-            button5.AutoSize = true;
-            button5.BackColor = Color.FromArgb(33, 150, 243);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(462, 3);
-            button5.Margin = new Padding(3, 3, 20, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(128, 44);
-            button5.TabIndex = 23;
-            button5.Text = "🔍 Tìm ";
-            button5.UseVisualStyleBackColor = false;
+            btnFind.AutoSize = true;
+            btnFind.BackColor = Color.FromArgb(33, 150, 243);
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Segoe UI", 12F);
+            btnFind.Location = new Point(462, 3);
+            btnFind.Margin = new Padding(3, 3, 20, 3);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 44);
+            btnFind.TabIndex = 23;
+            btnFind.Text = "🔍 Tìm ";
+            btnFind.UseVisualStyleBackColor = false;
+            btnFind.Click += btnFind_Click;
             // 
-            // button6
+            // btnRefresh
             // 
-            button6.AutoSize = true;
-            button6.BackColor = Color.FromArgb(33, 150, 243);
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 12F);
-            button6.Location = new Point(613, 3);
-            button6.Name = "button6";
-            button6.Size = new Size(158, 44);
-            button6.TabIndex = 24;
-            button6.Text = "🔍 Làm mới";
-            button6.UseVisualStyleBackColor = false;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Location = new Point(613, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(158, 44);
+            btnRefresh.TabIndex = 24;
+            btnRefresh.Text = "🔍 Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
+
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 1);
+            tableLayoutPanel1.Controls.Add(cmbDonViTinh, 1, 1);
+
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
-            tableLayoutPanel1.Controls.Add(txtTenDaiLy, 1, 0);
+            tableLayoutPanel1.Controls.Add(txtTenMatHang, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel1.Location = new Point(18, 79);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -296,15 +312,16 @@
             tableLayoutPanel1.Size = new Size(1569, 92);
             tableLayoutPanel1.TabIndex = 19;
             // 
-            // cboLoaiDaiLy
-            // 
-            cboLoaiDaiLy.Dock = DockStyle.Fill;
-            cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(192, 48);
-            cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1374, 40);
-            cboLoaiDaiLy.TabIndex = 13;
+            // cmbDonViTinh
+
+            cmbDonViTinh.Dock = DockStyle.Fill;
+            cmbDonViTinh.Font = new Font("Segoe UI", 12F);
+            cmbDonViTinh.FormattingEnabled = true;
+            cmbDonViTinh.Location = new Point(192, 43);
+            cmbDonViTinh.Name = "cmbDonViTinh";
+            cmbDonViTinh.Size = new Size(1374, 40);
+            cmbDonViTinh.TabIndex = 13;
+
             // 
             // label1
             // 
@@ -312,9 +329,10 @@
             label1.BackColor = Color.Transparent;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 45);
+            label1.Location = new Point(3, 40);
             label1.Name = "label1";
             label1.Size = new Size(183, 47);
+
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -325,7 +343,7 @@
             lblThongTinDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinDaiLy.Location = new Point(18, 15);
             lblThongTinDaiLy.Name = "lblThongTinDaiLy";
-            lblThongTinDaiLy.Size = new Size(279, 38);
+            lblThongTinDaiLy.Size = new Size(240, 32);
             lblThongTinDaiLy.TabIndex = 16;
             lblThongTinDaiLy.Text = "Nhập liệu Mặt hàng";
             // 
@@ -360,18 +378,18 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(214, 68);
+            contextMenuStrip1.Size = new Size(186, 52);
             // 
             // mnItemPhieuXuat
             // 
             mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(213, 32);
+            mnItemPhieuXuat.Size = new Size(185, 24);
             mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
             // 
             // mnItemPhieuThu
             // 
             mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(213, 32);
+            mnItemPhieuThu.Size = new Size(185, 24);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             // 
             // GUI_MatHang
@@ -381,7 +399,7 @@
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_MatHang";
             Text = "Quản lý Mặt hàng";
-            ((System.ComponentModel.ISupportInitialize)dgvDaiLy).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMatHang).EndInit();
             pnlData.ResumeLayout(false);
             pnlData.PerformLayout();
             pnlInput.ResumeLayout(false);
@@ -411,12 +429,12 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
-        private ComboBox cboLoaiDaiLy;
+        private ComboBox cmbDonViTinh;
         private FlowLayoutPanel flowLayoutPanel2;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button btnAdd;
+        private Button btnUpdate;
+        private Button btnDelete;
+        private Button btnFind;
+        private Button btnRefresh;
     }
 }
