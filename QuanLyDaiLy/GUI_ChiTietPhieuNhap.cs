@@ -98,7 +98,7 @@ namespace GUI_QuanLy
                 ClearInputFields();
 
                 txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
-                dtpNgayLap.Value = Convert.ToDateTime(_phieuNhap.NgayLapPhieu.ToString("dd/MM/yyyy"));
+                dtpNgayLap.Value = _phieuNhap.NgayLapPhieu;
             }
             catch (BusException busEx)
             {

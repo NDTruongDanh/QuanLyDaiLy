@@ -21,7 +21,7 @@
             flpMaPhieu = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             lblMaPhieuNhap = new Label();
-            txtMaPhieuNhap = new TextBox();
+            txtMaPhieuXuat = new TextBox();
             flpDaiLy = new FlowLayoutPanel();
             lblDaily = new Label();
             txtDaiLy = new TextBox();
@@ -102,7 +102,7 @@
             // 
             flowLayoutPanel2.AutoSize = true;
             flowLayoutPanel2.Controls.Add(lblMaPhieuNhap);
-            flowLayoutPanel2.Controls.Add(txtMaPhieuNhap);
+            flowLayoutPanel2.Controls.Add(txtMaPhieuXuat);
             flowLayoutPanel2.Dock = DockStyle.Left;
             flowLayoutPanel2.Location = new Point(3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -121,16 +121,16 @@
             lblMaPhieuNhap.Text = "Số phiếu:";
             lblMaPhieuNhap.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtMaPhieuNhap
+            // txtMaPhieuXuat
             // 
-            txtMaPhieuNhap.BackColor = Color.White;
-            txtMaPhieuNhap.BorderStyle = BorderStyle.None;
-            txtMaPhieuNhap.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMaPhieuNhap.Location = new Point(125, 5);
-            txtMaPhieuNhap.Margin = new Padding(5);
-            txtMaPhieuNhap.Name = "txtMaPhieuNhap";
-            txtMaPhieuNhap.Size = new Size(150, 31);
-            txtMaPhieuNhap.TabIndex = 2;
+            txtMaPhieuXuat.BackColor = Color.White;
+            txtMaPhieuXuat.BorderStyle = BorderStyle.None;
+            txtMaPhieuXuat.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaPhieuXuat.Location = new Point(125, 5);
+            txtMaPhieuXuat.Margin = new Padding(5);
+            txtMaPhieuXuat.Name = "txtMaPhieuXuat";
+            txtMaPhieuXuat.Size = new Size(150, 31);
+            txtMaPhieuXuat.TabIndex = 2;
             // 
             // flpDaiLy
             // 
@@ -260,6 +260,7 @@
             txtTongTien.ReadOnly = true;
             txtTongTien.Size = new Size(300, 43);
             txtTongTien.TabIndex = 1;
+            txtTongTien.TextChanged += txtTongTien_TextChanged;
             // 
             // flpTienTra
             // 
@@ -291,6 +292,9 @@
             txtSoTienTra.Name = "txtSoTienTra";
             txtSoTienTra.Size = new Size(300, 43);
             txtSoTienTra.TabIndex = 1;
+            txtSoTienTra.Text = "0";
+            txtSoTienTra.TextChanged += txtSoTienTra_TextChanged;
+            txtSoTienTra.KeyPress += txtSoTienTra_KeyPress;
             // 
             // flpConLai
             // 
@@ -374,6 +378,7 @@
             txtDonGiaXuat.ReadOnly = true;
             txtDonGiaXuat.Size = new Size(335, 27);
             txtDonGiaXuat.TabIndex = 13;
+            txtDonGiaXuat.Text = "0";
             // 
             // label2
             // 
@@ -394,6 +399,8 @@
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(297, 27);
             txtSoLuong.TabIndex = 1;
+            txtSoLuong.Text = "0";
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             txtSoLuong.KeyPress += txtSoLuong_KeyPress;
             // 
             // txtThanhTien
@@ -404,6 +411,7 @@
             txtThanhTien.ReadOnly = true;
             txtThanhTien.Size = new Size(335, 27);
             txtThanhTien.TabIndex = 8;
+            txtThanhTien.Text = "0";
             // 
             // lblSL
             // 
@@ -579,7 +587,7 @@
         private FlowLayoutPanel flpMaPhieu;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label lblMaPhieuNhap;
-        private TextBox txtMaPhieuNhap;
+        private TextBox txtMaPhieuXuat;
         private FlowLayoutPanel flpDaiLy;
         private Label lblDaily;
         private TextBox txtDaiLy;
