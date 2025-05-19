@@ -76,8 +76,7 @@ namespace GUI_QuanLy
                 _bindingSource.DataSource = dataTable;
 
                 ModifyDataGridViewColumns();
-                await LoadDaiLyAsync();
-
+                ClearInputFields();
             }
             catch (BusException busEx)
             {
