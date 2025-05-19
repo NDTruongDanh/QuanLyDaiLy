@@ -1,53 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
-    <PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
-    <PackageReference Include="SipaaFramework" Version="1.1.0" />
-    <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+		<PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
+		<PackageReference Include="SipaaFramework" Version="1.1.0" />
+		<PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BUS_Library\BUS_Library.csproj" />
-    <ProjectReference Include="..\DTO_QuanLy\DTO_QuanLy.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BUS_Library\BUS_Library.csproj" />
+		<ProjectReference Include="..\DTO_QuanLy\DTO_QuanLy.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="GUI_DaiLy.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Update="GUI_DaiLy.Designer.cs">
+			<DependentUpon>GUI_DaiLy.cs</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="GUI_DaiLy.resx">
+			<DependentUpon>GUI_DaiLy.cs</DependentUpon>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-  <Compile Update="GUI_DaiLy.cs">
-    <SubType>Form</SubType>
-  </Compile>
-  <Compile Update="GUI_DaiLy.Designer.cs">
-    <DependentUpon>GUI_DaiLy
-.cs</DependentUpon>
-  </Compile>
-  <EmbeddedResource Update="GUI_DaiLy.resx">
-    <DependentUpon>GUI_DaiLy
-.cs</DependentUpon>
-  </EmbeddedResource>
-</ItemGroup>
-
-</Project>  
+</Project>
