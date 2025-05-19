@@ -238,9 +238,38 @@ namespace GUI_QuanLy
                 }
             }
         }
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (dgvPhieuXuat.SelectedRows.Count > 0)
+            {
+                cmbDaiLy.SelectedValue = dgvPhieuXuat.SelectedRows[0].Cells["MaDaiLy"].Value;
+                dtpNgayLapPhieu.Value = Convert.ToDateTime(dgvPhieuXuat.SelectedRows[0].Cells["NgayLapPhieu"].Value);
+                txtTraTruoc.Text = dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value.ToString();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearInputFields();
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void ApplyFilter()
+        {
+            var filters = new List<object>();
+
+            string tenDaiLy = cmbDaiLy.Text.Trim().Replace("'", "''");
+            if (!string.IsNullOrEmpty(tenDaiLy))
+                filters.Add($"TenDaiLy LIKE '%{tenDaiLy}%'");
+
+            if (decimal.TryParse(txtTraTruoc.Text, out decimal traTruoc))
+                filters.Add($"TienTra = {traTruoc}");
+
         }
     }
 }
