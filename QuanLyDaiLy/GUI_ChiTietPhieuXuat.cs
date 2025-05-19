@@ -25,6 +25,7 @@ namespace GUI_QuanLy
         private readonly IBUS_ChiTietPhieuXuat _busCTPX;
 
         private readonly IBUS_MatHang _busMatHang;
+        private readonly IBUS_ThamSo _busThamSo;
 
         private readonly ILogger<GUI_ChiTietPhieuXuat> _logger;
 
@@ -37,12 +38,14 @@ namespace GUI_QuanLy
         private List<int> _ListTonKho = new List<int>();
 
         private decimal _thanhTien = 0;
+        private string _tenDaiLy = string.Empty;
 
-        public GUI_ChiTietPhieuXuat(IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, IBUS_MatHang busMatHang, ILogger<GUI_ChiTietPhieuXuat> logger, IServiceProvider service)
+        public GUI_ChiTietPhieuXuat(IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, IBUS_MatHang busMatHang, IBUS_ThamSo busThamSo, ILogger<GUI_ChiTietPhieuXuat> logger, IServiceProvider service)
         {
             _busPhieuXuat = busPhieuXuat;
             _busCTPX = busCTPX;
             _busMatHang = busMatHang;
+            _busThamSo = busThamSo;
             _logger = logger;
             _services = service;
             InitializeComponent();
@@ -53,6 +56,11 @@ namespace GUI_QuanLy
         public void SetPhieuXuat(DTO_PhieuXuat phieuXuat)
         {
             _phieuXuat = phieuXuat;
+        }
+
+        public void SetTenDaiLy(string tenDaiLy)
+        {
+            _tenDaiLy = tenDaiLy;
         }
 
         public DTO_PhieuXuat GetPhieuXuat()
@@ -67,6 +75,11 @@ namespace GUI_QuanLy
         {
             try
             {
+                txtMaPhieuXuat.Text = _phieuXuat.MaPhieuXuat.ToString();
+                txtDaiLy.Text = _tenDaiLy;
+                txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
+                txtSoTienTra.Text = _phieuXuat.TienTra.ToString("N0");
+                txtConLai.Text = _phieuXuat.ConLai.ToString("N0");
                 await LoadComboBoxesMatHangAsync();
                 await LoadChiTietPhieuXuatAsync();
             }
@@ -88,10 +101,11 @@ namespace GUI_QuanLy
             try
             {
                 var dataTable = await _busMatHang.GetMatHangForXuatAsync();
+                float tiLe = await _busThamSo.GetTiLeDonGiaXuatAsync();
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    _listDonGiaXuat.Add(Convert.ToDecimal(row["DonGiaHienTai"]));
+                    _listDonGiaXuat.Add(Convert.ToDecimal(row["DonGiaHienTai"]) * (decimal)tiLe);
                     _ListTonKho.Add(Convert.ToInt32(row["TonKho"]));
                 }
 
@@ -156,7 +170,6 @@ namespace GUI_QuanLy
 
         private void ClearInputFields()
         {
-            txtSoTienTra.Text = "0";
             txtSoLuong.Text = "0";
             cbbMatHang.SelectedIndex = -1;
 
@@ -374,6 +387,36 @@ namespace GUI_QuanLy
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void txtSoTienTra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtSoLuong.Text, out int soLuong))
+            {
+                txtThanhTien.Text = (soLuong * _listDonGiaXuat[cbbMatHang.SelectedIndex]).ToString("N0");
+            }
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtSoTienTra.Text, out decimal traTruoc))
+            {
+                txtConLai.Text = (_phieuXuat.TongTien - traTruoc).ToString("N0");
+            }
+        }
+
+        private void txtSoTienTra_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtSoTienTra.Text, out decimal traTruoc))
+            {
+                txtConLai.Text = (_phieuXuat.TongTien - traTruoc).ToString("N0");
+            }
         }
     }
 }
