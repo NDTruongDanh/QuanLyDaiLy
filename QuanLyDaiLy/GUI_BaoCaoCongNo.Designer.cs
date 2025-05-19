@@ -107,6 +107,7 @@ namespace GUI_QuanLy
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_BaoCaoCongNo));
             pnHeader = new Panel();
             cbbThang = new ComboBox();
             btnXuatFile = new Button();
@@ -136,6 +137,8 @@ namespace GUI_QuanLy
             dgvtxtPhatSinh = new DataGridViewTextBoxColumn();
             dgvtxtNoCuoi = new DataGridViewTextBoxColumn();
             dgvtxtTrangThai = new DataGridViewTextBoxColumn();
+            btnFind = new Button();
+            cbbYear = new ComboBox();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flpTongPhatSinh.SuspendLayout();
@@ -151,6 +154,8 @@ namespace GUI_QuanLy
             // pnHeader
             // 
             pnHeader.BackColor = Color.WhiteSmoke;
+            pnHeader.Controls.Add(btnFind);
+            pnHeader.Controls.Add(cbbYear);
             pnHeader.Controls.Add(cbbThang);
             pnHeader.Controls.Add(btnXuatFile);
             pnHeader.Controls.Add(lblBaoCao);
@@ -167,7 +172,7 @@ namespace GUI_QuanLy
             cbbThang.FlatStyle = FlatStyle.Popup;
             cbbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbThang.FormattingEnabled = true;
-            cbbThang.Location = new Point(1325, 24);
+            cbbThang.Location = new Point(1041, 28);
             cbbThang.Margin = new Padding(10, 12, 20, 12);
             cbbThang.Name = "cbbThang";
             cbbThang.Size = new Size(106, 36);
@@ -352,7 +357,6 @@ namespace GUI_QuanLy
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "NoCuoi";
-            series1.ChartType = SeriesChartType.Column;
             series1.XValueType = ChartValueType.String;
             pcThongKeCongNo.Series.Add(series1);
             pcThongKeCongNo.Size = new Size(450, 450);
@@ -550,6 +554,34 @@ namespace GUI_QuanLy
             dgvtxtTrangThai.Name = "dgvtxtTrangThai";
             dgvtxtTrangThai.ReadOnly = true;
             // 
+            // btnFind
+            // 
+            btnFind.AutoSize = true;
+            btnFind.BackColor = Color.DeepSkyBlue;
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
+            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFind.Location = new Point(1324, 24);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(94, 40);
+            btnFind.TabIndex = 7;
+            btnFind.Text = "Tìm";
+            btnFind.UseVisualStyleBackColor = false;
+            // 
+            // cbbYear
+            // 
+            cbbYear.FlatStyle = FlatStyle.Popup;
+            cbbYear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbbYear.FormattingEnabled = true;
+            cbbYear.Location = new Point(1174, 27);
+            cbbYear.Margin = new Padding(10, 12, 20, 12);
+            cbbYear.Name = "cbbYear";
+            cbbYear.Size = new Size(106, 36);
+            cbbYear.TabIndex = 6;
+            cbbYear.Tag = "";
+            cbbYear.Text = "Năm";
+            // 
             // GUI_BaoCaoCongNo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -582,5 +614,7 @@ namespace GUI_QuanLy
             ResumeLayout(false);
             PerformLayout();
         }
+        private Button btnFind;
+        private ComboBox cbbYear;
     }
 }

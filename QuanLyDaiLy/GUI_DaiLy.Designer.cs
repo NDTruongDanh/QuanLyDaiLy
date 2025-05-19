@@ -22,6 +22,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_DaiLy));
             lblTenDaiLy = new Label();
             lblDiaChi = new Label();
             txtTenDaiLy = new TextBox();
@@ -31,12 +32,11 @@
             lblDanhSachDaiLy = new Label();
             label2 = new Label();
             pnlInput = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
-            btnFind = new Button();
-            button1 = new Button();
+            btnRefresh = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             cboLoaiDaiLy = new ComboBox();
             lblLoaiDaiLy = new Label();
@@ -52,12 +52,12 @@
             label4 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            mnItemPhieuXuat = new ToolStripMenuItem();
-            mnItemPhieuThu = new ToolStripMenuItem();
+            tạoPhiếuXuấtHàngToolStripMenuItem = new ToolStripMenuItem();
+            tạoPhiếuThuTiềnToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvDaiLy).BeginInit();
             pnlData.SuspendLayout();
             pnlInput.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            flpButtons.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -71,9 +71,9 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(150, 40);
+            lblTenDaiLy.Size = new Size(157, 40);
             lblTenDaiLy.TabIndex = 0;
-            lblTenDaiLy.Text = "Tên Đại lý:";
+            lblTenDaiLy.Text = "Tên Đại Lý:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblDiaChi
@@ -84,16 +84,16 @@
             lblDiaChi.Font = new Font("Segoe UI", 12F);
             lblDiaChi.Location = new Point(3, 82);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new Size(150, 40);
+            lblDiaChi.Size = new Size(157, 42);
             lblDiaChi.TabIndex = 3;
-            lblDiaChi.Text = "Địa chỉ:";
+            lblDiaChi.Text = "Địa Chỉ:";
             lblDiaChi.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtTenDaiLy
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(159, 3);
+            txtTenDaiLy.Location = new Point(166, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
             txtTenDaiLy.Size = new Size(1410, 34);
             txtTenDaiLy.TabIndex = 7;
@@ -102,7 +102,7 @@
             // 
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
-            txtDiaChi.Location = new Point(159, 85);
+            txtDiaChi.Location = new Point(166, 127);
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(1410, 34);
             txtDiaChi.TabIndex = 8;
@@ -150,8 +150,6 @@
             dgvDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDaiLy.Size = new Size(1569, 318);
             dgvDaiLy.TabIndex = 14;
-            dgvDaiLy.SelectionChanged += dgvDaiLy_SelectionChanged;
-            dgvDaiLy.MouseDown += dgvDaiLy_MouseDown;
             // 
             // pnlData
             // 
@@ -189,7 +187,7 @@
             // pnlInput
             // 
             pnlInput.BackColor = Color.White;
-            pnlInput.Controls.Add(flowLayoutPanel1);
+            pnlInput.Controls.Add(flpButtons);
             pnlInput.Controls.Add(tableLayoutPanel1);
             pnlInput.Controls.Add(lblThongTinDaiLy);
             pnlInput.Controls.Add(label4);
@@ -201,7 +199,7 @@
             pnlInput.Size = new Size(1602, 460);
             pnlInput.TabIndex = 22;
             // 
-            // flowLayoutPanel1
+            // flpButtons
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             flowLayoutPanel1.AutoSize = true;
@@ -221,14 +219,15 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 44);
+            btnAdd.Size = new Size(128, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
+            btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -241,9 +240,8 @@
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "✏️ Sửa";
+            btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -256,7 +254,7 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "🗑 Xóa";
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
@@ -297,8 +295,8 @@
             tableLayoutPanel1.Controls.Add(txtTenDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 3);
             tableLayoutPanel1.Controls.Add(lblLoaiDaiLy, 0, 3);
-            tableLayoutPanel1.Controls.Add(cboQuan, 1, 6);
-            tableLayoutPanel1.Controls.Add(txtDiaChi, 1, 5);
+            tableLayoutPanel1.Controls.Add(cboQuan, 1, 5);
+            tableLayoutPanel1.Controls.Add(txtDiaChi, 1, 6);
             tableLayoutPanel1.Controls.Add(dtpNgayTiepNhan, 1, 9);
             tableLayoutPanel1.Controls.Add(lblSDT, 0, 7);
             tableLayoutPanel1.Controls.Add(lblNgayTiepNhan, 0, 9);
@@ -330,7 +328,7 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(159, 43);
+            cboLoaiDaiLy.Location = new Point(166, 43);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
             cboLoaiDaiLy.Size = new Size(1410, 36);
             cboLoaiDaiLy.TabIndex = 11;
@@ -343,9 +341,9 @@
             lblLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             lblLoaiDaiLy.Location = new Point(3, 40);
             lblLoaiDaiLy.Name = "lblLoaiDaiLy";
-            lblLoaiDaiLy.Size = new Size(150, 42);
+            lblLoaiDaiLy.Size = new Size(157, 42);
             lblLoaiDaiLy.TabIndex = 1;
-            lblLoaiDaiLy.Text = "Loại Đại lý:";
+            lblLoaiDaiLy.Text = "Loại Đại Lý:";
             lblLoaiDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // cboQuan
@@ -353,7 +351,7 @@
             cboQuan.Dock = DockStyle.Fill;
             cboQuan.Font = new Font("Segoe UI", 12F);
             cboQuan.FormattingEnabled = true;
-            cboQuan.Location = new Point(159, 125);
+            cboQuan.Location = new Point(166, 85);
             cboQuan.Name = "cboQuan";
             cboQuan.Size = new Size(1410, 36);
             cboQuan.TabIndex = 12;
@@ -362,7 +360,7 @@
             // 
             dtpNgayTiepNhan.Dock = DockStyle.Fill;
             dtpNgayTiepNhan.Font = new Font("Segoe UI", 12F);
-            dtpNgayTiepNhan.Location = new Point(159, 247);
+            dtpNgayTiepNhan.Location = new Point(166, 247);
             dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
             dtpNgayTiepNhan.Size = new Size(1410, 34);
             dtpNgayTiepNhan.TabIndex = 13;
@@ -375,7 +373,7 @@
             lblSDT.Font = new Font("Segoe UI", 12F);
             lblSDT.Location = new Point(3, 164);
             lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(150, 40);
+            lblSDT.Size = new Size(157, 40);
             lblSDT.TabIndex = 4;
             lblSDT.Text = "SĐT:";
             lblSDT.TextAlign = ContentAlignment.MiddleLeft;
@@ -390,14 +388,14 @@
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
             lblNgayTiepNhan.Size = new Size(150, 73);
             lblNgayTiepNhan.TabIndex = 6;
-            lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
+            lblNgayTiepNhan.Text = "Ngày Tiếp Nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtSDT
             // 
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
-            txtSDT.Location = new Point(159, 167);
+            txtSDT.Location = new Point(166, 167);
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(1410, 34);
             txtSDT.TabIndex = 9;
@@ -410,7 +408,7 @@
             lblEmail.Font = new Font("Segoe UI", 12F);
             lblEmail.Location = new Point(3, 204);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(150, 40);
+            lblEmail.Size = new Size(157, 40);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email:";
             lblEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -419,7 +417,7 @@
             // 
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(159, 207);
+            txtEmail.Location = new Point(166, 207);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(1410, 34);
             txtEmail.TabIndex = 10;
@@ -430,9 +428,9 @@
             lblQuan.BackColor = Color.Transparent;
             lblQuan.Dock = DockStyle.Fill;
             lblQuan.Font = new Font("Segoe UI", 12F);
-            lblQuan.Location = new Point(3, 122);
+            lblQuan.Location = new Point(3, 124);
             lblQuan.Name = "lblQuan";
-            lblQuan.Size = new Size(150, 42);
+            lblQuan.Size = new Size(157, 40);
             lblQuan.TabIndex = 2;
             lblQuan.Text = "Quận:";
             lblQuan.TextAlign = ContentAlignment.MiddleLeft;
@@ -476,23 +474,21 @@
             // 
             contextMenuStrip1.ImageScalingSize = new Size(24, 24);
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tạoPhiếuXuấtHàngToolStripMenuItem, tạoPhiếuThuTiềnToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(186, 52);
+            contextMenuStrip1.Size = new Size(218, 52);
             // 
-            // mnItemPhieuXuat
+            // tạoPhiếuXuấtHàngToolStripMenuItem
             // 
-            mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(185, 24);
-            mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
-            mnItemPhieuXuat.Click += mnPhieuXuatHang_Click;
+            tạoPhiếuXuấtHàngToolStripMenuItem.Name = "tạoPhiếuXuấtHàngToolStripMenuItem";
+            tạoPhiếuXuấtHàngToolStripMenuItem.Size = new Size(217, 24);
+            tạoPhiếuXuấtHàngToolStripMenuItem.Text = "Tạo Phiếu Xuất Hàng";
             // 
-            // mnItemPhieuThu
+            // tạoPhiếuThuTiềnToolStripMenuItem
             // 
-            mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(185, 24);
-            mnItemPhieuThu.Text = "Phiếu Thu tiền";
-            mnItemPhieuThu.Click += mnPhieuThu_Click;
+            tạoPhiếuThuTiềnToolStripMenuItem.Name = "tạoPhiếuThuTiềnToolStripMenuItem";
+            tạoPhiếuThuTiềnToolStripMenuItem.Size = new Size(217, 24);
+            tạoPhiếuThuTiềnToolStripMenuItem.Text = "Tạo Phiếu Thu Tiền";
             // 
             // GUI_DaiLy
             // 
@@ -501,14 +497,13 @@
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_DaiLy";
             Text = "Quản lý Đại lý";
-            Load += GUI_DaiLy_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDaiLy).EndInit();
             pnlData.ResumeLayout(false);
             pnlData.PerformLayout();
             pnlInput.ResumeLayout(false);
             pnlInput.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            flpButtons.ResumeLayout(false);
+            flpButtons.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -526,6 +521,7 @@
         private ComboBox cboLoaiDaiLy;
         private Label lblLoaiDaiLy;
         private Label lblQuan;
+        private ComboBox cboQuan;
         private DateTimePicker dtpNgayTiepNhan;
         private Label lblSDT;
         private Label lblNgayTiepNhan;
@@ -534,14 +530,12 @@
         private TextBox txtEmail;
         private TableLayoutPanel tableLayoutPanel2;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem mnItemPhieuXuat;
-        private ToolStripMenuItem mnItemPhieuThu;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private ToolStripMenuItem tạoPhiếuXuấtHàngToolStripMenuItem;
+        private ToolStripMenuItem tạoPhiếuThuTiềnToolStripMenuItem;
+        private FlowLayoutPanel flpButtons;
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
-        private Button btnFind;
-        private ComboBox cboQuan;
-        private Button button1;
+        private Button btnRefresh;
     }
 }

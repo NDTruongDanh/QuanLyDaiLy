@@ -6,7 +6,6 @@
         private System.Windows.Forms.Label lblTenDaiLy;
         private System.Windows.Forms.TextBox txtTenMatHang;
         private System.Windows.Forms.DataGridView dgvMatHang;
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -53,6 +52,12 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatHang).BeginInit();
+            flpNhap.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            flpButtons.SuspendLayout();
             SuspendLayout();
             // 
             // lblTenDaiLy
@@ -394,19 +399,10 @@
             flowLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            contextMenuStrip1.ResumeLayout(false);
+            flpButtons.ResumeLayout(false);
+            flpButtons.PerformLayout();
             ResumeLayout(false);
         }
-
-        private Panel pnlData;
-        private Label label2;
-        private Label lblDanhSachDaiLy;
-        private Panel pnlInput;
-        private Label lblThongTinDaiLy;
-        private Label label4;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem mnItemPhieuXuat;
         private ToolStripMenuItem mnItemPhieuThu;

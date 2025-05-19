@@ -304,8 +304,6 @@ namespace GUI_QuanLy
                 e.Handled = true;
             }
         }
-
-        
     }
 }
 
