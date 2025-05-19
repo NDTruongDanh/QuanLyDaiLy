@@ -13,9 +13,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
@@ -24,12 +24,12 @@
             btnFind = new Button();
             button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
-            txtTraTruoc = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label7 = new Label();
-            cmbDaiLy = new ComboBox();
             dtpNgayLapPhieu = new DateTimePicker();
+            cmbDaiLy = new ComboBox();
+            txtTraTruoc = new TextBox();
             label1 = new Label();
             label3 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -87,6 +87,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -101,6 +102,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -115,8 +117,8 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
-
             // btnFind
             // 
             btnFind.AutoSize = true;
@@ -144,6 +146,7 @@
             button1.TabIndex = 24;
             button1.Text = "🔍 Làm mới";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnRefresh_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -151,12 +154,12 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(txtTraTruoc, 1, 2);
             tableLayoutPanel2.Controls.Add(label5, 0, 2);
             tableLayoutPanel2.Controls.Add(label4, 0, 1);
             tableLayoutPanel2.Controls.Add(label7, 0, 0);
-            tableLayoutPanel2.Controls.Add(cmbDaiLy, 1, 0);
             tableLayoutPanel2.Controls.Add(dtpNgayLapPhieu, 1, 1);
+            tableLayoutPanel2.Controls.Add(cmbDaiLy, 1, 0);
+            tableLayoutPanel2.Controls.Add(txtTraTruoc, 1, 2);
             tableLayoutPanel2.Location = new Point(12, 79);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
@@ -166,24 +169,14 @@
             tableLayoutPanel2.Size = new Size(1571, 124);
             tableLayoutPanel2.TabIndex = 21;
             // 
-            // txtTraTruoc
-            // 
-            txtTraTruoc.Dock = DockStyle.Fill;
-            txtTraTruoc.Font = new Font("Segoe UI", 12F);
-            txtTraTruoc.Location = new Point(167, 85);
-            txtTraTruoc.Name = "txtTraTruoc";
-            txtTraTruoc.Size = new Size(1417, 34);
-            txtTraTruoc.TabIndex = 13;
-            txtTraTruoc.Text = "0";
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(3, 82);
+            label5.Location = new Point(3, 74);
             label5.Name = "label5";
-            label5.Size = new Size(158, 42);
+            label5.Size = new Size(158, 50);
             label5.TabIndex = 10;
             label5.Text = "Số tiền trả trước:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -193,7 +186,7 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(3, 42);
+            label4.Location = new Point(3, 34);
             label4.Name = "label4";
             label4.Size = new Size(158, 40);
             label4.TabIndex = 9;
@@ -207,29 +200,34 @@
             label7.Font = new Font("Segoe UI", 12F);
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(158, 42);
+            label7.Size = new Size(158, 34);
             label7.TabIndex = 2;
             label7.Text = "Tên Đại lý:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // cmbDaiLy
-            // 
-            cmbDaiLy.Dock = DockStyle.Fill;
-            cmbDaiLy.Font = new Font("Segoe UI", 12F);
-            cmbDaiLy.FormattingEnabled = true;
-            cmbDaiLy.Location = new Point(167, 3);
-            cmbDaiLy.Name = "cmbDaiLy";
-            cmbDaiLy.Size = new Size(1417, 36);
-            cmbDaiLy.TabIndex = 7;
             // 
             // dtpNgayLapPhieu
             // 
             dtpNgayLapPhieu.Dock = DockStyle.Fill;
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F);
-            dtpNgayLapPhieu.Location = new Point(167, 45);
+            dtpNgayLapPhieu.Location = new Point(167, 37);
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
             dtpNgayLapPhieu.Size = new Size(1417, 34);
             dtpNgayLapPhieu.TabIndex = 8;
+            // 
+            // cmbDaiLy
+            // 
+            cmbDaiLy.FormattingEnabled = true;
+            cmbDaiLy.Location = new Point(167, 3);
+            cmbDaiLy.Name = "cmbDaiLy";
+            cmbDaiLy.Size = new Size(151, 28);
+            cmbDaiLy.TabIndex = 11;
+            // 
+            // txtTraTruoc
+            // 
+            txtTraTruoc.Location = new Point(167, 77);
+            txtTraTruoc.Name = "txtTraTruoc";
+            txtTraTruoc.Size = new Size(125, 27);
+            txtTraTruoc.TabIndex = 12;
             // 
             // label1
             // 
@@ -307,44 +305,42 @@
             dgvPhieuXuat.BackgroundColor = Color.White;
             dgvPhieuXuat.BorderStyle = BorderStyle.None;
             dgvPhieuXuat.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuXuat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPhieuXuat.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuXuat.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuXuat.EnableHeadersVisualStyles = false;
             dgvPhieuXuat.GridColor = Color.White;
             dgvPhieuXuat.Location = new Point(15, 85);
             dgvPhieuXuat.Margin = new Padding(5);
             dgvPhieuXuat.Name = "dgvPhieuXuat";
             dgvPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuXuat.RowHeadersVisible = false;
             dgvPhieuXuat.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             dgvPhieuXuat.Size = new Size(1566, 495);
             dgvPhieuXuat.TabIndex = 19;
-
             // 
             // GUI_PhieuXuat
             // 
@@ -391,5 +387,7 @@
         private Button btnDelete;
         private Button btnFind;
         private Button button1;
+        private ComboBox cmbDaiLy;
+        private TextBox txtTraTruoc;
     }
 }

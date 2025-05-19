@@ -356,7 +356,7 @@ namespace GUI_QuanLy
             if (!string.IsNullOrEmpty(tenDaiLy))
                 filters.Add($"TenDaiLy LIKE '%{tenDaiLy}%'");
 
-            if (decimal.TryParse(txtTraTruoc.Text, out decimal traTruoc)) 
+            if (decimal.TryParse(txtTraTruoc.Text, out decimal traTruoc))
                 filters.Add($"TienTra = {traTruoc}");
         }
     }
