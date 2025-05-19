@@ -17,7 +17,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Quan));
-            this.lblDsQuan = new Label();
             dgvQuan = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             tlbFormQuan = new TableLayoutPanel();
@@ -45,16 +44,7 @@
             // 
             // lblDsQuan
             // 
-            this.lblDsQuan.AutoSize = true;
-            this.lblDsQuan.BackColor = SystemColors.Control;
-            this.lblDsQuan.Dock = DockStyle.Top;
-            this.lblDsQuan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.lblDsQuan.Location = new Point(5, 5);
-            this.lblDsQuan.Margin = new Padding(5);
-            this.lblDsQuan.Name = "lblDsQuan";
-            this.lblDsQuan.Size = new Size(1617, 38);
-            this.lblDsQuan.TabIndex = 16;
-            this.lblDsQuan.Text = "Danh sách Quận";
+
             // 
             // dgvQuan
             // 
@@ -127,7 +117,6 @@
             // 
             flpDanhSachQuan.AutoSize = true;
             flpDanhSachQuan.BackColor = SystemColors.Control;
-            flpDanhSachQuan.Controls.Add(this.lblDsQuan);
             flpDanhSachQuan.Controls.Add(dgvQuan);
             flpDanhSachQuan.Dock = DockStyle.Fill;
             flpDanhSachQuan.FlowDirection = FlowDirection.TopDown;

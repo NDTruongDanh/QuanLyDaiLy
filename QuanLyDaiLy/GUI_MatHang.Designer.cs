@@ -27,7 +27,6 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
-            this.lblDsMatHang = new Label();
             lblNhapLieu = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             lblTenMatHang = new Label();
@@ -160,13 +159,7 @@
             // 
             // lblDsMatHang
             // 
-            this.lblDsMatHang.AutoSize = true;
-            this.lblDsMatHang.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.lblDsMatHang.Location = new Point(3, 0);
-            this.lblDsMatHang.Name = "lblDsMatHang";
-            this.lblDsMatHang.Size = new Size(247, 32);
-            this.lblDsMatHang.TabIndex = 16;
-            this.lblDsMatHang.Text = "Danh sách Mặt hàng";
+
             // 
             // lblNhapLieu
             // 
@@ -251,7 +244,6 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.Controls.Add(this.lblDsMatHang);
             flowLayoutPanel2.Controls.Add(dgvMatHang);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;

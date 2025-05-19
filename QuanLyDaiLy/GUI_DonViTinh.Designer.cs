@@ -20,10 +20,10 @@
             lblDsDVT = new Label();
             dgvDVT = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
-            this.tblNhapDVT = new TableLayoutPanel();
+
             txtDonViTinh = new TextBox();
             lblTenDVT = new Label();
-            this.lblNhapDVT = new Label();
+
             tblFormDVT = new TableLayoutPanel();
             flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
@@ -36,7 +36,7 @@
             flpDanhSachDVT = new FlowLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dgvDVT).BeginInit();
-            this.tblNhapDVT.SuspendLayout();
+
             tblFormDVT.SuspendLayout();
             flpButtons.SuspendLayout();
             flpDanhSachDVT.SuspendLayout();
@@ -109,20 +109,7 @@
             // 
             // tblNhapDVT
             // 
-            this.tblNhapDVT.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            this.tblNhapDVT.AutoSize = true;
-            this.tblNhapDVT.ColumnCount = 2;
-            this.tblNhapDVT.ColumnStyles.Add(new ColumnStyle());
-            this.tblNhapDVT.ColumnStyles.Add(new ColumnStyle());
-            this.tblNhapDVT.Controls.Add(txtDonViTinh, 1, 0);
-            this.tblNhapDVT.Controls.Add(lblTenDVT, 0, 0);
-            this.tblNhapDVT.Location = new Point(50, 82);
-            this.tblNhapDVT.Margin = new Padding(50, 50, 5, 50);
-            this.tblNhapDVT.Name = "tblNhapDVT";
-            this.tblNhapDVT.RowCount = 1;
-            this.tblNhapDVT.RowStyles.Add(new RowStyle());
-            this.tblNhapDVT.Size = new Size(1464, 40);
-            this.tblNhapDVT.TabIndex = 19;
+
             // 
             // txtDonViTinh
             // 
@@ -143,17 +130,7 @@
             lblTenDVT.Size = new Size(146, 40);
             lblTenDVT.TabIndex = 0;
             lblTenDVT.Text = "Tên Đơn vị tính:";
-            // 
-            // lblNhapDVT
-            // 
-            this.lblNhapDVT.AutoSize = true;
-            this.lblNhapDVT.Dock = DockStyle.Top;
-            this.lblNhapDVT.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.lblNhapDVT.Location = new Point(3, 0);
-            this.lblNhapDVT.Name = "lblNhapDVT";
-            this.lblNhapDVT.Size = new Size(1513, 32);
-            this.lblNhapDVT.TabIndex = 16;
-            this.lblNhapDVT.Text = "Nhập liệu Đơn vị tính";
+            
             // 
             // tblFormDVT
             // 
@@ -280,8 +257,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(this.lblNhapDVT);
-            flowLayoutPanel1.Controls.Add(this.tblNhapDVT);
+
             flowLayoutPanel1.Controls.Add(flpButtons);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
@@ -297,8 +273,6 @@
             Name = "GUI_DonViTinh";
             Text = "Quản Lý Đơn Vị Tính";
             ((System.ComponentModel.ISupportInitialize)dgvDVT).EndInit();
-            this.tblNhapDVT.ResumeLayout(false);
-            this.tblNhapDVT.PerformLayout();
             tblFormDVT.ResumeLayout(false);
             flpButtons.ResumeLayout(false);
             flpButtons.PerformLayout();
