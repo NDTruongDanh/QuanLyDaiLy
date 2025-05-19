@@ -16,7 +16,7 @@ namespace DAL_QuanLy
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
-        Task<bool> DeleteChiTietPhieuXuatByMPXAsync(int maPhieuXuat);
+        Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat);
     }
 
 
@@ -275,7 +275,7 @@ namespace DAL_QuanLy
 
 
         //Delete ChiTietPhieuXuat by MaPhieuXuat
-        public async Task<bool> DeleteChiTietPhieuXuatByMPXAsync(int maPhieuXuat)
+        public async Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat)
         {
             try
             {
