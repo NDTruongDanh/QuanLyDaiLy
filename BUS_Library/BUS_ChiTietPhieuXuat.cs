@@ -17,7 +17,7 @@ namespace BUS_QuanLy
         Task<bool> AddChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> UpdateChiTietPhieuXuatAsync(DTO_ChiTietPhieuXuat chitietPhieuXuat);
         Task<bool> DeleteChiTietPhieuXuatAsync(int maPhieuXuat, int maMatHang);
-        Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat);
+        Task<bool> DeleteChiTietPhieuXuatByMPXAsync(int maPhieuXuat);
     }
 
     public partial class BUS_ChiTietPhieuXuat : IBUS_ChiTietPhieuXuat
@@ -303,13 +303,13 @@ namespace BUS_QuanLy
             int ErrorCode,
             string ErrorMessage,
             Exception ex);
-        public async Task<bool> DeleteChiTietPhieuXuatByMPX(int maPhieuXuat)
+        public async Task<bool> DeleteChiTietPhieuXuatByMPXAsync(int maPhieuXuat)
         {
-            using (_logger.BeginScope("BUS_ChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPX at {Time}", DateTime.UtcNow))
+            using (_logger.BeginScope("BUS_ChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPXAsync at {Time}", DateTime.UtcNow))
             {
                 try
                 {
-                    return await _dalChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPX(maPhieuXuat);
+                    return await _dalChiTietPhieuXuat.DeleteChiTietPhieuXuatByMPXAsync(maPhieuXuat);
                 }
                 catch (DalException dalEx)
                 {
@@ -327,4 +327,5 @@ namespace BUS_QuanLy
             }
 
         }
+    }
 }

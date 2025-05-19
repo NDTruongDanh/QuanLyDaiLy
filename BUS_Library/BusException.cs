@@ -128,6 +128,7 @@ namespace BUS_Library
         public const int GetTiLeXuatFailure = 1001;
         public const int GetDaiLyToiDaFailure = 1002;
         public const int GetApDungQDKiemTraTienThuFailure = 1003;
+        public const int UpdateThamSoFailure = 1004;
 
 
     }
