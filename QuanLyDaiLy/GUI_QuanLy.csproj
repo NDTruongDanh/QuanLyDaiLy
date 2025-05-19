@@ -34,14 +34,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="GUI_ThamSo.cs">
+		<Compile Update="GUI_BaoCaoCongNo.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="GUI_ThamSo.Designer.cs">
-			<DependentUpon>GUI_ThamSo.cs</DependentUpon>
+		<Compile Update="GUI_BaoCaoCongNo.Designer.cs">
+			<DependentUpon>GUI_BaoCaoCongNo.cs</DependentUpon>
 		</Compile>
-		<EmbeddedResource Update="GUI_ThamSo.resx">
-			<DependentUpon>GUI_ThamSo.cs</DependentUpon>
+		<EmbeddedResource Update="GUI_BaoCaoCongNo.resx">
+			<DependentUpon>GUI_BaoCaoCongNo.cs</DependentUpon>
 		</EmbeddedResource>
 	</ItemGroup>
 
