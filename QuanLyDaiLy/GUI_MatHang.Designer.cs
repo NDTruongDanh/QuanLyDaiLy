@@ -63,7 +63,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(146, 40);
+            lblTenDaiLy.Size = new Size(229, 45);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Mặt hàng:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -72,15 +72,16 @@
             // 
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenDaiLy.Location = new Point(155, 3);
+            txtTenDaiLy.Location = new Point(238, 3);
             txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.Size = new Size(1449, 34);
+            txtTenDaiLy.Size = new Size(1328, 39);
             txtTenDaiLy.TabIndex = 7;
             // 
             // dgvDaiLy
             // 
             dgvDaiLy.AllowUserToResizeColumns = false;
             dgvDaiLy.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDaiLy.BackgroundColor = Color.White;
             dgvDaiLy.BorderStyle = BorderStyle.None;
             dgvDaiLy.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
@@ -127,28 +128,24 @@
             Column1.HeaderText = "Tên Mặt Hàng";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Column2
             // 
             Column2.HeaderText = "Tên Đơn Vị Tính";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
             // Column3
             // 
             Column3.HeaderText = "Đơn giá hiện tại";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
             // 
             // Column4
             // 
             Column4.HeaderText = "Tồn kho";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 125;
             // 
             // pnlData
             // 
@@ -170,7 +167,7 @@
             lblDanhSachDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachDaiLy.Location = new Point(15, 15);
             lblDanhSachDaiLy.Name = "lblDanhSachDaiLy";
-            lblDanhSachDaiLy.Size = new Size(247, 32);
+            lblDanhSachDaiLy.Size = new Size(287, 38);
             lblDanhSachDaiLy.TabIndex = 16;
             lblDanhSachDaiLy.Text = "Danh sách Mặt hàng";
             // 
@@ -180,7 +177,7 @@
             label2.Location = new Point(0, 64);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(2000, 2);
+            label2.Size = new Size(3000, 2);
             label2.TabIndex = 15;
             // 
             // pnlInput
@@ -207,9 +204,9 @@
             flowLayoutPanel2.Controls.Add(button4);
             flowLayoutPanel2.Controls.Add(button5);
             flowLayoutPanel2.Controls.Add(button6);
-            flowLayoutPanel2.Location = new Point(837, 215);
+            flowLayoutPanel2.Location = new Point(810, 215);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(747, 52);
+            flowLayoutPanel2.Size = new Size(774, 52);
             flowLayoutPanel2.TabIndex = 30;
             // 
             // button2
@@ -276,7 +273,7 @@
             button6.Font = new Font("Segoe UI", 12F);
             button6.Location = new Point(613, 3);
             button6.Name = "button6";
-            button6.Size = new Size(131, 44);
+            button6.Size = new Size(158, 44);
             button6.TabIndex = 24;
             button6.Text = "🔍 Làm mới";
             button6.UseVisualStyleBackColor = false;
@@ -285,26 +282,18 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
             tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 1);
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(txtTenDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
-            tableLayoutPanel1.Location = new Point(15, 94);
+            tableLayoutPanel1.Location = new Point(18, 79);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1569, 87);
+            tableLayoutPanel1.Size = new Size(1569, 92);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cboLoaiDaiLy
@@ -312,9 +301,9 @@
             cboLoaiDaiLy.Dock = DockStyle.Fill;
             cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(155, 43);
+            cboLoaiDaiLy.Location = new Point(238, 48);
             cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1449, 36);
+            cboLoaiDaiLy.Size = new Size(1328, 40);
             cboLoaiDaiLy.TabIndex = 13;
             // 
             // label1
@@ -323,9 +312,9 @@
             label1.BackColor = Color.Transparent;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 40);
+            label1.Location = new Point(3, 45);
             label1.Name = "label1";
-            label1.Size = new Size(146, 47);
+            label1.Size = new Size(229, 47);
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -336,7 +325,7 @@
             lblThongTinDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinDaiLy.Location = new Point(18, 15);
             lblThongTinDaiLy.Name = "lblThongTinDaiLy";
-            lblThongTinDaiLy.Size = new Size(240, 32);
+            lblThongTinDaiLy.Size = new Size(279, 38);
             lblThongTinDaiLy.TabIndex = 16;
             lblThongTinDaiLy.Text = "Nhập liệu Mặt hàng";
             // 
@@ -346,7 +335,7 @@
             label4.Location = new Point(0, 64);
             label4.Margin = new Padding(0);
             label4.Name = "label4";
-            label4.Size = new Size(2000, 2);
+            label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
             // 
             // tableLayoutPanel2
@@ -371,18 +360,18 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(186, 52);
+            contextMenuStrip1.Size = new Size(214, 68);
             // 
             // mnItemPhieuXuat
             // 
             mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(185, 24);
+            mnItemPhieuXuat.Size = new Size(213, 32);
             mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
             // 
             // mnItemPhieuThu
             // 
             mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(185, 24);
+            mnItemPhieuThu.Size = new Size(213, 32);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             // 
             // GUI_MatHang

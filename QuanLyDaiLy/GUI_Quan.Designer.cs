@@ -61,7 +61,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(199, 32);
+            lblDanhSachPhieuThu.Size = new Size(230, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách Quận";
             // 
@@ -71,12 +71,14 @@
             label2.Location = new Point(0, 58);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(2000, 2);
+            label2.Size = new Size(3000, 2);
             label2.TabIndex = 15;
             // 
             // dgvQuan
             // 
             dgvQuan.AllowUserToResizeColumns = false;
+            dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvQuan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQuan.BackgroundColor = Color.White;
             dgvQuan.BorderStyle = BorderStyle.None;
             dgvQuan.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
@@ -123,7 +125,6 @@
             Column1.HeaderText = "Tên Quận";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // panel2
             // 
@@ -148,9 +149,9 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(984, 319);
+            flowLayoutPanel1.Location = new Point(960, 319);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(599, 52);
+            flowLayoutPanel1.Size = new Size(623, 52);
             flowLayoutPanel1.TabIndex = 30;
             // 
             // btnAdd
@@ -203,7 +204,7 @@
             button1.Font = new Font("Segoe UI", 12F);
             button1.Location = new Point(462, 3);
             button1.Name = "button1";
-            button1.Size = new Size(131, 44);
+            button1.Size = new Size(158, 44);
             button1.TabIndex = 24;
             button1.Text = "🔍 Làm mới";
             button1.UseVisualStyleBackColor = false;
@@ -212,35 +213,26 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
             tableLayoutPanel1.Controls.Add(txtTenQuan, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
-            tableLayoutPanel1.Location = new Point(16, 66);
+            tableLayoutPanel1.Location = new Point(16, 77);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1602, 63);
+            tableLayoutPanel1.Size = new Size(1564, 45);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // txtTenQuan
             // 
             txtTenQuan.Dock = DockStyle.Fill;
             txtTenQuan.Font = new Font("Segoe UI", 12F);
-            txtTenQuan.Location = new Point(106, 3);
+            txtTenQuan.Location = new Point(237, 3);
             txtTenQuan.Name = "txtTenQuan";
-            txtTenQuan.Size = new Size(1493, 34);
+            txtTenQuan.Size = new Size(1324, 39);
             txtTenQuan.TabIndex = 7;
             // 
             // lblTenDaiLy
@@ -250,7 +242,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(97, 28);
+            lblTenDaiLy.Size = new Size(122, 32);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Quận:";
             // 
@@ -258,9 +250,9 @@
             // 
             lblThongTinPhieuThu.AutoSize = true;
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblThongTinPhieuThu.Location = new Point(9, 16);
+            lblThongTinPhieuThu.Location = new Point(16, 13);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(192, 32);
+            lblThongTinPhieuThu.Size = new Size(222, 38);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Nhập liệu Quận";
             // 
@@ -270,7 +262,7 @@
             label4.Location = new Point(0, 51);
             label4.Margin = new Padding(0);
             label4.Name = "label4";
-            label4.Size = new Size(2000, 2);
+            label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
             // 
             // tableLayoutPanel2
