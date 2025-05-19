@@ -9,6 +9,7 @@ namespace BUS_QuanLy
 {
     public interface IBUS_ThamSo
     {
+        Task<DTO_ThamSo> GetThamSoAsync();
         Task<float> GetTiLeDonGiaXuatAsync();
         Task<int> GetDaiLyToiDaMoiQuanAsync();
         Task<bool> ApDungQDKiemTraTienThuAsync();
@@ -26,6 +27,38 @@ namespace BUS_QuanLy
         {
             _dalThamSo = dalThamSo;
             _logger = logger;
+        }
+
+
+        //Get ThamSo
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetThamSoFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetThamSoAsync (Code={ErrorCode}): {ErrorMessage}")]
+        private static partial void LogGetThamSoFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+
+        public async Task<DTO_ThamSo> GetThamSoAsync()
+        {
+            try
+            {
+                return await _dalThamSo.GetThamSoAsyn().ConfigureAwait(false);
+            }
+            catch (DalException dalEx)
+            {
+                LogGetThamSoFailure(_logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                throw new BusException(
+                        "Không lấy được các Tham số. Vui lòng thử lại sau.",
+                        dalEx);
+            }
         }
 
 
@@ -153,7 +186,6 @@ namespace BUS_QuanLy
                         dalEx);
             }
         }
-
 
     }
 }
