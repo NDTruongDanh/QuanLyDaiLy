@@ -20,13 +20,13 @@ namespace GUI_QuanLy.AddedClasses
             services.AddTransient<GUI_PhieuXuat>();
             services.AddTransient<GUI_Quan>();
             services.AddTransient<GUI_ChiTietPhieuNhap>();
-            //services.AddTransient<GUI_ChiTietPhieuXuat>();
+            services.AddTransient<GUI_ChiTietPhieuXuat>();
             services.AddTransient<GUI_BaoCaoDoanhSo>();
             services.AddTransient<GUI_BaoCaoCongNo>();
             services.AddTransient<GUI_PhieuThu>();
             //services.AddTransient<GUI_ChiTietBaoCaoDoanhSo>();
             services.AddTransient<Menu>();
-
+            services.AddTransient<GUI_ThamSo>();
             return services;
         }
     }

@@ -16,6 +16,27 @@ namespace GUI_QuanLy
         public GUI_DaiLy()
         {
             InitializeComponent();
+            dgvDaiLy.DataSource = _bindingSource;
+        }
+
+        private async void GUI_DaiLy_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                await LoadComboBoxsLoaiDaiLyAsync();
+                await LoadComboBoxsQuanAsync();
+                await LoadDaiLyAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form DaiLy load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         /*
 
@@ -24,10 +45,14 @@ namespace GUI_QuanLy
             //dgvDaiLy.EnableHeadersVisualStyles = false;  
             //dgvDaiLy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;  
             //dgvDaiLy.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#C4C4C4");  
-
-            cboLoaiDaiLy.DataSource = busLoai.GetLoaiDaiLy();
-            cboLoaiDaiLy.DisplayMember = "TenLoaiDaiLy";
-            cboLoaiDaiLy.ValueMember = "MaLoaiDaiLy";
+                ModifyDataGridViewColumns();
+                ClearInputFields();
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading grid DaiLy: {Message}",
+                    busEx.Message);
 
             cboQuan.DataSource = busQuan.GetQuan();
             cboQuan.DisplayMember = "TenQuan";
@@ -136,7 +161,33 @@ namespace GUI_QuanLy
 
         private void dgvDaiLy_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDaiLy.SelectedRows.Count > 0)
+            try
+            {
+                string tenDaiLy = txtTenDaiLy.Text.Trim();
+                string sdt = txtSDT.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string diaChi = txtDiaChi.Text.Trim();
+                int maLoaiDaiLy = Convert.ToInt32(cboLoaiDaiLy.SelectedValue);
+                int maQuan = Convert.ToInt32(cboQuan.SelectedValue);
+                DateTime ngayTiepNhan = dtpNgayTiepNhan.Value;
+                decimal tongNo = Convert.ToDecimal(dgvDaiLy.SelectedRows[0].Cells["TongNo"].Value);
+
+                DTO_DaiLy daiLy = new DTO_DaiLy(_maDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
+
+
+                using (var phieuXuat = _services.GetRequiredService<GUI_PhieuXuat>())
+                {
+                    this.Enabled = false;
+                    phieuXuat.SetDaiLy(daiLy);
+                    phieuXuat.ShowDialog();
+                    this.Enabled = true;
+                    await LoadDaiLyAsync();
+                }
+
+                
+                await LoadDaiLyAsync();
+            }
+            catch (Exception ex)
             {
                 DataGridViewRow row = dgvDaiLy.SelectedRows[0];
                 maDaiLy = Convert.ToInt32(row.Cells["MaDaiLy"].Value);

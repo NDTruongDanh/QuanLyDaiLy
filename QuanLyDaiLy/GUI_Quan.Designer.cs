@@ -40,22 +40,43 @@
             flpButtons.SuspendLayout();
             SuspendLayout();
             // 
-            // lblDsQuan
+            // panel1
             // 
-            lblDsQuan.AutoSize = true;
-            lblDsQuan.BackColor = SystemColors.Control;
-            lblDsQuan.Dock = DockStyle.Top;
-            lblDsQuan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDsQuan.Location = new Point(5, 5);
-            lblDsQuan.Margin = new Padding(5);
-            lblDsQuan.Name = "lblDsQuan";
-            lblDsQuan.Size = new Size(1617, 38);
-            lblDsQuan.TabIndex = 16;
-            lblDsQuan.Text = "Danh sách Quận";
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblDanhSachPhieuThu);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(dgvQuan);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(16, 16);
+            panel1.Margin = new Padding(16, 16, 16, 8);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(16, 16, 16, 8);
+            panel1.Size = new Size(1602, 502);
+            panel1.TabIndex = 24;
+            // 
+            // lblDanhSachPhieuThu
+            // 
+            lblDanhSachPhieuThu.AutoSize = true;
+            lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDanhSachPhieuThu.Location = new Point(16, 16);
+            lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
+            lblDanhSachPhieuThu.Size = new Size(199, 32);
+            lblDanhSachPhieuThu.TabIndex = 16;
+            lblDanhSachPhieuThu.Text = "Danh sách Quận";
+            // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Location = new Point(0, 58);
+            label2.Margin = new Padding(0);
+            label2.Name = "label2";
+            label2.Size = new Size(3000, 2);
+            label2.TabIndex = 15;
             // 
             // dgvQuan
             // 
             dgvQuan.AllowUserToResizeColumns = false;
+            dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvQuan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQuan.BackgroundColor = Color.White;
             dgvQuan.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
@@ -105,104 +126,33 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             // 
-            // tlbFormQuan
+            // panel2
             // 
-            tlbFormQuan.ColumnCount = 1;
-            tlbFormQuan.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlbFormQuan.Controls.Add(flpDanhSachQuan, 0, 0);
-            tlbFormQuan.Controls.Add(flpControls, 0, 1);
-            tlbFormQuan.Dock = DockStyle.Fill;
-            tlbFormQuan.Location = new Point(0, 0);
-            tlbFormQuan.Name = "tlbFormQuan";
-            tlbFormQuan.RowCount = 2;
-            tlbFormQuan.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlbFormQuan.RowStyles.Add(new RowStyle());
-            tlbFormQuan.Size = new Size(1634, 940);
-            tlbFormQuan.TabIndex = 26;
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(flowLayoutPanel1);
+            panel2.Controls.Add(tableLayoutPanel1);
+            panel2.Controls.Add(lblThongTinPhieuThu);
+            panel2.Controls.Add(label4);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(16, 534);
+            panel2.Margin = new Padding(16, 8, 16, 16);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(16);
+            panel2.Size = new Size(1602, 390);
+            panel2.TabIndex = 25;
             // 
-            // flpDanhSachQuan
+            // flowLayoutPanel1
             // 
-            flpDanhSachQuan.AutoSize = true;
-            flpDanhSachQuan.BackColor = SystemColors.Control;
-            flpDanhSachQuan.Controls.Add(lblDsQuan);
-            flpDanhSachQuan.Controls.Add(dgvQuan);
-            flpDanhSachQuan.Dock = DockStyle.Fill;
-            flpDanhSachQuan.FlowDirection = FlowDirection.TopDown;
-            flpDanhSachQuan.Location = new Point(3, 3);
-            flpDanhSachQuan.Name = "flpDanhSachQuan";
-            flpDanhSachQuan.Size = new Size(1628, 677);
-            flpDanhSachQuan.TabIndex = 26;
-            // 
-            // flpControls
-            // 
-            flpControls.AutoSize = true;
-            flpControls.BackColor = Color.White;
-            flpControls.Controls.Add(lblNhapQuan);
-            flpControls.Controls.Add(flpNhapQuan);
-            flpControls.Controls.Add(flpButtons);
-            flpControls.Dock = DockStyle.Top;
-            flpControls.FlowDirection = FlowDirection.TopDown;
-            flpControls.Location = new Point(3, 686);
-            flpControls.Name = "flpControls";
-            flpControls.Size = new Size(1628, 251);
-            flpControls.TabIndex = 27;
-            // 
-            // lblNhapQuan
-            // 
-            lblNhapQuan.AutoSize = true;
-            lblNhapQuan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNhapQuan.Location = new Point(5, 5);
-            lblNhapQuan.Margin = new Padding(5);
-            lblNhapQuan.Name = "lblNhapQuan";
-            lblNhapQuan.Size = new Size(222, 38);
-            lblNhapQuan.TabIndex = 16;
-            lblNhapQuan.Text = "Nhập liệu Quận";
-            // 
-            // flpNhapQuan
-            // 
-            flpNhapQuan.AutoSize = true;
-            flpNhapQuan.Controls.Add(lblTenQuan);
-            flpNhapQuan.Controls.Add(txtTenQuan);
-            flpNhapQuan.Location = new Point(50, 68);
-            flpNhapQuan.Margin = new Padding(50, 20, 5, 50);
-            flpNhapQuan.Name = "flpNhapQuan";
-            flpNhapQuan.Size = new Size(616, 28);
-            flpNhapQuan.TabIndex = 27;
-            // 
-            // lblTenQuan
-            // 
-            lblTenQuan.AutoSize = true;
-            lblTenQuan.BackColor = Color.Transparent;
-            lblTenQuan.Dock = DockStyle.Fill;
-            lblTenQuan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTenQuan.Location = new Point(3, 0);
-            lblTenQuan.Name = "lblTenQuan";
-            lblTenQuan.Size = new Size(104, 28);
-            lblTenQuan.TabIndex = 0;
-            lblTenQuan.Text = "Tên Quận:";
-            // 
-            // txtTenQuan
-            // 
-            txtTenQuan.Dock = DockStyle.Fill;
-            txtTenQuan.Font = new Font("Segoe UI", 12F);
-            txtTenQuan.Location = new Point(113, 3);
-            txtTenQuan.Name = "txtTenQuan";
-            txtTenQuan.Size = new Size(500, 34);
-            txtTenQuan.TabIndex = 7;
-            // 
-            // flpButtons
-            // 
-            flpButtons.AutoSize = true;
-            flpButtons.Controls.Add(btnAdd);
-            flpButtons.Controls.Add(btnEdit);
-            flpButtons.Controls.Add(btnDelete);
-            flpButtons.Controls.Add(btnRefresh);
-            flpButtons.Dock = DockStyle.Top;
-            flpButtons.Location = new Point(900, 151);
-            flpButtons.Margin = new Padding(900, 5, 5, 50);
-            flpButtons.Name = "flpButtons";
-            flpButtons.Size = new Size(604, 50);
-            flpButtons.TabIndex = 30;
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(960, 319);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(623, 52);
+            flowLayoutPanel1.TabIndex = 30;
             // 
             // btnAdd
             // 
@@ -215,7 +165,7 @@
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(128, 44);
+            btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
@@ -226,9 +176,7 @@
             btnEdit.BackColor = Color.FromArgb(255, 152, 0);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
-            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(154, 3);
+            btnEdit.Location = new Point(160, 3);
             btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
@@ -242,9 +190,7 @@
             btnDelete.BackColor = Color.FromArgb(244, 67, 54);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(305, 3);
+            btnDelete.Location = new Point(311, 3);
             btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
@@ -252,21 +198,89 @@
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnRefresh
+            // button1
             // 
-            btnRefresh.AutoSize = true;
-            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.Font = new Font("Segoe UI", 12F);
-            btnRefresh.Image = (Image)resources.GetObject("btnRefresh.Image");
-            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRefresh.Location = new Point(456, 3);
-            btnRefresh.Margin = new Padding(3, 3, 20, 3);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(128, 44);
-            btnRefresh.TabIndex = 23;
-            btnRefresh.Text = "   Làm mới";
-            btnRefresh.UseVisualStyleBackColor = false;
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(33, 150, 243);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(462, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(158, 44);
+            button1.TabIndex = 24;
+            button1.Text = "🔍 Làm mới";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(txtTenQuan, 1, 0);
+            tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
+            tableLayoutPanel1.Location = new Point(16, 77);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(1564, 45);
+            tableLayoutPanel1.TabIndex = 19;
+            // 
+            // txtTenQuan
+            // 
+            txtTenQuan.Dock = DockStyle.Fill;
+            txtTenQuan.Font = new Font("Segoe UI", 12F);
+            txtTenQuan.Location = new Point(106, 3);
+            txtTenQuan.Name = "txtTenQuan";
+            txtTenQuan.Size = new Size(1455, 34);
+            txtTenQuan.TabIndex = 7;
+            // 
+            // lblTenDaiLy
+            // 
+            lblTenDaiLy.AutoSize = true;
+            lblTenDaiLy.BackColor = Color.Transparent;
+            lblTenDaiLy.Font = new Font("Segoe UI", 12F);
+            lblTenDaiLy.Location = new Point(3, 0);
+            lblTenDaiLy.Name = "lblTenDaiLy";
+            lblTenDaiLy.Size = new Size(97, 28);
+            lblTenDaiLy.TabIndex = 0;
+            lblTenDaiLy.Text = "Tên Quận:";
+            // 
+            // lblThongTinPhieuThu
+            // 
+            lblThongTinPhieuThu.AutoSize = true;
+            lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblThongTinPhieuThu.Location = new Point(16, 13);
+            lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
+            lblThongTinPhieuThu.Size = new Size(192, 32);
+            lblThongTinPhieuThu.TabIndex = 16;
+            lblThongTinPhieuThu.Text = "Nhập liệu Quận";
+            // 
+            // label4
+            // 
+            label4.BorderStyle = BorderStyle.Fixed3D;
+            label4.Location = new Point(0, 51);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(3000, 2);
+            label4.TabIndex = 15;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel2.Controls.Add(panel2, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.9574471F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.0425529F));
+            tableLayoutPanel2.Size = new Size(1634, 940);
+            tableLayoutPanel2.TabIndex = 26;
             // 
             // GUI_Quan
             // 
@@ -290,19 +304,18 @@
         private Label lblDanhSachPhieuThu;
         private Label label2;
         private DataGridView dgvQuan;
-        private TableLayoutPanel tlbFormQuan;
+        private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTenDaiLy;
+        private Label lblThongTinPhieuThu;
+        private Label label4;
+        private TableLayoutPanel tableLayoutPanel2;
         private DataGridViewTextBoxColumn Column1;
-        private FlowLayoutPanel flpDanhSachQuan;
         private TextBox txtTenQuan;
-        private Label lblTenQuan;
-        private Label lblNhapQuan;
-        private FlowLayoutPanel flpControls;
-        private FlowLayoutPanel flpNhapQuan;
-        private FlowLayoutPanel flpButtons;
+        private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
-        private Button btnRefresh;
-        private Label lblDsQuan;
+        private Button button1;
     }
 }

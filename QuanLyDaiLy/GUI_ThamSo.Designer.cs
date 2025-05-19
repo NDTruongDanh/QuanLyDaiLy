@@ -16,6 +16,7 @@
         {
             btnEdit = new Button();
             flpLayoutThamSo = new FlowLayoutPanel();
+            pCanLe = new Panel();
             flpDLToiDa = new FlowLayoutPanel();
             lblSoQLToiDa = new Label();
             txtSoQLToiDa = new TextBox();
@@ -43,20 +44,30 @@
             btnEdit.TabIndex = 6;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // flpLayoutThamSo
             // 
+            flpLayoutThamSo.BackColor = Color.White;
+            flpLayoutThamSo.Controls.Add(pCanLe);
             flpLayoutThamSo.Controls.Add(flpDLToiDa);
             flpLayoutThamSo.Controls.Add(flowLayoutPanel1);
             flpLayoutThamSo.Controls.Add(flowLayoutPanel2);
             flpLayoutThamSo.Controls.Add(panel1);
             flpLayoutThamSo.Dock = DockStyle.Fill;
             flpLayoutThamSo.FlowDirection = FlowDirection.TopDown;
-            flpLayoutThamSo.Location = new Point(0, 0);
+            flpLayoutThamSo.Location = new Point(5, 5);
             flpLayoutThamSo.Name = "flpLayoutThamSo";
             flpLayoutThamSo.Padding = new Padding(5);
-            flpLayoutThamSo.Size = new Size(782, 353);
+            flpLayoutThamSo.Size = new Size(772, 343);
             flpLayoutThamSo.TabIndex = 10;
+            // 
+            // pCanLe
+            // 
+            pCanLe.Location = new Point(8, 8);
+            pCanLe.Name = "pCanLe";
+            pCanLe.Size = new Size(250, 31);
+            pCanLe.TabIndex = 15;
             // 
             // flpDLToiDa
             // 
@@ -89,6 +100,7 @@
             txtSoQLToiDa.Name = "txtSoQLToiDa";
             txtSoQLToiDa.Size = new Size(125, 34);
             txtSoQLToiDa.TabIndex = 1;
+            txtSoQLToiDa.KeyPress += txtSoQLToiDa_KeyPress;
             // 
             // flowLayoutPanel1
             // 
@@ -120,6 +132,7 @@
             txtTiLeDGXuat.Name = "txtTiLeDGXuat";
             txtTiLeDGXuat.Size = new Size(125, 34);
             txtTiLeDGXuat.TabIndex = 1;
+            txtTiLeDGXuat.KeyPress += txtTiLeDGXuat_KeyPress;
             // 
             // flowLayoutPanel2
             // 
@@ -174,6 +187,7 @@
             ClientSize = new Size(782, 353);
             Controls.Add(flpLayoutThamSo);
             Name = "GUI_ThamSo";
+            Padding = new Padding(5);
             Text = "Quản Lý Tham Số";
             flpLayoutThamSo.ResumeLayout(false);
             flpLayoutThamSo.PerformLayout();
@@ -186,6 +200,7 @@
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
+
         private FlowLayoutPanel flpLayoutThamSo;
         private FlowLayoutPanel flpDLToiDa;
         private Label lblSoQLToiDa;

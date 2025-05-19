@@ -1,125 +1,166 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS_Library;
 using BUS_QuanLy;
 using DTO_QuanLy;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace GUI_QuanLy
 {
     public partial class GUI_ThamSo : Form
     {
-        private BUS_ThamSo busThamSo = new BUS_ThamSo();
+        private readonly IBUS_ThamSo _busThamSo;
+        private readonly ILogger<GUI_ThamSo> _logger;
 
-        public GUI_ThamSo()
+        private DTO_ThamSo _thamSo;
+        public GUI_ThamSo(IBUS_ThamSo busThamSo, ILogger<GUI_ThamSo> logger)
         {
+            _busThamSo = busThamSo;
+            _logger = logger;
             InitializeComponent();
         }
 
-        //private void GUI_ThamSo_Load(object sender, EventArgs e)
-        //{
-        //    LoadThamSo();
-        //}
-
-        //private void LoadThamSo()
-        //{
-        //    DataTable dt = busThamSo.GetThamSo();
-        //    dgvThamSo.DataSource = dt;
-        //}
-        /*
-        private void dgvThamSo_SelectionChanged(object sender, EventArgs e)
+        private async void GUI_ThamSo_Load(object sender, EventArgs e)
         {
-            if (dgvThamSo.SelectedRows.Count > 0)
+            try
             {
-                DataGridViewRow row = dgvThamSo.SelectedRows[0];
-                txtTenThamSo.Text = row.Cells["TenThamSo"].Value.ToString();
-                txtGiaTri.Text = row.Cells["GiaTri"].Value.ToString();
+                await LoadThamSoAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form ThamSo load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+
+        private async Task LoadThamSoAsync()
         {
-            if (!string.IsNullOrEmpty(txtTenThamSo.Text) && !string.IsNullOrEmpty(txtGiaTri.Text))
+            try
             {
-                DTO_ThamSo ts = new DTO_ThamSo
+                _thamSo = await _busThamSo.GetThamSoAsync();
+                LoadControlsContent();
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading ChiTietPhieuXuat: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+        private void LoadControlsContent()
+        {
+            txtSoQLToiDa.Text = _thamSo.DaiLyToiDa.ToString();
+            txtTiLeDGXuat.Text = _thamSo.TiLeTinhDonGiaXuat.ToString();
+            if (_thamSo.ApDungQDKiemTraTienThu)
+            {
+                cbApDungKTQD.Checked = true;
+            }
+            else
+            {
+                cbApDungKTQD.Checked = false;
+            }
+        }
+
+
+        private async void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidateInputFields();
+
+                var thamSo = new DTO_ThamSo
                 {
-                    TenThamSo = txtTenThamSo.Text,
-                    GiaTri = Convert.ToInt32(txtGiaTri.Text)
+                    DaiLyToiDa = int.Parse(txtSoQLToiDa.Text),
+                    TiLeTinhDonGiaXuat = float.Parse(txtTiLeDGXuat.Text),
+                    ApDungQDKiemTraTienThu = cbApDungKTQD.Checked
                 };
 
-                if (busThamSo.ThemThamSo(ts))
+                if (await _busThamSo.UpdateThamSoAsync(thamSo))
                 {
-                    MessageBox.Show("Thêm tham số thành công!");
-                    LoadThamSo();
+                    MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadThamSoAsync();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm tham số thất bại!");
+                    MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (ValidationException valEx)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    valEx.Message);
+
+                MessageBox.Show(valEx.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error updating ChiTietPhieuXuat: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form ThamSo edit");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void ValidateInputFields()
         {
-            if (dgvThamSo.SelectedRows.Count > 0 && !string.IsNullOrEmpty(txtTenThamSo.Text))
+            if (string.IsNullOrWhiteSpace(txtSoQLToiDa.Text))
             {
-                DTO_ThamSo ts = new DTO_ThamSo
-                {
-                    TenThamSo = txtTenThamSo.Text,
-                    GiaTri = Convert.ToInt32(txtGiaTri.Text)
-                };
-
-                if (busThamSo.SuaThamSo(ts))
-                {
-                    MessageBox.Show("Sửa tham số thành công!");
-                    LoadThamSo();
-                }
-                else
-                {
-                    MessageBox.Show("Sửa tham số thất bại!");
-                }
+                throw new ValidationException("Số quận không được để trống");
             }
-            else
+            if (string.IsNullOrWhiteSpace(txtTiLeDGXuat.Text))
             {
-                MessageBox.Show("Vui lòng chọn dòng cần sửa và nhập thông tin mới!");
+                throw new ValidationException("Tỉ lệ không được để trống");
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+
+        private void txtSoQLToiDa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (dgvThamSo.SelectedRows.Count > 0)
-            {
-                string ten = dgvThamSo.SelectedRows[0].Cells["TenThamSo"].Value.ToString();
-                if (busThamSo.XoaThamSo(ten))
-                {
-                    MessageBox.Show("Xóa tham số thành công!");
-                    LoadThamSo();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa tham số thất bại!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa!");
-            }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void txtTiLeDGXuat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.Close();
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
-        */
     }
 }

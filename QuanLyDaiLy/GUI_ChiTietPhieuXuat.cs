@@ -14,31 +14,413 @@ using System.Windows.Forms;
 using DTO_QuanLy;
 using BUS_Library;
 using BUS_QuanLy;
+using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 namespace GUI_QuanLy
 {
     public partial class GUI_ChiTietPhieuXuat : Form
     {
-        // Sự kiện trả về các giá trị để cập nhật PhieuXuat khi tạo mới
+        private readonly IBUS_PhieuXuat _busPhieuXuat;
 
+        private readonly IBUS_ChiTietPhieuXuat _busCTPX;
 
-        private readonly BUS_PhieuXuat busPhieuXuat;
-        private readonly BUS_DaiLy busDaiLy;
-        private readonly BUS_ChiTietPhieuXuat busChiTietPhieuXuat;
+        private readonly IBUS_MatHang _busMatHang;
+        private readonly IBUS_ThamSo _busThamSo;
 
-        public DTO_PhieuXuat phieuXuat;
-        DTO_DaiLy daiLy;
-        public GUI_ChiTietPhieuXuat(int maPhieuXuat)
+        private readonly ILogger<GUI_ChiTietPhieuXuat> _logger;
+
+        private readonly IServiceProvider _services;
+
+        private readonly BindingSource _bindingSource = new BindingSource();
+
+        private DTO_PhieuXuat _phieuXuat = new DTO_PhieuXuat();
+        private List<decimal> _listDonGiaXuat = new List<decimal>();
+        private List<int> _ListTonKho = new List<int>();
+
+        private decimal _thanhTien = 0;
+        private string _tenDaiLy = string.Empty;
+
+        public GUI_ChiTietPhieuXuat(IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, IBUS_MatHang busMatHang, IBUS_ThamSo busThamSo, ILogger<GUI_ChiTietPhieuXuat> logger, IServiceProvider service)
         {
+            _busPhieuXuat = busPhieuXuat;
+            _busCTPX = busCTPX;
+            _busMatHang = busMatHang;
+            _busThamSo = busThamSo;
+            _logger = logger;
+            _services = service;
             InitializeComponent();
-
-
-        }
-        private void GUI_ChiTietPhieuXuat_Load(object sender, EventArgs e)
-        {
+            dgvChiTietPhieuXuat.DataSource = _bindingSource;
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+
+        public void SetPhieuXuat(DTO_PhieuXuat phieuXuat)
         {
+            _phieuXuat = phieuXuat;
+        }
+
+        public void SetTenDaiLy(string tenDaiLy)
+        {
+            _tenDaiLy = tenDaiLy;
+        }
+
+        public DTO_PhieuXuat GetPhieuXuat()
+        {
+            return _phieuXuat;
+        }
+
+
+
+
+        private async void GUI_ChiTietPhieuXuat_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMaPhieuXuat.Text = _phieuXuat.MaPhieuXuat.ToString();
+                txtDaiLy.Text = _tenDaiLy;
+                txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
+                txtSoTienTra.Text = _phieuXuat.TienTra.ToString("N0");
+                txtConLai.Text = _phieuXuat.ConLai.ToString("N0");
+                await LoadComboBoxesMatHangAsync();
+                await LoadChiTietPhieuXuatAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form ChiTietPhieuXuat load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async Task LoadComboBoxesMatHangAsync()
+        {
+            try
+            {
+                var dataTable = await _busMatHang.GetMatHangForXuatAsync();
+                float tiLe = await _busThamSo.GetTiLeDonGiaXuatAsync();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    _listDonGiaXuat.Add(Convert.ToDecimal(row["DonGiaHienTai"]) * (decimal)tiLe);
+                    _ListTonKho.Add(Convert.ToInt32(row["TonKho"]));
+                }
+
+                cbbMatHang.DataSource = dataTable;
+                cbbMatHang.DisplayMember = "DISPLAY";
+                cbbMatHang.ValueMember = "MaMatHang";
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading ComboBoxo MatHang: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+        private async Task LoadChiTietPhieuXuatAsync()
+        {
+            try
+            {
+                var dataTable = await _busCTPX.GetDataTableChiTietPhieuXuatByMPXAsync(_phieuXuat.MaPhieuXuat);
+                _bindingSource.DataSource = dataTable;
+                ModifyDataGridViewColumns();
+                ClearInputFields();
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading ChiTietPhieuXuat: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+        private void ModifyDataGridViewColumns()
+        {
+            dgvChiTietPhieuXuat.Columns["MaPhieuXuat"].HeaderText = "Mã Phiếu Xuất";
+            dgvChiTietPhieuXuat.Columns["Display"].HeaderText = "Mặt Hàng";
+            dgvChiTietPhieuXuat.Columns["SoLuongXuat"].HeaderText = "Số Lượng";
+            dgvChiTietPhieuXuat.Columns["DonGiaXuat"].HeaderText = "Đơn Giá";
+            dgvChiTietPhieuXuat.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+            dgvChiTietPhieuXuat.Columns["MaMatHang"].Visible = false;
+
+            foreach (DataGridViewColumn dataColumn in dgvChiTietPhieuXuat.Columns)
+            {
+                dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
+
+        private void ClearInputFields()
+        {
+            txtSoLuong.Text = "0";
+            cbbMatHang.SelectedIndex = -1;
+
+            dgvChiTietPhieuXuat.ClearSelection();
+        }
+
+
+        private void ValidateInputFields()
+        {
+            if (!int.TryParse(txtSoLuong.Text, out int soLuongNhap) || soLuongNhap <= 0)
+            {
+                var valEx = new ValidationException("Số lượng phải > 0");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    txtSoLuong.Text);
+                throw valEx;
+            }
+            if (cbbMatHang.SelectedIndex < 0)
+            {
+                var valEx = new ValidationException("Vui lòng chọn Mặt hàng");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    cbbMatHang.Text);
+                throw valEx;
+            }
+        }
+
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidateInputFields();
+
+                var maMatHang = Convert.ToInt32(cbbMatHang.SelectedValue);
+                var soLuongXuat = Convert.ToInt32(txtSoLuong.Text);
+                var donGiaXuat = _listDonGiaXuat[cbbMatHang.SelectedIndex];
+                var thanhTien = soLuongXuat * donGiaXuat;
+
+                if (soLuongXuat > _ListTonKho[cbbMatHang.SelectedIndex])
+                {
+                    MessageBox.Show("Số lượng xuất không được lớn hơn tồn kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var chiTietPhieuXuat = new DTO_ChiTietPhieuXuat(_phieuXuat.MaPhieuXuat, maMatHang, soLuongXuat, donGiaXuat, thanhTien);
+
+                if (await _busCTPX.AddChiTietPhieuXuatAsync(chiTietPhieuXuat))
+                {
+                    MessageBox.Show("Thêm Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _phieuXuat.TongTien += thanhTien;
+                    txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
+                    await LoadChiTietPhieuXuatAsync();
+                    await LoadComboBoxesMatHangAsync();
+                    ClearInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm Đại lý thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (ValidationException valEx)
+            {
+                MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in Add button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in Add button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvChiTietPhieuXuat.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa Chi tiết phiếu xuất này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (confirm == DialogResult.Yes)
+                    {
+                        ValidateInputFields();
+
+                        var maMatHang = Convert.ToInt32(cbbMatHang.SelectedValue);
+                        var soLuongXuat = Convert.ToInt32(txtSoLuong.Text);
+                        var donGiaXuat = _listDonGiaXuat[cbbMatHang.SelectedIndex];
+                        var thanhTien = soLuongXuat * donGiaXuat;
+
+                        var soLuongXuatCu = Convert.ToInt32(dgvChiTietPhieuXuat.SelectedRows[0].Cells["SoLuongXuat"].Value);
+                        var thanhTienCu = Convert.ToDecimal(dgvChiTietPhieuXuat.SelectedRows[0].Cells["ThanhTien"].Value);
+
+
+                        if (soLuongXuat > _ListTonKho[cbbMatHang.SelectedIndex] + soLuongXuatCu)
+                        {
+                            MessageBox.Show("Số lượng xuất không được lớn hơn tồn kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        var chiTietPhieuXuat = new DTO_ChiTietPhieuXuat(_phieuXuat.MaPhieuXuat, maMatHang, soLuongXuat, donGiaXuat, thanhTien);
+
+                        if (await _busCTPX.UpdateChiTietPhieuXuatAsync(chiTietPhieuXuat))
+                        {
+                            MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _phieuXuat.TongTien += thanhTien;
+                            _phieuXuat.TongTien -= thanhTienCu;
+                            txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
+                            await LoadChiTietPhieuXuatAsync();
+                            await LoadComboBoxesMatHangAsync();
+                            ClearInputFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                catch (ValidationException valEx)
+                {
+                    MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                catch (BusException busEx)
+                {
+                    _logger.LogError(busEx,
+                        "BusException in Edit button");
+
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Edit button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvChiTietPhieuXuat.SelectedRows.Count > 0)
+            {
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa Chi tiết phiếu nhập này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int maMatHang = Convert.ToInt32(dgvChiTietPhieuXuat.SelectedRows[0].Cells["MaMatHang"].Value);
+                        if (await _busCTPX.DeleteChiTietPhieuXuatAsync(_phieuXuat.MaPhieuXuat, maMatHang))
+                        {
+                            MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _phieuXuat.TongTien -= _thanhTien;
+                            txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
+                            await LoadChiTietPhieuXuatAsync();
+                            await LoadComboBoxesMatHangAsync();
+                            ClearInputFields();
+                        }
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Delete button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Delete button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn dòng cần xóa!");
+                }
+            }
+
+        }
+
+        private void dgvChiTietPhieuXuat_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvChiTietPhieuXuat.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var selectedRow = dgvChiTietPhieuXuat.SelectedRows[0];
+                    cbbMatHang.SelectedValue = selectedRow.Cells["MaMatHang"].Value;
+                    txtSoLuong.Text = selectedRow.Cells["SoLuongXuat"].Value.ToString();
+                    txtSoTienTra.Text = _phieuXuat.TienTra.ToString("N0");
+                    _thanhTien = Convert.ToDecimal(selectedRow.Cells["ThanhTien"].Value);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in dgv change selection");
+
+                    MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSoTienTra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtSoLuong.Text, out int soLuong))
+            {
+                txtThanhTien.Text = (soLuong * _listDonGiaXuat[cbbMatHang.SelectedIndex]).ToString("N0");
+            }
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtSoTienTra.Text, out decimal traTruoc))
+            {
+                txtConLai.Text = (_phieuXuat.TongTien - traTruoc).ToString("N0");
+            }
+        }
+
+        private void txtSoTienTra_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtSoTienTra.Text, out decimal traTruoc))
+            {
+                txtConLai.Text = (_phieuXuat.TongTien - traTruoc).ToString("N0");
+            }
+        }
+
+        private void cbbMatHang_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtDonGiaXuat.Text = _listDonGiaXuat[cbbMatHang.SelectedIndex].ToString("N0");
         }
     }
 }

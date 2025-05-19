@@ -27,6 +27,7 @@ namespace BUS_Library
             services.AddScoped<IBUS_ChiTietBaoCaoDoanhSo, BUS_ChiTietBaoCaoDoanhSo>();
             services.AddScoped<IBUS_BaoCaoCongNo, BUS_BaoCaoCongNo>();
             services.AddScoped<IBUS_PhieuThu, BUS_PhieuThu>();
+            services.AddScoped<IBUS_ThamSo, BUS_ThamSo>();
 
             return services;
         }
