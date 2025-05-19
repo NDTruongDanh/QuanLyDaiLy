@@ -12,6 +12,9 @@ namespace BUS_QuanLy
     {
         Task<List<DTO_PhieuXuat>> GetPhieuXuatListAsync();
         Task<List<DTO_PhieuXuatDaiLy>> GetPhieuXuatCuaDaiLyListAsync(int maDaiLy);
+        Task<DataTable> GetDataTablePhieuXuatAsync();
+        Task<DataTable> GetDataTablePhieuXuatCuaDaiLyAsync(int maDaiLy);
+        Task<int> GetMaPhieuXuatDefaultAsync(DTO_PhieuXuat phieuXuat);
         Task<bool> AddPhieuXuatAsync(DTO_PhieuXuat phieuXuat);
         Task<bool> AddPhieuXuatDefaultAsync(int maDaiLy, DateTime ngayLapPhieu);
         Task<bool> UpdatePhieuXuatAsync(DTO_PhieuXuat phieuXuat);
@@ -103,6 +106,120 @@ namespace BUS_QuanLy
             }
 
         }
+
+
+
+        //Get DataTable PhieuXuat
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTablePhieuXuatFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTablePhieuXuatAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTablePhieuXuatFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTablePhieuXuatAsync()
+        {
+            using (_logger.BeginScope("BUS_PhieuXuat.GetDataTablePhieuXuatAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuXuat.GetDataTablePhieuXuatAsync();
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTablePhieuXuatFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách phiếu xuất. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+        //Get DataTable PhieuXuat Cua DaiLy
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTablePhieuXuatCuaDaiLyFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTablePhieuXuatCuaDaiLyAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTablePhieuXuatCuaDaiLyFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTablePhieuXuatCuaDaiLyAsync(int maDaiLy)
+        {
+            using (_logger.BeginScope("BUS_PhieuXuat.GetDataTablePhieuXuatCuaDaiLyAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuXuat.GetDataTablePhieuXuatCuaDaiLyAsync(maDaiLy);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTablePhieuXuatCuaDaiLyFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách phiếu xuất của đại lý. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+        //Get Ma PhieuXuat Default
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetMaPhieuXuatDefaultFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetMaPhieuXuatDefaultAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetMaPhieuXuatDefaultFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<int> GetMaPhieuXuatDefaultAsync(DTO_PhieuXuat phieuXuat)
+        {
+            using (_logger.BeginScope("BUS_PhieuXuat.GetMaPhieuXuatDefaultAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuXuat.GetMaPhieuXuatDefaultAsync(phieuXuat);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetMaPhieuXuatDefaultFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được mã phiếu xuất. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
 
 
         //Add PhieuXuat

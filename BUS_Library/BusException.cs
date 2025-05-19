@@ -50,7 +50,8 @@ namespace BUS_Library
         public const int AddMatHangDefaultFailure = 0403;
         public const int UpdateMatHangFailure = 0404;
         public const int DeleteMatHangFailure = 0405;
-        public const int GetMatHangForNhapXuatFailure = 0406;
+        public const int GetMatHangForNhapFailure = 0406;
+        public const int GetMatHangForXuatFailure = 0407;
 
         //PhieuNhap
         public const int GetPhieuNhapListFailure = 0501;
@@ -75,6 +76,9 @@ namespace BUS_Library
         public const int AddPhieuXuatDefaultFailure = 0604;
         public const int UpdatePhieuXuatFailure = 0605;
         public const int DeletePhieuXuatFailure = 0606;
+        public const int GetDataTablePhieuXuatFailure = 0607;
+        public const int GetDataTablePhieuXuatCuaDaiLyFailure = 0608;
+        public const int GetMaPhieuXuatDefaultFailure = 0609;
 
         //ChiTietPhieuXuat
         public const int GetChiTietPhieuXuatListFailure = 0606;
@@ -84,6 +88,7 @@ namespace BUS_Library
         public const int DeleteChiTietPhieuXuatFailure = 0610;
         public const int GetChiTietPhieuXuatDataTableFailure = 0611;
         public const int GetChiTietPhieuXuatDataTableByMPXFailure = 0612;
+        public const int DeleteChiTietPhieuXuatByMPXFailure = 0613;
 
         //PhieuThu
         public const int GetPhieuThuListFailure = 0701;
@@ -119,8 +124,11 @@ namespace BUS_Library
         public const int DeleteChiTietBaoCaoDoanhSoFailure = 0911;
 
 
-
-
+        //Thamso
+        public const int GetTiLeXuatFailure = 1001;
+        public const int GetDaiLyToiDaFailure = 1002;
+        public const int GetApDungQDKiemTraTienThuFailure = 1003;
+        public const int UpdateThamSoFailure = 1004;
 
 
     }

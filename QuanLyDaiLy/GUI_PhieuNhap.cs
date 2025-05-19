@@ -126,10 +126,8 @@ namespace GUI_QuanLy
                 }
                 else
                 {
-                    if (await _busPhieuNhap.DeletePhieuNhapAsync(phieuNhap.MaPhieuNhap))
-                    {
-                        MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    await _busPhieuNhap.DeletePhieuNhapAsync(phieuNhap.MaPhieuNhap);
+                    MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);       
                 }
             }
             catch (BusException busEx)

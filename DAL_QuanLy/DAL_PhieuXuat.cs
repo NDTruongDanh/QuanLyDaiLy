@@ -10,6 +10,9 @@ namespace DAL_QuanLy
     {
         Task<List<DTO_PhieuXuat>> GetPhieuXuatListAsync();
         Task<List<DTO_PhieuXuatDaiLy>> GetPhieuXuatCuaDaiLyListAsync(int maDaiLy);
+        Task<DataTable> GetDataTablePhieuXuatAsync();
+        Task<DataTable> GetDataTablePhieuXuatCuaDaiLyAsync(int maDaiLy);
+        Task<int> GetMaPhieuXuatDefaultAsync(DTO_PhieuXuat phieuXuat);
         Task<bool> AddPhieuXuatAsync(DTO_PhieuXuat phieuXuat);
         Task<bool> AddPhieuXuatDefaultAsync(int maDaiLy, DateTime ngayLapPhieu);
         Task<bool> UpdatePhieuXuatAsync(DTO_PhieuXuat phieuXuat);
@@ -113,6 +116,113 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+
+
+        //Get DataTable PhieuXuat
+        public async Task<DataTable> GetDataTablePhieuXuatAsync()
+        {
+            try
+            {
+                var dataTable = new DataTable();
+
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuXuat, px.MaDaiLy, dl.TenDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai
+                                                    FROM PHIEUXUAT px JOIN DAILY dl ON px.MaDaiLy = dl.MaDaiLy", conn))
+                    {
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching DataTable PhieuXuat: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+
+        //Get DataTable PhieuXuat DaiLy
+        public async Task<DataTable> GetDataTablePhieuXuatCuaDaiLyAsync(int maDaiLy)
+        {
+            try
+            {
+                var dataTable = new DataTable();
+
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaPhieuXuat, px.MaDaiLy, dl.TenDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai
+                                                    FROM PHIEUXUAT px JOIN DAILY dl ON px.MaDaiLy = dl.MaDaiLy WHERE px.MaDaiLy = @MaDaiLy", conn))
+                    {
+                        cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = maDaiLy;
+
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching DataTable PhieuXuat DaiLy: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
+
+        //Get MaPhieuXuat Default
+        public async Task<int> GetMaPhieuXuatDefaultAsync(DTO_PhieuXuat phieuXuat)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"INSERT INTO PHIEUXUAT(MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai)
+                                                    OUTPUT inserted.MaPhieuXuat
+                                                    VALUES (@MaDaiLy, @NgayLapPhieu, @TongTien, @TienTra, @ConLai)", conn))
+                    {
+                        cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = phieuXuat.MaDaiLy;
+                        cmd.Parameters.Add("@NgayLapPhieu", SqlDbType.DateTime).Value = phieuXuat.NgayLapPhieu;
+                        cmd.Parameters.Add("@TongTien", SqlDbType.Decimal).Value = phieuXuat.TongTien;
+                        cmd.Parameters.Add("@TienTra", SqlDbType.Decimal).Value = phieuXuat.TienTra;
+                        cmd.Parameters.Add("@ConLai", SqlDbType.Decimal).Value = phieuXuat.ConLai;
+
+                        object ? result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
+                        if (result == null || result == DBNull.Value)
+                            throw new DalException("Insert failed: no ID returned", null, 0);
+
+                        return Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching default MaPhieuXuat: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
 
         //Add PhieuXuat
         public async Task<bool> AddPhieuXuatAsync(DTO_PhieuXuat phieuXuat)

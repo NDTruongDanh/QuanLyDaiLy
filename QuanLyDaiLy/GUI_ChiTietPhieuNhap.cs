@@ -71,7 +71,7 @@ namespace GUI_QuanLy
         {
             try
             {
-                cbbMatHang.DataSource = await _busMatHang.GetMatHangForNhapXuatAsync();
+                cbbMatHang.DataSource = await _busMatHang.GetMatHangForNhapAsync();
                 cbbMatHang.DisplayMember = "Display";
                 cbbMatHang.ValueMember = "MaMatHang";
             }
@@ -98,6 +98,7 @@ namespace GUI_QuanLy
                 ClearInputFields();
 
                 txtTongTien.Text = _phieuNhap.TongTien.ToString("N0");
+                dtpNgayLap.Value = Convert.ToDateTime(_phieuNhap.NgayLapPhieu.ToString("dd/MM/yyyy"));
             }
             catch (BusException busEx)
             {
@@ -178,7 +179,7 @@ namespace GUI_QuanLy
                 DTO_ChiTietPhieuNhap ctpn = new DTO_ChiTietPhieuNhap
                 {
                     MaPhieuNhap = _phieuNhap.MaPhieuNhap,
-                    MaMatHang = (int)cbbMatHang.SelectedValue,
+                    MaMatHang = Convert.ToInt32(cbbMatHang.SelectedValue),
                     SoLuongNhap = soLuongNhap,
                     DonGiaNhap = donGiaNhap,
                     ThanhTien = soLuongNhap * donGiaNhap
