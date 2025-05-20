@@ -3,6 +3,9 @@
     partial class GUI_PhieuThu
     {
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblNgayThuTien;
+        private System.Windows.Forms.Label lblSoTienThu;
+        private System.Windows.Forms.DateTimePicker dtpNgayThuTien;
 
         protected override void Dispose(bool disposing)
         {
@@ -16,8 +19,12 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_PhieuThu));
+            lblNgayThuTien = new Label();
+            lblSoTienThu = new Label();
+            dtpNgayThuTien = new DateTimePicker();
+            panel1 = new Panel();
             lblDanhSachPhieuThu = new Label();
+            label2 = new Label();
             dgvPhieuThu = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -25,28 +32,26 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            cbbDaiLy = new ComboBox();
-            lblTenDaiLy = new Label();
-            lblThongTinPhieuThu = new Label();
-            tblFormPhieuThu = new TableLayoutPanel();
+            panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flpNhap = new FlowLayoutPanel();
-            tblNhap = new TableLayoutPanel();
-            lblNgayThuTien = new Label();
-            dtpNgayThuTien = new DateTimePicker();
-            lblSoTienThu = new Label();
-            txtSoTienThu = new TextBox();
-            flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
-            btnRefresh = new Button();
+            btnFind = new Button();
+            button1 = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            cboLoaiDaiLy = new ComboBox();
+            txtSoTienThu = new TextBox();
+            lblTenDaiLy = new Label();
+            lblThongTinPhieuThu = new Label();
+            label4 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuThu).BeginInit();
-            tblFormPhieuThu.SuspendLayout();
+            panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            flpNhap.SuspendLayout();
-            tblNhap.SuspendLayout();
-            flpButtons.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // lblNgayThuTien
@@ -96,8 +101,7 @@
             // 
             lblDanhSachPhieuThu.AutoSize = true;
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDanhSachPhieuThu.Location = new Point(5, 5);
-            lblDanhSachPhieuThu.Margin = new Padding(5);
+            lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
             lblDanhSachPhieuThu.Size = new Size(420, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
@@ -141,7 +145,7 @@
             dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuThu.EnableHeadersVisualStyles = false;
             dgvPhieuThu.GridColor = Color.White;
-            dgvPhieuThu.Location = new Point(3, 45);
+            dgvPhieuThu.Location = new Point(19, 77);
             dgvPhieuThu.Name = "dgvPhieuThu";
             dgvPhieuThu.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -212,6 +216,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Controls.Add(btnEdit);
@@ -229,14 +234,12 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
+            btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnEdit
@@ -250,7 +253,7 @@
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
+            btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnDelete
@@ -264,7 +267,7 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
+            btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnFind
@@ -392,27 +395,29 @@
             // GUI_PhieuThu
             // 
             ClientSize = new Size(1634, 940);
-            Controls.Add(tblFormPhieuThu);
+            Controls.Add(tableLayoutPanel2);
             Name = "GUI_PhieuThu";
             Text = "Quản Lý Phiếu Thu";
             Load += GUI_PhieuThu_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuThu).EndInit();
-            tblFormPhieuThu.ResumeLayout(false);
-            tblFormPhieuThu.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            flpNhap.ResumeLayout(false);
-            flpNhap.PerformLayout();
-            tblNhap.ResumeLayout(false);
-            tblNhap.PerformLayout();
-            flpButtons.ResumeLayout(false);
-            flpButtons.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+        private Panel panel1;
         private Label lblDanhSachPhieuThu;
+        private Label label2;
         private DataGridView dgvPhieuThu;
         private Panel panel2;
-        private TableLayoutPanel tblNhapPhieu;
+        private TableLayoutPanel tableLayoutPanel1;
         private Label lblTenDaiLy;
         private Label lblThongTinPhieuThu;
         private Label label4;

@@ -117,17 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnFind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAPVJREFUSEvt
-        lDEKwlAQRAe0EvUCgngGBW/gCbyEjaWd2Ol57D2BtQdRxMJOGcjCMiRkf0xMkwdbzfwd/mf/Ah0tMQew
-        AbAFsFKxTs4APgV1U/OvaEBRTfVgFXzDg4oA1uLpqSEF/4wzFQXzPVRIwZrsVchh6fx9FSMsXIMo5t+p
-        EIGjnxr4zvwXFSLwn6UGPjP/VYUI/NSpgeY/qhDFGnD0y5g4/0DFKNwg0Vua765CKtaIxdFX/M1YIzWk
-        wnXlG7I4jTYgeVX5SQ2uK24QbWzFZxzXHUq4Qfip+c84+icAQ6czpPbQMrrQRmk19KVCk/zlZh34ArJP
-        cy/HHXqFAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="dgvtxtNoCuoi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

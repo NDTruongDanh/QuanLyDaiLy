@@ -16,18 +16,13 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_DonViTinh));
-            lblDsDVT = new Label();
+            panel1 = new Panel();
+            lblDanhSachPhieuThu = new Label();
+            label2 = new Label();
             dgvDVT = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
-            tblNhapDVT = new TableLayoutPanel();
-            txtDonViTinh = new TextBox();
-            lblTenDVT = new Label();
-            lblNhapDVT = new Label();
-            tblFormDVT = new TableLayoutPanel();
-            flpDanhSachDVT = new FlowLayoutPanel();
+            panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flpButtons = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
@@ -40,11 +35,10 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDVT).BeginInit();
-            tblNhapDVT.SuspendLayout();
-            tblFormDVT.SuspendLayout();
-            flpDanhSachDVT.SuspendLayout();
+            panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            flpButtons.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -167,15 +161,14 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
+            btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -188,8 +181,9 @@
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
+            btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -202,7 +196,7 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
+            btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
@@ -293,29 +287,29 @@
             // GUI_DonViTinh
             // 
             ClientSize = new Size(1634, 940);
-            Controls.Add(tblFormDVT);
+            Controls.Add(tableLayoutPanel2);
             Name = "GUI_DonViTinh";
             Text = "Quản Lý Đơn Vị Tính";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDVT).EndInit();
-            tblNhapDVT.ResumeLayout(false);
-            tblNhapDVT.PerformLayout();
-            tblFormDVT.ResumeLayout(false);
-            flpDanhSachDVT.ResumeLayout(false);
-            flpDanhSachDVT.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            flpButtons.ResumeLayout(false);
-            flpButtons.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         private Panel panel1;
-        private Label lblDsDVT;
+        private Label lblDanhSachPhieuThu;
         private Label label2;
         private DataGridView dgvDVT;
         private Panel panel2;
-        private TableLayoutPanel tblNhapDVT;
-        private Label lblTenDVT;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTenDaiLy;
         private Label lblThongTinPhieuThu;
         private Label label4;
         private TableLayoutPanel tableLayoutPanel2;

@@ -104,7 +104,6 @@ namespace GUI_QuanLy
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_BaoCaoDoanhSo));
             pnHeader = new Panel();
             cbbThang = new ComboBox();
             btnXuatFile = new Button();
@@ -134,8 +133,6 @@ namespace GUI_QuanLy
             txtSoPhieuXuat = new DataGridViewTextBoxColumn();
             txtTongTriGia = new DataGridViewTextBoxColumn();
             progressCol = new ProgressBarColumn();
-            cbbYear = new ComboBox();
-            btnFind = new Button();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flpTongSoPhieuXuat.SuspendLayout();
@@ -150,8 +147,6 @@ namespace GUI_QuanLy
             // 
             // pnHeader
             // 
-            pnHeader.Controls.Add(btnFind);
-            pnHeader.Controls.Add(cbbYear);
             pnHeader.Controls.Add(cbbThang);
             pnHeader.Controls.Add(btnXuatFile);
             pnHeader.Controls.Add(lblBaoCao);
@@ -397,6 +392,7 @@ namespace GUI_QuanLy
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBangThongKeDoanhThu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvBangThongKeDoanhThu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBangThongKeDoanhThu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvBangThongKeDoanhThu.BackgroundColor = Color.WhiteSmoke;
             dgvBangThongKeDoanhThu.BorderStyle = BorderStyle.None;
             dgvBangThongKeDoanhThu.CellBorderStyle = DataGridViewCellBorderStyle.None;
@@ -429,7 +425,6 @@ namespace GUI_QuanLy
             dgvBangThongKeDoanhThu.RowTemplate.Height = 24;
             dgvBangThongKeDoanhThu.Size = new Size(1451, 515);
             dgvBangThongKeDoanhThu.TabIndex = 1;
-            dgvBangThongKeDoanhThu.Click += dgvBangThongKeDoanhThu_Click;
             // 
             // dgvtxtTenDL
             // 
@@ -546,34 +541,6 @@ namespace GUI_QuanLy
             progressCol.Name = "progressCol";
             progressCol.ReadOnly = true;
             // 
-            // cbbYear
-            // 
-            cbbYear.FlatStyle = FlatStyle.Popup;
-            cbbYear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbbYear.FormattingEnabled = true;
-            cbbYear.Location = new Point(1168, 27);
-            cbbYear.Margin = new Padding(10, 12, 20, 12);
-            cbbYear.Name = "cbbYear";
-            cbbYear.Size = new Size(106, 36);
-            cbbYear.TabIndex = 4;
-            cbbYear.Tag = "";
-            cbbYear.Text = "Năm";
-            // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.DeepSkyBlue;
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
-            btnFind.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFind.Location = new Point(1318, 24);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(94, 40);
-            btnFind.TabIndex = 5;
-            btnFind.Text = "Tìm";
-            btnFind.UseVisualStyleBackColor = false;
-            // 
             // GUI_BaoCaoDoanhSo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -606,7 +573,5 @@ namespace GUI_QuanLy
             ResumeLayout(false);
             PerformLayout();
         }
-        private Button btnFind;
-        private ComboBox cbbYear;
     }
 }

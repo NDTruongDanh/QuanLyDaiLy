@@ -16,28 +16,29 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Quan));
-            lblDsQuan = new Label();
+            panel1 = new Panel();
+            lblDanhSachPhieuThu = new Label();
+            label2 = new Label();
             dgvQuan = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
-            tlbFormQuan = new TableLayoutPanel();
-            flpDanhSachQuan = new FlowLayoutPanel();
-            flpControls = new FlowLayoutPanel();
-            lblNhapQuan = new Label();
-            flpNhapQuan = new FlowLayoutPanel();
-            lblTenQuan = new Label();
-            txtTenQuan = new TextBox();
-            flpButtons = new FlowLayoutPanel();
+            panel2 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
-            btnRefresh = new Button();
+            button1 = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            txtTenQuan = new TextBox();
+            lblTenDaiLy = new Label();
+            lblThongTinPhieuThu = new Label();
+            label4 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).BeginInit();
-            tlbFormQuan.SuspendLayout();
-            flpDanhSachQuan.SuspendLayout();
-            flpControls.SuspendLayout();
-            flpNhapQuan.SuspendLayout();
-            flpButtons.SuspendLayout();
+            panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -79,6 +80,7 @@
             dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvQuan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQuan.BackgroundColor = Color.White;
+            dgvQuan.BorderStyle = BorderStyle.None;
             dgvQuan.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvQuan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -101,8 +103,7 @@
             dgvQuan.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQuan.EnableHeadersVisualStyles = false;
             dgvQuan.GridColor = Color.White;
-            dgvQuan.Location = new Point(10, 53);
-            dgvQuan.Margin = new Padding(10, 5, 5, 5);
+            dgvQuan.Location = new Point(19, 77);
             dgvQuan.Name = "dgvQuan";
             dgvQuan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -115,9 +116,8 @@
             dgvQuan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvQuan.ScrollBars = ScrollBars.Vertical;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(1612, 605);
+            dgvQuan.Size = new Size(1564, 400);
             dgvQuan.TabIndex = 14;
             // 
             // Column1
@@ -160,14 +160,12 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
+            btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnEdit
@@ -181,7 +179,7 @@
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
+            btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnDelete
@@ -195,7 +193,7 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
+            btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             // 
             // button1
@@ -285,22 +283,23 @@
             // GUI_Quan
             // 
             ClientSize = new Size(1634, 940);
-            Controls.Add(tlbFormQuan);
+            Controls.Add(tableLayoutPanel2);
             Name = "GUI_Quan";
             Text = "Quản Lý Quận";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).EndInit();
-            tlbFormQuan.ResumeLayout(false);
-            tlbFormQuan.PerformLayout();
-            flpDanhSachQuan.ResumeLayout(false);
-            flpDanhSachQuan.PerformLayout();
-            flpControls.ResumeLayout(false);
-            flpControls.PerformLayout();
-            flpNhapQuan.ResumeLayout(false);
-            flpNhapQuan.PerformLayout();
-            flpButtons.ResumeLayout(false);
-            flpButtons.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+        private Panel panel1;
         private Label lblDanhSachPhieuThu;
         private Label label2;
         private DataGridView dgvQuan;

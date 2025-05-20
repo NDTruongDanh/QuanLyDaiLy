@@ -15,7 +15,7 @@ namespace GUI_QuanLy
 {
     public partial class GUI_BaoCaoDoanhSo : Form
     {
-
+       
         int maBaoCaoDoanhSo = 0;
         decimal tongDoanhSo = 0;
 
@@ -35,16 +35,25 @@ namespace GUI_QuanLy
             decimal totalValue = 0;
             int totalPercentage = 0;
 
+            // Loop tất cả các dòng trừ dòng cuối cùng (nếu đang có dòng tổng)
             for (int i = 0; i < dgvBangTongKet.Rows.Count; i++)
             {
                 var dgvrow = dgvBangTongKet.Rows[i];
+
+                // Bỏ qua dòng trống hoặc dòng tổng (nếu bạn đang thêm cuối cùng)
                 if (dgvrow.IsNewRow || dgvrow.Cells[0].Value?.ToString() == "Tổng cộng")
                     continue;
+
+                // Parse số phiếu
                 if (int.TryParse(dgvrow.Cells[2].Value?.ToString(), out int invoices))
                     totalInvoices += invoices;
+
+                // Parse tổng trị giá (loại bỏ ký tự tiền tệ và dấu chấm)
                 string valueStr = dgvrow.Cells[3].Value?.ToString().Replace(".", "").Replace("₫", "").Trim();
                 if (decimal.TryParse(valueStr, out decimal value))
                     totalValue += value;
+
+                // Parse phần trăm
                 if (int.TryParse(dgvrow.Cells[4].Value?.ToString().Replace("%", ""), out int percent))
                     totalPercentage += percent;
             }

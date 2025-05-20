@@ -169,15 +169,14 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdd.Location = new Point(3, 3);
             btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
-            btnAdd.Text = "Thêm";
+            btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -190,8 +189,9 @@
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
-            btnEdit.Text = "Sửa";
+            btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -204,7 +204,7 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
-            btnDelete.Text = "Xóa";
+            btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
@@ -324,7 +324,7 @@
             // GUI_LoaiDaiLy
             // 
             ClientSize = new Size(1634, 940);
-            Controls.Add(tlbFormQuan);
+            Controls.Add(tableLayoutPanel2);
             Name = "GUI_LoaiDaiLy";
             Text = "Quản Lý Loại Đại Lý";
             panel1.ResumeLayout(false);
@@ -357,9 +357,7 @@
         private DataGridViewTextBoxColumn Column2;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
-        private Panel panel1;
         private Button btnEdit;
-        private Panel panel2;
         private Button btnDelete;
         private Button btnRefresh;
     }
