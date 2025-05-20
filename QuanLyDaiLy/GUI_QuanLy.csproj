@@ -38,6 +38,34 @@
   </ItemGroup>
 =======
 	<ItemGroup>
+<<<<<<< HEAD
+=======
+		<PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+		<PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
+		<PackageReference Include="SipaaFramework" Version="1.1.0" />
+		<PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BUS_Library\BUS_Library.csproj" />
+		<ProjectReference Include="..\DTO_QuanLy\DTO_QuanLy.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+>>>>>>> parent of ccda990 (them cbbYear, btnFind cho bao cao)
 		<Compile Update="GUI_ThamSo.cs">
 			<SubType>Form</SubType>
 		</Compile>
