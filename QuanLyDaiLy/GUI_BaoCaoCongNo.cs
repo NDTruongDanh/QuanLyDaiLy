@@ -94,7 +94,7 @@ namespace GUI_QuanLy
 
         private void LoadDataColChart()
         {
-            var series = pcThongKeCongNo.Series["NoCuoi"];
+            var series = pcThongKeCongNo.Series["Series2"];
             series.Points.Clear();
             var data = new Dictionary<string, decimal>
             { 

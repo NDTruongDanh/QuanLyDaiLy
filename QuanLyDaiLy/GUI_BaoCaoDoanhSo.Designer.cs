@@ -22,10 +22,6 @@ namespace GUI_QuanLy
         private System.Windows.Forms.FlowLayoutPanel fplThongKe;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblThongKeDoanhThu;
-        private System.Windows.Forms.DataGridView dgvBangThongKeDoanhThu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtxtTenDL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtxtDoanhThu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtxtTiLe;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvBangTongKet;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtSTT;
@@ -98,13 +94,12 @@ namespace GUI_QuanLy
             ChartArea chartArea1 = new ChartArea();
             Legend legend1 = new Legend();
             Series series1 = new Series();
+            Title title1 = new Title();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pnHeader = new Panel();
+            btnFind = new Button();
+            cbbYear = new ComboBox();
             cbbThang = new ComboBox();
             btnXuatFile = new Button();
             lblBaoCao = new Label();
@@ -121,18 +116,14 @@ namespace GUI_QuanLy
             fplThongKe = new FlowLayoutPanel();
             pcThongKeDoanhSo = new Chart();
             panel1 = new Panel();
-            dgvBangThongKeDoanhThu = new DataGridView();
-            dgvtxtTenDL = new DataGridViewTextBoxColumn();
-            dgvtxtDoanhThu = new DataGridViewTextBoxColumn();
-            dgvtxtTiLe = new DataGridViewTextBoxColumn();
             lblThongKeDoanhThu = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             dgvBangTongKet = new DataGridView();
             txtSTT = new DataGridViewTextBoxColumn();
             txtDaiLy = new DataGridViewTextBoxColumn();
             txtSoPhieuXuat = new DataGridViewTextBoxColumn();
             txtTongTriGia = new DataGridViewTextBoxColumn();
             progressCol = new ProgressBarColumn();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flpTongSoPhieuXuat.SuspendLayout();
@@ -141,32 +132,60 @@ namespace GUI_QuanLy
             fplThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBangThongKeDoanhThu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvBangTongKet).BeginInit();
             SuspendLayout();
             // 
             // pnHeader
             // 
+            pnHeader.Controls.Add(btnFind);
+            pnHeader.Controls.Add(cbbYear);
             pnHeader.Controls.Add(cbbThang);
             pnHeader.Controls.Add(btnXuatFile);
             pnHeader.Controls.Add(lblBaoCao);
             pnHeader.Dock = DockStyle.Top;
             pnHeader.Location = new Point(0, 0);
-            pnHeader.Margin = new Padding(12, 15, 12, 15);
+            pnHeader.Margin = new Padding(10, 12, 10, 12);
             pnHeader.Name = "pnHeader";
-            pnHeader.Padding = new Padding(12, 15, 12, 15);
-            pnHeader.Size = new Size(1924, 110);
+            pnHeader.Padding = new Padding(10, 12, 10, 12);
+            pnHeader.Size = new Size(1539, 88);
             pnHeader.TabIndex = 0;
+            // 
+            // btnFind
+            // 
+            btnFind.AutoSize = true;
+            btnFind.BackColor = Color.FromArgb(33, 150, 243);
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Segoe UI", 12F);
+            btnFind.Location = new Point(1195, 22);
+            btnFind.Margin = new Padding(3, 3, 5, 3);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 44);
+            btnFind.TabIndex = 24;
+            btnFind.Text = "🔍 Tìm ";
+            btnFind.UseVisualStyleBackColor = false;
+            // 
+            // cbbYear
+            // 
+            cbbYear.FlatStyle = FlatStyle.Popup;
+            cbbYear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbbYear.FormattingEnabled = true;
+            cbbYear.Location = new Point(1066, 24);
+            cbbYear.Margin = new Padding(10, 12, 20, 12);
+            cbbYear.Name = "cbbYear";
+            cbbYear.Size = new Size(106, 36);
+            cbbYear.TabIndex = 4;
+            cbbYear.Tag = "";
+            cbbYear.Text = "Năm";
             // 
             // cbbThang
             // 
             cbbThang.FlatStyle = FlatStyle.Popup;
             cbbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbThang.FormattingEnabled = true;
-            cbbThang.Location = new Point(1615, 30);
-            cbbThang.Margin = new Padding(12, 15, 25, 15);
+            cbbThang.Location = new Point(930, 27);
+            cbbThang.Margin = new Padding(10, 12, 20, 12);
             cbbThang.Name = "cbbThang";
-            cbbThang.Size = new Size(132, 40);
+            cbbThang.Size = new Size(106, 36);
             cbbThang.TabIndex = 3;
             cbbThang.Tag = "";
             cbbThang.Text = "Tháng";
@@ -178,10 +197,10 @@ namespace GUI_QuanLy
             btnXuatFile.FlatStyle = FlatStyle.Popup;
             btnXuatFile.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnXuatFile.ForeColor = Color.White;
-            btnXuatFile.Location = new Point(1683, 15);
-            btnXuatFile.Margin = new Padding(4, 5, 25, 5);
+            btnXuatFile.Location = new Point(1346, 12);
+            btnXuatFile.Margin = new Padding(3, 4, 20, 4);
             btnXuatFile.Name = "btnXuatFile";
-            btnXuatFile.Size = new Size(229, 80);
+            btnXuatFile.Size = new Size(183, 64);
             btnXuatFile.TabIndex = 2;
             btnXuatFile.Text = "Xuất file Excel";
             btnXuatFile.UseVisualStyleBackColor = false;
@@ -191,10 +210,9 @@ namespace GUI_QuanLy
             lblBaoCao.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lblBaoCao.AutoSize = true;
             lblBaoCao.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBaoCao.Location = new Point(16, 15);
-            lblBaoCao.Margin = new Padding(4, 0, 4, 0);
+            lblBaoCao.Location = new Point(13, 12);
             lblBaoCao.Name = "lblBaoCao";
-            lblBaoCao.Size = new Size(473, 45);
+            lblBaoCao.Size = new Size(401, 38);
             lblBaoCao.TabIndex = 1;
             lblBaoCao.Text = "Báo cáo doanh số theo tháng";
             lblBaoCao.TextAlign = ContentAlignment.MiddleCenter;
@@ -209,12 +227,12 @@ namespace GUI_QuanLy
             tableLayoutPanel1.Controls.Add(flpTongDoanhSo, 2, 0);
             tableLayoutPanel1.Controls.Add(flpTongSoDaiLy, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 110);
-            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel1.Location = new Point(0, 88);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1924, 140);
+            tableLayoutPanel1.Size = new Size(1539, 112);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // flpTongSoPhieuXuat
@@ -224,21 +242,20 @@ namespace GUI_QuanLy
             flpTongSoPhieuXuat.Controls.Add(lblTongSoPhieuXuat);
             flpTongSoPhieuXuat.Controls.Add(lblTongSoPhieuXuat_Num);
             flpTongSoPhieuXuat.FlowDirection = FlowDirection.TopDown;
-            flpTongSoPhieuXuat.Location = new Point(645, 5);
-            flpTongSoPhieuXuat.Margin = new Padding(4, 5, 4, 5);
+            flpTongSoPhieuXuat.Location = new Point(516, 4);
+            flpTongSoPhieuXuat.Margin = new Padding(3, 4, 3, 4);
             flpTongSoPhieuXuat.Name = "flpTongSoPhieuXuat";
-            flpTongSoPhieuXuat.Padding = new Padding(6, 8, 6, 8);
-            flpTongSoPhieuXuat.Size = new Size(624, 129);
+            flpTongSoPhieuXuat.Padding = new Padding(5, 6, 5, 6);
+            flpTongSoPhieuXuat.Size = new Size(500, 104);
             flpTongSoPhieuXuat.TabIndex = 2;
             // 
             // lblTongSoPhieuXuat
             // 
             lblTongSoPhieuXuat.AutoSize = true;
             lblTongSoPhieuXuat.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTongSoPhieuXuat.Location = new Point(10, 8);
-            lblTongSoPhieuXuat.Margin = new Padding(4, 0, 4, 0);
+            lblTongSoPhieuXuat.Location = new Point(8, 6);
             lblTongSoPhieuXuat.Name = "lblTongSoPhieuXuat";
-            lblTongSoPhieuXuat.Size = new Size(269, 38);
+            lblTongSoPhieuXuat.Size = new Size(220, 31);
             lblTongSoPhieuXuat.TabIndex = 0;
             lblTongSoPhieuXuat.Text = "Tổng số phiếu xuất";
             // 
@@ -246,10 +263,9 @@ namespace GUI_QuanLy
             // 
             lblTongSoPhieuXuat_Num.AutoSize = true;
             lblTongSoPhieuXuat_Num.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTongSoPhieuXuat_Num.Location = new Point(10, 46);
-            lblTongSoPhieuXuat_Num.Margin = new Padding(4, 0, 4, 0);
+            lblTongSoPhieuXuat_Num.Location = new Point(8, 37);
             lblTongSoPhieuXuat_Num.Name = "lblTongSoPhieuXuat_Num";
-            lblTongSoPhieuXuat_Num.Size = new Size(32, 38);
+            lblTongSoPhieuXuat_Num.Size = new Size(26, 31);
             lblTongSoPhieuXuat_Num.TabIndex = 1;
             lblTongSoPhieuXuat_Num.Text = "4";
             // 
@@ -260,21 +276,20 @@ namespace GUI_QuanLy
             flpTongDoanhSo.Controls.Add(lblTongDoanhSo);
             flpTongDoanhSo.Controls.Add(lblTongDoanhSo_Num);
             flpTongDoanhSo.FlowDirection = FlowDirection.TopDown;
-            flpTongDoanhSo.Location = new Point(1286, 5);
-            flpTongDoanhSo.Margin = new Padding(4, 5, 4, 5);
+            flpTongDoanhSo.Location = new Point(1029, 4);
+            flpTongDoanhSo.Margin = new Padding(3, 4, 3, 4);
             flpTongDoanhSo.Name = "flpTongDoanhSo";
-            flpTongDoanhSo.Padding = new Padding(6, 8, 6, 8);
-            flpTongDoanhSo.Size = new Size(624, 129);
+            flpTongDoanhSo.Padding = new Padding(5, 6, 5, 6);
+            flpTongDoanhSo.Size = new Size(500, 104);
             flpTongDoanhSo.TabIndex = 3;
             // 
             // lblTongDoanhSo
             // 
             lblTongDoanhSo.AutoSize = true;
             lblTongDoanhSo.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTongDoanhSo.Location = new Point(10, 8);
-            lblTongDoanhSo.Margin = new Padding(4, 0, 4, 0);
+            lblTongDoanhSo.Location = new Point(8, 6);
             lblTongDoanhSo.Name = "lblTongDoanhSo";
-            lblTongDoanhSo.Size = new Size(212, 38);
+            lblTongDoanhSo.Size = new Size(173, 31);
             lblTongDoanhSo.TabIndex = 0;
             lblTongDoanhSo.Text = "Tổng doanh số";
             // 
@@ -282,10 +297,9 @@ namespace GUI_QuanLy
             // 
             lblTongDoanhSo_Num.AutoSize = true;
             lblTongDoanhSo_Num.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTongDoanhSo_Num.Location = new Point(10, 46);
-            lblTongDoanhSo_Num.Margin = new Padding(4, 0, 4, 0);
+            lblTongDoanhSo_Num.Location = new Point(8, 37);
             lblTongDoanhSo_Num.Name = "lblTongDoanhSo_Num";
-            lblTongDoanhSo_Num.Size = new Size(32, 38);
+            lblTongDoanhSo_Num.Size = new Size(26, 31);
             lblTongDoanhSo_Num.TabIndex = 1;
             lblTongDoanhSo_Num.Text = "4";
             // 
@@ -296,21 +310,20 @@ namespace GUI_QuanLy
             flpTongSoDaiLy.Controls.Add(lblTongSoDaiLy);
             flpTongSoDaiLy.Controls.Add(lblTongSoDaiLy_Num);
             flpTongSoDaiLy.FlowDirection = FlowDirection.TopDown;
-            flpTongSoDaiLy.Location = new Point(4, 5);
-            flpTongSoDaiLy.Margin = new Padding(4, 5, 4, 5);
+            flpTongSoDaiLy.Location = new Point(3, 4);
+            flpTongSoDaiLy.Margin = new Padding(3, 4, 3, 4);
             flpTongSoDaiLy.Name = "flpTongSoDaiLy";
-            flpTongSoDaiLy.Padding = new Padding(6, 8, 6, 8);
-            flpTongSoDaiLy.Size = new Size(624, 129);
+            flpTongSoDaiLy.Padding = new Padding(5, 6, 5, 6);
+            flpTongSoDaiLy.Size = new Size(500, 104);
             flpTongSoDaiLy.TabIndex = 0;
             // 
             // lblTongSoDaiLy
             // 
             lblTongSoDaiLy.AutoSize = true;
             lblTongSoDaiLy.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTongSoDaiLy.Location = new Point(10, 8);
-            lblTongSoDaiLy.Margin = new Padding(4, 0, 4, 0);
+            lblTongSoDaiLy.Location = new Point(8, 6);
             lblTongSoDaiLy.Name = "lblTongSoDaiLy";
-            lblTongSoDaiLy.Size = new Size(201, 38);
+            lblTongSoDaiLy.Size = new Size(164, 31);
             lblTongSoDaiLy.TabIndex = 0;
             lblTongSoDaiLy.Text = "Tổng số đại lý";
             // 
@@ -318,24 +331,22 @@ namespace GUI_QuanLy
             // 
             lblTongSoDaiLy_Num.AutoSize = true;
             lblTongSoDaiLy_Num.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTongSoDaiLy_Num.Location = new Point(10, 46);
-            lblTongSoDaiLy_Num.Margin = new Padding(4, 0, 4, 0);
+            lblTongSoDaiLy_Num.Location = new Point(8, 37);
             lblTongSoDaiLy_Num.Name = "lblTongSoDaiLy_Num";
-            lblTongSoDaiLy_Num.Size = new Size(32, 38);
+            lblTongSoDaiLy_Num.Size = new Size(26, 31);
             lblTongSoDaiLy_Num.TabIndex = 1;
             lblTongSoDaiLy_Num.Text = "4";
             // 
             // fplThongKe
             // 
-            fplThongKe.AutoSize = true;
             fplThongKe.Controls.Add(pcThongKeDoanhSo);
             fplThongKe.Controls.Add(panel1);
-            fplThongKe.Dock = DockStyle.Top;
-            fplThongKe.Location = new Point(0, 250);
-            fplThongKe.Margin = new Padding(4, 5, 4, 5);
+            fplThongKe.Controls.Add(dgvBangTongKet);
+            fplThongKe.Location = new Point(3, 222);
+            fplThongKe.Margin = new Padding(5);
             fplThongKe.Name = "fplThongKe";
-            fplThongKe.Padding = new Padding(5, 6, 5, 6);
-            fplThongKe.Size = new Size(1924, 601);
+            fplThongKe.Padding = new Padding(4, 5, 4, 5);
+            fplThongKe.Size = new Size(1700, 623);
             fplThongKe.TabIndex = 4;
             // 
             // pcThongKeDoanhSo
@@ -348,15 +359,14 @@ namespace GUI_QuanLy
             chartArea1.BorderDashStyle = ChartDashStyle.Solid;
             chartArea1.Name = "ChartArea1";
             pcThongKeDoanhSo.ChartAreas.Add(chartArea1);
-            pcThongKeDoanhSo.Dock = DockStyle.Left;
             legend1.BorderDashStyle = ChartDashStyle.NotSet;
             legend1.Font = new Font("Segoe UI Semibold", 8F, FontStyle.Bold);
             legend1.IsTextAutoFit = false;
             legend1.MaximumAutoSize = 100F;
             legend1.Name = "Legend1";
             pcThongKeDoanhSo.Legends.Add(legend1);
-            pcThongKeDoanhSo.Location = new Point(9, 11);
-            pcThongKeDoanhSo.Margin = new Padding(4, 5, 4, 5);
+            pcThongKeDoanhSo.Location = new Point(7, 9);
+            pcThongKeDoanhSo.Margin = new Padding(3, 4, 3, 4);
             pcThongKeDoanhSo.Name = "pcThongKeDoanhSo";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = SeriesChartType.Pie;
@@ -365,89 +375,27 @@ namespace GUI_QuanLy
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             pcThongKeDoanhSo.Series.Add(series1);
-            pcThongKeDoanhSo.Size = new Size(562, 0);
+            pcThongKeDoanhSo.Size = new Size(450, 600);
             pcThongKeDoanhSo.TabIndex = 5;
             pcThongKeDoanhSo.Text = "Doanh số";
+            title1.Alignment = ContentAlignment.TopLeft;
+            title1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title1.Name = "Title1";
+            title1.Text = "Doanh số của đại lý";
+            pcThongKeDoanhSo.Titles.Add(title1);
             pcThongKeDoanhSo.Click += pcThongKeDoanhSo_Click;
             // 
             // panel1
             // 
             panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.Controls.Add(dgvBangThongKeDoanhThu);
             panel1.Controls.Add(lblThongKeDoanhThu);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(9, 21);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(463, 9);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1455, 569);
+            panel1.Size = new Size(0, 607);
             panel1.TabIndex = 4;
-            // 
-            // dgvBangThongKeDoanhThu
-            // 
-            dgvBangThongKeDoanhThu.AllowUserToAddRows = false;
-            dgvBangThongKeDoanhThu.AllowUserToDeleteRows = false;
-            dgvBangThongKeDoanhThu.AllowUserToResizeColumns = false;
-            dgvBangThongKeDoanhThu.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBangThongKeDoanhThu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvBangThongKeDoanhThu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvBangThongKeDoanhThu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvBangThongKeDoanhThu.BackgroundColor = Color.WhiteSmoke;
-            dgvBangThongKeDoanhThu.BorderStyle = BorderStyle.None;
-            dgvBangThongKeDoanhThu.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvBangThongKeDoanhThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvBangThongKeDoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBangThongKeDoanhThu.Columns.AddRange(new DataGridViewColumn[] { dgvtxtTenDL, dgvtxtDoanhThu, dgvtxtTiLe });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvBangThongKeDoanhThu.DefaultCellStyle = dataGridViewCellStyle4;
-            dgvBangThongKeDoanhThu.GridColor = Color.WhiteSmoke;
-            dgvBangThongKeDoanhThu.Location = new Point(0, 49);
-            dgvBangThongKeDoanhThu.Margin = new Padding(4, 5, 4, 5);
-            dgvBangThongKeDoanhThu.Name = "dgvBangThongKeDoanhThu";
-            dgvBangThongKeDoanhThu.ReadOnly = true;
-            dgvBangThongKeDoanhThu.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvBangThongKeDoanhThu.RowHeadersVisible = false;
-            dgvBangThongKeDoanhThu.RowHeadersWidth = 51;
-            dgvBangThongKeDoanhThu.RowTemplate.Height = 24;
-            dgvBangThongKeDoanhThu.Size = new Size(1451, 515);
-            dgvBangThongKeDoanhThu.TabIndex = 1;
-            // 
-            // dgvtxtTenDL
-            // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvtxtTenDL.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvtxtTenDL.HeaderText = "Tên đại lý";
-            dgvtxtTenDL.MinimumWidth = 6;
-            dgvtxtTenDL.Name = "dgvtxtTenDL";
-            dgvtxtTenDL.ReadOnly = true;
-            // 
-            // dgvtxtDoanhThu
-            // 
-            dgvtxtDoanhThu.HeaderText = "Doanh Thu";
-            dgvtxtDoanhThu.MinimumWidth = 6;
-            dgvtxtDoanhThu.Name = "dgvtxtDoanhThu";
-            dgvtxtDoanhThu.ReadOnly = true;
-            // 
-            // dgvtxtTiLe
-            // 
-            dgvtxtTiLe.HeaderText = "Tỉ lệ";
-            dgvtxtTiLe.MinimumWidth = 6;
-            dgvtxtTiLe.Name = "dgvtxtTiLe";
-            dgvtxtTiLe.ReadOnly = true;
             // 
             // lblThongKeDoanhThu
             // 
@@ -455,21 +403,10 @@ namespace GUI_QuanLy
             lblThongKeDoanhThu.Dock = DockStyle.Top;
             lblThongKeDoanhThu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongKeDoanhThu.Location = new Point(0, 0);
-            lblThongKeDoanhThu.Margin = new Padding(4, 0, 4, 0);
             lblThongKeDoanhThu.Name = "lblThongKeDoanhThu";
-            lblThongKeDoanhThu.Size = new Size(244, 32);
+            lblThongKeDoanhThu.Size = new Size(203, 28);
             lblThongKeDoanhThu.TabIndex = 0;
             lblThongKeDoanhThu.Text = "Thống kê doanh thu";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 851);
-            flowLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1924, 0);
-            flowLayoutPanel1.TabIndex = 5;
             // 
             // dgvBangTongKet
             // 
@@ -482,25 +419,24 @@ namespace GUI_QuanLy
             dgvBangTongKet.BorderStyle = BorderStyle.None;
             dgvBangTongKet.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvBangTongKet.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvBangTongKet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBangTongKet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBangTongKet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBangTongKet.Columns.AddRange(new DataGridViewColumn[] { txtSTT, txtDaiLy, txtSoPhieuXuat, txtTongTriGia, progressCol });
-            dgvBangTongKet.Dock = DockStyle.Top;
-            dgvBangTongKet.Location = new Point(0, 851);
-            dgvBangTongKet.Margin = new Padding(12);
+            dgvBangTongKet.Location = new Point(476, 15);
+            dgvBangTongKet.Margin = new Padding(10);
             dgvBangTongKet.Name = "dgvBangTongKet";
             dgvBangTongKet.ReadOnly = true;
             dgvBangTongKet.RowHeadersVisible = false;
             dgvBangTongKet.RowHeadersWidth = 51;
             dgvBangTongKet.RowTemplate.Height = 24;
-            dgvBangTongKet.Size = new Size(1924, 302);
+            dgvBangTongKet.Size = new Size(1180, 595);
             dgvBangTongKet.TabIndex = 6;
             dgvBangTongKet.Click += dgvBangTongKet_Click;
             // 
@@ -534,24 +470,33 @@ namespace GUI_QuanLy
             // 
             // progressCol
             // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            progressCol.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            progressCol.DefaultCellStyle = dataGridViewCellStyle2;
             progressCol.HeaderText = "Tỷ Lệ";
             progressCol.MinimumWidth = 6;
             progressCol.Name = "progressCol";
             progressCol.ReadOnly = true;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 200);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1539, 0);
+            flowLayoutPanel1.TabIndex = 5;
+            // 
             // GUI_BaoCaoDoanhSo
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
-            Controls.Add(dgvBangTongKet);
+            ClientSize = new Size(1539, 844);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(fplThongKe);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(pnHeader);
-            Margin = new Padding(5, 6, 5, 6);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "GUI_BaoCaoDoanhSo";
             Text = "Quản Lý Báo Cáo Doanh Số";
             pnHeader.ResumeLayout(false);
@@ -568,10 +513,11 @@ namespace GUI_QuanLy
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBangThongKeDoanhThu).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvBangTongKet).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+        private ComboBox cbbYear;
+        private Button btnFind;
     }
 }
