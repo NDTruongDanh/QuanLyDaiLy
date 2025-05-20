@@ -163,8 +163,13 @@ namespace GUI_QuanLy
             cbbThang.FlatStyle = FlatStyle.Popup;
             cbbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbThang.FormattingEnabled = true;
+<<<<<<< HEAD
             cbbThang.Location = new Point(1615, 30);
             cbbThang.Margin = new Padding(12, 15, 25, 15);
+=======
+            cbbThang.Location = new Point(1292, 24);
+            cbbThang.Margin = new Padding(10, 12, 20, 12);
+>>>>>>> parent of ccda990 (them cbbYear, btnFind cho bao cao)
             cbbThang.Name = "cbbThang";
             cbbThang.Size = new Size(132, 40);
             cbbThang.TabIndex = 3;
