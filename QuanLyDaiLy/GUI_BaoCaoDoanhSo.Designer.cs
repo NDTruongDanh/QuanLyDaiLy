@@ -517,6 +517,7 @@ namespace GUI_QuanLy
             ResumeLayout(false);
             PerformLayout();
         }
+
         private ComboBox cbbYear;
         private Button btnFind;
     }
