@@ -51,27 +51,7 @@ namespace GUI_QuanLy
             }
         }
 
-        private void menuTransition2_Tick(object sender, EventArgs e)
-        {
-            if (menuExpand == false)
-            {
-                flpLuuTruContainer.Height += 10;
-                if (flpLuuTruContainer.Height >= 1.8*menuContainerMaxHeight)
-                {
-                    menuTransition2.Stop();
-                    menuExpand = true;
-                }
-            }
-            else
-            {
-                flpLuuTruContainer.Height -= 10;
-                if (flpLuuTruContainer.Height <= menuContainerMinHeight)
-                {
-                    menuTransition2.Stop();
-                    menuExpand = false;
-                }
-            }
-        }
+     
 
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -163,9 +143,5 @@ namespace GUI_QuanLy
             OpenChildForm(form_ThamSo);
         }
 
-        private void btnLuuTru_Click(object sender, EventArgs e)
-        {
-            menuTransition2.Start();
-        }
     }
 }
