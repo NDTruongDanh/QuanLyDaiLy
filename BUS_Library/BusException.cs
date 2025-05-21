@@ -104,6 +104,8 @@ namespace BUS_Library
         public const int AddBaoCaoCongNoByTimeFailure = 0804;
         public const int UpdateBaoCaoCongNoFailure = 0805;
         public const int DeleteBaoCaoCongNoFailure = 0806;
+        public const int IsExistedBaoCaoCongNoFailure = 0807;
+        public const int GetBaoCaoCongNoDataTableByThangFailure = 0808;
 
         //BaoCaoDoanhSo
         public const int GetAllBaoCaoDoanhSoListFailure = 0901;
