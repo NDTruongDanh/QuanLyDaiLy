@@ -51,7 +51,7 @@ namespace GUI_QuanLy
             }
         }
 
-     
+
 
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -143,5 +143,10 @@ namespace GUI_QuanLy
             OpenChildForm(form_ThamSo);
         }
 
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            var form_Product = _services.GetRequiredService<GUI_MatHang>();
+            OpenChildForm(form_Product);
+        }
     }
 }
