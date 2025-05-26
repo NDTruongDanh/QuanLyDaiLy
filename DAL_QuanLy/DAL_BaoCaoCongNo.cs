@@ -10,10 +10,12 @@ namespace DAL_QuanLy
     {
         Task<List<DTO_BaoCaoCongNo>> GetAllBaoCaoCongNoAsync();
         Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam);
+        Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> AddBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
         Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam);
         Task<bool> UpdateBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
         Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy);
+        Task<bool> IsExistedBaoCaoAsync(int thang, int nam);
 
     }
     public class DAL_BaoCaoCongNo : IDAL_BaoCaoCongNo
@@ -115,6 +117,40 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+        //Get DataTable BaoCaoCongNo by Thang and Nam
+        public async Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("SELECT dl.MaDaiLy, dl.TenDaiLy, NoDau, PhatSinh, NoCuoi FROM BAOCAO_CONGNO bc JOIN DAILY dl ON bc.MaDaiLy = dl.MaDaiLy WHERE Thang = @Thang AND Nam = @Nam", conn))
+                    {
+                        cmd.Parameters.Add("@Thang", SqlDbType.Int).Value = thang;
+                        cmd.Parameters.Add("@Nam", SqlDbType.Int).Value = nam;
+
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            var dataTable = new DataTable();
+                            dataTable.Load(reader);
+                            return dataTable;
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching DataTable BaoCaoCongNo: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+
 
         //Add BaoCaoCongNo
         public async Task<bool> AddBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo)
@@ -255,5 +291,33 @@ namespace DAL_QuanLy
             }
         }
 
+
+        //Check if BaoCaoCongNo exists
+        public async Task<bool> IsExistedBaoCaoAsync(int thang, int nam)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("SELECT TOP 1 * FROM BAOCAO_CONGNO WHERE Thang = @Thang AND Nam = @Nam", conn))
+                    {
+                        cmd.Parameters.Add("@Thang", SqlDbType.Int).Value = thang;
+                        cmd.Parameters.Add("@Nam", SqlDbType.Int).Value = nam;
+
+                        object ? result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
+
+                        return result != null && result != DBNull.Value;
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error checking BaoCaoCongNo existence: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
     }
 }

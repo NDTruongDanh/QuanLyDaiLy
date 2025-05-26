@@ -33,7 +33,7 @@ namespace GUI_QuanLy
         {
             if (menuExpand == false)
             {
-                reportContainer.Height += 10;
+                reportContainer.Height += 70;
                 if (reportContainer.Height >= menuContainerMaxHeight)
                 {
                     menuTransition1.Stop();
@@ -42,7 +42,7 @@ namespace GUI_QuanLy
             }
             else
             {
-                reportContainer.Height -= 10;
+                reportContainer.Height -= 70;
                 if (reportContainer.Height <= menuContainerMinHeight)
                 {
                     menuTransition1.Stop();
@@ -84,7 +84,7 @@ namespace GUI_QuanLy
         {
             if (activeForm != null)
                 activeForm.Close();
-
+            panelMain.AutoScroll = true;
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -139,8 +139,7 @@ namespace GUI_QuanLy
 
         private void pbSettingThamSo_Click_1(object sender, EventArgs e)
         {
-            var form_ThamSo = _services.GetRequiredService<GUI_ThamSo>();
-            OpenChildForm(form_ThamSo);
+            OpenChildForm(new Settings());
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

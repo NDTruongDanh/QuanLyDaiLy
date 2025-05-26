@@ -162,5 +162,10 @@ namespace GUI_QuanLy
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
+
+        private void txtSoQLToiDa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

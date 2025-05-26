@@ -77,7 +77,7 @@
             flpDLToiDa.Location = new Point(8, 45);
             flpDLToiDa.Name = "flpDLToiDa";
             flpDLToiDa.Padding = new Padding(5);
-            flpDLToiDa.Size = new Size(423, 50);
+            flpDLToiDa.Size = new Size(487, 55);
             flpDLToiDa.TabIndex = 11;
             // 
             // lblSoQLToiDa
@@ -87,7 +87,7 @@
             lblSoQLToiDa.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSoQLToiDa.Location = new Point(8, 5);
             lblSoQLToiDa.Name = "lblSoQLToiDa";
-            lblSoQLToiDa.Size = new Size(276, 40);
+            lblSoQLToiDa.Size = new Size(340, 45);
             lblSoQLToiDa.TabIndex = 0;
             lblSoQLToiDa.Text = "Số đại lý tối đa mỗi Quận";
             lblSoQLToiDa.TextAlign = ContentAlignment.MiddleCenter;
@@ -95,10 +95,11 @@
             // txtSoQLToiDa
             // 
             txtSoQLToiDa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSoQLToiDa.Location = new Point(290, 8);
+            txtSoQLToiDa.Location = new Point(354, 8);
             txtSoQLToiDa.Name = "txtSoQLToiDa";
-            txtSoQLToiDa.Size = new Size(125, 34);
+            txtSoQLToiDa.Size = new Size(125, 39);
             txtSoQLToiDa.TabIndex = 1;
+            txtSoQLToiDa.TextChanged += txtSoQLToiDa_TextChanged;
             txtSoQLToiDa.KeyPress += txtSoQLToiDa_KeyPress;
             // 
             // flowLayoutPanel1
@@ -106,10 +107,10 @@
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(lblTiLeDonGiaXuat);
             flowLayoutPanel1.Controls.Add(txtTiLeDGXuat);
-            flowLayoutPanel1.Location = new Point(8, 101);
+            flowLayoutPanel1.Location = new Point(8, 106);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(5);
-            flowLayoutPanel1.Size = new Size(427, 50);
+            flowLayoutPanel1.Size = new Size(491, 55);
             flowLayoutPanel1.TabIndex = 12;
             // 
             // lblTiLeDonGiaXuat
@@ -119,7 +120,7 @@
             lblTiLeDonGiaXuat.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTiLeDonGiaXuat.Location = new Point(8, 5);
             lblTiLeDonGiaXuat.Name = "lblTiLeDonGiaXuat";
-            lblTiLeDonGiaXuat.Size = new Size(280, 40);
+            lblTiLeDonGiaXuat.Size = new Size(344, 45);
             lblTiLeDonGiaXuat.TabIndex = 0;
             lblTiLeDonGiaXuat.Text = "Tỉ lệ tính đơn giá xuất (%)";
             lblTiLeDonGiaXuat.TextAlign = ContentAlignment.MiddleCenter;
@@ -127,9 +128,9 @@
             // txtTiLeDGXuat
             // 
             txtTiLeDGXuat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTiLeDGXuat.Location = new Point(294, 8);
+            txtTiLeDGXuat.Location = new Point(358, 8);
             txtTiLeDGXuat.Name = "txtTiLeDGXuat";
-            txtTiLeDGXuat.Size = new Size(125, 34);
+            txtTiLeDGXuat.Size = new Size(125, 39);
             txtTiLeDGXuat.TabIndex = 1;
             txtTiLeDGXuat.KeyPress += txtTiLeDGXuat_KeyPress;
             // 
@@ -138,10 +139,10 @@
             flowLayoutPanel2.AutoSize = true;
             flowLayoutPanel2.Controls.Add(label1);
             flowLayoutPanel2.Controls.Add(cbApDungKTQD);
-            flowLayoutPanel2.Location = new Point(8, 157);
+            flowLayoutPanel2.Location = new Point(8, 167);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Padding = new Padding(5);
-            flowLayoutPanel2.Size = new Size(373, 48);
+            flowLayoutPanel2.Size = new Size(439, 48);
             flowLayoutPanel2.TabIndex = 13;
             // 
             // label1
@@ -151,7 +152,7 @@
             label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(8, 5);
             label1.Name = "label1";
-            label1.Size = new Size(284, 38);
+            label1.Size = new Size(350, 38);
             label1.TabIndex = 0;
             label1.Text = "Áp dụng KTQĐ số tiền thu";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -161,7 +162,7 @@
             cbApDungKTQD.CheckAlign = ContentAlignment.MiddleCenter;
             cbApDungKTQD.FlatStyle = FlatStyle.Popup;
             cbApDungKTQD.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbApDungKTQD.Location = new Point(345, 15);
+            cbApDungKTQD.Location = new Point(411, 15);
             cbApDungKTQD.Margin = new Padding(50, 10, 3, 3);
             cbApDungKTQD.Name = "cbApDungKTQD";
             cbApDungKTQD.Size = new Size(20, 25);
@@ -171,7 +172,7 @@
             // panel1
             // 
             panel1.Controls.Add(btnEdit);
-            panel1.Location = new Point(8, 211);
+            panel1.Location = new Point(8, 221);
             panel1.Name = "panel1";
             panel1.Size = new Size(504, 57);
             panel1.TabIndex = 14;

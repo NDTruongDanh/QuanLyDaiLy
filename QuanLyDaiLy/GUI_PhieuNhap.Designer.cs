@@ -57,9 +57,8 @@
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 1055);
+            panel1.Size = new Size(1539, 844);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -71,12 +70,11 @@
             tableLayoutPanel1.Controls.Add(panel5, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 64F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 36F));
-            tableLayoutPanel1.Size = new Size(1924, 1055);
+            tableLayoutPanel1.Size = new Size(1539, 844);
             tableLayoutPanel1.TabIndex = 33;
             // 
             // panel6
@@ -88,11 +86,11 @@
             panel6.Controls.Add(materialLabel1);
             panel6.Controls.Add(tableLayoutPanel2);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(20, 685);
-            panel6.Margin = new Padding(20, 10, 20, 20);
+            panel6.Location = new Point(16, 548);
+            panel6.Margin = new Padding(16, 8, 16, 16);
             panel6.Name = "panel6";
-            panel6.Padding = new Padding(20, 20, 20, 20);
-            panel6.Size = new Size(1884, 350);
+            panel6.Padding = new Padding(16);
+            panel6.Size = new Size(1507, 280);
             panel6.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -104,10 +102,9 @@
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(890, 261);
-            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel1.Location = new Point(712, 209);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(970, 65);
+            flowLayoutPanel1.Size = new Size(776, 52);
             flowLayoutPanel1.TabIndex = 30;
             // 
             // btnAdd
@@ -116,10 +113,10 @@
             btnAdd.BackColor = Color.FromArgb(76, 175, 80);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Location = new Point(4, 4);
-            btnAdd.Margin = new Padding(4, 4, 25, 4);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(168, 55);
+            btnAdd.Size = new Size(134, 44);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
@@ -131,10 +128,10 @@
             btnEdit.BackColor = Color.FromArgb(255, 152, 0);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(201, 4);
-            btnEdit.Margin = new Padding(4, 4, 25, 4);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(160, 55);
+            btnEdit.Size = new Size(128, 44);
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
@@ -146,10 +143,10 @@
             btnDelete.BackColor = Color.FromArgb(244, 67, 54);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(390, 4);
-            btnDelete.Margin = new Padding(4, 4, 25, 4);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(160, 55);
+            btnDelete.Size = new Size(128, 44);
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
@@ -161,10 +158,10 @@
             btnFind.BackColor = Color.FromArgb(33, 150, 243);
             btnFind.FlatStyle = FlatStyle.Flat;
             btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(579, 4);
-            btnFind.Margin = new Padding(4, 4, 25, 4);
+            btnFind.Location = new Point(462, 3);
+            btnFind.Margin = new Padding(3, 3, 20, 3);
             btnFind.Name = "btnFind";
-            btnFind.Size = new Size(160, 55);
+            btnFind.Size = new Size(128, 44);
             btnFind.TabIndex = 23;
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
@@ -175,10 +172,9 @@
             btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 12F);
-            btnRefresh.Location = new Point(768, 4);
-            btnRefresh.Margin = new Padding(4, 4, 4, 4);
+            btnRefresh.Location = new Point(613, 3);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(198, 55);
+            btnRefresh.Size = new Size(158, 44);
             btnRefresh.TabIndex = 24;
             btnRefresh.Text = "🔍 Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
@@ -187,20 +183,19 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(24, 20);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(19, 16);
             label1.Name = "label1";
-            label1.Size = new Size(300, 38);
+            label1.Size = new Size(259, 32);
             label1.TabIndex = 29;
             label1.Text = "Danh sách phiếu xuất";
             // 
             // label3
             // 
             label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Location = new Point(9, 80);
+            label3.Location = new Point(7, 64);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
-            label3.Size = new Size(2500, 2);
+            label3.Size = new Size(2000, 2);
             label3.TabIndex = 28;
             // 
             // materialLabel1
@@ -208,8 +203,7 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(796, 409);
-            materialLabel1.Margin = new Padding(4, 0, 4, 0);
+            materialLabel1.Location = new Point(637, 327);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(1, 0);
@@ -225,13 +219,12 @@
             tableLayoutPanel2.Controls.Add(label4, 0, 0);
             tableLayoutPanel2.Controls.Add(dtpNgayLapPhieu, 1, 0);
             tableLayoutPanel2.Controls.Add(txtTongTien, 1, 1);
-            tableLayoutPanel2.Location = new Point(26, 104);
-            tableLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
+            tableLayoutPanel2.Location = new Point(21, 83);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(1834, 95);
+            tableLayoutPanel2.Size = new Size(1467, 76);
             tableLayoutPanel2.TabIndex = 26;
             // 
             // label5
@@ -239,10 +232,9 @@
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(4, 47);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(3, 38);
             label5.Name = "label5";
-            label5.Size = new Size(177, 48);
+            label5.Size = new Size(145, 38);
             label5.TabIndex = 27;
             label5.Text = "Tổng tiền";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -252,10 +244,9 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(4, 0);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(177, 47);
+            label4.Size = new Size(145, 38);
             label4.TabIndex = 26;
             label4.Text = "Ngày lập phiếu";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -264,10 +255,9 @@
             // 
             dtpNgayLapPhieu.Dock = DockStyle.Fill;
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpNgayLapPhieu.Location = new Point(189, 4);
-            dtpNgayLapPhieu.Margin = new Padding(4, 4, 4, 4);
+            dtpNgayLapPhieu.Location = new Point(154, 3);
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
-            dtpNgayLapPhieu.Size = new Size(1641, 39);
+            dtpNgayLapPhieu.Size = new Size(1310, 34);
             dtpNgayLapPhieu.TabIndex = 13;
             // 
             // txtTongTien
@@ -275,11 +265,10 @@
             txtTongTien.BackColor = Color.White;
             txtTongTien.Dock = DockStyle.Fill;
             txtTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTongTien.Location = new Point(189, 51);
-            txtTongTien.Margin = new Padding(4, 4, 4, 4);
+            txtTongTien.Location = new Point(154, 41);
             txtTongTien.Name = "txtTongTien";
             txtTongTien.ReadOnly = true;
-            txtTongTien.Size = new Size(1641, 39);
+            txtTongTien.Size = new Size(1310, 34);
             txtTongTien.TabIndex = 25;
             // 
             // panel5
@@ -289,31 +278,30 @@
             panel5.Controls.Add(label6);
             panel5.Controls.Add(dgvPhieuNhap);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(20, 20);
-            panel5.Margin = new Padding(20, 20, 20, 10);
+            panel5.Location = new Point(16, 16);
+            panel5.Margin = new Padding(16, 16, 16, 8);
             panel5.Name = "panel5";
-            panel5.Padding = new Padding(20, 20, 20, 20);
-            panel5.Size = new Size(1884, 645);
+            panel5.Padding = new Padding(16);
+            panel5.Size = new Size(1507, 516);
             panel5.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 20);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(19, 16);
             label2.Name = "label2";
-            label2.Size = new Size(308, 38);
+            label2.Size = new Size(266, 32);
             label2.TabIndex = 32;
             label2.Text = "Danh sách phiếu nhập";
             // 
             // label6
             // 
             label6.BorderStyle = BorderStyle.Fixed3D;
-            label6.Location = new Point(9, 80);
+            label6.Location = new Point(7, 64);
             label6.Margin = new Padding(0);
             label6.Name = "label6";
-            label6.Size = new Size(2500, 2);
+            label6.Size = new Size(2000, 2);
             label6.TabIndex = 31;
             // 
             // dgvPhieuNhap
@@ -345,8 +333,8 @@
             dgvPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuNhap.EnableHeadersVisualStyles = false;
             dgvPhieuNhap.GridColor = Color.White;
-            dgvPhieuNhap.Location = new Point(20, 102);
-            dgvPhieuNhap.Margin = new Padding(6, 6, 6, 6);
+            dgvPhieuNhap.Location = new Point(16, 82);
+            dgvPhieuNhap.Margin = new Padding(5);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -360,17 +348,17 @@
             dgvPhieuNhap.RowHeadersVisible = false;
             dgvPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPhieuNhap.Size = new Size(1836, 518);
+            dgvPhieuNhap.Size = new Size(1469, 414);
             dgvPhieuNhap.TabIndex = 30;
             dgvPhieuNhap.SelectionChanged += dgvPhieuNhap_SelectionChanged;
             // 
             // GUI_PhieuNhap
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1539, 844);
             Controls.Add(panel1);
-            Margin = new Padding(5, 6, 5, 6);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "GUI_PhieuNhap";
             Text = "Quản Lý Phiếu Nhập";
             Load += GUI_PhieuNhap_Load;

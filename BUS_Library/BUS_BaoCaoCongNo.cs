@@ -12,10 +12,13 @@ namespace BUS_QuanLy
     {
         Task<List<DTO_BaoCaoCongNo>> GetAllBaoCaoCongNoAsync();
         Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam);
+        Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> AddBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
-        Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam, int thangTruoc, int namTruoc);
+        Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam);
         Task<bool> UpdateBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
         Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy);
+        Task<bool> IsExistedBaoCaoAsync(int thang, int nam);
+
     }
     public partial class BUS_BaoCaoCongNo : IBUS_BaoCaoCongNo
     {
@@ -101,6 +104,45 @@ namespace BUS_QuanLy
         }
 
 
+
+        //Get BaoCaoCongNo by Time
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetBaoCaoCongNoDataTableByThangFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetBaoCaoCongNoDataTableByThangAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetBaoCaoCongNoDataTableByThangFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam)
+        {
+            using (_logger.BeginScope("BUS_BaoCaoCongNo.GetDataTableBaoCaoCongNoAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalBaoCaoCongNo.GetDataTableBaoCaoCongNoAsync(thang, nam);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetBaoCaoCongNoDataTableByThangFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được bảng Báo cáo Công nợ theo tháng! Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+
         //Add BaoCaoCongNo
         // Source-generated high-performance log for DAL failures
         [LoggerMessage(
@@ -148,7 +190,7 @@ namespace BUS_QuanLy
             string ErrorMessage,
             Exception ex);
 
-        public async Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam, int thangTruoc, int namTruoc)
+        public async Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam)
         {
             using (_logger.BeginScope("BUS_BaoCaoCongNo.AddBaoCaoCongNoByTimeAsync at {Time}", DateTime.UtcNow))
             {
@@ -166,7 +208,7 @@ namespace BUS_QuanLy
 
                     // user-friendly message
                     throw new BusException(
-                        "Không thêm được Báo cáo Công nợ theo thời gian! Vui lòng thử lại sau.",
+                        $"Không tự động thêm Báo cáo Công nợ cho {thang}/{nam}! Vui lòng thử lại hoặc liên hệ để được hỗ trợ!",
                         dalEx);
                 }
             }
@@ -242,6 +284,42 @@ namespace BUS_QuanLy
                         dalEx);
                 }
             }
+        }
+
+        //Check if BaoCaoCongNo is existed
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.IsExistedBaoCaoCongNoFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in IsExistedBaoCaoCongNoAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalIsExistedBaoCaoCongNoFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<bool> IsExistedBaoCaoAsync(int thang, int nam)
+        {
+            using (_logger.BeginScope("BUS_BaoCaoCongNo.IsExistedBaoCaoAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalBaoCaoCongNo.IsExistedBaoCaoAsync(thang, nam);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalIsExistedBaoCaoCongNoFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không kiểm tra được Báo cáo Công nợ! Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+
         }
     }
 }
