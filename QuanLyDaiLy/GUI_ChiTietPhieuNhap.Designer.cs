@@ -64,13 +64,12 @@ namespace GUI_QuanLy
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            lblThongTinPhieuThu = new Label();
+            label4 = new Label();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            lblThongTinPhieuThu = new Label();
-            label4 = new Label();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -80,7 +79,6 @@ namespace GUI_QuanLy
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -375,7 +373,6 @@ namespace GUI_QuanLy
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(tableLayoutPanel3);
-            panel2.Controls.Add(flowLayoutPanel2);
             panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(lblThongTinPhieuThu);
             panel2.Controls.Add(label4);
@@ -527,19 +524,25 @@ namespace GUI_QuanLy
             label8.Text = "Đơn giá";
             label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // flowLayoutPanel2
+            // lblThongTinPhieuThu
             // 
-            flowLayoutPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.Controls.Add(button1);
-            flowLayoutPanel2.Controls.Add(button2);
-            flowLayoutPanel2.Controls.Add(button3);
-            flowLayoutPanel2.Controls.Add(button4);
-            flowLayoutPanel2.Location = new Point(1584, 400);
-            flowLayoutPanel2.Margin = new Padding(2);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(502, 44);
-            flowLayoutPanel2.TabIndex = 30;
+            lblThongTinPhieuThu.AutoSize = true;
+            lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblThongTinPhieuThu.Location = new Point(15, 10);
+            lblThongTinPhieuThu.Margin = new Padding(2, 0, 2, 0);
+            lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
+            lblThongTinPhieuThu.Size = new Size(240, 32);
+            lblThongTinPhieuThu.TabIndex = 16;
+            lblThongTinPhieuThu.Text = "Thông tin mặt hàng";
+            // 
+            // label4
+            // 
+            label4.BorderStyle = BorderStyle.Fixed3D;
+            label4.Location = new Point(0, 41);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(2400, 2);
+            label4.TabIndex = 15;
             // 
             // button1
             // 
@@ -597,26 +600,6 @@ namespace GUI_QuanLy
             button4.Text = "🔍 Làm mới";
             button4.UseVisualStyleBackColor = false;
             // 
-            // lblThongTinPhieuThu
-            // 
-            lblThongTinPhieuThu.AutoSize = true;
-            lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblThongTinPhieuThu.Location = new Point(15, 10);
-            lblThongTinPhieuThu.Margin = new Padding(2, 0, 2, 0);
-            lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(240, 32);
-            lblThongTinPhieuThu.TabIndex = 16;
-            lblThongTinPhieuThu.Text = "Thông tin mặt hàng";
-            // 
-            // label4
-            // 
-            label4.BorderStyle = BorderStyle.Fixed3D;
-            label4.Location = new Point(0, 41);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(2400, 2);
-            label4.TabIndex = 15;
-            // 
             // GUI_ChiTietPhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -641,8 +624,6 @@ namespace GUI_QuanLy
             panel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -659,7 +640,6 @@ namespace GUI_QuanLy
         private Label label2;
         private DataGridView dgvChiTietPhieuNhap;
         private Panel panel2;
-        private FlowLayoutPanel flowLayoutPanel2;
         private Button button1;
         private Button button2;
         private Button button3;

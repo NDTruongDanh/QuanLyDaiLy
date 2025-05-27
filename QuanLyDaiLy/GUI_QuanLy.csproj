@@ -37,14 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
-  <Compile Update="GUI_PhieuNhap.cs">
+  <Compile Update="GUI_ChiTietPhieuNhap.cs">
     <SubType>Form</SubType>
   </Compile>
-  <Compile Update="GUI_PhieuNhap.Designer.cs">
-    <DependentUpon>GUI_PhieuNhap.cs</DependentUpon>
+  <Compile Update="GUI_ChiTietPhieuNhap.Designer.cs">
+    <DependentUpon>GUI_ChiTietPhieuNhap.cs</DependentUpon>
   </Compile>
-  <EmbeddedResource Update="GUI_PhieuNhap.resx">
-    <DependentUpon>GUI_PhieuNhap.cs</DependentUpon>
+  <EmbeddedResource Update="GUI_ChiTietPhieuNhap.resx">
+    <DependentUpon>GUI_ChiTietPhieuNhap.cs</DependentUpon>
   </EmbeddedResource>
 </ItemGroup>
 
