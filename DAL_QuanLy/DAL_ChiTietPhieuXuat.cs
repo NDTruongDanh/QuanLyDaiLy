@@ -193,7 +193,7 @@ namespace DAL_QuanLy
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
                     using (var cmd = new SqlCommand("INSERT INTO CHITIET_PHIEUXUAT(MaPhieuXuat, MaMatHang, SoLuongXuat, DonGiaXuat, ThanhTien) " +
-                                                            "VALUES @MaPhieuXuat, @MaMatHang, @SoLuongXuat, @DonGiaXuat, @ThanhTien", conn))
+                                                            "VALUES (@MaPhieuXuat, @MaMatHang, @SoLuongXuat, @DonGiaXuat, @ThanhTien)", conn))
                     {
                         cmd.Parameters.Add("@MaPhieuXuat", SqlDbType.Int).Value = chitietPhieuXuat.MaPhieuXuat;
                         cmd.Parameters.Add("@MaMatHang", SqlDbType.Int).Value = chitietPhieuXuat.MaMatHang;

@@ -418,9 +418,24 @@ namespace GUI_QuanLy
             }
         }
 
-        private void cbbMatHang_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cbbMatHang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtDonGiaXuat.Text = _listDonGiaXuat[cbbMatHang.SelectedIndex].ToString("N0");
+            if (cbbMatHang.SelectedIndex > -1)
+                txtDonGiaXuat.Text = _listDonGiaXuat[cbbMatHang.SelectedIndex].ToString("N0");
+            else
+                txtDonGiaXuat.Clear();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearInputFields();
+        }
+
+        private void GUI_ChiTietPhieuXuat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _phieuXuat.TienTra = decimal.TryParse(txtSoTienTra.Text, out decimal tienTra) ? tienTra : 0;
+            _phieuXuat.ConLai = decimal.TryParse(txtConLai.Text, out decimal conLai) ? conLai : 0;
+            _phieuXuat.TongTien = decimal.TryParse(txtTongTien.Text, out decimal tongTien) ? tongTien : 0;
         }
     }
 }

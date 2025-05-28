@@ -174,9 +174,9 @@
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(3, 91);
+            label5.Location = new Point(3, 82);
             label5.Name = "label5";
-            label5.Size = new Size(191, 47);
+            label5.Size = new Size(158, 56);
             label5.TabIndex = 10;
             label5.Text = "Số tiền trả trước:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -186,9 +186,9 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(3, 46);
+            label4.Location = new Point(3, 42);
             label4.Name = "label4";
-            label4.Size = new Size(191, 45);
+            label4.Size = new Size(158, 40);
             label4.TabIndex = 9;
             label4.Text = "Ngày lập phiếu";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -200,7 +200,7 @@
             label7.Font = new Font("Segoe UI", 12F);
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(191, 46);
+            label7.Size = new Size(158, 42);
             label7.TabIndex = 2;
             label7.Text = "Tên Đại lý:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -209,9 +209,9 @@
             // 
             dtpNgayLapPhieu.Dock = DockStyle.Fill;
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F);
-            dtpNgayLapPhieu.Location = new Point(200, 49);
+            dtpNgayLapPhieu.Location = new Point(167, 45);
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
-            dtpNgayLapPhieu.Size = new Size(1368, 39);
+            dtpNgayLapPhieu.Size = new Size(1401, 34);
             dtpNgayLapPhieu.TabIndex = 8;
             // 
             // cmbDaiLy
@@ -219,19 +219,19 @@
             cmbDaiLy.Dock = DockStyle.Fill;
             cmbDaiLy.Font = new Font("Segoe UI", 12F);
             cmbDaiLy.FormattingEnabled = true;
-            cmbDaiLy.Location = new Point(200, 3);
+            cmbDaiLy.Location = new Point(167, 3);
             cmbDaiLy.Name = "cmbDaiLy";
-            cmbDaiLy.Size = new Size(1368, 40);
+            cmbDaiLy.Size = new Size(1401, 36);
             cmbDaiLy.TabIndex = 11;
             // 
             // txtTraTruoc
             // 
             txtTraTruoc.Dock = DockStyle.Fill;
             txtTraTruoc.Font = new Font("Segoe UI", 12F);
-            txtTraTruoc.Location = new Point(200, 94);
+            txtTraTruoc.Location = new Point(167, 85);
             txtTraTruoc.Name = "txtTraTruoc";
             txtTraTruoc.ReadOnly = true;
-            txtTraTruoc.Size = new Size(1368, 39);
+            txtTraTruoc.Size = new Size(1401, 34);
             txtTraTruoc.TabIndex = 12;
             txtTraTruoc.Text = "0";
             // 
@@ -241,7 +241,7 @@
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 16);
             label1.Name = "label1";
-            label1.Size = new Size(293, 38);
+            label1.Size = new Size(253, 32);
             label1.TabIndex = 16;
             label1.Text = "Thông tin phiếu xuất";
             // 
@@ -290,7 +290,7 @@
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(19, 16);
             label2.Name = "label2";
-            label2.Size = new Size(300, 38);
+            label2.Size = new Size(259, 32);
             label2.TabIndex = 21;
             label2.Text = "Danh sách phiếu xuất";
             // 
@@ -349,6 +349,7 @@
             dgvPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPhieuXuat.Size = new Size(1566, 495);
             dgvPhieuXuat.TabIndex = 19;
+            dgvPhieuXuat.SelectionChanged += dgvPhieuXuat_SelectionChanged;
             // 
             // GUI_PhieuXuat
             // 

@@ -252,6 +252,7 @@ namespace GUI_QuanLy
                             CTPX.SetPhieuXuat(phieuXuat);
                             CTPX.SetTenDaiLy(tenDaiLy);
                             CTPX.ShowDialog();
+                            phieuXuat = CTPX.GetPhieuXuat();
                             this.Enabled = true;
                         }
 
