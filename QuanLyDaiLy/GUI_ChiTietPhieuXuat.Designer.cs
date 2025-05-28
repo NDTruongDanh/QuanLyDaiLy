@@ -21,7 +21,6 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
-            dgvChiTietPhieuXuat = new DataGridView();
             tableLayoutPanel5 = new TableLayoutPanel();
             txtConLai = new TextBox();
             txtSoTienTra = new TextBox();
@@ -29,6 +28,7 @@
             txtTongTien = new TextBox();
             label10 = new Label();
             label13 = new Label();
+            dgvChiTietPhieuXuat = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             txtDaiLy = new TextBox();
             label11 = new Label();
@@ -60,8 +60,8 @@
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvChiTietPhieuXuat).BeginInit();
             tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvChiTietPhieuXuat).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -109,8 +109,8 @@
             tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(dgvChiTietPhieuXuat, 0, 0);
             tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 1);
+            tableLayoutPanel4.Controls.Add(dgvChiTietPhieuXuat, 0, 0);
             tableLayoutPanel4.Location = new Point(19, 119);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
@@ -118,6 +118,96 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10.8294935F));
             tableLayoutPanel4.Size = new Size(1188, 434);
             tableLayoutPanel4.TabIndex = 18;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 6;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.Controls.Add(txtConLai, 5, 0);
+            tableLayoutPanel5.Controls.Add(txtSoTienTra, 3, 0);
+            tableLayoutPanel5.Controls.Add(label12, 2, 0);
+            tableLayoutPanel5.Controls.Add(txtTongTien, 1, 0);
+            tableLayoutPanel5.Controls.Add(label10, 0, 0);
+            tableLayoutPanel5.Controls.Add(label13, 4, 0);
+            tableLayoutPanel5.Dock = DockStyle.Right;
+            tableLayoutPanel5.Location = new Point(3, 390);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new Size(1182, 41);
+            tableLayoutPanel5.TabIndex = 15;
+            // 
+            // txtConLai
+            // 
+            txtConLai.Dock = DockStyle.Fill;
+            txtConLai.Font = new Font("Segoe UI", 12F);
+            txtConLai.Location = new Point(886, 3);
+            txtConLai.Name = "txtConLai";
+            txtConLai.ReadOnly = true;
+            txtConLai.Size = new Size(293, 34);
+            txtConLai.TabIndex = 18;
+            // 
+            // txtSoTienTra
+            // 
+            txtSoTienTra.Dock = DockStyle.Fill;
+            txtSoTienTra.Font = new Font("Segoe UI", 12F);
+            txtSoTienTra.Location = new Point(510, 3);
+            txtSoTienTra.Name = "txtSoTienTra";
+            txtSoTienTra.Size = new Size(292, 34);
+            txtSoTienTra.TabIndex = 17;
+            txtSoTienTra.TextChanged += txtSoTienTra_TextChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F);
+            label12.Location = new Point(402, 3);
+            label12.Margin = new Padding(3);
+            label12.Name = "label12";
+            label12.Size = new Size(102, 28);
+            label12.TabIndex = 15;
+            label12.Text = "Số tiền trả";
+            label12.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtTongTien
+            // 
+            txtTongTien.Dock = DockStyle.Fill;
+            txtTongTien.Font = new Font("Segoe UI", 12F);
+            txtTongTien.Location = new Point(104, 3);
+            txtTongTien.Name = "txtTongTien";
+            txtTongTien.ReadOnly = true;
+            txtTongTien.Size = new Size(292, 34);
+            txtTongTien.TabIndex = 14;
+            txtTongTien.TextChanged += txtTongTien_TextChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.Location = new Point(3, 3);
+            label10.Margin = new Padding(3);
+            label10.Name = "label10";
+            label10.Size = new Size(95, 28);
+            label10.TabIndex = 13;
+            label10.Text = "Tổng tiền";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F);
+            label13.Location = new Point(808, 3);
+            label13.Margin = new Padding(3);
+            label13.Name = "label13";
+            label13.Size = new Size(72, 28);
+            label13.TabIndex = 16;
+            label13.Text = "Còn lại";
+            label13.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dgvChiTietPhieuXuat
             // 
@@ -163,94 +253,7 @@
             dgvChiTietPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvChiTietPhieuXuat.Size = new Size(1182, 381);
             dgvChiTietPhieuXuat.TabIndex = 14;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.ColumnCount = 6;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.Controls.Add(txtConLai, 5, 0);
-            tableLayoutPanel5.Controls.Add(txtSoTienTra, 3, 0);
-            tableLayoutPanel5.Controls.Add(label12, 2, 0);
-            tableLayoutPanel5.Controls.Add(txtTongTien, 1, 0);
-            tableLayoutPanel5.Controls.Add(label10, 0, 0);
-            tableLayoutPanel5.Controls.Add(label13, 4, 0);
-            tableLayoutPanel5.Dock = DockStyle.Right;
-            tableLayoutPanel5.Location = new Point(3, 390);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1182, 41);
-            tableLayoutPanel5.TabIndex = 15;
-            // 
-            // txtConLai
-            // 
-            txtConLai.Dock = DockStyle.Fill;
-            txtConLai.Font = new Font("Segoe UI", 12F);
-            txtConLai.Location = new Point(886, 3);
-            txtConLai.Name = "txtConLai";
-            txtConLai.ReadOnly = true;
-            txtConLai.Size = new Size(293, 34);
-            txtConLai.TabIndex = 18;
-            // 
-            // txtSoTienTra
-            // 
-            txtSoTienTra.Dock = DockStyle.Fill;
-            txtSoTienTra.Font = new Font("Segoe UI", 12F);
-            txtSoTienTra.Location = new Point(510, 3);
-            txtSoTienTra.Name = "txtSoTienTra";
-            txtSoTienTra.Size = new Size(292, 34);
-            txtSoTienTra.TabIndex = 17;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F);
-            label12.Location = new Point(402, 3);
-            label12.Margin = new Padding(3);
-            label12.Name = "label12";
-            label12.Size = new Size(102, 28);
-            label12.TabIndex = 15;
-            label12.Text = "Số tiền trả";
-            label12.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtTongTien
-            // 
-            txtTongTien.Dock = DockStyle.Fill;
-            txtTongTien.Font = new Font("Segoe UI", 12F);
-            txtTongTien.Location = new Point(104, 3);
-            txtTongTien.Name = "txtTongTien";
-            txtTongTien.ReadOnly = true;
-            txtTongTien.Size = new Size(292, 34);
-            txtTongTien.TabIndex = 14;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F);
-            label10.Location = new Point(3, 3);
-            label10.Margin = new Padding(3);
-            label10.Name = "label10";
-            label10.Size = new Size(95, 28);
-            label10.TabIndex = 13;
-            label10.Text = "Tổng tiền";
-            label10.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 12F);
-            label13.Location = new Point(808, 3);
-            label13.Margin = new Padding(3);
-            label13.Name = "label13";
-            label13.Size = new Size(72, 28);
-            label13.TabIndex = 16;
-            label13.Text = "Còn lại";
-            label13.TextAlign = ContentAlignment.MiddleLeft;
+            dgvChiTietPhieuXuat.SelectionChanged += dgvChiTietPhieuXuat_SelectionChanged;
             // 
             // tableLayoutPanel1
             // 
@@ -346,9 +349,9 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(19, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(345, 32);
+            lblDanhSachPhieuThu.Size = new Size(338, 32);
             lblDanhSachPhieuThu.TabIndex = 16;
-            lblDanhSachPhieuThu.Text = "Thông tin chi tiết phiếu nhập";
+            lblDanhSachPhieuThu.Text = "Thông tin chi tiết Phiếu xuất";
             // 
             // label2
             // 
@@ -450,6 +453,7 @@
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(476, 34);
             txtSoLuong.TabIndex = 19;
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // cbbMatHang
             // 
@@ -460,6 +464,7 @@
             cbbMatHang.Name = "cbbMatHang";
             cbbMatHang.Size = new Size(476, 36);
             cbbMatHang.TabIndex = 17;
+            cbbMatHang.SelectedIndexChanged += cbbMatHang_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -535,6 +540,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -549,6 +555,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -563,6 +570,7 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnRefresh
             // 
@@ -576,6 +584,7 @@
             btnRefresh.TabIndex = 24;
             btnRefresh.Text = "🔍 Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // lblThongTinPhieuThu
             // 
@@ -602,14 +611,15 @@
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_ChiTietPhieuXuat";
             Text = "Quản Lý Chi Tiết Phiếu Xuất";
+            FormClosed += GUI_ChiTietPhieuXuat_FormClosed;
             Load += GUI_ChiTietPhieuXuat_Load;
             tableLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvChiTietPhieuXuat).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvChiTietPhieuXuat).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
