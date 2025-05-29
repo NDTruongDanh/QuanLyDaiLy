@@ -26,7 +26,8 @@ namespace GUI_QuanLy.AddedClasses
             services.AddTransient<GUI_PhieuThu>();
             //services.AddTransient<GUI_ChiTietBaoCaoDoanhSo>();
             services.AddTransient<Menu>();
-            services.AddTransient<GUI_ThamSo>();
+            //services.AddTransient<GUI_ThamSo>();
+            services.AddTransient<Settings>();
             return services;
         }
     }

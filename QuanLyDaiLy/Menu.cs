@@ -139,7 +139,8 @@ namespace GUI_QuanLy
 
         private void pbSettingThamSo_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new Settings());
+            var form_Settings = _services.GetRequiredService<Settings>();
+            OpenChildForm(form_Settings);
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

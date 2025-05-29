@@ -74,6 +74,8 @@ namespace GUI_QuanLy
         {
             txtTenLoaiDaiLy.Clear();
             txtTienNoToiDa.Clear();
+
+            dgvLoaiDaiLy.ClearSelection();
         }
 
         private void ValidateInputFields()

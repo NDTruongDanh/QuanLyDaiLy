@@ -28,7 +28,7 @@ namespace DAL_QuanLy
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand("SELECT Max_DaiLyMoiQuan, ApDungQDKiemTraTienThu, TiLeTinhDonGiaXuat FROM THAMSO", conn))
+                    using (var cmd = new SqlCommand("SELECT Max_DaiLyMoiQuan, ApDungQDKTSoTienThu, TiLeTinhDonGiaXuat FROM THAMSO", conn))
                     {
                         using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
                         {
@@ -37,8 +37,8 @@ namespace DAL_QuanLy
                                 thamSo = new DTO_ThamSo
                                 {
                                     DaiLyToiDa = reader.GetInt32(reader.GetOrdinal("Max_DaiLyMoiQuan")),
-                                    ApDungQDKiemTraTienThu = reader.GetBoolean(reader.GetOrdinal("ApDungQDKiemTraTienThu")),
-                                    TiLeTinhDonGiaXuat = reader.GetFloat(reader.GetOrdinal("TiLeTinhDonGiaXuat"))
+                                    ApDungQDKiemTraTienThu = reader.GetBoolean(reader.GetOrdinal("ApDungQDKTSoTienThu")),
+                                    TiLeTinhDonGiaXuat = Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("TiLeTinhDonGiaXuat")))
                                 };
                             }
                         }
