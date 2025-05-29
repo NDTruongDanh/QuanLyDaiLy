@@ -99,7 +99,7 @@
             txtSoQLToiDa.Name = "txtSoQLToiDa";
             txtSoQLToiDa.Size = new Size(125, 39);
             txtSoQLToiDa.TabIndex = 1;
-            txtSoQLToiDa.TextChanged += txtSoQLToiDa_TextChanged;
+            //txtSoQLToiDa.TextChanged += txtSoQLToiDa_TextChanged;
             txtSoQLToiDa.KeyPress += txtSoQLToiDa_KeyPress;
             // 
             // flowLayoutPanel1

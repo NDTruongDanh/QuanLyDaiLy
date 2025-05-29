@@ -41,24 +41,21 @@
             label5 = new Label();
             label6 = new Label();
             dgvDVT = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
             btnThemLoaiDaiLy = new Button();
             dgvLoaiDaiLy = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             label3 = new Label();
             label4 = new Label();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
             label8 = new Label();
-            txtTiLeDonGia = new TextBox();
+            txtTiLeDGXuat = new TextBox();
             label7 = new Label();
-            txtSoDaiLyToiDaTrongQuan = new TextBox();
+            txtSoQLToiDa = new TextBox();
             lblsdl = new Label();
-            checkBoxApDungKTQD = new CheckBox();
+            cbApDungKTQD = new CheckBox();
             label2 = new Label();
             lblDanhSachPhieuThu = new Label();
             tableLayoutPanel1.SuspendLayout();
@@ -179,7 +176,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDVT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDVT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDVT.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1 });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
@@ -207,12 +203,6 @@
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDVT.Size = new Size(1483, 323);
             dgvDVT.TabIndex = 17;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Tên Đơn Vị Tính";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // panel3
             // 
@@ -263,6 +253,7 @@
             btnThemLoaiDaiLy.TabIndex = 24;
             btnThemLoaiDaiLy.Text = "➕  Thêm loại đại lý";
             btnThemLoaiDaiLy.UseVisualStyleBackColor = false;
+            btnThemLoaiDaiLy.Click += btnThemLoaiDaiLy_Click;
             // 
             // dgvLoaiDaiLy
             // 
@@ -283,7 +274,6 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dgvLoaiDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvLoaiDaiLy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLoaiDaiLy.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
@@ -311,18 +301,6 @@
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLoaiDaiLy.Size = new Size(1483, 348);
             dgvLoaiDaiLy.TabIndex = 17;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Tên Loại Đại Lý";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tiền Nợ Tối Đa";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
             // 
             // label3
             // 
@@ -387,11 +365,11 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.Controls.Add(label8, 0, 2);
-            tableLayoutPanel5.Controls.Add(txtTiLeDonGia, 1, 1);
+            tableLayoutPanel5.Controls.Add(txtTiLeDGXuat, 1, 1);
             tableLayoutPanel5.Controls.Add(label7, 0, 1);
-            tableLayoutPanel5.Controls.Add(txtSoDaiLyToiDaTrongQuan, 1, 0);
+            tableLayoutPanel5.Controls.Add(txtSoQLToiDa, 1, 0);
             tableLayoutPanel5.Controls.Add(lblsdl, 0, 0);
-            tableLayoutPanel5.Controls.Add(checkBoxApDungKTQD, 1, 2);
+            tableLayoutPanel5.Controls.Add(cbApDungKTQD, 1, 2);
             tableLayoutPanel5.Location = new Point(2, 60);
             tableLayoutPanel5.Margin = new Padding(2);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -414,15 +392,15 @@
             label8.TabIndex = 11;
             label8.Text = "Áp dụng KTQĐ số tiền thu:";
             // 
-            // txtTiLeDonGia
+            // txtTiLeDGXuat
             // 
-            txtTiLeDonGia.Dock = DockStyle.Fill;
-            txtTiLeDonGia.Font = new Font("Segoe UI", 12F);
-            txtTiLeDonGia.Location = new Point(301, 39);
-            txtTiLeDonGia.Margin = new Padding(2);
-            txtTiLeDonGia.Name = "txtTiLeDonGia";
-            txtTiLeDonGia.Size = new Size(1180, 34);
-            txtTiLeDonGia.TabIndex = 10;
+            txtTiLeDGXuat.Dock = DockStyle.Fill;
+            txtTiLeDGXuat.Font = new Font("Segoe UI", 12F);
+            txtTiLeDGXuat.Location = new Point(301, 39);
+            txtTiLeDGXuat.Margin = new Padding(2);
+            txtTiLeDGXuat.Name = "txtTiLeDGXuat";
+            txtTiLeDGXuat.Size = new Size(1180, 34);
+            txtTiLeDGXuat.TabIndex = 10;
             // 
             // label7
             // 
@@ -436,15 +414,15 @@
             label7.TabIndex = 9;
             label7.Text = "Tỉ lệ đơn giá xuất/đơn giá nhập:";
             // 
-            // txtSoDaiLyToiDaTrongQuan
+            // txtSoQLToiDa
             // 
-            txtSoDaiLyToiDaTrongQuan.Dock = DockStyle.Fill;
-            txtSoDaiLyToiDaTrongQuan.Font = new Font("Segoe UI", 12F);
-            txtSoDaiLyToiDaTrongQuan.Location = new Point(301, 2);
-            txtSoDaiLyToiDaTrongQuan.Margin = new Padding(2);
-            txtSoDaiLyToiDaTrongQuan.Name = "txtSoDaiLyToiDaTrongQuan";
-            txtSoDaiLyToiDaTrongQuan.Size = new Size(1180, 34);
-            txtSoDaiLyToiDaTrongQuan.TabIndex = 8;
+            txtSoQLToiDa.Dock = DockStyle.Fill;
+            txtSoQLToiDa.Font = new Font("Segoe UI", 12F);
+            txtSoQLToiDa.Location = new Point(301, 2);
+            txtSoQLToiDa.Margin = new Padding(2);
+            txtSoQLToiDa.Name = "txtSoQLToiDa";
+            txtSoQLToiDa.Size = new Size(1180, 34);
+            txtSoQLToiDa.TabIndex = 8;
             // 
             // lblsdl
             // 
@@ -458,16 +436,16 @@
             lblsdl.TabIndex = 1;
             lblsdl.Text = "Số đại lý tối đa trong quận:";
             // 
-            // checkBoxApDungKTQD
+            // cbApDungKTQD
             // 
-            checkBoxApDungKTQD.AutoSize = true;
-            checkBoxApDungKTQD.Font = new Font("Segoe UI", 12F);
-            checkBoxApDungKTQD.Location = new Point(301, 76);
-            checkBoxApDungKTQD.Margin = new Padding(2);
-            checkBoxApDungKTQD.Name = "checkBoxApDungKTQD";
-            checkBoxApDungKTQD.Size = new Size(18, 17);
-            checkBoxApDungKTQD.TabIndex = 12;
-            checkBoxApDungKTQD.UseVisualStyleBackColor = true;
+            cbApDungKTQD.AutoSize = true;
+            cbApDungKTQD.Font = new Font("Segoe UI", 12F);
+            cbApDungKTQD.Location = new Point(301, 76);
+            cbApDungKTQD.Margin = new Padding(2);
+            cbApDungKTQD.Name = "cbApDungKTQD";
+            cbApDungKTQD.Size = new Size(18, 17);
+            cbApDungKTQD.TabIndex = 12;
+            cbApDungKTQD.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -540,17 +518,14 @@
         private Label label4;
         private TableLayoutPanel tableLayoutPanel5;
         private Label lblsdl;
-        private TextBox txtSoDaiLyToiDaTrongQuan;
+        private TextBox txtSoQLToiDa;
         private Label label8;
-        private TextBox txtTiLeDonGia;
+        private TextBox txtTiLeDGXuat;
         private Label label7;
-        private CheckBox checkBoxApDungKTQD;
+        private CheckBox cbApDungKTQD;
         private DataGridView dgvLoaiDaiLy;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
         private Button btnThemLoaiDaiLy;
         private DataGridView dgvDVT;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Button btnThemDonViTinh;
     }
 }

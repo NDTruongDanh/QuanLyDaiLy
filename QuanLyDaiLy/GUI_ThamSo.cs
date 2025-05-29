@@ -163,9 +163,5 @@ namespace GUI_QuanLy
                 e.Handled = true;
         }
 
-        private void txtSoQLToiDa_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
