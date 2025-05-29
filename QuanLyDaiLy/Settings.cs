@@ -45,6 +45,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                this.Dock = DockStyle.Top;
                 await LoadThamSoAsync();
                 await LoadLoaiDaiLyAsync();
                 await LoadDonViTinhAsync();

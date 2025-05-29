@@ -89,7 +89,7 @@ namespace GUI_QuanLy
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-
+            //childForm.Width = panelMain.Width;
             panelMain.Controls.Clear();
             panelMain.Controls.Add(childForm);
             panelMain.Tag = childForm;
