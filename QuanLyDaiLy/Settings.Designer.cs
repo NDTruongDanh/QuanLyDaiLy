@@ -42,8 +42,8 @@
             tableLayoutPanel6 = new TableLayoutPanel();
             label1 = new Label();
             label9 = new Label();
-            dgvQuan = new DataGridView();
             btnQuan = new Button();
+            dgvQuan = new DataGridView();
             panel4 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
             btnDonViTinh = new Button();
@@ -58,6 +58,9 @@
             label4 = new Label();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            btnThamSo = new Button();
+            label2 = new Label();
+            lblDanhSachPhieuThu = new Label();
             tableLayoutPanel5 = new TableLayoutPanel();
             label8 = new Label();
             txtTiLeDGXuat = new TextBox();
@@ -65,8 +68,6 @@
             txtSoQLToiDa = new TextBox();
             lblsdl = new Label();
             cbApDungKTQD = new CheckBox();
-            label2 = new Label();
-            lblDanhSachPhieuThu = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -111,11 +112,11 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel6);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 1071);
+            panel1.Location = new Point(16, 1148);
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(2012, 496);
+            panel1.Size = new Size(2012, 414);
             panel1.TabIndex = 30;
             // 
             // tableLayoutPanel6
@@ -126,8 +127,8 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel6.Controls.Add(label1, 0, 1);
             tableLayoutPanel6.Controls.Add(label9, 0, 0);
-            tableLayoutPanel6.Controls.Add(dgvQuan, 0, 2);
             tableLayoutPanel6.Controls.Add(btnQuan, 0, 3);
+            tableLayoutPanel6.Controls.Add(dgvQuan, 0, 2);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(16, 16);
             tableLayoutPanel6.Margin = new Padding(2);
@@ -137,7 +138,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
-            tableLayoutPanel6.Size = new Size(1980, 464);
+            tableLayoutPanel6.Size = new Size(1980, 382);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label1
@@ -161,6 +162,20 @@
             label9.Size = new Size(226, 38);
             label9.TabIndex = 16;
             label9.Text = "Danh sách quận";
+            // 
+            // btnQuan
+            // 
+            btnQuan.AutoSize = true;
+            btnQuan.BackColor = Color.FromArgb(33, 150, 243);
+            btnQuan.FlatStyle = FlatStyle.Flat;
+            btnQuan.Font = new Font("Segoe UI", 12F);
+            btnQuan.Location = new Point(2, 316);
+            btnQuan.Margin = new Padding(2);
+            btnQuan.Name = "btnQuan";
+            btnQuan.Size = new Size(235, 55);
+            btnQuan.TabIndex = 25;
+            btnQuan.Text = "➕  Sửa quận";
+            btnQuan.UseVisualStyleBackColor = false;
             // 
             // dgvQuan
             // 
@@ -205,29 +220,18 @@
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(1976, 323);
+            dgvQuan.Size = new Size(1976, 232);
             dgvQuan.TabIndex = 17;
-            // 
-            // btnQuan
-            // 
-            btnQuan.AutoSize = true;
-            btnQuan.BackColor = Color.FromArgb(33, 150, 243);
-            btnQuan.FlatStyle = FlatStyle.Flat;
-            btnQuan.Font = new Font("Segoe UI", 12F);
-            btnQuan.Location = new Point(2, 407);
-            btnQuan.Margin = new Padding(2);
-            btnQuan.Name = "btnQuan";
-            btnQuan.Size = new Size(235, 55);
-            btnQuan.TabIndex = 25;
-            btnQuan.Text = "➕  Sửa quận";
-            btnQuan.UseVisualStyleBackColor = false;
+            dgvQuan.CellContentClick += dgvQuan_CellContentClick;
             // 
             // panel4
             // 
+            panel4.AutoSize = true;
+            panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 629);
+            panel4.Location = new Point(16, 706);
             panel4.Margin = new Padding(16, 16, 16, 8);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(16);
@@ -237,6 +241,7 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.AutoSize = true;
+            tableLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Controls.Add(btnDonViTinh, 0, 3);
@@ -264,7 +269,7 @@
             btnDonViTinh.Location = new Point(2, 329);
             btnDonViTinh.Margin = new Padding(2);
             btnDonViTinh.Name = "btnDonViTinh";
-            btnDonViTinh.Size = new Size(321, 55);
+            btnDonViTinh.Size = new Size(235, 55);
             btnDonViTinh.TabIndex = 25;
             btnDonViTinh.Text = "➕  Sửa đơn vị tính";
             btnDonViTinh.UseVisualStyleBackColor = false;
@@ -339,16 +344,18 @@
             // 
             // panel3
             // 
+            panel3.AutoSize = true;
             panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel3.BackColor = Color.White;
             panel3.Controls.Add(tableLayoutPanel3);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(16, 275);
+            panel3.Location = new Point(16, 320);
             panel3.Margin = new Padding(16, 16, 16, 8);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(16);
-            panel3.Size = new Size(2012, 330);
+            panel3.Size = new Size(2012, 362);
             panel3.TabIndex = 28;
+            panel3.Paint += panel3_Paint;
             // 
             // tableLayoutPanel3
             // 
@@ -369,7 +376,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(1980, 298);
+            tableLayoutPanel3.Size = new Size(1980, 330);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // btnLoaiDaiLy
@@ -378,10 +385,10 @@
             btnLoaiDaiLy.BackColor = Color.FromArgb(33, 150, 243);
             btnLoaiDaiLy.FlatStyle = FlatStyle.Flat;
             btnLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            btnLoaiDaiLy.Location = new Point(2, 241);
+            btnLoaiDaiLy.Location = new Point(2, 273);
             btnLoaiDaiLy.Margin = new Padding(2, 2, 20, 2);
             btnLoaiDaiLy.Name = "btnLoaiDaiLy";
-            btnLoaiDaiLy.Size = new Size(304, 55);
+            btnLoaiDaiLy.Size = new Size(235, 55);
             btnLoaiDaiLy.TabIndex = 24;
             btnLoaiDaiLy.Text = "➕  Sửa loại đại lý";
             btnLoaiDaiLy.UseVisualStyleBackColor = false;
@@ -432,7 +439,7 @@
             dgvLoaiDaiLy.RowHeadersVisible = false;
             dgvLoaiDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLoaiDaiLy.Size = new Size(1976, 157);
+            dgvLoaiDaiLy.Size = new Size(1976, 189);
             dgvLoaiDaiLy.TabIndex = 17;
             // 
             // label3
@@ -459,6 +466,8 @@
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Dock = DockStyle.Fill;
@@ -466,7 +475,7 @@
             panel2.Margin = new Padding(16, 16, 16, 8);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(2012, 235);
+            panel2.Size = new Size(2012, 280);
             panel2.TabIndex = 25;
             // 
             // tableLayoutPanel2
@@ -475,19 +484,57 @@
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel5, 0, 2);
+            tableLayoutPanel2.Controls.Add(btnThamSo, 0, 3);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Controls.Add(lblDanhSachPhieuThu, 0, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel5, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(16, 16);
             tableLayoutPanel2.Margin = new Padding(2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1980, 203);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(1980, 248);
             tableLayoutPanel2.TabIndex = 17;
+            // 
+            // btnThamSo
+            // 
+            btnThamSo.AutoSize = true;
+            btnThamSo.BackColor = Color.FromArgb(33, 150, 243);
+            btnThamSo.FlatStyle = FlatStyle.Flat;
+            btnThamSo.Font = new Font("Segoe UI", 12F);
+            btnThamSo.Location = new Point(2, 202);
+            btnThamSo.Margin = new Padding(2, 2, 20, 2);
+            btnThamSo.Name = "btnThamSo";
+            btnThamSo.Size = new Size(235, 44);
+            btnThamSo.TabIndex = 25;
+            btnThamSo.Text = " ▼  Lưu";
+            btnThamSo.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Dock = DockStyle.Fill;
+            label2.Location = new Point(0, 48);
+            label2.Margin = new Padding(0, 0, 0, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(1980, 2);
+            label2.TabIndex = 15;
+            // 
+            // lblDanhSachPhieuThu
+            // 
+            lblDanhSachPhieuThu.AutoSize = true;
+            lblDanhSachPhieuThu.BackColor = Color.Transparent;
+            lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDanhSachPhieuThu.Location = new Point(2, 0);
+            lblDanhSachPhieuThu.Margin = new Padding(2, 0, 2, 10);
+            lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
+            lblDanhSachPhieuThu.Size = new Size(255, 38);
+            lblDanhSachPhieuThu.TabIndex = 16;
+            lblDanhSachPhieuThu.Text = "Tham số hệ thống";
             // 
             // tableLayoutPanel5
             // 
@@ -504,13 +551,13 @@
             tableLayoutPanel5.Controls.Add(lblsdl, 0, 0);
             tableLayoutPanel5.Controls.Add(cbApDungKTQD, 1, 2);
             tableLayoutPanel5.Location = new Point(2, 72);
-            tableLayoutPanel5.Margin = new Padding(2);
+            tableLayoutPanel5.Margin = new Padding(2, 2, 2, 10);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 3;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.Size = new Size(1976, 129);
+            tableLayoutPanel5.RowStyles.Add(new RowStyle());
+            tableLayoutPanel5.RowStyles.Add(new RowStyle());
+            tableLayoutPanel5.RowStyles.Add(new RowStyle());
+            tableLayoutPanel5.Size = new Size(1976, 118);
             tableLayoutPanel5.TabIndex = 18;
             // 
             // label8
@@ -579,28 +626,6 @@
             cbApDungKTQD.Size = new Size(22, 21);
             cbApDungKTQD.TabIndex = 12;
             cbApDungKTQD.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(0, 48);
-            label2.Margin = new Padding(0, 0, 0, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(1980, 2);
-            label2.TabIndex = 15;
-            // 
-            // lblDanhSachPhieuThu
-            // 
-            lblDanhSachPhieuThu.AutoSize = true;
-            lblDanhSachPhieuThu.BackColor = Color.Transparent;
-            lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDanhSachPhieuThu.Location = new Point(2, 0);
-            lblDanhSachPhieuThu.Margin = new Padding(2, 0, 2, 10);
-            lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(255, 38);
-            lblDanhSachPhieuThu.TabIndex = 16;
-            lblDanhSachPhieuThu.Text = "Tham số hệ thống";
             // 
             // Settings
             // 
@@ -673,5 +698,6 @@
         private TextBox txtSoQLToiDa;
         private Label lblsdl;
         private CheckBox cbApDungKTQD;
+        private Button btnThamSo;
     }
 }

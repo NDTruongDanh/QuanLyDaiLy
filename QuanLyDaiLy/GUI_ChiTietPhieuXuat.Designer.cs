@@ -42,13 +42,11 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             txtThanhTien = new TextBox();
             label9 = new Label();
-            cbbDonViTinh = new ComboBox();
             txtDonGiaXuat = new TextBox();
             txtSoLuong = new TextBox();
             cbbMatHang = new ComboBox();
             label5 = new Label();
             label6 = new Label();
-            label7 = new Label();
             label8 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
@@ -146,19 +144,19 @@
             // 
             txtConLai.Dock = DockStyle.Fill;
             txtConLai.Font = new Font("Segoe UI", 12F);
-            txtConLai.Location = new Point(886, 3);
+            txtConLai.Location = new Point(906, 3);
             txtConLai.Name = "txtConLai";
             txtConLai.ReadOnly = true;
-            txtConLai.Size = new Size(293, 34);
+            txtConLai.Size = new Size(273, 39);
             txtConLai.TabIndex = 18;
             // 
             // txtSoTienTra
             // 
             txtSoTienTra.Dock = DockStyle.Fill;
             txtSoTienTra.Font = new Font("Segoe UI", 12F);
-            txtSoTienTra.Location = new Point(510, 3);
+            txtSoTienTra.Location = new Point(534, 3);
             txtSoTienTra.Name = "txtSoTienTra";
-            txtSoTienTra.Size = new Size(292, 34);
+            txtSoTienTra.Size = new Size(272, 39);
             txtSoTienTra.TabIndex = 17;
             txtSoTienTra.TextChanged += txtSoTienTra_TextChanged;
             // 
@@ -166,10 +164,10 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 12F);
-            label12.Location = new Point(402, 3);
+            label12.Location = new Point(404, 3);
             label12.Margin = new Padding(3);
             label12.Name = "label12";
-            label12.Size = new Size(102, 28);
+            label12.Size = new Size(124, 32);
             label12.TabIndex = 15;
             label12.Text = "Số tiền trả";
             label12.TextAlign = ContentAlignment.MiddleLeft;
@@ -178,10 +176,10 @@
             // 
             txtTongTien.Dock = DockStyle.Fill;
             txtTongTien.Font = new Font("Segoe UI", 12F);
-            txtTongTien.Location = new Point(104, 3);
+            txtTongTien.Location = new Point(126, 3);
             txtTongTien.Name = "txtTongTien";
             txtTongTien.ReadOnly = true;
-            txtTongTien.Size = new Size(292, 34);
+            txtTongTien.Size = new Size(272, 39);
             txtTongTien.TabIndex = 14;
             txtTongTien.TextChanged += txtTongTien_TextChanged;
             // 
@@ -192,7 +190,7 @@
             label10.Location = new Point(3, 3);
             label10.Margin = new Padding(3);
             label10.Name = "label10";
-            label10.Size = new Size(95, 28);
+            label10.Size = new Size(117, 32);
             label10.TabIndex = 13;
             label10.Text = "Tổng tiền";
             label10.TextAlign = ContentAlignment.MiddleLeft;
@@ -201,10 +199,10 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 12F);
-            label13.Location = new Point(808, 3);
+            label13.Location = new Point(812, 3);
             label13.Margin = new Padding(3);
             label13.Name = "label13";
-            label13.Size = new Size(72, 28);
+            label13.Size = new Size(88, 32);
             label13.TabIndex = 16;
             label13.Text = "Còn lại";
             label13.TextAlign = ContentAlignment.MiddleLeft;
@@ -285,7 +283,7 @@
             txtDaiLy.Location = new Point(521, 3);
             txtDaiLy.Name = "txtDaiLy";
             txtDaiLy.ReadOnly = true;
-            txtDaiLy.Size = new Size(185, 34);
+            txtDaiLy.Size = new Size(185, 39);
             txtDaiLy.TabIndex = 15;
             // 
             // label11
@@ -295,7 +293,7 @@
             label11.Location = new Point(397, 3);
             label11.Margin = new Padding(3);
             label11.Name = "label11";
-            label11.Size = new Size(61, 28);
+            label11.Size = new Size(74, 32);
             label11.TabIndex = 14;
             label11.Text = "Đại lý";
             label11.TextAlign = ContentAlignment.MiddleLeft;
@@ -307,7 +305,7 @@
             txtMaPhieuXuat.Location = new Point(200, 3);
             txtMaPhieuXuat.Name = "txtMaPhieuXuat";
             txtMaPhieuXuat.ReadOnly = true;
-            txtMaPhieuXuat.Size = new Size(191, 34);
+            txtMaPhieuXuat.Size = new Size(191, 39);
             txtMaPhieuXuat.TabIndex = 13;
             // 
             // label3
@@ -317,7 +315,7 @@
             label3.Location = new Point(3, 3);
             label3.Margin = new Padding(3);
             label3.Name = "label3";
-            label3.Size = new Size(89, 28);
+            label3.Size = new Size(109, 32);
             label3.TabIndex = 12;
             label3.Text = "Số phiếu";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -329,7 +327,7 @@
             label1.Location = new Point(712, 3);
             label1.Margin = new Padding(3);
             label1.Name = "label1";
-            label1.Size = new Size(145, 28);
+            label1.Size = new Size(177, 32);
             label1.TabIndex = 11;
             label1.Text = "Ngày lập phiếu";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -340,7 +338,7 @@
             dtpNgayLap.Font = new Font("Segoe UI", 12F);
             dtpNgayLap.Location = new Point(919, 3);
             dtpNgayLap.Name = "dtpNgayLap";
-            dtpNgayLap.Size = new Size(263, 34);
+            dtpNgayLap.Size = new Size(263, 39);
             dtpNgayLap.TabIndex = 10;
             // 
             // lblDanhSachPhieuThu
@@ -349,7 +347,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(19, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(338, 32);
+            lblDanhSachPhieuThu.Size = new Size(392, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Thông tin chi tiết Phiếu xuất";
             // 
@@ -386,13 +384,11 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(txtThanhTien, 1, 2);
             tableLayoutPanel3.Controls.Add(label9, 0, 2);
-            tableLayoutPanel3.Controls.Add(cbbDonViTinh, 3, 0);
             tableLayoutPanel3.Controls.Add(txtDonGiaXuat, 3, 1);
             tableLayoutPanel3.Controls.Add(txtSoLuong, 1, 1);
             tableLayoutPanel3.Controls.Add(cbbMatHang, 1, 0);
             tableLayoutPanel3.Controls.Add(label5, 0, 0);
             tableLayoutPanel3.Controls.Add(label6, 0, 1);
-            tableLayoutPanel3.Controls.Add(label7, 2, 0);
             tableLayoutPanel3.Controls.Add(label8, 2, 1);
             tableLayoutPanel3.Location = new Point(19, 75);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -407,62 +403,53 @@
             // 
             txtThanhTien.Dock = DockStyle.Fill;
             txtThanhTien.Font = new Font("Segoe UI", 12F);
-            txtThanhTien.Location = new Point(112, 85);
+            txtThanhTien.Location = new Point(138, 94);
             txtThanhTien.Name = "txtThanhTien";
             txtThanhTien.ReadOnly = true;
-            txtThanhTien.Size = new Size(476, 34);
+            txtThanhTien.Size = new Size(468, 39);
             txtThanhTien.TabIndex = 23;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(3, 85);
+            label9.Location = new Point(3, 94);
             label9.Margin = new Padding(3);
             label9.Name = "label9";
-            label9.Size = new Size(103, 28);
+            label9.Size = new Size(129, 32);
             label9.TabIndex = 22;
             label9.Text = "Thành tiền";
             label9.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // cbbDonViTinh
-            // 
-            cbbDonViTinh.Dock = DockStyle.Fill;
-            cbbDonViTinh.Font = new Font("Segoe UI", 12F);
-            cbbDonViTinh.FormattingEnabled = true;
-            cbbDonViTinh.Location = new Point(708, 3);
-            cbbDonViTinh.Name = "cbbDonViTinh";
-            cbbDonViTinh.Size = new Size(477, 36);
-            cbbDonViTinh.TabIndex = 21;
             // 
             // txtDonGiaXuat
             // 
             txtDonGiaXuat.Dock = DockStyle.Fill;
             txtDonGiaXuat.Font = new Font("Segoe UI", 12F);
-            txtDonGiaXuat.Location = new Point(708, 45);
+            txtDonGiaXuat.Location = new Point(716, 49);
             txtDonGiaXuat.Name = "txtDonGiaXuat";
             txtDonGiaXuat.ReadOnly = true;
-            txtDonGiaXuat.Size = new Size(477, 34);
+            txtDonGiaXuat.Size = new Size(469, 39);
             txtDonGiaXuat.TabIndex = 20;
             // 
             // txtSoLuong
             // 
             txtSoLuong.Dock = DockStyle.Fill;
             txtSoLuong.Font = new Font("Segoe UI", 12F);
-            txtSoLuong.Location = new Point(112, 45);
+            txtSoLuong.Location = new Point(138, 49);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(476, 34);
+            txtSoLuong.Size = new Size(468, 39);
             txtSoLuong.TabIndex = 19;
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // cbbMatHang
             // 
+            tableLayoutPanel3.SetColumnSpan(cbbMatHang, 3);
             cbbMatHang.Dock = DockStyle.Fill;
             cbbMatHang.Font = new Font("Segoe UI", 12F);
             cbbMatHang.FormattingEnabled = true;
-            cbbMatHang.Location = new Point(112, 3);
+            cbbMatHang.Location = new Point(138, 3);
             cbbMatHang.Name = "cbbMatHang";
-            cbbMatHang.Size = new Size(476, 36);
+            cbbMatHang.Size = new Size(1047, 40);
             cbbMatHang.TabIndex = 17;
             cbbMatHang.SelectedIndexChanged += cbbMatHang_SelectedIndexChanged;
             // 
@@ -473,7 +460,7 @@
             label5.Location = new Point(3, 3);
             label5.Margin = new Padding(3);
             label5.Name = "label5";
-            label5.Size = new Size(96, 28);
+            label5.Size = new Size(117, 32);
             label5.TabIndex = 13;
             label5.Text = "Mặt hàng";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -482,34 +469,22 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(3, 45);
+            label6.Location = new Point(3, 49);
             label6.Margin = new Padding(3);
             label6.Name = "label6";
-            label6.Size = new Size(92, 28);
+            label6.Size = new Size(110, 32);
             label6.TabIndex = 14;
             label6.Text = "Số lượng";
             label6.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(594, 3);
-            label7.Margin = new Padding(3);
-            label7.Name = "label7";
-            label7.Size = new Size(108, 28);
-            label7.TabIndex = 15;
-            label7.Text = "Đơn vị tính";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(594, 45);
+            label8.Location = new Point(612, 49);
             label8.Margin = new Padding(3);
             label8.Name = "label8";
-            label8.Size = new Size(81, 28);
+            label8.Size = new Size(98, 32);
             label8.TabIndex = 16;
             label8.Text = "Đơn giá";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -592,7 +567,7 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(19, 13);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(240, 32);
+            lblThongTinPhieuThu.Size = new Size(279, 38);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Thông tin mặt hàng";
             // 
@@ -650,13 +625,11 @@
         private TableLayoutPanel tableLayoutPanel3;
         private TextBox txtThanhTien;
         private Label label9;
-        private ComboBox cbbDonViTinh;
         private TextBox txtDonGiaXuat;
         private TextBox txtSoLuong;
         private ComboBox cbbMatHang;
         private Label label5;
         private Label label6;
-        private Label label7;
         private Label label8;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
