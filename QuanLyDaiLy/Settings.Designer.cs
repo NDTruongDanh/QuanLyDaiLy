@@ -111,11 +111,11 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel6);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 814);
+            panel1.Location = new Point(16, 1461);
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(1966, 2202);
+            panel1.Size = new Size(1966, 1555);
             panel1.TabIndex = 30;
             // 
             // tableLayoutPanel6
@@ -137,7 +137,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
-            tableLayoutPanel6.Size = new Size(1934, 2170);
+            tableLayoutPanel6.Size = new Size(1934, 1523);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label1
@@ -168,7 +168,7 @@
             btnQuan.BackColor = Color.FromArgb(33, 150, 243);
             btnQuan.FlatStyle = FlatStyle.Flat;
             btnQuan.Font = new Font("Segoe UI", 12F);
-            btnQuan.Location = new Point(2, 316);
+            btnQuan.Location = new Point(2, 529);
             btnQuan.Margin = new Padding(2);
             btnQuan.Name = "btnQuan";
             btnQuan.Size = new Size(235, 55);
@@ -219,7 +219,7 @@
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(1930, 232);
+            dgvQuan.Size = new Size(1930, 445);
             dgvQuan.TabIndex = 17;
             dgvQuan.CellContentClick += dgvQuan_CellContentClick;
             // 
@@ -230,11 +230,11 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 582);
+            panel4.Location = new Point(16, 897);
             panel4.Margin = new Padding(16, 16, 16, 8);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(16);
-            panel4.Size = new Size(1966, 208);
+            panel4.Size = new Size(1966, 540);
             panel4.TabIndex = 29;
             // 
             // tableLayoutPanel4
@@ -256,7 +256,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(1934, 176);
+            tableLayoutPanel4.Size = new Size(1934, 508);
             tableLayoutPanel4.TabIndex = 17;
             // 
             // btnDonViTinh
@@ -265,7 +265,7 @@
             btnDonViTinh.BackColor = Color.FromArgb(33, 150, 243);
             btnDonViTinh.FlatStyle = FlatStyle.Flat;
             btnDonViTinh.Font = new Font("Segoe UI", 12F);
-            btnDonViTinh.Location = new Point(2, 119);
+            btnDonViTinh.Location = new Point(2, 451);
             btnDonViTinh.Margin = new Padding(2);
             btnDonViTinh.Name = "btnDonViTinh";
             btnDonViTinh.Size = new Size(235, 55);
@@ -338,7 +338,7 @@
             dgvDVT.RowHeadersVisible = false;
             dgvDVT.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDVT.Size = new Size(1930, 35);
+            dgvDVT.Size = new Size(1930, 367);
             dgvDVT.TabIndex = 17;
             // 
             // panel3
@@ -352,7 +352,7 @@
             panel3.Margin = new Padding(16, 16, 16, 8);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(16);
-            panel3.Size = new Size(1966, 238);
+            panel3.Size = new Size(1966, 553);
             panel3.TabIndex = 28;
             panel3.Paint += panel3_Paint;
             // 
@@ -375,7 +375,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(1934, 206);
+            tableLayoutPanel3.Size = new Size(1934, 521);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // btnLoaiDaiLy
@@ -384,7 +384,7 @@
             btnLoaiDaiLy.BackColor = Color.FromArgb(33, 150, 243);
             btnLoaiDaiLy.FlatStyle = FlatStyle.Flat;
             btnLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            btnLoaiDaiLy.Location = new Point(2, 149);
+            btnLoaiDaiLy.Location = new Point(2, 464);
             btnLoaiDaiLy.Margin = new Padding(2, 2, 20, 2);
             btnLoaiDaiLy.Name = "btnLoaiDaiLy";
             btnLoaiDaiLy.Size = new Size(235, 55);
@@ -438,7 +438,7 @@
             dgvLoaiDaiLy.RowHeadersVisible = false;
             dgvLoaiDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLoaiDaiLy.Size = new Size(1930, 65);
+            dgvLoaiDaiLy.Size = new Size(1930, 380);
             dgvLoaiDaiLy.TabIndex = 17;
             // 
             // label3
