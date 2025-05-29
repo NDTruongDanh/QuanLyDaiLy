@@ -195,9 +195,11 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand(@"INSERT INTO PHIEUXUAT(MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai)
-                                                    OUTPUT inserted.MaPhieuXuat
-                                                    VALUES (@MaDaiLy, @NgayLapPhieu, @TongTien, @TienTra, @ConLai)", conn))
+                    using (var cmd = new SqlCommand(@"DECLARE @TempOutput TABLE (ID INT)
+                                                    INSERT INTO PHIEUXUAT(MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai)
+                                                    OUTPUT inserted.MaPhieuXuat INTO @TempOutput
+                                                    VALUES (@MaDaiLy, @NgayLapPhieu, @TongTien, @TienTra, @ConLai)
+                                                    SELECT ID FROM @TempOutput;", conn))
                     {
                         cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = phieuXuat.MaDaiLy;
                         cmd.Parameters.Add("@NgayLapPhieu", SqlDbType.DateTime).Value = phieuXuat.NgayLapPhieu;
