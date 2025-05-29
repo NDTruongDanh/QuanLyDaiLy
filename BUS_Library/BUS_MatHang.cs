@@ -10,6 +10,7 @@ namespace BUS_QuanLy
     public interface IBUS_MatHang
     {
         Task<List<DTO_MatHang>> GetMatHangListAsync();
+        Task<DataTable> GetDataTableMatHangAsync();
         Task<DataTable> GetMatHangForNhapAsync();
         Task<DataTable> GetMatHangForXuatAsync();
         Task<bool> AddMatHangAsync(DTO_MatHang matHang);
@@ -66,6 +67,43 @@ namespace BUS_QuanLy
                 }
             }
         }
+        //Get DataTable MatHang
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTableMatHangFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTableMatHangAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTableMatHangFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableMatHangAsync()
+        {
+            using (_logger.BeginScope("BUS_MatHang.GetDataTableMatHangAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalMatHang.GetDataTableMatHangAsync();
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTableMatHangFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách mặt hàng. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
 
 
 

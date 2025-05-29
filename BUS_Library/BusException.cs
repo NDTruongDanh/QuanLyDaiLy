@@ -52,6 +52,7 @@ namespace BUS_Library
         public const int DeleteMatHangFailure = 0405;
         public const int GetMatHangForNhapFailure = 0406;
         public const int GetMatHangForXuatFailure = 0407;
+        public const int GetDataTableMatHangFailure = 0408;
 
         //PhieuNhap
         public const int GetPhieuNhapListFailure = 0501;

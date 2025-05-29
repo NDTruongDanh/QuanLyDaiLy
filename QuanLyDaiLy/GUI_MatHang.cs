@@ -39,8 +39,8 @@ namespace GUI_QuanLy
         {
             try
             {
-                await LoadMatHangAsync();
                 await LoadComboBoxDonViTinhAsync();
+                await LoadMatHangAsync();
             }
             catch (Exception ex)
             {
@@ -58,9 +58,11 @@ namespace GUI_QuanLy
         {
             try
             {
-                var matHangList = await _busMatHang.GetMatHangListAsync();
-                _bindingSource.DataSource = matHangList;
-                dgvMatHang.DataSource = _bindingSource;
+                var dataTable = await _busMatHang.GetDataTableMatHangAsync();
+                _bindingSource.DataSource = dataTable;
+
+                ModifyDataGridViewColumns();
+                ClearInputFields();
             }
             catch (BusException busEx)
             {
@@ -75,6 +77,18 @@ namespace GUI_QuanLy
             }
         }
 
+        private void ModifyDataGridViewColumns()
+        {
+            dgvMatHang.Columns["MaMatHang"].Visible = false;
+            dgvMatHang.Columns["MaDonViTinh"].Visible = false;
+            dgvMatHang.Columns["DonGiaHienTai"].DefaultCellStyle.Format = "N0";
+            dgvMatHang.Columns["TonKho"].DefaultCellStyle.Format = "N0";
+
+            dgvMatHang.Columns["TenMatHang"].HeaderText = "Tên Mặt hàng";
+            dgvMatHang.Columns["DonGiaHienTai"].HeaderText = "Đơn giá hiện tại";
+            dgvMatHang.Columns["TonKho"].HeaderText = "Tồn kho";
+            dgvMatHang.Columns["TenDonViTinh"].HeaderText = "Đơn vị tính";
+        }
         private async Task LoadComboBoxDonViTinhAsync()
         {
             try
@@ -101,6 +115,8 @@ namespace GUI_QuanLy
         {
             txtTenMatHang.Clear();
             cmbDonViTinh.SelectedIndex = -1;
+
+            dgvMatHang.ClearSelection();
         }
 
         private void ValidateInputFields()
@@ -272,8 +288,6 @@ namespace GUI_QuanLy
                     _maMatHang = Convert.ToInt32(row.Cells["MaMatHang"].Value);
                     txtTenMatHang.Text = row.Cells["TenMatHang"].Value.ToString();
                     cmbDonViTinh.SelectedValue = row.Cells["MaDonViTinh"].Value;
-                    //txtDonGiaHienTai.Text = row.Cells["DonGiaHienTai"].Value.ToString();
-                    //txtTonKho.Text = row.Cells["TonKho"].Value.ToString();
                 }
                 catch (Exception ex)
                 {

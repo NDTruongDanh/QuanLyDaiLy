@@ -23,10 +23,6 @@
             lblTenDaiLy = new Label();
             txtTenMatHang = new TextBox();
             dgvMatHang = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             pnlData = new Panel();
             lblDanhSachDaiLy = new Label();
             label2 = new Label();
@@ -63,7 +59,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(183, 45);
+            lblTenDaiLy.Size = new Size(146, 40);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Mặt hàng:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -72,9 +68,9 @@
             // 
             txtTenMatHang.Dock = DockStyle.Fill;
             txtTenMatHang.Font = new Font("Segoe UI", 12F);
-            txtTenMatHang.Location = new Point(192, 3);
+            txtTenMatHang.Location = new Point(155, 3);
             txtTenMatHang.Name = "txtTenMatHang";
-            txtTenMatHang.Size = new Size(1374, 39);
+            txtTenMatHang.Size = new Size(1411, 34);
             txtTenMatHang.TabIndex = 7;
             // 
             // dgvMatHang
@@ -95,7 +91,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvMatHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMatHang.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
@@ -106,7 +101,7 @@
             dgvMatHang.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMatHang.EnableHeadersVisualStyles = false;
             dgvMatHang.GridColor = Color.White;
-            dgvMatHang.Location = new Point(18, 82);
+            dgvMatHang.Location = new Point(-27, 18);
             dgvMatHang.Name = "dgvMatHang";
             dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -122,30 +117,7 @@
             dgvMatHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMatHang.Size = new Size(1569, 492);
             dgvMatHang.TabIndex = 14;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Tên Mặt Hàng";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên Đơn Vị Tính";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Đơn giá hiện tại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Tồn kho";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
+            dgvMatHang.SelectionChanged += dgvMatHang_SelectionChanged;
             // 
             // pnlData
             // 
@@ -167,7 +139,7 @@
             lblDanhSachDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachDaiLy.Location = new Point(15, 15);
             lblDanhSachDaiLy.Name = "lblDanhSachDaiLy";
-            lblDanhSachDaiLy.Size = new Size(287, 38);
+            lblDanhSachDaiLy.Size = new Size(247, 32);
             lblDanhSachDaiLy.TabIndex = 16;
             lblDanhSachDaiLy.Text = "Danh sách Mặt hàng";
             // 
@@ -305,9 +277,9 @@
             cmbDonViTinh.Dock = DockStyle.Fill;
             cmbDonViTinh.Font = new Font("Segoe UI", 12F);
             cmbDonViTinh.FormattingEnabled = true;
-            cmbDonViTinh.Location = new Point(192, 48);
+            cmbDonViTinh.Location = new Point(155, 43);
             cmbDonViTinh.Name = "cmbDonViTinh";
-            cmbDonViTinh.Size = new Size(1374, 40);
+            cmbDonViTinh.Size = new Size(1411, 36);
             cmbDonViTinh.TabIndex = 13;
             // 
             // label1
@@ -316,9 +288,9 @@
             label1.BackColor = Color.Transparent;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 45);
+            label1.Location = new Point(3, 40);
             label1.Name = "label1";
-            label1.Size = new Size(183, 47);
+            label1.Size = new Size(146, 52);
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -329,7 +301,7 @@
             lblThongTinDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinDaiLy.Location = new Point(18, 15);
             lblThongTinDaiLy.Name = "lblThongTinDaiLy";
-            lblThongTinDaiLy.Size = new Size(279, 38);
+            lblThongTinDaiLy.Size = new Size(240, 32);
             lblThongTinDaiLy.TabIndex = 16;
             lblThongTinDaiLy.Text = "Nhập liệu Mặt hàng";
             // 
@@ -364,18 +336,18 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(214, 68);
+            contextMenuStrip1.Size = new Size(186, 52);
             // 
             // mnItemPhieuXuat
             // 
             mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(213, 32);
+            mnItemPhieuXuat.Size = new Size(185, 24);
             mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
             // 
             // mnItemPhieuThu
             // 
             mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(213, 32);
+            mnItemPhieuThu.Size = new Size(185, 24);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             // 
             // GUI_MatHang
@@ -385,6 +357,7 @@
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_MatHang";
             Text = "Quản lý Mặt hàng";
+            Load += GUI_MatHang_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMatHang).EndInit();
             pnlData.ResumeLayout(false);
             pnlData.PerformLayout();
@@ -411,10 +384,6 @@
         private ToolStripMenuItem mnItemPhieuXuat;
         private ToolStripMenuItem mnItemPhieuThu;
         private Label label1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
         private ComboBox cmbDonViTinh;
         private FlowLayoutPanel flowLayoutPanel2;
         private Button btnAdd;
