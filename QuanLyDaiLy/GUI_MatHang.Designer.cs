@@ -101,7 +101,7 @@
             dgvMatHang.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMatHang.EnableHeadersVisualStyles = false;
             dgvMatHang.GridColor = Color.White;
-            dgvMatHang.Location = new Point(-27, 18);
+            dgvMatHang.Location = new Point(12, 69);
             dgvMatHang.Name = "dgvMatHang";
             dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
