@@ -85,10 +85,9 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(panel1, 0, 3);
             tableLayoutPanel1.Controls.Add(panel4, 0, 2);
             tableLayoutPanel1.Controls.Add(panel3, 0, 1);
@@ -102,7 +101,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(2044, 1570);
+            tableLayoutPanel1.Size = new Size(1998, 3024);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -112,11 +111,11 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel6);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 1148);
+            panel1.Location = new Point(16, 814);
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(2012, 414);
+            panel1.Size = new Size(1966, 2202);
             panel1.TabIndex = 30;
             // 
             // tableLayoutPanel6
@@ -138,7 +137,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
-            tableLayoutPanel6.Size = new Size(1980, 382);
+            tableLayoutPanel6.Size = new Size(1934, 2170);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label1
@@ -148,7 +147,7 @@
             label1.Location = new Point(0, 48);
             label1.Margin = new Padding(0, 0, 0, 20);
             label1.Name = "label1";
-            label1.Size = new Size(1980, 2);
+            label1.Size = new Size(1934, 2);
             label1.TabIndex = 15;
             // 
             // label9
@@ -220,7 +219,7 @@
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(1976, 232);
+            dgvQuan.Size = new Size(1930, 232);
             dgvQuan.TabIndex = 17;
             dgvQuan.CellContentClick += dgvQuan_CellContentClick;
             // 
@@ -231,11 +230,11 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 706);
+            panel4.Location = new Point(16, 582);
             panel4.Margin = new Padding(16, 16, 16, 8);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(16);
-            panel4.Size = new Size(2012, 418);
+            panel4.Size = new Size(1966, 208);
             panel4.TabIndex = 29;
             // 
             // tableLayoutPanel4
@@ -257,7 +256,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(1980, 386);
+            tableLayoutPanel4.Size = new Size(1934, 176);
             tableLayoutPanel4.TabIndex = 17;
             // 
             // btnDonViTinh
@@ -266,7 +265,7 @@
             btnDonViTinh.BackColor = Color.FromArgb(33, 150, 243);
             btnDonViTinh.FlatStyle = FlatStyle.Flat;
             btnDonViTinh.Font = new Font("Segoe UI", 12F);
-            btnDonViTinh.Location = new Point(2, 329);
+            btnDonViTinh.Location = new Point(2, 119);
             btnDonViTinh.Margin = new Padding(2);
             btnDonViTinh.Name = "btnDonViTinh";
             btnDonViTinh.Size = new Size(235, 55);
@@ -281,7 +280,7 @@
             label5.Location = new Point(0, 48);
             label5.Margin = new Padding(0, 0, 0, 20);
             label5.Name = "label5";
-            label5.Size = new Size(1980, 2);
+            label5.Size = new Size(1934, 2);
             label5.TabIndex = 15;
             // 
             // label6
@@ -339,7 +338,7 @@
             dgvDVT.RowHeadersVisible = false;
             dgvDVT.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDVT.Size = new Size(1976, 245);
+            dgvDVT.Size = new Size(1930, 35);
             dgvDVT.TabIndex = 17;
             // 
             // panel3
@@ -353,7 +352,7 @@
             panel3.Margin = new Padding(16, 16, 16, 8);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(16);
-            panel3.Size = new Size(2012, 362);
+            panel3.Size = new Size(1966, 238);
             panel3.TabIndex = 28;
             panel3.Paint += panel3_Paint;
             // 
@@ -376,7 +375,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(1980, 330);
+            tableLayoutPanel3.Size = new Size(1934, 206);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // btnLoaiDaiLy
@@ -385,7 +384,7 @@
             btnLoaiDaiLy.BackColor = Color.FromArgb(33, 150, 243);
             btnLoaiDaiLy.FlatStyle = FlatStyle.Flat;
             btnLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            btnLoaiDaiLy.Location = new Point(2, 273);
+            btnLoaiDaiLy.Location = new Point(2, 149);
             btnLoaiDaiLy.Margin = new Padding(2, 2, 20, 2);
             btnLoaiDaiLy.Name = "btnLoaiDaiLy";
             btnLoaiDaiLy.Size = new Size(235, 55);
@@ -439,7 +438,7 @@
             dgvLoaiDaiLy.RowHeadersVisible = false;
             dgvLoaiDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLoaiDaiLy.Size = new Size(1976, 189);
+            dgvLoaiDaiLy.Size = new Size(1930, 65);
             dgvLoaiDaiLy.TabIndex = 17;
             // 
             // label3
@@ -449,7 +448,7 @@
             label3.Location = new Point(0, 48);
             label3.Margin = new Padding(0, 0, 0, 20);
             label3.Name = "label3";
-            label3.Size = new Size(1980, 2);
+            label3.Size = new Size(1934, 2);
             label3.TabIndex = 15;
             // 
             // label4
@@ -475,7 +474,7 @@
             panel2.Margin = new Padding(16, 16, 16, 8);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(2012, 280);
+            panel2.Size = new Size(1966, 280);
             panel2.TabIndex = 25;
             // 
             // tableLayoutPanel2
@@ -497,7 +496,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1980, 248);
+            tableLayoutPanel2.Size = new Size(1934, 248);
             tableLayoutPanel2.TabIndex = 17;
             // 
             // btnThamSo
@@ -521,7 +520,7 @@
             label2.Location = new Point(0, 48);
             label2.Margin = new Padding(0, 0, 0, 20);
             label2.Name = "label2";
-            label2.Size = new Size(1980, 2);
+            label2.Size = new Size(1934, 2);
             label2.TabIndex = 15;
             // 
             // lblDanhSachPhieuThu
@@ -557,7 +556,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1976, 118);
+            tableLayoutPanel5.Size = new Size(1930, 118);
             tableLayoutPanel5.TabIndex = 18;
             // 
             // label8
@@ -579,7 +578,7 @@
             txtTiLeDGXuat.Location = new Point(369, 45);
             txtTiLeDGXuat.Margin = new Padding(2);
             txtTiLeDGXuat.Name = "txtTiLeDGXuat";
-            txtTiLeDGXuat.Size = new Size(1605, 39);
+            txtTiLeDGXuat.Size = new Size(1559, 39);
             txtTiLeDGXuat.TabIndex = 10;
             // 
             // label7
@@ -601,7 +600,7 @@
             txtSoQLToiDa.Location = new Point(369, 2);
             txtSoQLToiDa.Margin = new Padding(2);
             txtSoQLToiDa.Name = "txtSoQLToiDa";
-            txtSoQLToiDa.Size = new Size(1605, 39);
+            txtSoQLToiDa.Size = new Size(1559, 39);
             txtSoQLToiDa.TabIndex = 8;
             // 
             // lblsdl
@@ -629,15 +628,12 @@
             // 
             // Settings
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
+            AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(2044, 1570);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
             Name = "Settings";
-            Text = "Settings";
+            Size = new Size(1998, 3024);
             Load += Settings_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -663,7 +659,6 @@
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

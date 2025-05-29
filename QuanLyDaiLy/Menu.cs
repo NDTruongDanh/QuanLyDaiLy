@@ -96,6 +96,15 @@ namespace GUI_QuanLy
             lblFormName.Text = childForm.Text;
             childForm.Show();
         }
+        private void OpenChildControl(UserControl childControl)
+        {
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(childControl);
+            panelMain.Tag = childControl;
+            lblFormName.Text = childControl.Name;
+            panelMain.AutoScroll = true;
+            childControl.Dock = DockStyle.Top;
+        }
 
         private void btnDaily_Click(object sender, EventArgs e)
         {
@@ -140,7 +149,7 @@ namespace GUI_QuanLy
         private void pbSettingThamSo_Click_1(object sender, EventArgs e)
         {
             var form_Settings = _services.GetRequiredService<Settings>();
-            OpenChildForm(form_Settings);
+            OpenChildControl(form_Settings);
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GUI_QuanLy
 {
-    public partial class Settings : Form
+    public partial class Settings : UserControl
     {
         private readonly IBUS_ThamSo _busThamSo;
         private readonly IBUS_LoaiDaiLy _busLoaiDaiLy;
@@ -46,6 +46,7 @@ namespace GUI_QuanLy
             try
             {
                 this.Dock = DockStyle.Top;
+               
                 await LoadThamSoAsync();
                 await LoadLoaiDaiLyAsync();
                 await LoadDonViTinhAsync();
