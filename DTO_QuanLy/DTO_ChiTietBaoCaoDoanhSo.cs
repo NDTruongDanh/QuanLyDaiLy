@@ -12,11 +12,11 @@ namespace DTO_QuanLy
         public int MaDaiLy { get; set; }
         public int SoLuongPhieuXuat { get; set; }
         public decimal TongTriGia { get; set; }
-        public decimal TyLe { get; set; }
+        public double TyLe { get; set; }
 
         public DTO_ChiTietBaoCaoDoanhSo() { }
 
-        public DTO_ChiTietBaoCaoDoanhSo(int maBaoCao, int maDaiLy, int soLuongPhieuXuat, decimal tongTriGia, decimal tyLe)
+        public DTO_ChiTietBaoCaoDoanhSo(int maBaoCao, int maDaiLy, int soLuongPhieuXuat, decimal tongTriGia, double tyLe)
         {
             MaBaoCao = maBaoCao;
             MaDaiLy = maDaiLy;

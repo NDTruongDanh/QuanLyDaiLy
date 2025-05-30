@@ -12,6 +12,7 @@ namespace BUS_QuanLy
     {
         Task<List<DTO_ChiTietBaoCaoDoanhSo>> GetChiTietBaoCaoDoanhSoListAsync();
         Task<List<DTO_ChiTietBaoCaoDoanhSo>> GetChiTietBaoCaoDoanhSoByMaBaoCaoListAsync(int maBaoCaoDoanhSo);
+        Task<DataTable> GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(int maBaoCaoDoanhSo);
         Task<bool> AddChiTietBaoCaoDoanhSoAsync(DTO_ChiTietBaoCaoDoanhSo chiTietBaoCao);
         Task<bool> AddChiTietBaoCaoDoanhSoAuToAsync(DTO_BaoCaoDoanhSo baoCaoDoanhSo);
         Task<bool> UpdateChiTietBaoCaoDoanhSoAsync(DTO_ChiTietBaoCaoDoanhSo chiTietBaoCao);
@@ -101,7 +102,44 @@ namespace BUS_QuanLy
             }
         }
 
-            
+        //Get DataTable ChiTietBaoCaoDoanhSo By MaBaoCao
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTableChiTietBaoCaoDoanhSoByMaBaoCaoFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTableChiTietBaoCaoDoanhSoByMaBaoCaoFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(int maBaoCaoDoanhSo)
+        {
+            using (_logger.BeginScope("BUS_ChiTietBaoCaoDoanhSo.GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalChiTietBaoCaoDoanhSo.GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(maBaoCaoDoanhSo);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTableChiTietBaoCaoDoanhSoByMaBaoCaoFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được bảng chi tiết báo cáo doanh số theo mã báo cáo. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+
+
         //Add ChiTietBaoCaoDoanhSo
         // Source-generated high-performance log for DAL failures
         [LoggerMessage(
@@ -156,7 +194,9 @@ namespace BUS_QuanLy
                 try
                 {
                     if (await _dalChiTietBaoCaoDoanhSo.IsExistedChiTietBaoCaoDoanhSoAsync(baoCaoDoanhSo))
+                    {
                         return false;
+                    }
                     return await _dalChiTietBaoCaoDoanhSo.AddChiTietBaoCaoDoanhSoAuToAsync(baoCaoDoanhSo);
                 }
                 catch (DalException dalEx)
