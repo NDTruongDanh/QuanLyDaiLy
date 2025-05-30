@@ -10,35 +10,171 @@ using System.Windows.Forms;
 
 using BUS_QuanLy;
 using DTO_QuanLy;
+using BUS_Library;
+using Microsoft.Extensions.Logging;
 
 namespace GUI_QuanLy
 {
     public partial class GUI_BaoCaoDoanhSo : Form
     {
-       
-        int maBaoCaoDoanhSo = 0;
-        decimal tongDoanhSo = 0;
+        private readonly IBUS_BaoCaoDoanhSo _busBaoCaoDoanhSo;
+        private readonly IBUS_ChiTietBaoCaoDoanhSo _busChiTietBaoCaoDoanhSo;
+        private readonly ILogger<GUI_BaoCaoDoanhSo> _logger;
+        private readonly IServiceProvider _service;
+        private readonly BindingSource _bindingSource = new BindingSource();
 
-        // Tháng và năm được tạo báo cáo doanh số
-        int thang = 0;
-        int nam = 0;
+        private DTO_BaoCaoDoanhSo _baoCaoDoanhSo = new DTO_BaoCaoDoanhSo();
+        private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
 
-        private void dgvBangTongKet_Click(object sender, EventArgs e)
+        private int _maBaoCaoDoanhSo = 0;
+        private int _prevMonth = 0;
+        private int _prevYear = 0;
+
+        public GUI_BaoCaoDoanhSo(IBUS_BaoCaoDoanhSo busBaoCaoDoanhSo, IBUS_ChiTietBaoCaoDoanhSo busChiTietBaoCaoDoanhSo, ILogger<GUI_BaoCaoDoanhSo> logger, IServiceProvider service)
         {
-            dgvBangTongKet.Rows.Add("1", "Lưu Bình", "15", "45.000.000₫", "35");
-            dgvBangTongKet.Rows.Add("2", "Bình Lưu", "12", "36.000.000₫", "28");
-            dgvBangTongKet.Rows.Add("3", "Nguyễn Văn An", "10", "25.000.000₫", "19");
-            dgvBangTongKet.Rows.Add("4", "Trần Thị Hương", "8", "24.000.000₫", "18");
+            _busBaoCaoDoanhSo = busBaoCaoDoanhSo;
+            _busChiTietBaoCaoDoanhSo = busChiTietBaoCaoDoanhSo;
+            _logger = logger;
+            _service = service;
+            InitializeComponent();
+            dgvChiTietBaoCaoDoanhSo.DataSource = _bindingSource;
 
+            var now = DateTime.Now;
+            var prev = new DateTime(now.Year, now.Month, 1).AddMonths(-1);
+            _prevMonth = prev.Month;
+            _prevYear = prev.Year;
+        }
+
+        private async void GUI_BaoCaoDoanhSo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                await AutoCreateBaoCaoAsync();
+                await LoadChiTietBaoCaoDoanhSoAsync(_prevMonth, _prevYear);
+                ShowCharBaoCao();
+
+                cbbThang.SelectedIndex = _prevMonth - 1; // Tháng 1 là index 0
+                txtNam.Text = _prevYear.ToString();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Unhandled exception in form BaoCaoDoanhSo load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async Task AutoCreateBaoCaoAsync()
+        {
+            try
+            {
+                if (await _busBaoCaoDoanhSo.AddBaoCaoDoanhSoAutoAsync(_prevMonth, _prevYear))
+                {
+                    _baoCaoDoanhSo = await _busBaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync(_prevMonth, _prevYear);
+                    if (await AutoCreateChiTietBaoCaoDoanhSoAsync(_baoCaoDoanhSo))
+                    {
+                        MessageBox.Show($"Báo cáo Doanh số tháng {_prevMonth} năm {_prevYear} đã được tạo tự động thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in AutoCreateBaoCaoAsync");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in AutoCreateBaoCaoAsync");
+
+                MessageBox.Show("Lỗi hệ thông khi tự động khởi tạo Báo cáo Doanh số! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task<bool> AutoCreateChiTietBaoCaoDoanhSoAsync(DTO_BaoCaoDoanhSo baoCaoDoanhSo)
+        {
+            try
+            {
+                return await _busChiTietBaoCaoDoanhSo.AddChiTietBaoCaoDoanhSoAuToAsync(baoCaoDoanhSo);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in AutoCreateBaoCaoAsync");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in AutoCreateChiTietBaoCaoDoanhSoAsync");
+
+                MessageBox.Show("Lỗi hệ thông khi tự động khởi tạo Chi tiết Báo cáo Doanh số! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private async Task LoadChiTietBaoCaoDoanhSoAsync(int thang, int nam)
+        {
+            try
+            {
+                _baoCaoDoanhSo = await _busBaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync(thang, nam);
+                var data = await _busChiTietBaoCaoDoanhSo.GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(_baoCaoDoanhSo.MaBaoCaoDoanhSo);
+                _bindingSource.DataSource = data;
+                SaveTenDaiLyAndTriGia();
+
+                ModifyDataGridViewColumns();
+                AddRowTong();
+
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading grid ChiTietBaoCaoDoanhSo by MaBaoCao: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ModifyDataGridViewColumns()
+        {
+            dgvChiTietBaoCaoDoanhSo.Columns["MaDaiLy"].HeaderText = "Mã Đại lý";
+            dgvChiTietBaoCaoDoanhSo.Columns["TenDaiLy"].HeaderText = "Tên Đại lý";
+            dgvChiTietBaoCaoDoanhSo.Columns["SoLuongPhieuXuat"].HeaderText = "Số lượng Phiếu xuất";
+            dgvChiTietBaoCaoDoanhSo.Columns["TongTriGia"].HeaderText = "Tổng trị giá";
+            dgvChiTietBaoCaoDoanhSo.Columns["TiLe"].HeaderText = "Tỷ lệ";
+
+            dgvChiTietBaoCaoDoanhSo.Columns["MaBaoCaoDoanhSo"].Visible = false;
+
+            foreach (DataGridViewColumn dataColumn in dgvChiTietBaoCaoDoanhSo.Columns)
+            {
+                dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
+        private void AddRowTong()
+        {
             // Dòng tổng
             int totalInvoices = 0;
             decimal totalValue = 0;
             int totalPercentage = 0;
 
             // Loop tất cả các dòng trừ dòng cuối cùng (nếu đang có dòng tổng)
-            for (int i = 0; i < dgvBangTongKet.Rows.Count; i++)
+            for (int i = 0; i < dgvChiTietBaoCaoDoanhSo.Rows.Count; i++)
             {
-                var dgvrow = dgvBangTongKet.Rows[i];
+                var dgvrow = dgvChiTietBaoCaoDoanhSo.Rows[i];
 
                 // Bỏ qua dòng trống hoặc dòng tổng (nếu bạn đang thêm cuối cùng)
                 if (dgvrow.IsNewRow || dgvrow.Cells[0].Value?.ToString() == "Tổng cộng")
@@ -57,27 +193,51 @@ namespace GUI_QuanLy
                 if (int.TryParse(dgvrow.Cells[4].Value?.ToString().Replace("%", ""), out int percent))
                     totalPercentage += percent;
             }
-            int rowIdx = dgvBangTongKet.Rows.Add();
-            DataGridViewRow totalRow = dgvBangTongKet.Rows[rowIdx];
-            totalRow.DefaultCellStyle.BackColor = Color.FromArgb(241, 245, 249);
-            totalRow.Cells[0].Value = "Tổng cộng";
-            totalRow.Cells[0].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            totalRow.Cells[2].Value = totalInvoices.ToString();
-            totalRow.Cells[3].Value = $"{totalValue:N0}₫"; // format 130.000.000₫
-            totalRow.Cells[4].Value = totalPercentage.ToString(); // hoặc 100%
-
+            //int rowIdx = dgvChiTietBaoCaoDoanhSo.Rows.Add();
+            //DataGridViewRow totalRow = dgvChiTietBaoCaoDoanhSo.Rows[rowIdx];
+            //totalRow.DefaultCellStyle.BackColor = Color.FromArgb(241, 245, 249);
+            //totalRow.Cells[0].Value = "Tổng cộng";
+            //totalRow.Cells[0].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            //totalRow.Cells[2].Value = totalInvoices.ToString();
+            //totalRow.Cells[3].Value = $"{totalValue:N0}₫"; // format 130.000.000₫
+            //totalRow.Cells[4].Value = totalPercentage.ToString(); // hoặc 100%
         }
 
-        private void pcThongKeDoanhSo_Click(object sender, EventArgs e)
+        private void SaveTenDaiLyAndTriGia()
+        {
+            _dictionary.Clear();
+            foreach (DataGridViewRow row in dgvChiTietBaoCaoDoanhSo.Rows)
+            {
+                if (row.IsNewRow) continue; // Bỏ qua dòng mới
+
+                string? tenDaiLy = row.Cells["TenDaiLy"].Value?.ToString();
+                decimal triGia = 0;
+
+                // Chuyển đổi trị giá sang decimal
+                string? triGiaStr = row.Cells["TongTriGia"].Value?.ToString()?.Replace(".", "").Replace("₫", "").Trim();
+                if (decimal.TryParse(triGiaStr, out decimal value))
+                {
+                    triGia = value;
+                }
+
+                if (!string.IsNullOrEmpty(tenDaiLy))
+                {
+                    _dictionary[tenDaiLy] = triGia;
+                }
+            }
+        }
+
+
+        private void ShowCharBaoCao()
         {
             var series = pcThongKeDoanhSo.Series["Series1"];
             series.Points.Clear();
             series.IsValueShownAsLabel = false;
 
-            series.Points.AddXY("Lưu Bình", 45000000);
-            series.Points.AddXY("Bình Lưu", 36000000);
-            series.Points.AddXY("Nguyễn Văn An", 25000000);
-            series.Points.AddXY("Trần Thị Hương", 24000000);
+            foreach (var kvp in _dictionary)
+            {
+                series.Points.AddXY(kvp.Key, kvp.Value);
+            }
 
             // Cấu hình legend text xuống dòng nếu tên quá dài
             foreach (var point in series.Points)
@@ -88,87 +248,34 @@ namespace GUI_QuanLy
                 string[] words = point.AxisLabel.Split(' ');
                 point.LegendText = string.Join("\n", words);
             }
-
         }
-        public GUI_BaoCaoDoanhSo()
+
+        private void txtNam_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (DateTime.Now.Month == 1)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private async void btnFind_Click(object sender, EventArgs e)
+        {
+            try
             {
-                thang = 12;
-                nam = DateTime.Now.Year - 1;
+                int thang = int.Parse(cbbThang.Text);
+                int nam = int.Parse(txtNam.Text);
+                await LoadChiTietBaoCaoDoanhSoAsync(thang, nam);
+                ShowCharBaoCao();
             }
-            else
+            catch (Exception ex)
             {
-                thang = DateTime.Now.Month - 1;
-                nam = DateTime.Now.Year;
+                _logger.LogCritical(ex, "Unhandled exception in form BaoCaoDoanhSo load");
+
+                MessageBox.Show(
+                    "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
-            InitializeComponent();
         }
-
-        public GUI_BaoCaoDoanhSo(int maBaoCaoDoanhSo)
-        {
-            if (DateTime.Now.Month == 1)
-            {
-                thang = 12;
-                nam = DateTime.Now.Year - 1;
-            }
-            else
-            {
-                thang = DateTime.Now.Month - 1;
-                nam = DateTime.Now.Year;
-            }
-
-            this.maBaoCaoDoanhSo = maBaoCaoDoanhSo;
-            InitializeComponent();
-        }
-
-        /*
-        private void GUI_BaoCaoDoanhSo_Load(object sender, EventArgs e)
-        {
-            LoadBaoCaoDoanhSo();
-        }
-
-        private void LoadBaoCaoDoanhSo()
-        {
-            if (!busBaoCaoDoanhSo.DaThemBaoCaoDoanhSo(thang, nam))
-            {
-                if (busBaoCaoDoanhSo.ThemBaoCaoDoanhSo(thang, nam, ref tongDoanhSo, ref maBaoCaoDoanhSo))
-                {
-                    if (busChiTietBaoCaoDoanhSo.ThemChiTietBaoCaoDoanhSo(maBaoCaoDoanhSo, thang, nam, tongDoanhSo))
-                    MessageBox.Show("Tạo báo cáo doanh số thành công!");
-                }
-                else
-                {
-                    MessageBox.Show("Tạo báo cáo doanh số thất bại!");
-                }
-            }
-
-            DataTable dt = busBaoCaoDoanhSo.GetBaoCaoDoanhSo();
-                dgvBaoCaoDoanhSo.DataSource = dt;
-        }
-        {
-            this.Close();
-        }
-
-        private void dgvBaoCaoDoanhSo_DoubleClick(object sender, EventArgs e)
-        {
-            GUI_ChiTietBaoCaoDoanhSo chiTietBaoCaoDoanhSo = new GUI_ChiTietBaoCaoDoanhSo(maBaoCaoDoanhSo);
-            chiTietBaoCaoDoanhSo.Show();
-        }
-
-        private void dgvBaoCaoDoanhSo_SelectionChanged(object sender, EventArgs e)
-        {
-                if (dgvBaoCaoDoanhSo.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow row = dgvBaoCaoDoanhSo.SelectedRows[0];
-                    maBaoCaoDoanhSo = Convert.ToInt32(row.Cells["MaBaoCaoDoanhSo"].Value);
-                    txtThang.Text = row.Cells["Thang"].Value.ToString();
-                    txtNam.Text = row.Cells["Nam"].Value.ToString();    
-                    txtTongDoanhSo.Text = row.Cells["TongDoanhSo"].Value.ToString();
-                }
-            
-        }
-        */
     }
 }
 

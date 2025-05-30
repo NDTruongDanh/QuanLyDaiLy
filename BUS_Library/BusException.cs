@@ -128,6 +128,7 @@ namespace BUS_Library
         public const int AddChiTietBaoCaoDoanhSoAutoFailure = 0909;
         public const int UpdateChiTietBaoCaoDoanhSoFailure = 0910;
         public const int DeleteChiTietBaoCaoDoanhSoFailure = 0911;
+        public const int GetDataTableChiTietBaoCaoDoanhSoByMaBaoCaoFailure = 0912;
 
 
         //Thamso

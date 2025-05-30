@@ -12,7 +12,7 @@ namespace BUS_QuanLy
     public interface IBUS_BaoCaoDoanhSo
     {
         Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoListAsync();
-        Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam);
+        Task<DTO_BaoCaoDoanhSo> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam);
         Task<bool> AddBaoCaoDoanhSoAsync(DTO_BaoCaoDoanhSo baoCao);
         Task<bool> AddBaoCaoDoanhSoByTimeAsync(int thang, int nam);
         Task<bool> AddBaoCaoDoanhSoAutoAsync(int thang, int nam);
@@ -76,7 +76,7 @@ namespace BUS_QuanLy
             int ErrorCode,
             string ErrorMessage,
             Exception ex);
-        public async Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam)
+        public async Task<DTO_BaoCaoDoanhSo> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam)
         {
             using (_logger.BeginScope("BUS_BaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync at {Time}", DateTime.UtcNow))
             {

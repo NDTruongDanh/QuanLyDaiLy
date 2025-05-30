@@ -10,7 +10,7 @@ namespace DAL_QuanLy
     public interface IDAL_BaoCaoDoanhSo
     {
         Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoListAsync();
-        Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam);
+        Task<DTO_BaoCaoDoanhSo> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam);
         Task<bool> AddBaoCaoDoanhSoAsync(DTO_BaoCaoDoanhSo baoCao);
         Task<bool> AddBaoCaoDoanhSoByTimeAsync(int thang, int nam);
         Task<bool> UpdateBaoCaoDoanhSoAsync(DTO_BaoCaoDoanhSo baoCao);
@@ -68,13 +68,13 @@ namespace DAL_QuanLy
         }
 
         //Get BaoCaoDoanhSo By Time
-        public async Task<List<DTO_BaoCaoDoanhSo>> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam)
+        public async Task<DTO_BaoCaoDoanhSo> GetBaoCaoDoanhSoByTimeAsync(int thang, int nam)
         {
             try
             {
-                var list = new List<DTO_BaoCaoDoanhSo>();
                 using (var conn = new SqlConnection(_connectionString))
                 {
+                    var baoCaoDoanhSo = new DTO_BaoCaoDoanhSo();
                     await conn.OpenAsync().ConfigureAwait(false);
                     using (var cmd = new SqlCommand($"SELECT * FROM BAOCAO_DOANHSO WHERE Thang = @Thang AND Nam = @Nam", conn))
                     {
@@ -90,18 +90,18 @@ namespace DAL_QuanLy
                                 int namIndex = reader.GetOrdinal("Nam");
                                 int tongDoanhSoIndex = reader.GetOrdinal("TongDoanhSo");
 
-                                list.Add(new DTO_BaoCaoDoanhSo
-                                {
-                                    MaBaoCaoDoanhSo = reader.GetInt32(maBaoCaoIndex),
-                                    Thang = reader.GetInt32(thangIndex),
-                                    Nam = reader.GetInt32(namIndex),
-                                    TongDoanhSo = reader.GetDecimal(tongDoanhSoIndex)
-                                });
+                                baoCaoDoanhSo =  new DTO_BaoCaoDoanhSo
+                                                {
+                                                    MaBaoCaoDoanhSo = reader.GetInt32(maBaoCaoIndex),
+                                                    Thang = reader.GetByte(thangIndex),
+                                                    Nam = reader.GetInt32(namIndex),
+                                                    TongDoanhSo = reader.GetDecimal(tongDoanhSoIndex)
+                                                };
                             }
                         }
                     }
+                    return baoCaoDoanhSo;
                 }
-                return list;
             }
             catch (SqlException sqlEx)
             {

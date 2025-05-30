@@ -23,12 +23,7 @@ namespace GUI_QuanLy
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblThongKeDoanhThu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.DataGridView dgvBangTongKet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtDaiLy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtSoPhieuXuat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtTongTriGia;
-        private ProgressBarColumn progressCol;
+        private System.Windows.Forms.DataGridView dgvChiTietBaoCaoDoanhSo;
         private Chart pcThongKeDoanhSo;
 
         protected override void Dispose(bool disposing)
@@ -96,10 +91,9 @@ namespace GUI_QuanLy
             Series series1 = new Series();
             Title title1 = new Title();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnHeader = new Panel();
+            txtNam = new TextBox();
             btnFind = new Button();
-            cbbYear = new ComboBox();
             cbbThang = new ComboBox();
             btnXuatFile = new Button();
             lblBaoCao = new Label();
@@ -117,12 +111,7 @@ namespace GUI_QuanLy
             pcThongKeDoanhSo = new Chart();
             panel1 = new Panel();
             lblThongKeDoanhThu = new Label();
-            dgvBangTongKet = new DataGridView();
-            txtSTT = new DataGridViewTextBoxColumn();
-            txtDaiLy = new DataGridViewTextBoxColumn();
-            txtSoPhieuXuat = new DataGridViewTextBoxColumn();
-            txtTongTriGia = new DataGridViewTextBoxColumn();
-            progressCol = new ProgressBarColumn();
+            dgvChiTietBaoCaoDoanhSo = new DataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -132,13 +121,13 @@ namespace GUI_QuanLy
             fplThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBangTongKet).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChiTietBaoCaoDoanhSo).BeginInit();
             SuspendLayout();
             // 
             // pnHeader
             // 
+            pnHeader.Controls.Add(txtNam);
             pnHeader.Controls.Add(btnFind);
-            pnHeader.Controls.Add(cbbYear);
             pnHeader.Controls.Add(cbbThang);
             pnHeader.Controls.Add(btnXuatFile);
             pnHeader.Controls.Add(lblBaoCao);
@@ -149,6 +138,16 @@ namespace GUI_QuanLy
             pnHeader.Padding = new Padding(10, 12, 10, 12);
             pnHeader.Size = new Size(1539, 88);
             pnHeader.TabIndex = 0;
+            // 
+            // txtNam
+            // 
+            txtNam.Font = new Font("Segoe UI", 12F);
+            txtNam.Location = new Point(1059, 27);
+            txtNam.Name = "txtNam";
+            txtNam.Size = new Size(106, 34);
+            txtNam.TabIndex = 25;
+            txtNam.Text = "Năm";
+            txtNam.KeyPress += txtNam_KeyPress;
             // 
             // btnFind
             // 
@@ -163,25 +162,14 @@ namespace GUI_QuanLy
             btnFind.TabIndex = 24;
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
-            // 
-            // cbbYear
-            // 
-            cbbYear.FlatStyle = FlatStyle.Popup;
-            cbbYear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbbYear.FormattingEnabled = true;
-            cbbYear.Location = new Point(1066, 24);
-            cbbYear.Margin = new Padding(10, 12, 20, 12);
-            cbbYear.Name = "cbbYear";
-            cbbYear.Size = new Size(106, 36);
-            cbbYear.TabIndex = 4;
-            cbbYear.Tag = "";
-            cbbYear.Text = "Năm";
+            btnFind.Click += btnFind_Click;
             // 
             // cbbThang
             // 
             cbbThang.FlatStyle = FlatStyle.Popup;
             cbbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbThang.FormattingEnabled = true;
+            cbbThang.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
             cbbThang.Location = new Point(930, 27);
             cbbThang.Margin = new Padding(10, 12, 20, 12);
             cbbThang.Name = "cbbThang";
@@ -341,7 +329,7 @@ namespace GUI_QuanLy
             // 
             fplThongKe.Controls.Add(pcThongKeDoanhSo);
             fplThongKe.Controls.Add(panel1);
-            fplThongKe.Controls.Add(dgvBangTongKet);
+            fplThongKe.Controls.Add(dgvChiTietBaoCaoDoanhSo);
             fplThongKe.Location = new Point(3, 222);
             fplThongKe.Margin = new Padding(5);
             fplThongKe.Name = "fplThongKe";
@@ -383,7 +371,6 @@ namespace GUI_QuanLy
             title1.Name = "Title1";
             title1.Text = "Doanh số của đại lý";
             pcThongKeDoanhSo.Titles.Add(title1);
-            pcThongKeDoanhSo.Click += pcThongKeDoanhSo_Click;
             // 
             // panel1
             // 
@@ -408,17 +395,17 @@ namespace GUI_QuanLy
             lblThongKeDoanhThu.TabIndex = 0;
             lblThongKeDoanhThu.Text = "Thống kê doanh thu";
             // 
-            // dgvBangTongKet
+            // dgvChiTietBaoCaoDoanhSo
             // 
-            dgvBangTongKet.AllowUserToAddRows = false;
-            dgvBangTongKet.AllowUserToDeleteRows = false;
-            dgvBangTongKet.AllowUserToResizeColumns = false;
-            dgvBangTongKet.AllowUserToResizeRows = false;
-            dgvBangTongKet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvBangTongKet.BackgroundColor = Color.White;
-            dgvBangTongKet.BorderStyle = BorderStyle.None;
-            dgvBangTongKet.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvBangTongKet.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvChiTietBaoCaoDoanhSo.AllowUserToAddRows = false;
+            dgvChiTietBaoCaoDoanhSo.AllowUserToDeleteRows = false;
+            dgvChiTietBaoCaoDoanhSo.AllowUserToResizeColumns = false;
+            dgvChiTietBaoCaoDoanhSo.AllowUserToResizeRows = false;
+            dgvChiTietBaoCaoDoanhSo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvChiTietBaoCaoDoanhSo.BackgroundColor = Color.White;
+            dgvChiTietBaoCaoDoanhSo.BorderStyle = BorderStyle.None;
+            dgvChiTietBaoCaoDoanhSo.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvChiTietBaoCaoDoanhSo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -426,56 +413,17 @@ namespace GUI_QuanLy
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBangTongKet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvBangTongKet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBangTongKet.Columns.AddRange(new DataGridViewColumn[] { txtSTT, txtDaiLy, txtSoPhieuXuat, txtTongTriGia, progressCol });
-            dgvBangTongKet.Location = new Point(476, 15);
-            dgvBangTongKet.Margin = new Padding(10);
-            dgvBangTongKet.Name = "dgvBangTongKet";
-            dgvBangTongKet.ReadOnly = true;
-            dgvBangTongKet.RowHeadersVisible = false;
-            dgvBangTongKet.RowHeadersWidth = 51;
-            dgvBangTongKet.RowTemplate.Height = 24;
-            dgvBangTongKet.Size = new Size(1180, 595);
-            dgvBangTongKet.TabIndex = 6;
-            dgvBangTongKet.Click += dgvBangTongKet_Click;
-            // 
-            // txtSTT
-            // 
-            txtSTT.HeaderText = "STT";
-            txtSTT.MinimumWidth = 6;
-            txtSTT.Name = "txtSTT";
-            txtSTT.ReadOnly = true;
-            // 
-            // txtDaiLy
-            // 
-            txtDaiLy.HeaderText = "Đại Lý";
-            txtDaiLy.MinimumWidth = 6;
-            txtDaiLy.Name = "txtDaiLy";
-            txtDaiLy.ReadOnly = true;
-            // 
-            // txtSoPhieuXuat
-            // 
-            txtSoPhieuXuat.HeaderText = "Số phiếu xuất";
-            txtSoPhieuXuat.MinimumWidth = 6;
-            txtSoPhieuXuat.Name = "txtSoPhieuXuat";
-            txtSoPhieuXuat.ReadOnly = true;
-            // 
-            // txtTongTriGia
-            // 
-            txtTongTriGia.HeaderText = "Tổng trị giá";
-            txtTongTriGia.MinimumWidth = 6;
-            txtTongTriGia.Name = "txtTongTriGia";
-            txtTongTriGia.ReadOnly = true;
-            // 
-            // progressCol
-            // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            progressCol.DefaultCellStyle = dataGridViewCellStyle2;
-            progressCol.HeaderText = "Tỷ Lệ";
-            progressCol.MinimumWidth = 6;
-            progressCol.Name = "progressCol";
-            progressCol.ReadOnly = true;
+            dgvChiTietBaoCaoDoanhSo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvChiTietBaoCaoDoanhSo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvChiTietBaoCaoDoanhSo.Location = new Point(476, 15);
+            dgvChiTietBaoCaoDoanhSo.Margin = new Padding(10);
+            dgvChiTietBaoCaoDoanhSo.Name = "dgvChiTietBaoCaoDoanhSo";
+            dgvChiTietBaoCaoDoanhSo.ReadOnly = true;
+            dgvChiTietBaoCaoDoanhSo.RowHeadersVisible = false;
+            dgvChiTietBaoCaoDoanhSo.RowHeadersWidth = 51;
+            dgvChiTietBaoCaoDoanhSo.RowTemplate.Height = 24;
+            dgvChiTietBaoCaoDoanhSo.Size = new Size(1180, 595);
+            dgvChiTietBaoCaoDoanhSo.TabIndex = 6;
             // 
             // flowLayoutPanel1
             // 
@@ -499,6 +447,7 @@ namespace GUI_QuanLy
             Margin = new Padding(4, 5, 4, 5);
             Name = "GUI_BaoCaoDoanhSo";
             Text = "Quản Lý Báo Cáo Doanh Số";
+            Load += GUI_BaoCaoDoanhSo_Load;
             pnHeader.ResumeLayout(false);
             pnHeader.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -513,12 +462,12 @@ namespace GUI_QuanLy
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBangTongKet).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChiTietBaoCaoDoanhSo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private ComboBox cbbYear;
         private Button btnFind;
+        private TextBox txtNam;
     }
 }

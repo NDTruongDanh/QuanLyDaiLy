@@ -10,6 +10,7 @@ namespace DAL_QuanLy
     {
         Task<List<DTO_ChiTietBaoCaoDoanhSo>> GetChiTietBaoCaoDoanhSoListAsync();
         Task<List<DTO_ChiTietBaoCaoDoanhSo>> GetChiTietBaoCaoDoanhSoByMaBaoCaoListAsync(int maBaoCaoDoanhSo);
+        Task<DataTable> GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(int maBaoCaoDoanhSo);
         Task<bool> AddChiTietBaoCaoDoanhSoAsync(DTO_ChiTietBaoCaoDoanhSo chiTietBaoCao);
         Task<bool> AddChiTietBaoCaoDoanhSoAuToAsync(DTO_BaoCaoDoanhSo baoCaoDoanhSo);
         Task<bool> UpdateChiTietBaoCaoDoanhSoAsync(DTO_ChiTietBaoCaoDoanhSo chiTietBaoCao);
@@ -49,7 +50,7 @@ namespace DAL_QuanLy
                                     MaDaiLy = reader.GetInt32(maDaiLyIndex),
                                     SoLuongPhieuXuat = reader.GetInt32(soLuongPhieuXuatIndex),
                                     TongTriGia = reader.GetDecimal(tongTriGiaIndex),
-                                    TyLe = reader.GetDecimal(tiLeIndex)
+                                    TyLe = reader.GetDouble(tiLeIndex)
                                 });
                             }
                         }
@@ -93,7 +94,7 @@ namespace DAL_QuanLy
                                     MaDaiLy = reader.GetInt32(maDaiLyIndex),
                                     SoLuongPhieuXuat = reader.GetInt32(soLuongPhieuXuatIndex),
                                     TongTriGia = reader.GetDecimal(tongTriGiaIndex),
-                                    TyLe = reader.GetDecimal(tiLeIndex)
+                                    TyLe = (float)reader.GetDecimal(tiLeIndex)
                                 });
                             }
                         }
@@ -109,6 +110,40 @@ namespace DAL_QuanLy
                     sqlEx.Number);
             }
         }
+
+
+        //Get DataTable ChiTietBaoCaoDoanhSo By MaBaoCao
+        public async Task<DataTable> GetDataTableChiTietBaoCaoDoanhSoListByMaBaoCaoAsync(int maBaoCaoDoanhSo)
+        {
+            try
+            {
+                var dataTable = new DataTable();
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"SELECT MaBaoCaoDoanhSo, ct.MaDaiLy, TenDaiLy, SoLuongPhieuXuat, TongTriGia, TiLe
+                                                    FROM CHITIET_BAOCAODOANHSO ct
+                                                    JOIN DAILY dl ON ct.MaDaiLy = dl.MaDaiLy
+                                                    WHERE MaBaoCaoDoanhSo = @MaBaoCaoDoanhSo", conn))
+                    {
+                        cmd.Parameters.Add("@MaBaoCaoDoanhSo", SqlDbType.Int).Value = maBaoCaoDoanhSo;
+
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false)) { 
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching DataTable ChiTietBaoCaoDoanhSo by Ma Bao Cao: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
 
 
         //Add ChiTietBaoCaoDoanhSo
@@ -246,12 +281,11 @@ namespace DAL_QuanLy
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
                     using (var cmd = new SqlCommand(@"SELECT CASE WHEN EXISTS(
-                                                        SELECT 1 FROM BAOCAO_DOANHSO 
-                                                        WHERE Thang = @Thang AND Nam = @Nam
+                                                        SELECT 1 FROM CHITIET_BAOCAODOANHSO 
+                                                        WHERE MaBaoCaoDoanhSo = @MaBaoCaoDoanhSo
                                                     ) THEN 1 ELSE 0 END;", conn))
                     {
-                        cmd.Parameters.Add("@Thang", SqlDbType.Int).Value = baoCaoDoanhSo.Thang;
-                        cmd.Parameters.Add("@Nam", SqlDbType.Int).Value = baoCaoDoanhSo.Nam;
+                        cmd.Parameters.Add("@MaBaoCaoDoanhSo", SqlDbType.Int).Value = baoCaoDoanhSo.MaBaoCaoDoanhSo;
 
                         object? result = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
                         if (result == null || result == DBNull.Value)
