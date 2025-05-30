@@ -85,7 +85,6 @@ namespace GUI_QuanLy
 
         private void InitializeComponent()
         {
-            ChartArea chartArea1 = new ChartArea();
             Legend legend1 = new Legend();
             Series series1 = new Series();
             Title title1 = new Title();
@@ -337,18 +336,11 @@ namespace GUI_QuanLy
             // 
             // pcThongKeCongNo
             // 
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Angle = -30;
-            chartArea1.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chartArea1.AxisY.LabelStyle.Format = "{0:N0}đ";
-            chartArea1.Name = "ChartArea1";
-            pcThongKeCongNo.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             pcThongKeCongNo.Legends.Add(legend1);
             pcThongKeCongNo.Location = new Point(7, 8);
             pcThongKeCongNo.Name = "pcThongKeCongNo";
-            series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series2";
             pcThongKeCongNo.Series.Add(series1);
