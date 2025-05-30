@@ -33,7 +33,7 @@ namespace GUI_QuanLy
 
         private readonly BindingSource _bindingSource = new BindingSource();
 
-        private int _maDaiLy = 0;
+        private DTO_DaiLy _daiLy = new DTO_DaiLy();
 
         public GUI_DaiLy(IBUS_LoaiDaiLy busLoai, IBUS_Quan busQuan, IBUS_DaiLy busDaiLy, IBUS_PhieuThu busPhieuThu, IServiceProvider services, ILogger<GUI_DaiLy> logger)
         {
@@ -286,7 +286,7 @@ namespace GUI_QuanLy
                         DateTime ngayTiepNhan = dtpNgayTiepNhan.Value;
                         decimal tongNo = Convert.ToDecimal(dgvDaiLy.SelectedRows[0].Cells["TongNo"].Value);
 
-                        DTO_DaiLy daiLy = new DTO_DaiLy(_maDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
+                        DTO_DaiLy daiLy = new DTO_DaiLy(_daiLy.MaDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
                         if (await _busDaiLy.UpdateDaiLyAsync(daiLy))
                         {
                             MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -397,7 +397,7 @@ namespace GUI_QuanLy
                 try
                 {
                     DataGridViewRow row = dgvDaiLy.SelectedRows[0];
-                    _maDaiLy = Convert.ToInt32(row.Cells["MaDaiLy"]?.Value);
+                    _daiLy.MaDaiLy = Convert.ToInt32(row.Cells["MaDaiLy"]?.Value);
                     txtTenDaiLy.Text = row.Cells["TenDaiLy"].Value?.ToString();
                     txtSDT.Text = row.Cells["SDT"].Value?.ToString();
                     txtEmail.Text = row.Cells["Email"].Value?.ToString();
@@ -430,14 +430,24 @@ namespace GUI_QuanLy
         {
             try
             {
-                // Resolve từ container, truyền _maDaiLy qua phương thức
-                var phieuThu = _services.GetRequiredService<GUI_PhieuThu>();
-                DTO_DaiLy curDaiLy = await _busDaiLy.GetDaiLyByMaAsync(_maDaiLy);
-                phieuThu.SetDaiLy(curDaiLy);
+                string tenDaiLy = txtTenDaiLy.Text.Trim();
+                string sdt = txtSDT.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string diaChi = txtDiaChi.Text.Trim();
+                int maLoaiDaiLy = Convert.ToInt32(cboLoaiDaiLy.SelectedValue);
+                int maQuan = Convert.ToInt32(cboQuan.SelectedValue);
+                DateTime ngayTiepNhan = dtpNgayTiepNhan.Value;
+                decimal tongNo = Convert.ToDecimal(dgvDaiLy.SelectedRows[0].Cells["TongNo"].Value);
 
-                this.Enabled = false;
-                phieuThu.ShowDialog();
-                this.Enabled = true;
+                DTO_DaiLy daiLy = new DTO_DaiLy(_daiLy.MaDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
+                using (var phieuThu = _services.GetRequiredService<GUI_PhieuThu>())
+                {
+                    this.Enabled = false;
+                    phieuThu.SetDaiLy(daiLy);
+                    phieuThu.ShowDialog();
+                    this.Enabled = true;
+                }
+
                 await LoadDaiLyAsync();
             }
             catch (Exception ex)
@@ -462,7 +472,7 @@ namespace GUI_QuanLy
                 DateTime ngayTiepNhan = dtpNgayTiepNhan.Value;
                 decimal tongNo = Convert.ToDecimal(dgvDaiLy.SelectedRows[0].Cells["TongNo"].Value);
 
-                DTO_DaiLy daiLy = new DTO_DaiLy(_maDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
+                DTO_DaiLy daiLy = new DTO_DaiLy(_daiLy.MaDaiLy, tenDaiLy, maLoaiDaiLy, sdt, email, diaChi, maQuan, ngayTiepNhan, tongNo);
 
 
                 using (var phieuXuat = _services.GetRequiredService<GUI_PhieuXuat>())

@@ -286,15 +286,29 @@ namespace GUI_QuanLy
                             phieuXuat = CTPX.GetPhieuXuat();
                             this.Enabled = true;
                         }
-
-                        if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+                        if (phieuXuat.TongTien != 0)
                         {
-                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            await LoadDataGridViewAsync();
+                            if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+                            {
+                                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                await LoadDataGridViewAsync();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            if (await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat))
+                            {
+                                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                await LoadDataGridViewAsync();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
                     catch (BusException busEx)
