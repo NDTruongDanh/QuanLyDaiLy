@@ -46,6 +46,9 @@ namespace GUI_QuanLy
             try
             {
                 await LoadBaoCaoCongNoAsync(_prevMonth, _prevYear);
+
+                cmbThang.SelectedIndex = _prevMonth - 1; // Tháng 1 là index 0
+                txtNam.Text = _prevYear.ToString();
             }
             catch (Exception ex)
             {
@@ -164,7 +167,10 @@ namespace GUI_QuanLy
         {
             try
             {
-                await LoadBaoCaoCongNoAsync(_prevMonth, _prevYear);
+                int thang = cmbThang.SelectedIndex + 1; // Tháng 1 là index 0
+                int nam = int.Parse(txtNam.Text);
+
+                await LoadBaoCaoCongNoAsync(thang, nam);
             }
             catch(Exception ex)
             {

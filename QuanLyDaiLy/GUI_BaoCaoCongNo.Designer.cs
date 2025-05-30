@@ -166,6 +166,7 @@ namespace GUI_QuanLy
             cmbThang.FlatStyle = FlatStyle.Popup;
             cmbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbThang.FormattingEnabled = true;
+            cmbThang.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
             cmbThang.Location = new Point(980, 24);
             cmbThang.Margin = new Padding(10, 12, 20, 12);
             cmbThang.Name = "cmbThang";

@@ -260,7 +260,7 @@ namespace GUI_QuanLy
         {
             try
             {
-                int thang = int.Parse(cbbThang.Text);
+                int thang = cbbThang.SelectedIndex + 1;
                 int nam = int.Parse(txtNam.Text);
                 await LoadChiTietBaoCaoDoanhSoAsync(thang, nam);
                 ShowCharBaoCao();
