@@ -98,6 +98,8 @@ namespace BUS_Library
         public const int AddPhieuThuFailure = 0703;
         public const int UpdatePhieuThuFailure = 0704;
         public const int DeletePhieuThuFailure = 0705;
+        public const int GetDataTablePhieuThuListFailure = 0706;
+        public const int GetDataTablePhieuThuByMaDLFailure = 0707;
 
         //BaoCaoCongNo
         public const int GetAllBaoCaoCongNoListFailure = 0801;

@@ -10,6 +10,8 @@ namespace BUS_QuanLy
     public interface IBUS_PhieuThu
     {
         Task<List<DTO_PhieuThu>> GetPhieuThuListAsync();
+        Task<DataTable> GetDataTablePhieuThuListAsync();
+        Task<DataTable> GetDaTaTablePhieuThuByMaDLAsync(int maDaiLy);
         Task<List<DTO_PhieuThu>> GetPhieuThuCuaDaiLyListAsync(int maDaiLy);
         Task<bool> AddPhieuThuAsync(DTO_PhieuThu phieuThu);
         Task<bool> UpdatePhieuThuAsync(DTO_PhieuThu phieuThu);
@@ -59,6 +61,76 @@ namespace BUS_QuanLy
                 }
             }
         }
+
+        //Get DataTable PhieuThu List
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTablePhieuThuListFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTablePhieuThuListAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTablePhieuThuListFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTablePhieuThuListAsync()
+        {
+            using (_logger.BeginScope("BUS_PhieuThu.GetDataTablePhieuThuListAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuThu.GetDataTablePhieuThuListAsync();
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTablePhieuThuListFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách phiếu thu! Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
+
+        //Get DataTable PhieuThu by MaDaiLy
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTablePhieuThuByMaDLFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDaTaTablePhieuThuByMaDLAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTablePhieuThuByMaDLFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDaTaTablePhieuThuByMaDLAsync(int maDaiLy)
+        {
+            using (_logger.BeginScope("BUS_PhieuThu.GetDaTaTablePhieuThuByMaDLAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalPhieuThu.GetDaTaTablePhieuThuByMaDLAsync(maDaiLy);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTablePhieuThuByMaDLFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được danh sách phiếu thu của đại lý! Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
 
 
         //Get PhieuThu DaiLy List

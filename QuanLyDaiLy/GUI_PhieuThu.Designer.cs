@@ -26,21 +26,15 @@
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
             dgvPhieuThu = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
-            button1 = new Button();
+            btnRefresh = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            cboLoaiDaiLy = new ComboBox();
+            cmbDaiLy = new ComboBox();
             txtSoTienThu = new TextBox();
             lblTenDaiLy = new Label();
             lblThongTinPhieuThu = new Label();
@@ -134,7 +128,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhieuThu.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
@@ -163,42 +156,6 @@
             dgvPhieuThu.TabIndex = 14;
             dgvPhieuThu.SelectionChanged += dgvPhieuThu_SelectionChanged;
             // 
-            // Column1
-            // 
-            Column1.HeaderText = "Tên Đại Lý";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Địa Chỉ";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Điện Thoại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Email";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Ngày Thu Tiền";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Số Tiền Thu";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
@@ -222,7 +179,7 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(btnRefresh);
             flowLayoutPanel1.Location = new Point(809, 220);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(774, 52);
@@ -241,6 +198,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -255,6 +213,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -269,6 +228,7 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnFind
             // 
@@ -284,18 +244,19 @@
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnRefresh
             // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(33, 150, 243);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(613, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(158, 44);
-            button1.TabIndex = 24;
-            button1.Text = "🔍 Làm mới";
-            button1.UseVisualStyleBackColor = false;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Location = new Point(613, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(158, 44);
+            btnRefresh.TabIndex = 24;
+            btnRefresh.Text = "🔍 Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -303,7 +264,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(cboLoaiDaiLy, 1, 0);
+            tableLayoutPanel1.Controls.Add(cmbDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(txtSoTienThu, 1, 10);
             tableLayoutPanel1.Controls.Add(lblSoTienThu, 0, 10);
             tableLayoutPanel1.Controls.Add(dtpNgayThuTien, 1, 9);
@@ -326,15 +287,15 @@
             tableLayoutPanel1.Size = new Size(1564, 148);
             tableLayoutPanel1.TabIndex = 19;
             // 
-            // cboLoaiDaiLy
+            // cmbDaiLy
             // 
-            cboLoaiDaiLy.Dock = DockStyle.Fill;
-            cboLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            cboLoaiDaiLy.FormattingEnabled = true;
-            cboLoaiDaiLy.Location = new Point(150, 3);
-            cboLoaiDaiLy.Name = "cboLoaiDaiLy";
-            cboLoaiDaiLy.Size = new Size(1411, 36);
-            cboLoaiDaiLy.TabIndex = 12;
+            cmbDaiLy.Dock = DockStyle.Fill;
+            cmbDaiLy.Font = new Font("Segoe UI", 12F);
+            cmbDaiLy.FormattingEnabled = true;
+            cmbDaiLy.Location = new Point(150, 3);
+            cmbDaiLy.Name = "cmbDaiLy";
+            cmbDaiLy.Size = new Size(1411, 36);
+            cmbDaiLy.TabIndex = 12;
             // 
             // txtSoTienThu
             // 
@@ -422,19 +383,13 @@
         private Label lblThongTinPhieuThu;
         private Label label4;
         private TableLayoutPanel tableLayoutPanel2;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
         private TextBox txtSoTienThu;
-        private ComboBox cboLoaiDaiLy;
+        private ComboBox cmbDaiLy;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
-        private Button button1;
+        private Button btnRefresh;
     }
 }
