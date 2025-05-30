@@ -37,6 +37,7 @@ namespace BUS_Library
         public const int UpdateDaiLySauXuatHangFailure = 0204;
         public const int DeleteDaiLyFailure = 0205;
         public const int FindDaiLyFailure = 0208;
+        public const int GetDataTableDaiLyByMaFailure = 0209;
 
         //DonViTinh
         public const int GetDonViTinhListFailure = 0301;

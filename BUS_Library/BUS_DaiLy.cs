@@ -13,6 +13,7 @@ namespace BUS_QuanLy
         Task<List<DTO_DaiLy>> GetDTODaiLyListAsync();
         Task<DataTable> GetDataTableDaiLyListAsync();
         Task<DTO_DaiLy> GetDaiLyByMaAsync(int maDaiLy);
+        Task<DataTable> GetDataTableDaiLyByMaAsync(int maDaiLy);
         Task<bool> AddDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateTongNoSauKhiXuatHangAsync(int maDaiLy, decimal conLai);
@@ -138,6 +139,42 @@ namespace BUS_QuanLy
                 }
             }
         }
+
+
+        //Get DataTable DaiLy by MaDaiLy
+        // Source-generated high-performance log for DAL failures
+        [LoggerMessage(
+            EventId = MyLogEvents.GetDataTableDaiLyByMaFailure,
+            Level = LogLevel.Error,
+            Message = "DAL failure in GetDataTableDaiLyByMaAsync (Code={ErrorCode}): {ErrorMessage}")]
+        static partial void LogDalGetDataTableDaiLyByMaFailure(
+            ILogger logger,
+            int ErrorCode,
+            string ErrorMessage,
+            Exception ex);
+        public async Task<DataTable> GetDataTableDaiLyByMaAsync(int maDaiLy)
+        {
+            using (_logger.BeginScope("BUS_DaiLy.GetDataTableDaiLyByMaAsync at {Time}", DateTime.UtcNow))
+            {
+                try
+                {
+                    return await _dalDaiLy.GetDataTableDaiLyByMaAsync(maDaiLy);
+                }
+                catch (DalException dalEx)
+                {
+                    LogDalGetDataTableDaiLyByMaFailure(
+                        _logger,
+                        dalEx.ErrorCode,
+                        dalEx.Message,
+                        dalEx);
+                    // user-friendly message
+                    throw new BusException(
+                        "Không tải được thông tin đại lý. Vui lòng thử lại sau.",
+                        dalEx);
+                }
+            }
+        }
+
 
 
 

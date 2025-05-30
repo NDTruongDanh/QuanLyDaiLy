@@ -22,23 +22,27 @@ namespace GUI_QuanLy
         private readonly IBUS_ThamSo _busThamSo;
         private readonly IBUS_LoaiDaiLy _busLoaiDaiLy;
         private readonly IBUS_DonViTinh _busDonViTinh;
+        private readonly IBUS_Quan _busQuan;
         private readonly ILogger<Settings> _logger;
         private readonly BindingSource _bindingSourceLDL = new BindingSource();
         private readonly BindingSource _bindingSourceDVT = new BindingSource();
+        private readonly BindingSource _bindingSourceQuan = new BindingSource();
 
 
 
 
         private DTO_ThamSo _thamSo;
-        public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, ILogger<Settings> logger)
+        public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, IBUS_Quan busQuan, ILogger<Settings> logger)
         {
             _busThamSo = busThamSo;
             _busLoaiDaiLy = busLoaiDaiLy;
             _busDonViTinh = busDonViTinh;
+            _busQuan = busQuan;
             _logger = logger;
             InitializeComponent();
             dgvLoaiDaiLy.DataSource = _bindingSourceLDL;
             dgvDVT.DataSource = _bindingSourceDVT;
+            dgvQuan.DataSource = _bindingSourceQuan;
         }
 
         private async void Settings_Load(object sender, EventArgs e)
@@ -50,6 +54,7 @@ namespace GUI_QuanLy
                 await LoadThamSoAsync();
                 await LoadLoaiDaiLyAsync();
                 await LoadDonViTinhAsync();
+                await LoadQuanAsync();
             }
             catch (Exception ex)
             {
@@ -170,6 +175,43 @@ namespace GUI_QuanLy
                 dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
+
+
+        private async Task LoadQuanAsync()
+        {
+            try
+            {
+                var data = await _busQuan.GetQuanListAsync();
+                _bindingSourceQuan.DataSource = data;
+
+                ModifyDataGridViewColumnsQuan();
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading grid Quan: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+        private void ModifyDataGridViewColumnsQuan()
+        {
+            dgvQuan.Columns["MaQuan"].Visible = false;
+            dgvQuan.Columns["TenQuan"].HeaderText = "Tên Quận";
+
+            foreach (DataGridViewColumn dataColumn in dgvQuan.Columns)
+            {
+                dataColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
