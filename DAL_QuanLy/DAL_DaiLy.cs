@@ -13,6 +13,7 @@ namespace DAL_QuanLy
         Task<List<DTO_DaiLy>> GetDTODaiLyListAsync();
         Task<DataTable> GetDataTableDaiLyListAsync();
         Task<DTO_DaiLy> GetDaiLyByMaAsync(int maDaiLy);
+        Task<DataTable> GetDataTableDaiLyByMaAsync(int maDaiLy);
         Task<bool> AddDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateDaiLyAsync(DTO_DaiLy daiLy);
         Task<bool> UpdateTongNoSauKhiXuatHangAsync(int maDaiLy, decimal conLai);
@@ -87,11 +88,14 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using(var adapter = new SqlDataAdapter(@"SELECT d.MaDaiLy, TenDaiLy, TenLoaiDaiLy, SDT, Email, DiaChi, TenQuan, NgayTiepNhan, TongNo 
+                    using(var cmd = new SqlCommand(@"SELECT d.MaDaiLy, TenDaiLy, TenLoaiDaiLy, SDT, Email, DiaChi, TenQuan, NgayTiepNhan, TongNo 
                                                         FROM DAILY d 
                                                         JOIN LOAIDAILY l ON d.MaLoaiDaiLy = l.MaLoaiDaiLy
                                                         JOIN QUAN q ON q.MaQuan = d.MaQuan", conn)){
-                        adapter.Fill(dataTable);
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
                         return dataTable;
                     }
                 }
@@ -157,6 +161,36 @@ namespace DAL_QuanLy
             {
                 throw new DalException(
                     $"DAL error fetching DaiLy by ID: {sqlEx.Message}",
+                    sqlEx,
+                    sqlEx.Number);
+            }
+        }
+
+        // Lấy Đại lý (DataTable) theo mã
+        public async Task<DataTable> GetDataTableDaiLyByMaAsync(int maDaiLy)
+        {
+            try
+            {
+                var dataTable = new DataTable();
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand("SELECT MaDaiLy, TenDaiLy, MaLoaiDaiLy, SDT, Email, DiaChi, MaQuan, NgayTiepNhan, TongNo FROM DAILY WHERE MaDaiLy = @MaDaiLy", conn))
+                    {
+                        cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = maDaiLy;
+
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                        return dataTable;
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException(
+                    $"DAL error fetching DaiLy by ID (DataTable): {sqlEx.Message}",
                     sqlEx,
                     sqlEx.Number);
             }

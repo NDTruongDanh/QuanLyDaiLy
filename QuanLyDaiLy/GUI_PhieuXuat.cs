@@ -63,7 +63,7 @@ namespace GUI_QuanLy
         {
             try
             {
-                
+
                 await LoadComboBoxDaiLyAsync();
                 await LoadDataGridViewAsync();
             }
@@ -83,25 +83,28 @@ namespace GUI_QuanLy
 
         private async Task LoadComboBoxDaiLyAsync()
         {
+            if (_daiLy.MaDaiLy == 0)
+            {
+                await LoadDaiLyListAsync();
+            }
+            else
+                await LoadDaiLyAsync(_daiLy.MaDaiLy);
+        }
+
+
+        private async Task LoadDaiLyAsync(int maDaiLy)
+        {
             try
             {
-                if (_daiLy.MaDaiLy == 0)
-                {
-                    var data = await _busDaiLy.GetDTODaiLyListAsync();
-                    cmbDaiLy.DataSource = data;
-                }
-                else
-                {
-                    var data = await _busDaiLy.GetDaiLyByMaAsync(_daiLy.MaDaiLy);
-                    cmbDaiLy.DataSource = data;
-                }
+                var data = await _busDaiLy.GetDataTableDaiLyByMaAsync(_daiLy.MaDaiLy);
+                cmbDaiLy.DataSource = data;
                 cmbDaiLy.DisplayMember = "TenDaiLy";
                 cmbDaiLy.ValueMember = "MaDaiLy";
             }
             catch (BusException busEx)
             {
                 _logger.LogWarning(busEx,
-                    "Business error loading combo box DaiLy: {Message}",
+                    "Business error loading DaiLy: {Message}",
                     busEx.Message);
 
                 MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
@@ -110,6 +113,29 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Warning);
             }
         }
+
+
+        private async Task LoadDaiLyListAsync()
+        {
+            try
+            {
+                var data = await _busDaiLy.GetDTODaiLyListAsync();
+                cmbDaiLy.DataSource = data;
+                cmbDaiLy.DisplayMember = "TenDaiLy";
+                cmbDaiLy.ValueMember = "MaDaiLy";
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogWarning(busEx,
+                    "Business error loading DaiLy list: {Message}",
+                    busEx.Message);
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        } 
 
         private async Task LoadDataGridViewAsync()
         {
@@ -152,6 +178,11 @@ namespace GUI_QuanLy
             dgvPhieuXuat.Columns["TienTra"].HeaderText = "Tiền Trả";
             dgvPhieuXuat.Columns["ConLai"].HeaderText = "Còn Lại";
             dgvPhieuXuat.Columns["MaDaiLy"].Visible = false;
+
+            if (_daiLy.MaDaiLy != 0)
+            {
+                dgvPhieuXuat.Columns["TenDaiLy"].Visible = false;
+            }
 
             foreach (DataGridViewColumn dataColumn in dgvPhieuXuat.Columns)
             {
