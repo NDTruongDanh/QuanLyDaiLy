@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using BUS_Library;
 using BUS_QuanLy;
 using Microsoft.Extensions.Logging;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace GUI_QuanLy
 {
@@ -74,6 +76,8 @@ namespace GUI_QuanLy
                 var dataTable = await _busBaoCaoCongNo.GetDataTableBaoCaoCongNoAsync(thang, nam);
                 _bindingSource.DataSource = dataTable;
                 ModifyDataGridViewColumns();
+
+                LoadBarChartFromDataGridView();
             }
             catch (BusException busEx)
             {
@@ -145,24 +149,6 @@ namespace GUI_QuanLy
         }
 
 
-        private void LoadDataColChart()
-        {
-            var series = pcThongKeCongNo.Series["Series2"];
-            series.Points.Clear();
-
-
-
-            // Màu custom (giống ảnh)
-            Color[] colors = { Color.DodgerBlue };
-            int i = 0;
-            foreach (var item in _congNoDictionary)
-            {
-                int pointIdx = series.Points.AddXY(item.Key, item.Value);
-                series.Points[pointIdx].Color = colors[i % colors.Length];
-                i++;
-            }
-        }
-
         private async void btnFind_Click(object sender, EventArgs e)
         {
             try
@@ -183,6 +169,61 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Error);
             }
         }
+
+        private void LoadBarChartFromDataGridView()
+        {
+            // Lấy DataTable từ BindingSource, đây là nguồn dữ liệu đáng tin cậy.
+            if (_bindingSource.DataSource is not DataTable dataTable)
+            {
+                // Nếu không có dữ liệu hoặc kiểu dữ liệu không đúng thì không làm gì cả.
+                return;
+            }
+
+            // --- Cấu hình biểu đồ ---
+            pcThongKeCongNo.Series.Clear();
+            pcThongKeCongNo.Titles.Clear();
+            pcThongKeCongNo.Titles.Add("Thống Kê Công Nợ Cuối Kỳ");
+
+            var series = new Series("CongNoCuoi")
+            {
+                ChartType = SeriesChartType.Column, // Biểu đồ cột
+                IsValueShownAsLabel = true,         // Hiển thị giá trị trên cột
+                LabelFormat = "N0"                  // Định dạng số hàng nghìn
+            };
+
+            // --- Lấy dữ liệu và chỉ hiển thị Top 10 (Tùy chọn, nhưng được khuyến khích) ---
+            var congNoData = new List<KeyValuePair<string, decimal>>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                // Dùng TryParse để chuyển đổi an toàn
+                if (decimal.TryParse(row["NoCuoi"]?.ToString(), out decimal noCuoi))
+                {
+                    string tenDaiLy = row["TenDaiLy"]?.ToString() ?? "Không tên";
+                    congNoData.Add(new KeyValuePair<string, decimal>(tenDaiLy, noCuoi));
+                }
+            }
+
+            // Sắp xếp và chỉ lấy 10 đại lý có nợ cuối cao nhất
+            var top10Data = congNoData.OrderByDescending(kvp => kvp.Value).Take(10).ToList();
+
+            // Thêm các điểm dữ liệu vào series
+            foreach (var dataPoint in top10Data)
+            {
+                series.Points.AddXY(dataPoint.Key, dataPoint.Value);
+            }
+
+            // Thêm series vào biểu đồ
+            pcThongKeCongNo.Series.Add(series);
+
+            // Xoay nhãn trục X nếu cần để tránh chồng chéo
+            pcThongKeCongNo.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            pcThongKeCongNo.ChartAreas[0].AxisX.Interval = 1;
+
+            pcThongKeCongNo.ChartAreas[0].AxisY.Title = "Công nợ (VND)";
+            pcThongKeCongNo.Legends.Clear();
+        }
+
     }
 }
 
