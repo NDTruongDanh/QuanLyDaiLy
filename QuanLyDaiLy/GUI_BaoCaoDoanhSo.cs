@@ -52,6 +52,7 @@ namespace GUI_QuanLy
                 await AutoCreateBaoCaoAsync();
                 await LoadChiTietBaoCaoDoanhSoAsync(_prevMonth, _prevYear);
                 ShowCharBaoCao();
+                LoadContent();
 
                 cbbThang.SelectedIndex = _prevMonth - 1; // Tháng 1 là index 0
                 txtNam.Text = _prevYear.ToString();
@@ -132,8 +133,6 @@ namespace GUI_QuanLy
                 SaveTenDaiLyAndTriGia();
 
                 ModifyDataGridViewColumns();
-                AddRowTong();
-
             }
             catch (BusException busEx)
             {
@@ -164,43 +163,31 @@ namespace GUI_QuanLy
             }
         }
 
-        private void AddRowTong()
+        private void LoadContent()
         {
             // Dòng tổng
-            int totalInvoices = 0;
-            decimal totalValue = 0;
-            int totalPercentage = 0;
+            int totalDaiLy = dgvChiTietBaoCaoDoanhSo.Rows.Count;
+            int totalPhieu = 0;
+            decimal totalDoanhThu = 0;
 
             // Loop tất cả các dòng trừ dòng cuối cùng (nếu đang có dòng tổng)
-            for (int i = 0; i < dgvChiTietBaoCaoDoanhSo.Rows.Count; i++)
+            for (int i = 0; i < totalDaiLy; i++)
             {
                 var dgvrow = dgvChiTietBaoCaoDoanhSo.Rows[i];
 
-                // Bỏ qua dòng trống hoặc dòng tổng (nếu bạn đang thêm cuối cùng)
-                if (dgvrow.IsNewRow || dgvrow.Cells[0].Value?.ToString() == "Tổng cộng")
-                    continue;
-
                 // Parse số phiếu
-                if (int.TryParse(dgvrow.Cells[2].Value?.ToString(), out int invoices))
-                    totalInvoices += invoices;
+                if (int.TryParse(dgvrow.Cells["SoLuongPhieuXuat"].Value?.ToString(), out int invoices))
+                    totalPhieu += invoices;
 
                 // Parse tổng trị giá (loại bỏ ký tự tiền tệ và dấu chấm)
-                string valueStr = dgvrow.Cells[3].Value?.ToString().Replace(".", "").Replace("₫", "").Trim();
+                string ? valueStr = dgvrow.Cells["TongTriGia"].Value?.ToString()?.Replace("₫", "").Trim();
                 if (decimal.TryParse(valueStr, out decimal value))
-                    totalValue += value;
-
-                // Parse phần trăm
-                if (int.TryParse(dgvrow.Cells[4].Value?.ToString().Replace("%", ""), out int percent))
-                    totalPercentage += percent;
+                    totalDoanhThu += value;
             }
-            //int rowIdx = dgvChiTietBaoCaoDoanhSo.Rows.Add();
-            //DataGridViewRow totalRow = dgvChiTietBaoCaoDoanhSo.Rows[rowIdx];
-            //totalRow.DefaultCellStyle.BackColor = Color.FromArgb(241, 245, 249);
-            //totalRow.Cells[0].Value = "Tổng cộng";
-            //totalRow.Cells[0].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            //totalRow.Cells[2].Value = totalInvoices.ToString();
-            //totalRow.Cells[3].Value = $"{totalValue:N0}₫"; // format 130.000.000₫
-            //totalRow.Cells[4].Value = totalPercentage.ToString(); // hoặc 100%
+            
+            lblTongDoanhSo_Num.Text = totalDoanhThu.ToString("N0") + " ₫";
+            lblTongSoDaiLy_Num.Text = totalDaiLy.ToString();
+            lblTongSoPhieuXuat_Num.Text = totalPhieu.ToString();
         }
 
         private void SaveTenDaiLyAndTriGia()

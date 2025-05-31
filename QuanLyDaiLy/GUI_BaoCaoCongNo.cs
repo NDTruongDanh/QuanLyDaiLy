@@ -49,9 +49,7 @@ namespace GUI_QuanLy
             try
             {
                 await LoadBaoCaoCongNoAsync(_prevMonth, _prevYear);
-
-                cmbThang.SelectedIndex = _prevMonth - 1; // Tháng 1 là index 0
-                txtNam.Text = _prevYear.ToString();
+                LoadContent(_prevMonth, _prevYear);
             }
             catch (Exception ex)
             {
@@ -150,6 +148,40 @@ namespace GUI_QuanLy
         }
 
 
+        private void LoadContent(int thang, int nam)
+        {
+            cmbThang.SelectedIndex = thang - 1; // Tháng 1 là index 0
+            txtNam.Text = nam.ToString();
+
+            decimal totalNoDau = 0;
+            decimal totalPhatSinh = 0;
+            decimal totalNoCuoi = 0;
+
+            for(int i = 0; i < dgvBaoCaoCongNo.Rows.Count; i++)
+            {
+                var dgvrow = dgvBaoCaoCongNo.Rows[i];
+
+                // Parse tổng trị giá (loại bỏ ký tự tiền tệ và dấu chấm)
+                string? valueStr = dgvrow.Cells["NoDau"].Value?.ToString()?.Replace("₫", "").Trim();
+                if (decimal.TryParse(valueStr, out decimal value))
+                    totalNoDau += value;
+
+                valueStr = dgvrow.Cells["PhatSinh"].Value?.ToString()?.Replace("₫", "").Trim();
+                if (decimal.TryParse(valueStr, out value))
+                    totalPhatSinh += value;
+
+                valueStr = dgvrow.Cells["NoCuoi"].Value?.ToString()?.Replace("₫", "").Trim();
+                if (decimal.TryParse(valueStr, out value))
+                    totalNoCuoi += value;
+
+                lblTongNoCuoiKy_num.Text = totalNoCuoi.ToString("N0") + " ₫";
+                lblTongNoDauKy_num.Text = totalNoDau.ToString("N0") + " ₫";
+                lblTongPhatSinh_num.Text = totalPhatSinh.ToString("N0") + " ₫";
+            }
+
+        }
+
+
         private async void btnFind_Click(object sender, EventArgs e)
         {
             try
@@ -158,6 +190,7 @@ namespace GUI_QuanLy
                 int nam = int.Parse(txtNam.Text);
 
                 await LoadBaoCaoCongNoAsync(thang, nam);
+                LoadContent(thang, nam);
             }
             catch (Exception ex)
             {

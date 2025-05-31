@@ -127,7 +127,11 @@ namespace DAL_QuanLy
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand("SELECT dl.MaDaiLy, dl.TenDaiLy, NoDau, PhatSinh, NoCuoi FROM BAOCAO_CONGNO bc JOIN DAILY dl ON bc.MaDaiLy = dl.MaDaiLy WHERE Thang = @Thang AND Nam = @Nam", conn))
+                    using (var cmd = new SqlCommand(@"SELECT dl.MaDaiLy, dl.TenDaiLy, NoDau, PhatSinh, NoCuoi 
+                                                    FROM BAOCAO_CONGNO bc 
+                                                    JOIN DAILY dl ON bc.MaDaiLy = dl.MaDaiLy 
+                                                    WHERE Thang = @Thang AND Nam = @Nam
+                                                    ORDER BY NoCuoi DESC", conn))
                     {
                         cmd.Parameters.Add("@Thang", SqlDbType.Int).Value = thang;
                         cmd.Parameters.Add("@Nam", SqlDbType.Int).Value = nam;
