@@ -114,6 +114,7 @@ namespace GUI_QuanLy
                 _bindingSourceLDL.DataSource = data;
 
                 ModifyDataGridViewColumnsLDL();
+                ClearLoaiDaiLyInputFields();
             }
             catch (BusException busEx)
             {
@@ -150,6 +151,7 @@ namespace GUI_QuanLy
                 _bindingSourceDVT.DataSource = data;
 
                 ModifyDataGridViewColumnsDVT();
+                ClearDVTInputFields();
             }
             catch (BusException busEx)
             {
@@ -185,6 +187,7 @@ namespace GUI_QuanLy
                 _bindingSourceQuan.DataSource = data;
 
                 ModifyDataGridViewColumnsQuan();
+                ClearQuanInputFields();
             }
             catch (BusException busEx)
             {
