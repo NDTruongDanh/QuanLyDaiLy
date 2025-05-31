@@ -341,7 +341,7 @@ namespace GUI_QuanLy
             foreach (decimal noCuoiValue in topDistinctNoCuoiValues)
             {
                 double stripStartOffset = (double)noCuoiValue - (defaultStripWidth / 2);
-                if (stripStartOffset < 0) stripStartOffset = 0;
+                //if (stripStartOffset < 0) stripStartOffset = 0;
 
                 StripLine strip = new StripLine
                 {
@@ -354,7 +354,7 @@ namespace GUI_QuanLy
                                                      // BorderColor = Color.FromArgb(50, Color.Black), // Viền đen mờ nhẹ
                                                      // ToolTip = $"Vùng nợ quanh {noCuoiValue:N0}", 
                 };
-                chartArea.AxisX.StripLines.Add(strip);
+                //chartArea.AxisX.StripLines.Add(strip);
                 stripLineColorIdx++;
             }
 
@@ -400,27 +400,27 @@ namespace GUI_QuanLy
         }
 
         // Hàm SetupCustomLegend giữ nguyên như trước, nhưng điều chỉnh lại ngưỡng cho phù hợp
-        private void SetupCustomLegend(Chart chart)
-        {
-            Legend customLegend = new Legend("CustomLegend")
-            {
-                Title = "Mức độ công nợ",
-                Docking = Docking.Bottom,
-                Alignment = StringAlignment.Center
-            };
-            chart.Legends.Clear(); // Đảm bảo xóa legend cũ trước khi thêm
-            chart.Legends.Add(customLegend);
+        //private void SetupCustomLegend(Chart chart)
+        //{
+        //    Legend customLegend = new Legend("CustomLegend")
+        //    {
+        //        Title = "Mức độ công nợ",
+        //        Docking = Docking.Bottom,
+        //        Alignment = StringAlignment.Center
+        //    };
+        //    chart.Legends.Clear(); // Đảm bảo xóa legend cũ trước khi thêm
+        //    chart.Legends.Add(customLegend);
 
-            // Điều chỉnh các ngưỡng trong chú giải cho khớp với logic tô màu
-            var legendItemCao = new LegendItem { Name = "Cao (>= 15 Tr)", Color = Color.FromArgb(217, 83, 79) };
-            var legendItemTrungBinh = new LegendItem { Name = "TB (>= 5 Tr)", Color = Color.FromArgb(240, 173, 78) };
-            var legendItemThap = new LegendItem { Name = "Thấp (< 5 Tr)", Color = Color.FromArgb(92, 184, 92) };
+        //    // Điều chỉnh các ngưỡng trong chú giải cho khớp với logic tô màu
+        //    var legendItemCao = new LegendItem { Name = "Cao (>= 15 Tr)", Color = Color.FromArgb(217, 83, 79) };
+        //    var legendItemTrungBinh = new LegendItem { Name = "TB (>= 5 Tr)", Color = Color.FromArgb(240, 173, 78) };
+        //    var legendItemThap = new LegendItem { Name = "Thấp (< 5 Tr)", Color = Color.FromArgb(92, 184, 92) };
 
-            customLegend.CustomItems.Clear(); // Xóa item cũ trước khi thêm
-            customLegend.CustomItems.Add(legendItemCao);
-            customLegend.CustomItems.Add(legendItemTrungBinh);
-            customLegend.CustomItems.Add(legendItemThap);
-        }
+        //    customLegend.CustomItems.Clear(); // Xóa item cũ trước khi thêm
+        //    customLegend.CustomItems.Add(legendItemCao);
+        //    customLegend.CustomItems.Add(legendItemTrungBinh);
+        //    customLegend.CustomItems.Add(legendItemThap);
+        //}
     }
 }
 

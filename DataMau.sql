@@ -13,11 +13,11 @@ INSERT INTO QUAN (TenQuan) VALUES
 
 -- Thêm dữ liệu vào bảng DAILY
 INSERT INTO DAILY (TenDaiLy, MaLoaiDaiLy, SDT, Email, DiaChi, MaQuan, NgayTiepNhan, TongNo) VALUES
-(N'Đại lý A', 1, '0901234567', 'daily.a@email.com', N'123 Đường ABC, Quận 1', 1, '2024-01-15', 0),
-(N'Đại lý B', 2, '0987654321', 'daily.b@email.com', N'456 Đường XYZ, Quận 2', 2, '2024-02-20', 0),
-(N'Đại lý C', 1, '0911223344', 'daily.c@email.com', N'789 Đường UVW, Quận 1', 1, '2024-03-10', 0),
-(N'Đại lý D', 2, '0933445566', 'daily.d@email.com', N'101 Đường RST, Quận 3', 3, '2024-04-01', 0),
-(N'Đại lý E', 1, '0966778899', 'daily.e@email.com', N'222 Đường LMN, Quận Thủ Đức', 4, '2024-05-05', 0),
+(N'Đại lý A', 1, '0901234567', 'daily.a@email.com', N'123 Đường ABC, Quận 1', 1, '2025-01-15', 0),
+(N'Đại lý B', 2, '0987654321', 'daily.b@email.com', N'456 Đường XYZ, Quận 2', 2, '2025-02-20', 0),
+(N'Đại lý C', 1, '0911223344', 'daily.c@email.com', N'789 Đường UVW, Quận 1', 1, '2025-03-10', 0),
+(N'Đại lý D', 2, '0933445566', 'daily.d@email.com', N'101 Đường RST, Quận 3', 3, '2025-04-01', 0),
+(N'Đại lý E', 1, '0966778899', 'daily.e@email.com', N'222 Đường LMN, Quận Thủ Đức', 4, '2025-05-05', 0),
 (N'Đại lý F', 2, '0977889900', 'daily.f@email.com', N'333 Đường PQR, Quận 2', 2, '2024-06-12', 0),
 (N'Đại lý G', 1, '0922334455', 'daily.g@email.com', N'444 Đường GHI, Quận 1', 1, '2024-07-01', 0),
 (N'Đại lý H', 2, '0944556677', 'daily.h@email.com', N'555 Đường JKL, Quận Bình Thạnh', 5, '2024-08-18', 0);
@@ -27,22 +27,27 @@ INSERT INTO DONVITINH (TenDonViTinh) VALUES
 ('Thùng'),
 ('Cái'),
 ('Kg'),
-('Lít');
+('Lít'),
+('Hộp');
+
+
 
 -- Thêm dữ liệu vào bảng MATHANG
 INSERT INTO MATHANG (TenMatHang, MaDonViTinh, DonGiaHienTai, TonKho) VALUES
-(N'Bia Tiger', 1, 0, 0),
-(N'Nước ngọt Coca-Cola', 1, 0, 0),
-(N'Gạo ST25', 3, 0, 0),
-(N'Dầu ăn Neptune', 4, 0, 0),
-(N'Bánh Choco Pie', 2, 0, 0),
-(N'Sữa tươi Vinamilk', 1, 0, 0);
+(N'Bia Tiger', 1, 300000, 50),
+(N'Nước ngọt Coca-Cola', 1, 200000, 50),
+(N'Gạo ST25', 3, 25000, 1000),
+(N'Dầu ăn Neptune', 4, 35000, 40),
+(N'Bánh Choco Pie', 5, 35000, 30),
+(N'Sữa tươi Vinamilk', 1, 150000, 10);
+
+
 
 -- Thêm dữ liệu vào bảng PHIEUNHAP
 INSERT INTO PHIEUNHAP (NgayLapPhieu, TongTien) VALUES
-('2024-09-01', 0),
-('2024-09-05', 0),
-('2024-09-10', 0);
+('2025-05-30', 23500000),
+('2025-05-30', 6440000),
+('2025-05-30', 12450000);
 
 -- Thêm dữ liệu vào bảng CHITIET_PHIEUNHAP
 INSERT INTO CHITIET_PHIEUNHAP (MaPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap, ThanhTien) VALUES
@@ -56,17 +61,17 @@ INSERT INTO CHITIET_PHIEUNHAP (MaPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap, 
 (3, 5, 150, 34000, 5100000);
 
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(1, '2024-09-15', 0, 1000000, 3845000)
+(1, '2025-04-15', 4845000, 1000000, 3845000)
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(2, '2024-09-16', 0, 749300, 1000000)
+(2, '2025-04-16', 1749300, 749300, 1000000)
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(1, '2024-09-18', 0, 500000, 1789900)
+(1, '2025-04-18', 2289900, 500000, 1789900)
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(3, '2024-09-20', 0, 200000, 1559500)
+(3, '2025-04-20', 1759500, 200000, 1559500)
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(2, '2024-09-22', 0, 50000, 128500)
+(2, '2025-04-22', 178500, 50000, 128500)
 INSERT INTO PHIEUXUAT (MaDaiLy, NgayLapPhieu, TongTien, TienTra, ConLai) VALUES
-(4, '2024-09-25', 0, 100000, 114200)
+(4, '2025-04-25', 214200, 100000, 114200)
 
 
 -- Thêm dữ liệu vào bảng CHITIET_PHIEUXUAT
@@ -90,10 +95,10 @@ INSERT INTO CHITIET_PHIEUXUAT (MaPhieuXuat, MaMatHang, SoLuongXuat, DonGiaXuat, 
 
 -- Thêm dữ liệu vào bảng PHIEUTHU
 INSERT INTO PHIEUTHU (MaDaiLy, NgayThuTien, SoTienThu) VALUES
-(1, '2024-09-20', 1000000),
-(2, '2024-09-22', 500000),
-(1, '2024-09-25', 1500000),
-(3, '2024-09-28', 200000)
+(1, '2025-04-20', 1000000),
+(2, '2025-04-22', 500000),
+(1, '2025-04-25', 1500000),
+(3, '2025-04-28', 200000)
 
 -- THAMSO already has initial data from your script
 -- Bảng THAMSO
