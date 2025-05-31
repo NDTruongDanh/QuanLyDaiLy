@@ -335,6 +335,7 @@
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQuan.Size = new Size(1134, 981);
             dgvQuan.TabIndex = 17;
+            dgvQuan.SelectionChanged += dgvQuan_SelectionChanged;
             // 
             // panel4
             // 
@@ -542,6 +543,7 @@
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDVT.Size = new Size(1134, 850);
             dgvDVT.TabIndex = 17;
+            dgvDVT.SelectionChanged += dgvDVT_SelectionChanged;
             // 
             // panel3
             // 
@@ -772,6 +774,7 @@
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLoaiDaiLy.Size = new Size(1134, 614);
             dgvLoaiDaiLy.TabIndex = 17;
+            dgvLoaiDaiLy.SelectionChanged += dgvLoaiDaiLy_SelectionChanged;
             // 
             // panel2
             // 

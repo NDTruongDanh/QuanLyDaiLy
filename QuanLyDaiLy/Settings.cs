@@ -575,6 +575,8 @@ namespace GUI_QuanLy
         private void ClearDVTInputFields()
         {
             txtDonViTinh.Clear();
+
+            dgvDVT.ClearSelection();
         }
 
         private async void btnEditDonViTinh_Click(object sender, EventArgs e)
@@ -710,6 +712,8 @@ namespace GUI_QuanLy
         private void ClearQuanInputFields()
         {
             txtQuan.Clear();
+
+            dgvQuan.ClearSelection();
         }
 
         private void ValidateQuanInputFields()
@@ -821,6 +825,65 @@ namespace GUI_QuanLy
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void dgvLoaiDaiLy_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvLoaiDaiLy.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvLoaiDaiLy.SelectedRows[0];
+                    txtTenLoaiDaiLy.Text = row.Cells["TenLoaiDaiLy"].Value?.ToString();
+                    txtTienNoToiDa.Text = row.Cells["TienNoToiDa"].Value?.ToString();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in dgv change selection");
+
+                    MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dgvDVT_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDVT.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvDVT.SelectedRows[0];
+                    txtDonViTinh.Text = row.Cells["TenDonViTinh"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in dgv change selection");
+
+                    MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void dgvQuan_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvQuan.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvQuan.SelectedRows[0];
+                    txtQuan.Text = row.Cells["TenQuan"].Value?.ToString();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in dgv change selection");
+
+                    MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
