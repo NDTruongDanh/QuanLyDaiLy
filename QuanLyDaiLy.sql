@@ -1,8 +1,13 @@
 
-CREATE DATABASE QUANLYDAILY
+USE master;
+
+DROP DATABASE QUANLYDAILY;
 
 
-USE QUANLYDAILY
+CREATE DATABASE QUANLYDAILY;
+
+
+USE QUANLYDAILY;
 
 /*	QUY ƯỚC
 
@@ -16,7 +21,7 @@ CREATE TABLE LOAIDAILY
 MaLoaiDaiLy INT IDENTITY(1,1) PRIMARY KEY,
 TenLoaiDaiLy NVARCHAR(50),
 TienNoToiDa MONEY
-)
+);
 
 -----------------------------------------------------------------------------
 
@@ -24,7 +29,7 @@ CREATE TABLE QUAN
 (
 MaQuan INT IDENTITY(1,1) PRIMARY KEY,
 TenQuan NVARCHAR(30)
-)
+);
 
 -----------------------------------------------------------------------------
 
@@ -39,22 +44,21 @@ DiaChi NVARCHAR(60),
 MaQuan INT,
 NgayTiepNhan DATE,
 TongNo MONEY
-)
+);
 
 
 ALTER TABLE DAILY
-ADD CONSTRAINT FK_MaLoaiDaiLy_DAILY FOREIGN KEY (MaLoaiDaiLy) REFERENCES LOAIDAILY (MaLoaiDaiLy)
+ADD CONSTRAINT FK_MaLoaiDaiLy_DAILY FOREIGN KEY (MaLoaiDaiLy) REFERENCES LOAIDAILY (MaLoaiDaiLy);
 
 ALTER TABLE DAILY
-ADD CONSTRAINT FK_MaQuan_DAILY FOREIGN KEY (MaQuan) REFERENCES QUAN (MaQuan)
-
+ADD CONSTRAINT FK_MaQuan_DAILY FOREIGN KEY (MaQuan) REFERENCES QUAN (MaQuan);
 -----------------------------------------------------------------------------
 
 CREATE TABLE DONVITINH 
 (
 MaDonViTinh INT IDENTITY(1,1) PRIMARY KEY,
 TenDonViTinh VARCHAR(6)
-)
+);
 
 -----------------------------------------------------------------------------
 
@@ -65,10 +69,10 @@ TenMatHang NVARCHAR(30),
 MaDonViTinh INT,
 DonGiaHienTai MONEY,
 TonKho INT
-)
+);
 
 ALTER TABLE MATHANG
-ADD CONSTRAINT FK_MaDonViTinh_MATHANG FOREIGN KEY (MaDonViTinh) REFERENCES DONVITINH (MaDonViTinh)
+ADD CONSTRAINT FK_MaDonViTinh_MATHANG FOREIGN KEY (MaDonViTinh) REFERENCES DONVITINH (MaDonViTinh);
 
 -----------------------------------------------------------------------------
 
@@ -77,7 +81,7 @@ CREATE TABLE PHIEUNHAP
 MaPhieuNhap INT IDENTITY(1,1) PRIMARY KEY,
 NgayLapPhieu DATE,
 TongTien MONEY
-)
+);
 
 CREATE TABLE CHITIET_PHIEUNHAP  
 (
@@ -88,13 +92,13 @@ DonGiaNhap MONEY,
 ThanhTien MONEY
 
 CONSTRAINT PK1 PRIMARY KEY (MaPhieuNhap, MaMatHang)
-)
+);
 
 ALTER TABLE CHITIET_PHIEUNHAP 
-ADD CONSTRAINT FK_MaPhieuNhap_CHITIET_PHIEUNHAP FOREIGN KEY (MaPhieuNhap) REFERENCES PHIEUNHAP (MaPhieuNhap)
+ADD CONSTRAINT FK_MaPhieuNhap_CHITIET_PHIEUNHAP FOREIGN KEY (MaPhieuNhap) REFERENCES PHIEUNHAP (MaPhieuNhap);
 
 ALTER TABLE CHITIET_PHIEUNHAP 
-ADD CONSTRAINT FK_MaMatHang_CHITIET_PHIEUNHAP FOREIGN KEY (MaMatHang) REFERENCES MATHANG (MaMatHang)
+ADD CONSTRAINT FK_MaMatHang_CHITIET_PHIEUNHAP FOREIGN KEY (MaMatHang) REFERENCES MATHANG (MaMatHang);
 
 -----------------------------------------------------------------------------
 
@@ -106,10 +110,10 @@ NgayLapPhieu DATE,
 TongTien MONEY,
 TienTra MONEY,
 ConLai MONEY
-)
+);
 
 ALTER TABLE PHIEUXUAT 
-ADD CONSTRAINT FK_MaDaiLy_PHIEUXUAT FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy)
+ADD CONSTRAINT FK_MaDaiLy_PHIEUXUAT FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy);
 
 CREATE TABLE CHITIET_PHIEUXUAT 
 (
@@ -120,13 +124,13 @@ DonGiaXuat MONEY,
 ThanhTien MONEY
 
 CONSTRAINT FK2 PRIMARY KEY (MaPhieuXuat, MaMatHang)
-)
+);
 
 ALTER TABLE CHITIET_PHIEUXUAT
-ADD CONSTRAINT FK_MaPhieuXuat_CHITIET_PHIEUXUAT FOREIGN KEY (MaPhieuXuat) REFERENCES PHIEUXUAT (MaPhieuXuat)
+ADD CONSTRAINT FK_MaPhieuXuat_CHITIET_PHIEUXUAT FOREIGN KEY (MaPhieuXuat) REFERENCES PHIEUXUAT (MaPhieuXuat);
 
 ALTER TABLE CHITIET_PHIEUXUAT
-ADD CONSTRAINT FK_MaMatHang_CHITIET_PHIEUXUAT FOREIGN KEY (MaMatHang) REFERENCES MATHANG (MaMatHang)
+ADD CONSTRAINT FK_MaMatHang_CHITIET_PHIEUXUAT FOREIGN KEY (MaMatHang) REFERENCES MATHANG (MaMatHang);
 
 -----------------------------------------------------------------------------
 
@@ -136,10 +140,10 @@ MaPhieuThu INT IDENTITY(1,1) PRIMARY KEY,
 MaDaiLy INT,
 NgayThuTien DATE,
 SoTienThu MONEY
-)
+);
 
 ALTER TABLE PHIEUTHU
-ADD CONSTRAINT FK_MaDaiLy_PHIEUTHU FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy)
+ADD CONSTRAINT FK_MaDaiLy_PHIEUTHU FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy);
 
 -----------------------------------------------------------------------------
 
@@ -148,9 +152,9 @@ CREATE TABLE THAMSO
 Max_DaiLyMoiQuan INT,
 TiLeTinhDonGiaXuat FLOAT,
 ApDungQDKTSoTienThu BIT
-)
+);
 
-INSERT INTO THAMSO VALUES (4, 1.02 , 0)
+INSERT INTO THAMSO VALUES (4, 1.02 , 0);
 
 
 -----------------------BÁO CÁO-----------------------------------------------
@@ -161,7 +165,7 @@ MaBaoCaoDoanhSo INT IDENTITY(1,1) PRIMARY KEY,
 Thang TINYINT,
 Nam INT,
 TongDoanhSo MONEY
-)
+);
 
 CREATE TABLE CHITIET_BAOCAODOANHSO 
 (
@@ -172,13 +176,13 @@ TongTriGia MONEY,
 TiLe FLOAT
 
 CONSTRAINT PK3 PRIMARY KEY (MaBaoCaoDoanhSo, MaDaiLy)
-)
+);
 
 ALTER TABLE CHITIET_BAOCAODOANHSO
-ADD CONSTRAINT FK_MaBaoCaoDoanhSo_CHITIET_BAOCAODOANHSO FOREIGN KEY (MaBaoCaoDoanhSo) REFERENCES BAOCAO_DOANHSO (MaBaoCaoDoanhSo)
+ADD CONSTRAINT FK_MaBaoCaoDoanhSo_CHITIET_BAOCAODOANHSO FOREIGN KEY (MaBaoCaoDoanhSo) REFERENCES BAOCAO_DOANHSO (MaBaoCaoDoanhSo);
 
 ALTER TABLE CHITIET_BAOCAODOANHSO
-ADD CONSTRAINT FK_MaDaiLy_CHITIET_BAOCAODOANHSO FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy)
+ADD CONSTRAINT FK_MaDaiLy_CHITIET_BAOCAODOANHSO FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy);
 
 -----------------------------------------------------------------------------
 
@@ -192,7 +196,7 @@ PhatSinh MONEY,
 NoCuoi MONEY
 
 CONSTRAINT PK4 PRIMARY KEY (Thang, Nam, MaDaiLy)
-)
+);
 
 ALTER TABLE BAOCAO_CONGNO  
 ADD CONSTRAINT FK_MaDaiLy_BAOCAO_CONGNO FOREIGN KEY (MaDaiLy) REFERENCES DAILY (MaDaiLy)
@@ -1038,8 +1042,11 @@ END
 
 
 
+GO
 
 
+
+/*
 ------------------------------------
 
 USE QUANLYDAILY;
@@ -1133,25 +1140,7 @@ INSERT INTO BAOCAO_CONGNO (Thang, Nam, MaDaiLy, NoDau, PhatSinh, NoCuoi) VALUES
   );
 GO
 
--- 11. Phân quyền và người dùng (ví dụ)
-INSERT INTO CHUCNANG (MaChucNang, TenChucNang, TenManHinhDuocLoad) VALUES
-  ('CN005', N'Quản lý báo cáo', 'GUI_BaoCao');
-GO
-
-INSERT INTO NHOMNGUOIDUNG (MaNhom, TenNhom) VALUES
-  ('N003', N'Kế toán');
-GO
-
-INSERT INTO PHANQUYEN (MaNhom, MaChucNang) VALUES
-  ('N003', 'CN005');
-GO
-
-INSERT INTO NGUOIDUNG (TenDangNhap, MaKhau, MaNhom) VALUES
-  (N'ke_toan', 'acct2025', 'N003');
-GO
-
-		
-			
+*/		
 
 
 

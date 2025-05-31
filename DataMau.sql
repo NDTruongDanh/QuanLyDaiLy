@@ -97,9 +97,26 @@ INSERT INTO PHIEUTHU (MaDaiLy, NgayThuTien, SoTienThu) VALUES
 
 -- THAMSO already has initial data from your script
 -- Bảng THAMSO
-DELETE FROM THAMSO; -- nếu có sẵn
-INSERT INTO THAMSO (Max_DaiLyMoiQuan, TiLeTinhDonGiaXuat, ApDungQDKTSoTienThu)
-VALUES (4, 1.02, 1);
+
+SET XACT_ABORT ON;
+
+BEGIN TRY
+    BEGIN TRANSACTION;
+
+    UPDATE THAMSO
+    SET Max_DaiLyMoiQuan = 4,
+        TiLeTinhDonGiaXuat = 1.02,
+        ApDungQDKTSoTienThu = 1;
+
+    COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+    IF XACT_STATE() <> 0
+        ROLLBACK TRANSACTION;
+    THROW;
+END CATCH;
 
 
+
+SELECT * FROM THAMSO
 SELECT * FROM PHIEUTHU
