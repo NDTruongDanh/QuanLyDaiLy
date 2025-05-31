@@ -190,7 +190,7 @@ namespace GUI_QuanLy
             pcThongKeCongNo.Titles.Clear();
             pcThongKeCongNo.ChartAreas.Clear();
             pcThongKeCongNo.Legends.Clear();
-            pcThongKeCongNo.Titles.Add("Top 10 Giá Trị Nợ Cuối Kỳ Cao Nhất (>0) - Đánh Dấu Bằng Dải Màu");
+            pcThongKeCongNo.Titles.Add("Top 10 Giá Trị Nợ Cuối Kỳ Cao Nhất");
             ChartArea chartArea = pcThongKeCongNo.ChartAreas.Add("MainChartArea");
             chartArea.AxisX.StripLines.Clear();
 

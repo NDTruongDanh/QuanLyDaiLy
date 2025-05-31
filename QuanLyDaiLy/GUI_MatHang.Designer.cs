@@ -274,6 +274,8 @@
             // 
             // cmbDonViTinh
             // 
+            cmbDonViTinh.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbDonViTinh.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbDonViTinh.Dock = DockStyle.Fill;
             cmbDonViTinh.Font = new Font("Segoe UI", 12F);
             cmbDonViTinh.FormattingEnabled = true;
