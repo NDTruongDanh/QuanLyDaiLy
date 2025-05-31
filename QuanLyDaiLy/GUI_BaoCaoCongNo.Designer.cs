@@ -331,7 +331,7 @@ namespace GUI_QuanLy
             fplThongKe.Margin = new Padding(3, 4, 3, 4);
             fplThongKe.Name = "fplThongKe";
             fplThongKe.Padding = new Padding(4, 5, 4, 5);
-            fplThongKe.Size = new Size(1652, 466);
+            fplThongKe.Size = new Size(1652, 461);
             fplThongKe.TabIndex = 4;
             // 
             // pcThongKeCongNo
@@ -344,7 +344,7 @@ namespace GUI_QuanLy
             series1.Legend = "Legend1";
             series1.Name = "Series2";
             pcThongKeCongNo.Series.Add(series1);
-            pcThongKeCongNo.Size = new Size(1657, 450);
+            pcThongKeCongNo.Size = new Size(1657, 445);
             pcThongKeCongNo.TabIndex = 7;
             title1.Alignment = ContentAlignment.TopLeft;
             title1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -356,7 +356,7 @@ namespace GUI_QuanLy
             // 
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 666);
+            flowLayoutPanel1.Location = new Point(0, 661);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1652, 0);
@@ -392,7 +392,7 @@ namespace GUI_QuanLy
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvBaoCaoCongNo.DefaultCellStyle = dataGridViewCellStyle2;
             dgvBaoCaoCongNo.Dock = DockStyle.Top;
-            dgvBaoCaoCongNo.Location = new Point(0, 666);
+            dgvBaoCaoCongNo.Location = new Point(0, 661);
             dgvBaoCaoCongNo.Margin = new Padding(10);
             dgvBaoCaoCongNo.Name = "dgvBaoCaoCongNo";
             dgvBaoCaoCongNo.ReadOnly = true;
@@ -407,7 +407,7 @@ namespace GUI_QuanLy
             dgvBaoCaoCongNo.RowHeadersVisible = false;
             dgvBaoCaoCongNo.RowHeadersWidth = 51;
             dgvBaoCaoCongNo.RowTemplate.Height = 24;
-            dgvBaoCaoCongNo.Size = new Size(1652, 300);
+            dgvBaoCaoCongNo.Size = new Size(1652, 292);
             dgvBaoCaoCongNo.TabIndex = 6;
             // 
             // GUI_BaoCaoCongNo

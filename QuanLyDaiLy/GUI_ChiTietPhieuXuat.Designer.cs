@@ -443,6 +443,8 @@
             // 
             // cbbMatHang
             // 
+            cbbMatHang.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbMatHang.AutoCompleteSource = AutoCompleteSource.ListItems;
             tableLayoutPanel3.SetColumnSpan(cbbMatHang, 3);
             cbbMatHang.Dock = DockStyle.Fill;
             cbbMatHang.Font = new Font("Segoe UI", 12F);

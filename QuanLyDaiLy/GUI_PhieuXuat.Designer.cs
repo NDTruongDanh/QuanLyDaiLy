@@ -216,6 +216,8 @@
             // 
             // cmbDaiLy
             // 
+            cmbDaiLy.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbDaiLy.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbDaiLy.Dock = DockStyle.Fill;
             cmbDaiLy.Font = new Font("Segoe UI", 12F);
             cmbDaiLy.FormattingEnabled = true;
