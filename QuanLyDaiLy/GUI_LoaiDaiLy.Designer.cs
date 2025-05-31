@@ -13,9 +13,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
@@ -29,12 +29,12 @@
             btnDelete = new Button();
             btnRefresh = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            txtTienNoToiDa = new TextBox();
             label1 = new Label();
             txtTenLoaiDaiLy = new TextBox();
             lblTenDaiLy = new Label();
             lblThongTinPhieuThu = new Label();
             label4 = new Label();
+            txtTienNoToiDa = new TextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLoaiDaiLy).BeginInit();
@@ -86,42 +86,43 @@
             dgvLoaiDaiLy.BorderStyle = BorderStyle.None;
             dgvLoaiDaiLy.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvLoaiDaiLy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvLoaiDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvLoaiDaiLy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvLoaiDaiLy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLoaiDaiLy.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvLoaiDaiLy.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvLoaiDaiLy.DefaultCellStyle = dataGridViewCellStyle2;
             dgvLoaiDaiLy.EnableHeadersVisualStyles = false;
             dgvLoaiDaiLy.GridColor = Color.White;
             dgvLoaiDaiLy.Location = new Point(19, 77);
             dgvLoaiDaiLy.Name = "dgvLoaiDaiLy";
             dgvLoaiDaiLy.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvLoaiDaiLy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvLoaiDaiLy.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvLoaiDaiLy.RowHeadersVisible = false;
             dgvLoaiDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLoaiDaiLy.Size = new Size(1564, 512);
             dgvLoaiDaiLy.TabIndex = 14;
+            dgvLoaiDaiLy.CellContentClick += dgvLoaiDaiLy_CellContentClick;
             // 
             // Column1
             // 
@@ -226,11 +227,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
-
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            //tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
-
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(txtTenLoaiDaiLy, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
@@ -241,17 +239,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.Size = new Size(1567, 90);
             tableLayoutPanel1.TabIndex = 19;
-            // 
-            // txtTienNoToiDa
-            // 
-
-            txtTienNoToiDa.Dock = DockStyle.Fill;
-            txtTienNoToiDa.Font = new Font("Segoe UI", 12F);
-            txtTienNoToiDa.Location = new Point(187, 48);
-            txtTienNoToiDa.Name = "txtTienNoToiDa";
-            txtTienNoToiDa.Size = new Size(1377, 39);
-            txtTienNoToiDa.TabIndex = 8;
-
             // 
             // label1
             // 
@@ -266,14 +253,12 @@
             // 
             // txtTenLoaiDaiLy
             // 
-
             txtTenLoaiDaiLy.Dock = DockStyle.Fill;
             txtTenLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenLoaiDaiLy.Location = new Point(187, 3);
+            txtTenLoaiDaiLy.Location = new Point(152, 3);
             txtTenLoaiDaiLy.Name = "txtTenLoaiDaiLy";
-            txtTenLoaiDaiLy.Size = new Size(1377, 39);
+            txtTenLoaiDaiLy.Size = new Size(1412, 34);
             txtTenLoaiDaiLy.TabIndex = 6;
-
             // 
             // lblTenDaiLy
             // 
@@ -304,6 +289,15 @@
             label4.Name = "label4";
             label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
+            // 
+            // txtTienNoToiDa
+            // 
+            txtTienNoToiDa.Dock = DockStyle.Fill;
+            txtTienNoToiDa.Font = new Font("Segoe UI", 12F);
+            txtTienNoToiDa.Location = new Point(187, 48);
+            txtTienNoToiDa.Name = "txtTienNoToiDa";
+            txtTienNoToiDa.Size = new Size(1377, 34);
+            txtTienNoToiDa.TabIndex = 8;
             // 
             // tableLayoutPanel2
             // 

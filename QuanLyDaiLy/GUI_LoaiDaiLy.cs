@@ -105,6 +105,7 @@ namespace GUI_QuanLy
                 throw valEx;
             }
         }
+
         private async void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -271,6 +272,11 @@ namespace GUI_QuanLy
         {
             ClearInputFields();
             dgvLoaiDaiLy.ClearSelection();
+        }
+
+        private void dgvLoaiDaiLy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

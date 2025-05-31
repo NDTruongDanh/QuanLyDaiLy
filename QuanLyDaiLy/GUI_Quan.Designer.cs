@@ -61,7 +61,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(230, 38);
+            lblDanhSachPhieuThu.Size = new Size(199, 32);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách Quận";
             // 
@@ -229,9 +229,9 @@
             // 
             txtTenQuan.Dock = DockStyle.Fill;
             txtTenQuan.Font = new Font("Segoe UI", 12F);
-            txtTenQuan.Location = new Point(131, 3);
+            txtTenQuan.Location = new Point(106, 3);
             txtTenQuan.Name = "txtTenQuan";
-            txtTenQuan.Size = new Size(1430, 39);
+            txtTenQuan.Size = new Size(1455, 34);
             txtTenQuan.TabIndex = 7;
             // 
             // lblTenDaiLy
@@ -241,7 +241,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(122, 32);
+            lblTenDaiLy.Size = new Size(97, 28);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Quận:";
             // 
@@ -251,7 +251,7 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(16, 13);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(222, 38);
+            lblThongTinPhieuThu.Size = new Size(192, 32);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Nhập liệu Quận";
             // 

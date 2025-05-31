@@ -439,6 +439,7 @@
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(490, 34);
             txtSoLuong.TabIndex = 19;
+            txtSoLuong.Text = "1";
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // cbbMatHang

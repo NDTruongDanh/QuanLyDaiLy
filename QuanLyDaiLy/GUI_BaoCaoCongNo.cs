@@ -354,7 +354,7 @@ namespace GUI_QuanLy
                                                      // BorderColor = Color.FromArgb(50, Color.Black), // Viền đen mờ nhẹ
                                                      // ToolTip = $"Vùng nợ quanh {noCuoiValue:N0}", 
                 };
-                chartArea.AxisX.StripLines.Add(strip);
+                //chartArea.AxisX.StripLines.Add(strip);
                 stripLineColorIdx++;
             }
 

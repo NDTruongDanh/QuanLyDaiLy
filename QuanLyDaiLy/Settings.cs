@@ -217,7 +217,7 @@ namespace GUI_QuanLy
         {
             try
             {
-                ValidateInputFields();
+                ValidateThamSoInputFields();
 
                 var thamSo = new DTO_ThamSo
                 {
@@ -228,12 +228,12 @@ namespace GUI_QuanLy
 
                 if (await _busThamSo.UpdateThamSoAsync(thamSo))
                 {
-                    MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật Tham số thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadThamSoAsync();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Cập nhật Tham số thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (ValidationException valEx)
@@ -247,7 +247,7 @@ namespace GUI_QuanLy
             catch (BusException busEx)
             {
                 _logger.LogWarning(busEx,
-                    "Business error updating ChiTietPhieuXuat: {Message}",
+                    "Business error updating Tham So: {Message}",
                     busEx.Message);
 
                 MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}",
@@ -267,7 +267,7 @@ namespace GUI_QuanLy
             }
         }
 
-        private void ValidateInputFields()
+        private void ValidateThamSoInputFields()
         {
             if (string.IsNullOrWhiteSpace(txtSoQLToiDa.Text))
             {
@@ -292,26 +292,12 @@ namespace GUI_QuanLy
                 e.Handled = true;
         }
 
-        private void btnThemLoaiDaiLy_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dgvQuan_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private async void btnThamSo_Click(object sender, EventArgs e)
         {
             try
             {
-                ValidateInputFields();
+                ValidateThamSoInputFields();
 
                 var thamSo = new DTO_ThamSo
                 {
@@ -361,54 +347,480 @@ namespace GUI_QuanLy
             }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private async void btnAddLoaiDaiLy_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ValidateLoaiDaiLyInputFields();
 
+                string tenDaiLy = txtTenLoaiDaiLy.Text.Trim();
+                decimal tienNoToiDa = Convert.ToDecimal(txtTienNoToiDa.Text);
+                var loaiDaiLy = new DTO_LoaiDaiLy(0, tenDaiLy, tienNoToiDa);
+
+                if (await _busLoaiDaiLy.AddLoaiDaiLyAsync(loaiDaiLy))
+                {
+                    MessageBox.Show("Thêm Loại Đại lý thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadLoaiDaiLyAsync();
+                    ClearLoaiDaiLyInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm Loại Đại lý thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (ValidationException valEx)
+            {
+                MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in Add button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in Add button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnAddQuan_Click(object sender, EventArgs e)
-        {
 
+        private void ValidateLoaiDaiLyInputFields()
+        {
+            if (string.IsNullOrWhiteSpace(txtTenLoaiDaiLy.Text))
+            {
+                var valEx = new ValidationException("Tên loại đại lý không được để trống");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    txtTenLoaiDaiLy.Text);
+                throw valEx;
+            }
+            if (string.IsNullOrWhiteSpace(txtTienNoToiDa.Text))
+            {
+                var valEx = new ValidationException("Tiền nợ tối đa không được để trống");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    txtTienNoToiDa.Text);
+                throw valEx;
+            }
+            if (!decimal.TryParse(txtTienNoToiDa.Text, out decimal tienNoToiDa) || tienNoToiDa <= 0)
+            {
+                var valEx = new ValidationException("Tiền nợ tối đa phải là số dương");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    txtTienNoToiDa.Text);
+                throw valEx;
+            }
         }
 
-        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        private void ClearLoaiDaiLyInputFields()
         {
+            txtTenLoaiDaiLy.Clear();
+            txtTienNoToiDa.Clear();
 
+            dgvLoaiDaiLy.ClearSelection();
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
 
+        private async void btnEditLoaiDaiLy_Click(object sender, EventArgs e)
+        {
+            if (dgvLoaiDaiLy.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    ValidateLoaiDaiLyInputFields();
+
+                    int maLoaiDaiLy = Convert.ToInt32(dgvLoaiDaiLy.SelectedRows[0].Cells["MaLoaiDaiLy"].Value);
+                    string tenLoaiDaiLy = txtTenLoaiDaiLy.Text;
+                    decimal tienNoToiDa = Convert.ToDecimal(txtTienNoToiDa.Text);
+
+                    var loaiDaiLy = new DTO_LoaiDaiLy(maLoaiDaiLy, tenLoaiDaiLy, tienNoToiDa);
+
+                    if (await _busLoaiDaiLy.UpdateLoaiDaiLyAsync(loaiDaiLy))
+                    {
+                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadLoaiDaiLyAsync();
+                        ClearLoaiDaiLyInputFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (ValidationException valEx)
+                {
+                    MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (BusException busEx)
+                {
+                    _logger.LogError(busEx,
+                        "BusException in Update button");
+
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Update button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void lblTenDaiLy_Click(object sender, EventArgs e)
+        private async void btnXoaLoaiDaiLy_Click(object sender, EventArgs e)
         {
+            if (dgvLoaiDaiLy.SelectedRows.Count > 0)
+            {
+                int maLoaiDaiLy = Convert.ToInt32(dgvLoaiDaiLy.SelectedRows[0].Cells["MaLoaiDaiLy"].Value);
 
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa loại đại lý này không?", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (await _busLoaiDaiLy.DeleteLoaiDaiLyAsync(maLoaiDaiLy))
+                        {
+                            MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadLoaiDaiLyAsync();
+                            ClearLoaiDaiLyInputFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Delete button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Delete button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void label15_Click(object sender, EventArgs e)
+        private async void btnAddDonViTinh_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ValidateDVTInputField();
 
+                DTO_DonViTinh donViTinh = new DTO_DonViTinh(0, txtDonViTinh.Text);
+                if (await _busDonViTinh.AddDonViTinhAsync(donViTinh))
+                {
+                    MessageBox.Show("Thêm Đơn vị tính thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadDonViTinhAsync();
+                    ClearDVTInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm Đại lý thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (ValidationException valEx)
+            {
+                MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in Add button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in Add button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void dgvDVT_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void ValidateDVTInputField()
+        {
+            if (string.IsNullOrWhiteSpace(txtDonViTinh.Text))
+            {
+                var valEx = new ValidationException("Tên Đơn vị tính không được để trống");
+                _logger.LogWarning(valEx,
+                    "Validation failed: {Input}",
+                    txtDonViTinh.Text);
+                throw valEx;
+            }
         }
 
-        private void dgvQuan_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void ClearDVTInputFields()
         {
-
+            txtDonViTinh.Clear();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private async void btnEditDonViTinh_Click(object sender, EventArgs e)
         {
+            if (dgvDVT.SelectedRows.Count > 0)
+            {
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa Đơn vị tính này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ValidateDVTInputField();
 
+                        int maDVT = Convert.ToInt32(dgvDVT.SelectedRows[0].Cells["MaDonViTinh"].Value.ToString());
+                        if (await _busDonViTinh.UpdateDonViTinhAsync(new DTO_DonViTinh(maDVT, txtDonViTinh.Text)))
+                        {
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadDonViTinhAsync();
+                            ClearDVTInputFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (ValidationException valEx)
+                    {
+                        MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Update button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Update button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị tính để sửa.");
+            }
         }
 
-        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        private async void btnXoaDonViTinh_Click(object sender, EventArgs e)
         {
+            if (dgvDVT.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int maDVT = Convert.ToInt32(dgvDVT.SelectedRows[0].Cells["MaDonViTinh"].Value);
+                    if (await _busDonViTinh.DeleteDonViTinhAsync(maDVT))
+                    {
+                        MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadDonViTinhAsync();
+                        ClearDVTInputFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (BusException busEx)
+                {
+                    _logger.LogError(busEx,
+                        "BusException in Delete button");
 
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Delete button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị tính để xóa.");
+            }
+        }
+
+        private async void btnAddQuan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidateQuanInputFields();
+
+                DTO_Quan quan = new DTO_Quan(0, txtQuan.Text.Trim());
+                if (await _busQuan.AddQuanAsync(quan))
+                {
+                    MessageBox.Show("Thêm Quận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadQuanAsync();
+                    ClearQuanInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (ValidationException valEx)
+            {
+                _logger.LogInformation(valEx,
+                    "Validation failed on Add: {Input}",
+                    txtQuan.Text);
+
+                MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in Add button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in Add button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearQuanInputFields()
+        {
+            txtQuan.Clear();
+        }
+
+        private void ValidateQuanInputFields()
+        {
+            if (string.IsNullOrWhiteSpace(txtQuan.Text))
+            {
+                throw new ValidationException("Tên quận không được để trống");
+            }
+        }
+
+        private async void btnEditQuan_Click(object sender, EventArgs e)
+        {
+            if (dgvQuan.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    ValidateQuanInputFields();
+
+                    int maQuan = Convert.ToInt32(dgvQuan.SelectedRows[0].Cells["MaQuan"].Value.ToString());
+                    string tenQuan = txtQuan.Text.Trim();
+                    DTO_Quan quan = new DTO_Quan(maQuan, tenQuan);
+
+                    if (await _busQuan.UpdateQuanAsync(quan))
+                    {
+                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadQuanAsync();
+                        ClearQuanInputFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (ValidationException valEx)
+                {
+                    _logger.LogInformation(valEx,
+                        "Validation failed on Update: {Input}",
+                        txtQuan.Text);
+
+                    MessageBox.Show($"Lỗi dữ liệu: {valEx.Message}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (BusException busEx)
+                {
+                    _logger.LogError(busEx,
+                        "BusException in Update button");
+
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Update button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async void btnXoaQuan_Click(object sender, EventArgs e)
+        {
+            if (dgvQuan.SelectedRows.Count > 0)
+            {
+                int maQuan = Convert.ToInt32(dgvQuan.SelectedRows[0].Cells["MaQuan"].Value.ToString());
+
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa quận này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (await _busQuan.DeleteQuanAsync(maQuan))
+                        {
+                            MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadQuanAsync();
+                            ClearQuanInputFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (BusException busEx)
+                    {
+                        _logger.LogError(busEx,
+                            "BusException in Delete button");
+
+                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogCritical(ex,
+                            "Unexpected exception in Delete button");
+
+                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtTienNoToiDa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
