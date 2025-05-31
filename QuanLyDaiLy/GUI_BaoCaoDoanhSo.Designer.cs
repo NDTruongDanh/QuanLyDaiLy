@@ -86,11 +86,11 @@ namespace GUI_QuanLy
 
         private void InitializeComponent()
         {
-            ChartArea chartArea1 = new ChartArea();
-            Legend legend1 = new Legend();
-            Series series1 = new Series();
-            Title title1 = new Title();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            ChartArea chartArea2 = new ChartArea();
+            Legend legend2 = new Legend();
+            Series series2 = new Series();
+            Title title2 = new Title();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnHeader = new Panel();
             txtNam = new TextBox();
             btnFind = new Button();
@@ -339,38 +339,38 @@ namespace GUI_QuanLy
             // 
             // pcThongKeDoanhSo
             // 
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX2.LabelStyle.Enabled = false;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.AxisY2.LabelStyle.Enabled = false;
-            chartArea1.BorderColor = Color.Transparent;
-            chartArea1.BorderDashStyle = ChartDashStyle.Solid;
-            chartArea1.Name = "ChartArea1";
-            pcThongKeDoanhSo.ChartAreas.Add(chartArea1);
-            legend1.BorderDashStyle = ChartDashStyle.NotSet;
-            legend1.Font = new Font("Segoe UI Semibold", 8F, FontStyle.Bold);
-            legend1.IsTextAutoFit = false;
-            legend1.MaximumAutoSize = 100F;
-            legend1.Name = "Legend1";
-            pcThongKeDoanhSo.Legends.Add(legend1);
+            chartArea2.AxisX.LabelStyle.Enabled = false;
+            chartArea2.AxisX2.LabelStyle.Enabled = false;
+            chartArea2.AxisY.LabelStyle.Enabled = false;
+            chartArea2.AxisY2.LabelStyle.Enabled = false;
+            chartArea2.BorderColor = Color.Transparent;
+            chartArea2.BorderDashStyle = ChartDashStyle.Solid;
+            chartArea2.Name = "ChartArea1";
+            pcThongKeDoanhSo.ChartAreas.Add(chartArea2);
+            legend2.BorderDashStyle = ChartDashStyle.NotSet;
+            legend2.Font = new Font("Segoe UI Semibold", 8F, FontStyle.Bold);
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 100F;
+            legend2.Name = "Legend1";
+            pcThongKeDoanhSo.Legends.Add(legend2);
             pcThongKeDoanhSo.Location = new Point(7, 9);
             pcThongKeDoanhSo.Margin = new Padding(3, 4, 3, 4);
             pcThongKeDoanhSo.Name = "pcThongKeDoanhSo";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = SeriesChartType.Pie;
-            series1.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            pcThongKeDoanhSo.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = SeriesChartType.Pie;
+            series2.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            series2.IsValueShownAsLabel = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            pcThongKeDoanhSo.Series.Add(series2);
             pcThongKeDoanhSo.Size = new Size(450, 600);
             pcThongKeDoanhSo.TabIndex = 5;
             pcThongKeDoanhSo.Text = "Doanh số";
-            title1.Alignment = ContentAlignment.TopLeft;
-            title1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            title1.Name = "Title1";
-            title1.Text = "Doanh số của đại lý";
-            pcThongKeDoanhSo.Titles.Add(title1);
+            title2.Alignment = ContentAlignment.TopLeft;
+            title2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title2.Name = "Title1";
+            title2.Text = "Doanh số của đại lý";
+            pcThongKeDoanhSo.Titles.Add(title2);
             // 
             // panel1
             // 
@@ -406,14 +406,14 @@ namespace GUI_QuanLy
             dgvChiTietBaoCaoDoanhSo.BorderStyle = BorderStyle.None;
             dgvChiTietBaoCaoDoanhSo.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvChiTietBaoCaoDoanhSo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietBaoCaoDoanhSo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvChiTietBaoCaoDoanhSo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvChiTietBaoCaoDoanhSo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTietBaoCaoDoanhSo.Location = new Point(476, 15);
             dgvChiTietBaoCaoDoanhSo.Margin = new Padding(10);
