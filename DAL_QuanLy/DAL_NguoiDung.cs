@@ -12,7 +12,7 @@ namespace DAL_QuanLy
     {
         public DataTable GetNguoiDung(string tenNguoiDung, string matKhau)
         {
-            SqlDataAdapter da = new SqlDataAdapter($@"SELECT * FROM NGUOIDUNG WHERE TenDangNhap = '{tenNguoiDung}' AND MaKhau = '{matKhau}'", _conn);
+            SqlDataAdapter da = new SqlDataAdapter($@"SELECT * FROM NGUOIDUNG WHERE TenDangNhap = '{tenNguoiDung}' AND MatKhau = '{matKhau}'", _conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;

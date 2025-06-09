@@ -157,5 +157,11 @@ namespace GUI_QuanLy
             var form_Product = _services.GetRequiredService<GUI_MatHang>();
             OpenChildForm(form_Product);
         }
+
+        private void pbPhanQuyen_Click(object sender, EventArgs e)
+        {
+           var form_PhanQuyen = _services.GetRequiredService<GUI_PhanQuyen>();
+            OpenChildControl(form_PhanQuyen);
+        }
     }
 }

@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             Seperator = new Label();
             label1 = new Label();
-            btnPhieuNhapHang = new Button();
-            panel2 = new Panel();
             flpSidebar = new FlowLayoutPanel();
             panel5 = new Panel();
             btnDaily = new Button();
+            panel2 = new Panel();
+            btnPhieuNhapHang = new Button();
             panel1 = new Panel();
             btnPhieuXuatHang = new Button();
             panel3 = new Panel();
@@ -56,9 +56,10 @@
             pbSettingThamSo = new PictureBox();
             lblFormName = new Label();
             panelMain = new Panel();
-            panel2.SuspendLayout();
+            pbPhanQuyen = new PictureBox();
             flpSidebar.SuspendLayout();
             panel5.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel9.SuspendLayout();
@@ -68,6 +69,7 @@
             panel4.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).BeginInit();
             SuspendLayout();
             // 
             // Seperator
@@ -89,34 +91,6 @@
             label1.TabIndex = 1;
             label1.Text = "QUẢN LÝ ĐẠI LÝ ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnPhieuNhapHang
-            // 
-            btnPhieuNhapHang.BackColor = Color.FromArgb(44, 62, 80);
-            btnPhieuNhapHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPhieuNhapHang.ForeColor = Color.White;
-            btnPhieuNhapHang.Image = (Image)resources.GetObject("btnPhieuNhapHang.Image");
-            btnPhieuNhapHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPhieuNhapHang.Location = new Point(-15, -54);
-            btnPhieuNhapHang.Margin = new Padding(4, 4, 4, 4);
-            btnPhieuNhapHang.Name = "btnPhieuNhapHang";
-            btnPhieuNhapHang.Padding = new Padding(38, 0, 0, 0);
-            btnPhieuNhapHang.Size = new Size(390, 195);
-            btnPhieuNhapHang.TabIndex = 1;
-            btnPhieuNhapHang.Text = "       Phiếu nhập hàng ";
-            btnPhieuNhapHang.TextAlign = ContentAlignment.MiddleLeft;
-            btnPhieuNhapHang.UseVisualStyleBackColor = false;
-            btnPhieuNhapHang.Click += btnPhieuNhapHang_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(btnPhieuNhapHang);
-            panel2.Location = new Point(4, 211);
-            panel2.Margin = new Padding(4, 4, 4, 4);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(0, 25, 0, 0);
-            panel2.Size = new Size(312, 85);
-            panel2.TabIndex = 2;
             // 
             // flpSidebar
             // 
@@ -140,7 +114,7 @@
             // 
             panel5.Controls.Add(btnDaily);
             panel5.Location = new Point(4, 118);
-            panel5.Margin = new Padding(4, 4, 4, 4);
+            panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(0, 25, 0, 0);
             panel5.Size = new Size(312, 85);
@@ -154,7 +128,7 @@
             btnDaily.Image = (Image)resources.GetObject("btnDaily.Image");
             btnDaily.ImageAlign = ContentAlignment.MiddleLeft;
             btnDaily.Location = new Point(-15, -54);
-            btnDaily.Margin = new Padding(4, 4, 4, 4);
+            btnDaily.Margin = new Padding(4);
             btnDaily.Name = "btnDaily";
             btnDaily.Padding = new Padding(38, 0, 0, 0);
             btnDaily.Size = new Size(372, 195);
@@ -164,11 +138,39 @@
             btnDaily.UseVisualStyleBackColor = false;
             btnDaily.Click += btnDaily_Click;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnPhieuNhapHang);
+            panel2.Location = new Point(4, 211);
+            panel2.Margin = new Padding(4);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(0, 25, 0, 0);
+            panel2.Size = new Size(312, 85);
+            panel2.TabIndex = 2;
+            // 
+            // btnPhieuNhapHang
+            // 
+            btnPhieuNhapHang.BackColor = Color.FromArgb(44, 62, 80);
+            btnPhieuNhapHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPhieuNhapHang.ForeColor = Color.White;
+            btnPhieuNhapHang.Image = (Image)resources.GetObject("btnPhieuNhapHang.Image");
+            btnPhieuNhapHang.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPhieuNhapHang.Location = new Point(-15, -54);
+            btnPhieuNhapHang.Margin = new Padding(4);
+            btnPhieuNhapHang.Name = "btnPhieuNhapHang";
+            btnPhieuNhapHang.Padding = new Padding(38, 0, 0, 0);
+            btnPhieuNhapHang.Size = new Size(390, 195);
+            btnPhieuNhapHang.TabIndex = 1;
+            btnPhieuNhapHang.Text = "       Phiếu nhập hàng ";
+            btnPhieuNhapHang.TextAlign = ContentAlignment.MiddleLeft;
+            btnPhieuNhapHang.UseVisualStyleBackColor = false;
+            btnPhieuNhapHang.Click += btnPhieuNhapHang_Click;
+            // 
             // panel1
             // 
             panel1.Controls.Add(btnPhieuXuatHang);
             panel1.Location = new Point(4, 304);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(0, 38, 0, 0);
             panel1.Size = new Size(312, 85);
@@ -182,7 +184,7 @@
             btnPhieuXuatHang.Image = (Image)resources.GetObject("btnPhieuXuatHang.Image");
             btnPhieuXuatHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuXuatHang.Location = new Point(-15, -54);
-            btnPhieuXuatHang.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuXuatHang.Margin = new Padding(4);
             btnPhieuXuatHang.Name = "btnPhieuXuatHang";
             btnPhieuXuatHang.Padding = new Padding(38, 0, 0, 0);
             btnPhieuXuatHang.Size = new Size(366, 195);
@@ -196,7 +198,7 @@
             // 
             panel3.Controls.Add(btnPhieuThuTien);
             panel3.Location = new Point(4, 397);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(0, 38, 0, 0);
             panel3.Size = new Size(312, 85);
@@ -210,7 +212,7 @@
             btnPhieuThuTien.Image = (Image)resources.GetObject("btnPhieuThuTien.Image");
             btnPhieuThuTien.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuThuTien.Location = new Point(-15, -54);
-            btnPhieuThuTien.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuThuTien.Margin = new Padding(4);
             btnPhieuThuTien.Name = "btnPhieuThuTien";
             btnPhieuThuTien.Padding = new Padding(38, 0, 0, 0);
             btnPhieuThuTien.Size = new Size(366, 195);
@@ -224,7 +226,7 @@
             // 
             panel9.Controls.Add(btnProduct);
             panel9.Location = new Point(4, 490);
-            panel9.Margin = new Padding(4, 4, 4, 4);
+            panel9.Margin = new Padding(4);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(0, 25, 0, 0);
             panel9.Size = new Size(312, 85);
@@ -238,7 +240,7 @@
             btnProduct.Image = (Image)resources.GetObject("btnProduct.Image");
             btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
             btnProduct.Location = new Point(-16, -55);
-            btnProduct.Margin = new Padding(4, 4, 4, 4);
+            btnProduct.Margin = new Padding(4);
             btnProduct.Name = "btnProduct";
             btnProduct.Padding = new Padding(38, 0, 0, 0);
             btnProduct.Size = new Size(372, 195);
@@ -255,7 +257,7 @@
             reportContainer.Controls.Add(panel6);
             reportContainer.Controls.Add(panel4);
             reportContainer.Location = new Point(4, 583);
-            reportContainer.Margin = new Padding(4, 4, 4, 4);
+            reportContainer.Margin = new Padding(4);
             reportContainer.Name = "reportContainer";
             reportContainer.Size = new Size(312, 85);
             reportContainer.TabIndex = 5;
@@ -278,7 +280,7 @@
             btnReport.Image = (Image)resources.GetObject("btnReport.Image");
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
             btnReport.Location = new Point(-15, -54);
-            btnReport.Margin = new Padding(4, 4, 4, 4);
+            btnReport.Margin = new Padding(4);
             btnReport.Name = "btnReport";
             btnReport.Padding = new Padding(38, 0, 0, 0);
             btnReport.Size = new Size(350, 195);
@@ -306,7 +308,7 @@
             btnBaoCaoDoanhSo.Image = (Image)resources.GetObject("btnBaoCaoDoanhSo.Image");
             btnBaoCaoDoanhSo.ImageAlign = ContentAlignment.MiddleLeft;
             btnBaoCaoDoanhSo.Location = new Point(-15, -54);
-            btnBaoCaoDoanhSo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoDoanhSo.Margin = new Padding(4);
             btnBaoCaoDoanhSo.Name = "btnBaoCaoDoanhSo";
             btnBaoCaoDoanhSo.Padding = new Padding(38, 0, 0, 0);
             btnBaoCaoDoanhSo.Size = new Size(376, 195);
@@ -334,7 +336,7 @@
             btnBaoCaoCongNo.Image = (Image)resources.GetObject("btnBaoCaoCongNo.Image");
             btnBaoCaoCongNo.ImageAlign = ContentAlignment.MiddleLeft;
             btnBaoCaoCongNo.Location = new Point(-15, -54);
-            btnBaoCaoCongNo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoCongNo.Margin = new Padding(4);
             btnBaoCaoCongNo.Name = "btnBaoCaoCongNo";
             btnBaoCaoCongNo.Padding = new Padding(38, 0, 0, 0);
             btnBaoCaoCongNo.Size = new Size(410, 195);
@@ -352,6 +354,7 @@
             // panel8
             // 
             panel8.BackColor = Color.White;
+            panel8.Controls.Add(pbPhanQuyen);
             panel8.Controls.Add(tbTimKiem);
             panel8.Controls.Add(pbSettingThamSo);
             panel8.Controls.Add(lblFormName);
@@ -369,7 +372,7 @@
             tbTimKiem.BorderStyle = BorderStyle.None;
             tbTimKiem.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbTimKiem.Location = new Point(508, 20);
-            tbTimKiem.Margin = new Padding(4, 4, 4, 4);
+            tbTimKiem.Margin = new Padding(4);
             tbTimKiem.Name = "tbTimKiem";
             tbTimKiem.Size = new Size(719, 37);
             tbTimKiem.TabIndex = 2;
@@ -381,7 +384,7 @@
             pbSettingThamSo.Image = (Image)resources.GetObject("pbSettingThamSo.Image");
             pbSettingThamSo.InitialImage = (Image)resources.GetObject("pbSettingThamSo.InitialImage");
             pbSettingThamSo.Location = new Point(1539, 20);
-            pbSettingThamSo.Margin = new Padding(4, 4, 4, 4);
+            pbSettingThamSo.Margin = new Padding(4);
             pbSettingThamSo.Name = "pbSettingThamSo";
             pbSettingThamSo.Size = new Size(40, 40);
             pbSettingThamSo.TabIndex = 1;
@@ -411,6 +414,19 @@
             panelMain.Size = new Size(1612, 979);
             panelMain.TabIndex = 5;
             // 
+            // pbPhanQuyen
+            // 
+            pbPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pbPhanQuyen.Image = (Image)resources.GetObject("pbPhanQuyen.Image");
+            pbPhanQuyen.InitialImage = (Image)resources.GetObject("pbPhanQuyen.InitialImage");
+            pbPhanQuyen.Location = new Point(1478, 20);
+            pbPhanQuyen.Margin = new Padding(4);
+            pbPhanQuyen.Name = "pbPhanQuyen";
+            pbPhanQuyen.Size = new Size(40, 40);
+            pbPhanQuyen.TabIndex = 3;
+            pbPhanQuyen.TabStop = false;
+            pbPhanQuyen.Click += pbPhanQuyen_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -421,12 +437,12 @@
             Controls.Add(flpSidebar);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "Menu";
             Text = "Quản lý đại lý ";
-            panel2.ResumeLayout(false);
             flpSidebar.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel9.ResumeLayout(false);
@@ -437,6 +453,7 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).EndInit();
             ResumeLayout(false);
         }
 
@@ -448,8 +465,6 @@
         #endregion
         private Label label1;
         private Label Seperator;
-        private Button btnPhieuNhapHang;
-        private Panel panel2;
         private FlowLayoutPanel flpSidebar;
         private Panel panel5;
         private Button btnDaily;
@@ -472,5 +487,8 @@
         private Panel panelMain;
         private Panel panel9;
         private Button btnProduct;
+        private Panel panel2;
+        private Button btnPhieuNhapHang;
+        private PictureBox pbPhanQuyen;
     }
 }
