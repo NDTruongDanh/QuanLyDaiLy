@@ -16,6 +16,9 @@ namespace DAL_QuanLy
         Task<bool> AddCTPhanQuyenAsync(DTO_ChiTietPhanQuyen ctPhanQuyen);
         Task<bool> UpdateCTPhanQuyenAsync(DTO_ChiTietPhanQuyen ctPhanQuyen);
         Task<bool> DeleteCTPhanQuyenAsync(int maNhom, int maChucNang);
+        
+        Task<DataTable> GetAllQuyenForUserAsync(string TenNguoiDung);
+        Task <DTO_ChiTietPhanQuyen> GetQuyenForUserAsync(string tenDangNhap, string tenChucNang);
     }
 
     public class DAL_ChiTietPhanQuyen : IDAL_ChiTietPhanQuyen
@@ -125,5 +128,79 @@ namespace DAL_QuanLy
                 throw new DalException($"DAL error deleting ChiTietPhanQuyen: {sqlEx.Message}", sqlEx, sqlEx.Number);
             }
         }
-    } 
+
+        public async Task<DTO_ChiTietPhanQuyen?> GetQuyenForUserAsync(string tenDangNhap, string tenChucNang)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"
+                SELECT p.MaNhom, p.MaChucNang, p.Xem, p.Them, p.Xoa, p.Sua
+                FROM NGUOIDUNG u
+                JOIN PHANQUYEN p ON u.MaNhom = p.MaNhom
+                JOIN CHUCNANG c ON p.MaChucNang = c.MaChucNang
+                WHERE u.TenNguoiDung = @TenNguoiDung AND c.TenManHinhDuocLoad = @TenChucNang", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TenNguoiDung", tenDangNhap);
+                        cmd.Parameters.AddWithValue("@TenChucNang", tenChucNang);
+
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            if (await reader.ReadAsync().ConfigureAwait(false))
+                            {
+                                return new DTO_ChiTietPhanQuyen
+                                {
+                                    MaNhom = reader.GetInt32(reader.GetOrdinal("MaNhom")),
+                                    MaChucNang = reader.GetInt32(reader.GetOrdinal("MaChucNang")),
+                                    Xem = reader.GetBoolean(reader.GetOrdinal("Xem")),
+                                    Them = reader.GetBoolean(reader.GetOrdinal("Them")),
+                                    Xoa = reader.GetBoolean(reader.GetOrdinal("Xoa")),
+                                    Sua = reader.GetBoolean(reader.GetOrdinal("Sua"))
+                                };
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException($"DAL error fetching user permission: {sqlEx.Message}", sqlEx, sqlEx.Number);
+            }
+        }
+
+        public async Task<DataTable> GetAllQuyenForUserAsync(string TenNguoiDung)
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+                    using (var cmd = new SqlCommand(@"
+                SELECT  c.TenManHinhDuocLoad, p.Xem, p.Them, p.Xoa, p.Sua
+                FROM NGUOIDUNG u
+                JOIN PHANQUYEN p ON u.MaNhom = p.MaNhom
+                JOIN NHOMNGUOIDUNG n ON p.MaNhom = n.MaNhom
+                JOIN CHUCNANG c ON p.MaChucNang = c.MaChucNang
+                WHERE u.TenNguoiDung = @TenNguoiDung", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TenNguoiDung", TenNguoiDung);
+                        using (var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false))
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+                return dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new DalException($"DAL error fetching all permissions for user: {sqlEx.Message}", sqlEx, sqlEx.Number);
+            }
+
+        }
+    }
 }

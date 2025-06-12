@@ -12,6 +12,7 @@ using BUS_Library;
 using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
 using System.Net.NetworkInformation;
+using GUI_QuanLy.AddedClasses;
 
 namespace GUI_QuanLy
 {
@@ -34,7 +35,7 @@ namespace GUI_QuanLy
         private readonly BindingSource _bindingSource = new BindingSource();
 
         private DTO_DaiLy _daiLy = new DTO_DaiLy();
-
+        private DTO_ChiTietPhanQuyen? permission;
         public GUI_DaiLy(IBUS_LoaiDaiLy busLoai, IBUS_Quan busQuan, IBUS_DaiLy busDaiLy, IBUS_PhieuThu busPhieuThu, IServiceProvider services, ILogger<GUI_DaiLy> logger)
         {
             _busLoai = busLoai;
@@ -51,6 +52,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                await permissionLoadAsync();
                 await LoadComboBoxsLoaiDaiLyAsync();
                 await LoadComboBoxsQuanAsync();
                 await LoadDaiLyAsync();
@@ -67,7 +69,42 @@ namespace GUI_QuanLy
             }
         }
 
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _services.GetRequiredService<PermissionService>();
 
+
+                permission = await permissionService.GetPermissionCurrentUserAsync("DaiLy");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for DaiLy.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+
+
+                btnAdd.Visible = permission.Them;
+                btnEdit.Visible = permission.Sua;
+                btnDelete.Visible = permission.Xoa;
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for DaiLy.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
         private async Task LoadDaiLyAsync()
         {
             try

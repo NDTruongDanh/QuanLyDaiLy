@@ -30,6 +30,7 @@ namespace GUI_QuanLy.AddedClasses
             services.AddTransient<Settings>();
             services.AddTransient<GUI_PhanQuyen>();
             services.AddTransient<Login>();
+            services.AddSingleton<PermissionService>();
             return services;
         }
     }

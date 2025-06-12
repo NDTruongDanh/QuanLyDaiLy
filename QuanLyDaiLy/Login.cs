@@ -33,6 +33,7 @@ namespace GUI_QuanLy
                 LoggedInUser = nguoiDung;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+                
             }
             else
             {

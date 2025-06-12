@@ -33,43 +33,43 @@
             Seperator = new Label();
             label1 = new Label();
             flpSidebar = new FlowLayoutPanel();
-            panel5 = new Panel();
+            panelDaiLy = new Panel();
             btnDaily = new Button();
-            panel2 = new Panel();
+            panelPhieuNhap = new Panel();
             btnPhieuNhapHang = new Button();
-            panel1 = new Panel();
+            panelPhieuXuat = new Panel();
             btnPhieuXuatHang = new Button();
-            panel3 = new Panel();
+            panelPhieuThu = new Panel();
             btnPhieuThuTien = new Button();
-            panel9 = new Panel();
+            panelMatHang = new Panel();
             btnProduct = new Button();
             reportContainer = new FlowLayoutPanel();
             panel7 = new Panel();
             btnReport = new Button();
-            panel6 = new Panel();
+            panelBaoCaoDoanhSo = new Panel();
             btnBaoCaoDoanhSo = new Button();
-            panel4 = new Panel();
+            panelBaoCaoCongNo = new Panel();
             btnBaoCaoCongNo = new Button();
             menuTransition1 = new System.Windows.Forms.Timer(components);
             panel8 = new Panel();
+            pbPhanQuyen = new PictureBox();
             tbTimKiem = new TextBox();
             pbSettingThamSo = new PictureBox();
             lblFormName = new Label();
             panelMain = new Panel();
-            pbPhanQuyen = new PictureBox();
             flpSidebar.SuspendLayout();
-            panel5.SuspendLayout();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel9.SuspendLayout();
+            panelDaiLy.SuspendLayout();
+            panelPhieuNhap.SuspendLayout();
+            panelPhieuXuat.SuspendLayout();
+            panelPhieuThu.SuspendLayout();
+            panelMatHang.SuspendLayout();
             reportContainer.SuspendLayout();
             panel7.SuspendLayout();
-            panel6.SuspendLayout();
-            panel4.SuspendLayout();
+            panelBaoCaoDoanhSo.SuspendLayout();
+            panelBaoCaoCongNo.SuspendLayout();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).BeginInit();
             SuspendLayout();
             // 
             // Seperator
@@ -97,11 +97,11 @@
             flpSidebar.BackColor = Color.FromArgb(44, 62, 80);
             flpSidebar.Controls.Add(label1);
             flpSidebar.Controls.Add(Seperator);
-            flpSidebar.Controls.Add(panel5);
-            flpSidebar.Controls.Add(panel2);
-            flpSidebar.Controls.Add(panel1);
-            flpSidebar.Controls.Add(panel3);
-            flpSidebar.Controls.Add(panel9);
+            flpSidebar.Controls.Add(panelDaiLy);
+            flpSidebar.Controls.Add(panelPhieuNhap);
+            flpSidebar.Controls.Add(panelPhieuXuat);
+            flpSidebar.Controls.Add(panelPhieuThu);
+            flpSidebar.Controls.Add(panelMatHang);
             flpSidebar.Controls.Add(reportContainer);
             flpSidebar.Dock = DockStyle.Left;
             flpSidebar.Location = new Point(0, 0);
@@ -110,15 +110,15 @@
             flpSidebar.Size = new Size(312, 1055);
             flpSidebar.TabIndex = 3;
             // 
-            // panel5
+            // panelDaiLy
             // 
-            panel5.Controls.Add(btnDaily);
-            panel5.Location = new Point(4, 118);
-            panel5.Margin = new Padding(4);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(0, 25, 0, 0);
-            panel5.Size = new Size(312, 85);
-            panel5.TabIndex = 4;
+            panelDaiLy.Controls.Add(btnDaily);
+            panelDaiLy.Location = new Point(4, 118);
+            panelDaiLy.Margin = new Padding(4);
+            panelDaiLy.Name = "panelDaiLy";
+            panelDaiLy.Padding = new Padding(0, 25, 0, 0);
+            panelDaiLy.Size = new Size(312, 85);
+            panelDaiLy.TabIndex = 4;
             // 
             // btnDaily
             // 
@@ -138,15 +138,15 @@
             btnDaily.UseVisualStyleBackColor = false;
             btnDaily.Click += btnDaily_Click;
             // 
-            // panel2
+            // panelPhieuNhap
             // 
-            panel2.Controls.Add(btnPhieuNhapHang);
-            panel2.Location = new Point(4, 211);
-            panel2.Margin = new Padding(4);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(0, 25, 0, 0);
-            panel2.Size = new Size(312, 85);
-            panel2.TabIndex = 2;
+            panelPhieuNhap.Controls.Add(btnPhieuNhapHang);
+            panelPhieuNhap.Location = new Point(4, 211);
+            panelPhieuNhap.Margin = new Padding(4);
+            panelPhieuNhap.Name = "panelPhieuNhap";
+            panelPhieuNhap.Padding = new Padding(0, 25, 0, 0);
+            panelPhieuNhap.Size = new Size(312, 85);
+            panelPhieuNhap.TabIndex = 2;
             // 
             // btnPhieuNhapHang
             // 
@@ -166,15 +166,15 @@
             btnPhieuNhapHang.UseVisualStyleBackColor = false;
             btnPhieuNhapHang.Click += btnPhieuNhapHang_Click;
             // 
-            // panel1
+            // panelPhieuXuat
             // 
-            panel1.Controls.Add(btnPhieuXuatHang);
-            panel1.Location = new Point(4, 304);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 38, 0, 0);
-            panel1.Size = new Size(312, 85);
-            panel1.TabIndex = 3;
+            panelPhieuXuat.Controls.Add(btnPhieuXuatHang);
+            panelPhieuXuat.Location = new Point(4, 304);
+            panelPhieuXuat.Margin = new Padding(4);
+            panelPhieuXuat.Name = "panelPhieuXuat";
+            panelPhieuXuat.Padding = new Padding(0, 38, 0, 0);
+            panelPhieuXuat.Size = new Size(312, 85);
+            panelPhieuXuat.TabIndex = 3;
             // 
             // btnPhieuXuatHang
             // 
@@ -194,15 +194,15 @@
             btnPhieuXuatHang.UseVisualStyleBackColor = false;
             btnPhieuXuatHang.Click += btnPhieuXuatHang_Click;
             // 
-            // panel3
+            // panelPhieuThu
             // 
-            panel3.Controls.Add(btnPhieuThuTien);
-            panel3.Location = new Point(4, 397);
-            panel3.Margin = new Padding(4);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(0, 38, 0, 0);
-            panel3.Size = new Size(312, 85);
-            panel3.TabIndex = 3;
+            panelPhieuThu.Controls.Add(btnPhieuThuTien);
+            panelPhieuThu.Location = new Point(4, 397);
+            panelPhieuThu.Margin = new Padding(4);
+            panelPhieuThu.Name = "panelPhieuThu";
+            panelPhieuThu.Padding = new Padding(0, 38, 0, 0);
+            panelPhieuThu.Size = new Size(312, 85);
+            panelPhieuThu.TabIndex = 3;
             // 
             // btnPhieuThuTien
             // 
@@ -222,15 +222,15 @@
             btnPhieuThuTien.UseVisualStyleBackColor = false;
             btnPhieuThuTien.Click += btnPhieuThuTien_Click;
             // 
-            // panel9
+            // panelMatHang
             // 
-            panel9.Controls.Add(btnProduct);
-            panel9.Location = new Point(4, 490);
-            panel9.Margin = new Padding(4);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(0, 25, 0, 0);
-            panel9.Size = new Size(312, 85);
-            panel9.TabIndex = 5;
+            panelMatHang.Controls.Add(btnProduct);
+            panelMatHang.Location = new Point(4, 490);
+            panelMatHang.Margin = new Padding(4);
+            panelMatHang.Name = "panelMatHang";
+            panelMatHang.Padding = new Padding(0, 25, 0, 0);
+            panelMatHang.Size = new Size(312, 85);
+            panelMatHang.TabIndex = 5;
             // 
             // btnProduct
             // 
@@ -254,8 +254,8 @@
             // 
             reportContainer.BackColor = Color.FromArgb(60, 84, 108);
             reportContainer.Controls.Add(panel7);
-            reportContainer.Controls.Add(panel6);
-            reportContainer.Controls.Add(panel4);
+            reportContainer.Controls.Add(panelBaoCaoDoanhSo);
+            reportContainer.Controls.Add(panelBaoCaoCongNo);
             reportContainer.Location = new Point(4, 583);
             reportContainer.Margin = new Padding(4);
             reportContainer.Name = "reportContainer";
@@ -290,15 +290,15 @@
             btnReport.UseVisualStyleBackColor = false;
             btnReport.Click += btnReport_Click;
             // 
-            // panel6
+            // panelBaoCaoDoanhSo
             // 
-            panel6.Controls.Add(btnBaoCaoDoanhSo);
-            panel6.Location = new Point(0, 85);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Padding = new Padding(0, 38, 0, 0);
-            panel6.Size = new Size(312, 85);
-            panel6.TabIndex = 4;
+            panelBaoCaoDoanhSo.Controls.Add(btnBaoCaoDoanhSo);
+            panelBaoCaoDoanhSo.Location = new Point(0, 85);
+            panelBaoCaoDoanhSo.Margin = new Padding(0);
+            panelBaoCaoDoanhSo.Name = "panelBaoCaoDoanhSo";
+            panelBaoCaoDoanhSo.Padding = new Padding(0, 38, 0, 0);
+            panelBaoCaoDoanhSo.Size = new Size(312, 85);
+            panelBaoCaoDoanhSo.TabIndex = 4;
             // 
             // btnBaoCaoDoanhSo
             // 
@@ -318,15 +318,15 @@
             btnBaoCaoDoanhSo.UseVisualStyleBackColor = false;
             btnBaoCaoDoanhSo.Click += btnBaoCaoDoanhSo_Click;
             // 
-            // panel4
+            // panelBaoCaoCongNo
             // 
-            panel4.Controls.Add(btnBaoCaoCongNo);
-            panel4.Location = new Point(0, 170);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(0, 38, 0, 0);
-            panel4.Size = new Size(312, 85);
-            panel4.TabIndex = 3;
+            panelBaoCaoCongNo.Controls.Add(btnBaoCaoCongNo);
+            panelBaoCaoCongNo.Location = new Point(0, 170);
+            panelBaoCaoCongNo.Margin = new Padding(0);
+            panelBaoCaoCongNo.Name = "panelBaoCaoCongNo";
+            panelBaoCaoCongNo.Padding = new Padding(0, 38, 0, 0);
+            panelBaoCaoCongNo.Size = new Size(312, 85);
+            panelBaoCaoCongNo.TabIndex = 3;
             // 
             // btnBaoCaoCongNo
             // 
@@ -364,6 +364,19 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(1612, 76);
             panel8.TabIndex = 4;
+            // 
+            // pbPhanQuyen
+            // 
+            pbPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pbPhanQuyen.Image = (Image)resources.GetObject("pbPhanQuyen.Image");
+            pbPhanQuyen.InitialImage = (Image)resources.GetObject("pbPhanQuyen.InitialImage");
+            pbPhanQuyen.Location = new Point(1478, 20);
+            pbPhanQuyen.Margin = new Padding(4);
+            pbPhanQuyen.Name = "pbPhanQuyen";
+            pbPhanQuyen.Size = new Size(40, 40);
+            pbPhanQuyen.TabIndex = 3;
+            pbPhanQuyen.TabStop = false;
+            pbPhanQuyen.Click += pbPhanQuyen_Click;
             // 
             // tbTimKiem
             // 
@@ -414,19 +427,6 @@
             panelMain.Size = new Size(1612, 979);
             panelMain.TabIndex = 5;
             // 
-            // pbPhanQuyen
-            // 
-            pbPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pbPhanQuyen.Image = (Image)resources.GetObject("pbPhanQuyen.Image");
-            pbPhanQuyen.InitialImage = (Image)resources.GetObject("pbPhanQuyen.InitialImage");
-            pbPhanQuyen.Location = new Point(1478, 20);
-            pbPhanQuyen.Margin = new Padding(4);
-            pbPhanQuyen.Name = "pbPhanQuyen";
-            pbPhanQuyen.Size = new Size(40, 40);
-            pbPhanQuyen.TabIndex = 3;
-            pbPhanQuyen.TabStop = false;
-            pbPhanQuyen.Click += pbPhanQuyen_Click;
-            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -441,19 +441,19 @@
             Name = "Menu";
             Text = "Quản lý đại lý ";
             flpSidebar.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel9.ResumeLayout(false);
+            panelDaiLy.ResumeLayout(false);
+            panelPhieuNhap.ResumeLayout(false);
+            panelPhieuXuat.ResumeLayout(false);
+            panelPhieuThu.ResumeLayout(false);
+            panelMatHang.ResumeLayout(false);
             reportContainer.ResumeLayout(false);
             panel7.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel4.ResumeLayout(false);
+            panelBaoCaoDoanhSo.ResumeLayout(false);
+            panelBaoCaoCongNo.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).EndInit();
             ResumeLayout(false);
         }
 
@@ -466,16 +466,16 @@
         private Label label1;
         private Label Seperator;
         private FlowLayoutPanel flpSidebar;
-        private Panel panel5;
+        private Panel panelDaiLy;
         private Button btnDaily;
-        private Panel panel1;
+        private Panel panelPhieuXuat;
         private Button btnPhieuXuatHang;
-        private Panel panel3;
+        private Panel panelPhieuThu;
         private Button btnPhieuThuTien;
-        private Panel panel4;
+        private Panel panelBaoCaoCongNo;
         private Button btnBaoCaoCongNo;
         private FlowLayoutPanel reportContainer;
-        private Panel panel6;
+        private Panel panelBaoCaoDoanhSo;
         private Button btnBaoCaoDoanhSo;
         private Panel panel7;
         private Button btnReport;
@@ -485,9 +485,9 @@
         private PictureBox pbSettingThamSo;
         private TextBox tbTimKiem;
         private Panel panelMain;
-        private Panel panel9;
+        private Panel panelMatHang;
         private Button btnProduct;
-        private Panel panel2;
+        private Panel panelPhieuNhap;
         private Button btnPhieuNhapHang;
         private PictureBox pbPhanQuyen;
     }

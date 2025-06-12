@@ -1,5 +1,7 @@
 ﻿using BUS_Library;
 using DTO_QuanLy;
+using GUI_QuanLy.AddedClasses;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ReaLTaiizor.Controls;
 using System;
@@ -24,18 +26,21 @@ namespace GUI_QuanLy
         private readonly IBUS_ChucNang _busChucNang;
         private readonly IBUS_ChiTietPhanQuyen _busCTPhanQuyen;
         private readonly ILogger<GUI_PhanQuyen> _logger;
+        private readonly IServiceProvider _services;
         private readonly BindingSource _bindingSourceNhomNguoiDung = new BindingSource();
         private readonly BindingSource _bindingSourceNguoiDung = new BindingSource();
         private readonly BindingSource _bindingSourceChucNang = new BindingSource();
         private readonly BindingSource _bindingSourceCTPhanQuyen = new BindingSource();
 
-        public GUI_PhanQuyen(IBUS_NhomNguoiDung busNhomNguoiDung, IBUS_NguoiDung busNguoiDung, IBUS_ChucNang busChucNang, IBUS_ChiTietPhanQuyen busCTPhanQuyen, ILogger<GUI_PhanQuyen> logger)
+        private DTO_ChiTietPhanQuyen? permission;
+        public GUI_PhanQuyen(IBUS_NhomNguoiDung busNhomNguoiDung, IBUS_NguoiDung busNguoiDung, IBUS_ChucNang busChucNang, IBUS_ChiTietPhanQuyen busCTPhanQuyen, ILogger<GUI_PhanQuyen> logger,IServiceProvider service)
         {
             _busNhomNguoiDung = busNhomNguoiDung;
             _busNguoiDung = busNguoiDung;
             _busChucNang = busChucNang;
             _busCTPhanQuyen = busCTPhanQuyen;
             _logger = logger;
+            _services = service;
             InitializeComponent();
             dgvNhomNguoiDung.DataSource = _bindingSourceNhomNguoiDung;
             dgvNguoiDung.DataSource = _bindingSourceNguoiDung;
@@ -46,6 +51,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                await permissionLoadAsync();
                 await LoadNhomNguoiDungListAsync();
 
                 await LoadComboBoxNhomNguoiDungAsync();
@@ -66,7 +72,55 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Error);
             }
         }
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _services.GetRequiredService<PermissionService>();
 
+
+                permission = await permissionService.GetPermissionCurrentUserAsync("PhanQuyen");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for Phan Quyen.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    
+                    return;
+                }
+
+                // Kiểm tra quyền truy cập và ẩn các nút nếu không có quyền
+                btnAddNhomNguoiDung.Visible = permission.Them;
+                btnEditNhomNguoiDung.Visible = permission.Sua;
+                btnXoaNhomNguoiDung.Visible = permission.Xoa;
+                btnAddNguoiDung.Visible = permission.Them;
+                btnEditNguoiDung.Visible = permission.Sua;
+                btnXoaNguoiDung.Visible = permission.Xoa;
+                btnAddPhanQuyen.Visible = permission.Them;
+                btnEditPhanQuyen.Visible = permission.Sua;
+                btnXoaPhanQuyen.Visible = permission.Xoa;
+
+
+
+
+
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for Phan Quyen.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+
+        }
 
         // Logic Nhom Nguoi dung
         private async Task LoadNhomNguoiDungListAsync()
