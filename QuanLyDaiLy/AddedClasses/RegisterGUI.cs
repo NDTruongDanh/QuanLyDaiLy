@@ -29,7 +29,7 @@ namespace GUI_QuanLy.AddedClasses
             //services.AddTransient<GUI_ThamSo>();
             services.AddTransient<Settings>();
             services.AddTransient<GUI_PhanQuyen>();
-
+            services.AddTransient<Login>();
             return services;
         }
     }

@@ -16,9 +16,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             lblNgayThuTien = new Label();
             lblSoTienThu = new Label();
             dtpNgayThuTien = new DateTimePicker();
@@ -52,9 +52,9 @@
             // 
             lblNgayThuTien.AutoSize = true;
             lblNgayThuTien.Font = new Font("Segoe UI", 12F);
-            lblNgayThuTien.Location = new Point(3, 42);
+            lblNgayThuTien.Location = new Point(3, 46);
             lblNgayThuTien.Name = "lblNgayThuTien";
-            lblNgayThuTien.Size = new Size(141, 28);
+            lblNgayThuTien.Size = new Size(176, 32);
             lblNgayThuTien.TabIndex = 2;
             lblNgayThuTien.Text = "Ngày Thu Tiền:";
             // 
@@ -62,9 +62,9 @@
             // 
             lblSoTienThu.AutoSize = true;
             lblSoTienThu.Font = new Font("Segoe UI", 12F);
-            lblSoTienThu.Location = new Point(3, 82);
+            lblSoTienThu.Location = new Point(3, 91);
             lblSoTienThu.Name = "lblSoTienThu";
-            lblSoTienThu.Size = new Size(117, 28);
+            lblSoTienThu.Size = new Size(147, 32);
             lblSoTienThu.TabIndex = 4;
             lblSoTienThu.Text = "Số Tiền Thu:";
             // 
@@ -72,9 +72,9 @@
             // 
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-            dtpNgayThuTien.Location = new Point(150, 45);
+            dtpNgayThuTien.Location = new Point(185, 49);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1411, 34);
+            dtpNgayThuTien.Size = new Size(1376, 39);
             dtpNgayThuTien.TabIndex = 3;
             // 
             // panel1
@@ -97,7 +97,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(363, 32);
+            lblDanhSachPhieuThu.Size = new Size(420, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách phiếu thu của đại lý";
             // 
@@ -119,36 +119,36 @@
             dgvPhieuThu.BorderStyle = BorderStyle.None;
             dgvPhieuThu.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvPhieuThu.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuThu.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuThu.EnableHeadersVisualStyles = false;
             dgvPhieuThu.GridColor = Color.White;
             dgvPhieuThu.Location = new Point(19, 77);
             dgvPhieuThu.Name = "dgvPhieuThu";
             dgvPhieuThu.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuThu.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuThu.RowHeadersVisible = false;
             dgvPhieuThu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuThu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -294,18 +294,18 @@
             cmbDaiLy.Dock = DockStyle.Fill;
             cmbDaiLy.Font = new Font("Segoe UI", 12F);
             cmbDaiLy.FormattingEnabled = true;
-            cmbDaiLy.Location = new Point(150, 3);
+            cmbDaiLy.Location = new Point(185, 3);
             cmbDaiLy.Name = "cmbDaiLy";
-            cmbDaiLy.Size = new Size(1411, 36);
+            cmbDaiLy.Size = new Size(1376, 40);
             cmbDaiLy.TabIndex = 12;
             // 
             // txtSoTienThu
             // 
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
-            txtSoTienThu.Location = new Point(150, 85);
+            txtSoTienThu.Location = new Point(185, 94);
             txtSoTienThu.Name = "txtSoTienThu";
-            txtSoTienThu.Size = new Size(1411, 34);
+            txtSoTienThu.Size = new Size(1376, 39);
             txtSoTienThu.TabIndex = 5;
             txtSoTienThu.KeyPress += txtSoTienThu_KeyPress;
             // 
@@ -316,7 +316,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(102, 28);
+            lblTenDaiLy.Size = new Size(128, 32);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại Lý:";
             // 
@@ -326,7 +326,7 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(19, 13);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(221, 32);
+            lblThongTinPhieuThu.Size = new Size(257, 38);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Lập Phiếu thu tiền";
             // 

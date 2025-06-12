@@ -46,33 +46,33 @@
             tableLayoutPanel1.Controls.Add(txtTenDangNhap, 1, 0);
             tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
-            tableLayoutPanel1.Location = new Point(162, 103);
-            tableLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
+            tableLayoutPanel1.Location = new Point(202, 129);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(330, 120);
+            tableLayoutPanel1.Size = new Size(412, 150);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // txtMatKhau
             // 
             txtMatKhau.Dock = DockStyle.Fill;
             txtMatKhau.Font = new Font("Segoe UI", 12F);
-            txtMatKhau.Location = new Point(112, 62);
-            txtMatKhau.Margin = new Padding(2, 2, 2, 2);
+            txtMatKhau.Location = new Point(139, 77);
+            txtMatKhau.Margin = new Padding(2);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(216, 34);
+            txtMatKhau.Size = new Size(271, 39);
             txtMatKhau.TabIndex = 9;
             // 
             // txtTenDangNhap
             // 
             txtTenDangNhap.Dock = DockStyle.Fill;
             txtTenDangNhap.Font = new Font("Segoe UI", 12F);
-            txtTenDangNhap.Location = new Point(112, 2);
-            txtTenDangNhap.Margin = new Padding(2, 2, 2, 2);
+            txtTenDangNhap.Location = new Point(139, 2);
+            txtTenDangNhap.Margin = new Padding(2);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(216, 34);
+            txtTenDangNhap.Size = new Size(271, 39);
             txtTenDangNhap.TabIndex = 8;
             // 
             // lblTenDaiLy
@@ -83,7 +83,7 @@
             lblTenDaiLy.Location = new Point(2, 0);
             lblTenDaiLy.Margin = new Padding(2, 0, 2, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(96, 56);
+            lblTenDaiLy.Size = new Size(120, 64);
             lblTenDaiLy.TabIndex = 1;
             lblTenDaiLy.Text = "Tên đăng nhập";
             // 
@@ -92,13 +92,12 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(2, 60);
+            label1.Location = new Point(2, 75);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(94, 28);
+            label1.Size = new Size(115, 32);
             label1.TabIndex = 2;
             label1.Text = "Mật khẩu";
-            label1.Click += label1_Click;
             // 
             // materialButton1
             // 
@@ -107,8 +106,8 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(262, 238);
-            materialButton1.Margin = new Padding(3, 5, 3, 5);
+            materialButton1.Location = new Point(328, 298);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
@@ -122,12 +121,12 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(640, 360);
+            ClientSize = new Size(800, 450);
             Controls.Add(materialButton1);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Login";
             Text = "Login";
             tableLayoutPanel1.ResumeLayout(false);

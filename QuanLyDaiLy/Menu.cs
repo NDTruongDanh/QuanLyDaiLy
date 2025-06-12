@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO_QuanLy;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -15,10 +16,11 @@ namespace GUI_QuanLy
     public partial class Menu : Form
     {
         private readonly IServiceProvider _services;
-
-        public Menu(IServiceProvider serviceProvider)
+        private readonly DTO_NguoiDung _currentUser;
+        public Menu(IServiceProvider serviceProvider, DTO_NguoiDung currentUser)
         {
             _services = serviceProvider;
+            _currentUser = currentUser;
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
             SetPlaceholder(tbTimKiem, "     Tìm kiếm...");
