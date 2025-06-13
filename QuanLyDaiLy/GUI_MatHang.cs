@@ -342,5 +342,10 @@ namespace GUI_QuanLy
         {
 
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearInputFields();
+        }
     }
 }

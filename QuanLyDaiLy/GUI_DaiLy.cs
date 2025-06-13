@@ -428,7 +428,7 @@ namespace GUI_QuanLy
 
         private void dgvDaiLy_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             if (dgvDaiLy.SelectedRows.Count > 0)
             {
                 try
@@ -521,7 +521,7 @@ namespace GUI_QuanLy
                     await LoadDaiLyAsync();
                 }
 
-                
+
                 await LoadDaiLyAsync();
             }
             catch (Exception ex)
@@ -579,6 +579,9 @@ namespace GUI_QuanLy
             _bindingSource.Filter = filterExpression;
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearInputFields();
+        }
     }
 }
