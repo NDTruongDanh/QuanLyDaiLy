@@ -14,6 +14,7 @@ using BUS_Library;
 using Microsoft.Extensions.DependencyInjection;
 using System.Transactions;
 using System.Security.Cryptography;
+using GUI_QuanLy.AddedClasses;
 
 namespace GUI_QuanLy
 {
@@ -34,6 +35,8 @@ namespace GUI_QuanLy
         private readonly BindingSource _bindingSource = [];
 
         private DTO_DaiLy _daiLy = new DTO_DaiLy();
+
+        private DTO_ChiTietPhanQuyen? permission;
 
         private int _maDaiLy = 0;
         private int _maPhieuXuat = 0;
@@ -63,7 +66,7 @@ namespace GUI_QuanLy
         {
             try
             {
-
+                await permissionLoadAsync();
                 await LoadComboBoxDaiLyAsync();
                 await LoadDataGridViewAsync();
             }
@@ -73,6 +76,42 @@ namespace GUI_QuanLy
 
                 MessageBox.Show(
                     "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _services.GetRequiredService<PermissionService>();
+               
+                permission = await permissionService.GetPermissionCurrentUserAsync("PhieuXuat");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for PhieuXuat.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+
+
+                btnAdd.Visible = permission.Them;
+                btnEdit.Visible = permission.Sua;
+                btnDelete.Visible= permission.Xoa;
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for PhieuXuat.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

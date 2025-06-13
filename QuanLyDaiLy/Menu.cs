@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO_QuanLy;
+using GUI_QuanLy.AddedClasses;
 using Microsoft.Extensions.DependencyInjection;
+using ReaLTaiizor.Extension;
 
 
 namespace GUI_QuanLy
@@ -15,20 +18,62 @@ namespace GUI_QuanLy
     public partial class Menu : Form
     {
         private readonly IServiceProvider _services;
-
-        public Menu(IServiceProvider serviceProvider)
+        
+        public Menu(IServiceProvider serviceProvider, DTO_NguoiDung currentUser)
         {
             _services = serviceProvider;
+            var permissionService = _services.GetRequiredService<PermissionService>();
+            permissionService.SetCurrentUser(currentUser);
+
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
             SetPlaceholder(tbTimKiem, "     Tìm kiếm...");
             this.WindowState = FormWindowState.Maximized;
+
+            hideNonePermissionComponents();
         }
 
         int menuContainerMaxHeight = 204;
         int menuContainerMinHeight = 68;
         bool menuExpand = false;
 
+
+        private async void hideNonePermissionComponents()
+        {
+            PermissionService permissionService = _services.GetRequiredService<PermissionService>();
+            // Kiểm tra quyền truy cập cho từng nút và ẩn nếu không có quyền  
+            
+            var DaiLyPermission =  await  permissionService.GetPermissionCurrentUserAsync("DaiLy");
+            panelDaiLy.Visible = DaiLyPermission != null && DaiLyPermission.Xem;
+
+            var PhieuNhapPermission = await permissionService.GetPermissionCurrentUserAsync("PhieuNhap");
+            panelPhieuNhap.Visible = PhieuNhapPermission != null && PhieuNhapPermission.Xem;
+
+            var PhieuXuatPermission = await permissionService.GetPermissionCurrentUserAsync("PhieuXuat");
+            panelPhieuXuat.Visible = PhieuXuatPermission != null && PhieuXuatPermission.Xem;
+
+            var PhieuThuPermission = await permissionService.GetPermissionCurrentUserAsync("PhieuThu");
+            panelPhieuThu.Visible = PhieuThuPermission != null && PhieuThuPermission.Xem;
+
+            var BaoCaoDoanhSoPermission = await permissionService.GetPermissionCurrentUserAsync("BaoCaoDoanhSo");
+            panelBaoCaoDoanhSo.Visible = BaoCaoDoanhSoPermission != null && BaoCaoDoanhSoPermission.Xem;
+
+            var BaoCaoCongNoPermission = await permissionService.GetPermissionCurrentUserAsync("BaoCaoCongNo");
+            panelBaoCaoCongNo.Visible = BaoCaoCongNoPermission != null && BaoCaoCongNoPermission.Xem;
+
+            var MatHangPermission = await permissionService.GetPermissionCurrentUserAsync("MatHang");
+            panelMatHang.Visible = MatHangPermission != null && MatHangPermission.Xem;
+
+            var PhanQuyenPermission = await permissionService.GetPermissionCurrentUserAsync("PhanQuyen");
+             pbPhanQuyen.Visible = PhanQuyenPermission != null && PhanQuyenPermission.Xem;
+
+            var SettingsPermission = await permissionService.GetPermissionCurrentUserAsync("Settings");
+            pbSettingThamSo.Visible = SettingsPermission != null && SettingsPermission.Xem;
+
+
+            reportContainer.Visible = panelBaoCaoCongNo.Visible ||panelMatHang.Visible;
+
+        }
         private void menuTransition1_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
@@ -156,6 +201,12 @@ namespace GUI_QuanLy
         {
             var form_Product = _services.GetRequiredService<GUI_MatHang>();
             OpenChildForm(form_Product);
+        }
+
+        private void pbPhanQuyen_Click(object sender, EventArgs e)
+        {
+           var form_PhanQuyen = _services.GetRequiredService<GUI_PhanQuyen>();
+            OpenChildControl(form_PhanQuyen);
         }
     }
 }

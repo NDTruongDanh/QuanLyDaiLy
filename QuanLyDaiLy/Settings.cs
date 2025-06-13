@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using GUI_QuanLy.AddedClasses;
 
 namespace GUI_QuanLy
 {
@@ -24,21 +25,24 @@ namespace GUI_QuanLy
         private readonly IBUS_DonViTinh _busDonViTinh;
         private readonly IBUS_Quan _busQuan;
         private readonly ILogger<Settings> _logger;
+        private readonly IServiceProvider _services;
         private readonly BindingSource _bindingSourceLDL = new BindingSource();
         private readonly BindingSource _bindingSourceDVT = new BindingSource();
         private readonly BindingSource _bindingSourceQuan = new BindingSource();
 
+        private DTO_ChiTietPhanQuyen? permission;
 
 
 
         private DTO_ThamSo _thamSo;
-        public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, IBUS_Quan busQuan, ILogger<Settings> logger)
+        public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, IBUS_Quan busQuan, ILogger<Settings> logger, IServiceProvider services)
         {
             _busThamSo = busThamSo;
             _busLoaiDaiLy = busLoaiDaiLy;
             _busDonViTinh = busDonViTinh;
             _busQuan = busQuan;
             _logger = logger;
+            _services = services;
             InitializeComponent();
             dgvLoaiDaiLy.DataSource = _bindingSourceLDL;
             dgvDVT.DataSource = _bindingSourceDVT;
@@ -50,7 +54,7 @@ namespace GUI_QuanLy
             try
             {
                 this.Dock = DockStyle.Top;
-
+                await permissionLoadAsync();
                 await LoadThamSoAsync();
                 await LoadLoaiDaiLyAsync();
                 await LoadDonViTinhAsync();
@@ -90,6 +94,7 @@ namespace GUI_QuanLy
         }
 
 
+
         private void LoadControlsContent()
         {
             txtSoQLToiDa.Text = _thamSo.DaiLyToiDa.ToString();
@@ -104,6 +109,49 @@ namespace GUI_QuanLy
             }
         }
 
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _services.GetRequiredService<PermissionService>();
+
+                permission = await permissionService.GetPermissionCurrentUserAsync("Settings");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for Settings.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    
+                    return;
+                }
+
+
+                btnAddDonViTinh.Enabled = permission.Them;
+                btnEditDonViTinh.Enabled = permission.Sua;
+                btnXoaDonViTinh.Enabled = permission.Xoa;
+                btnAddLoaiDaiLy.Enabled = permission.Them;
+                btnEditLoaiDaiLy.Enabled = permission.Sua;
+                btnXoaLoaiDaiLy.Enabled = permission.Xoa;
+                btnAddQuan.Enabled = permission.Them;
+                btnEditQuan.Enabled = permission.Sua;
+                btnXoaQuan.Enabled = permission.Xoa;
+                btnThamSo.Enabled = permission.Sua;
+                
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for Settings.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
 
 
         private async Task LoadLoaiDaiLyAsync()

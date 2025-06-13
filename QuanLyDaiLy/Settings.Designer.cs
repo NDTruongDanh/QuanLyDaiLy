@@ -137,11 +137,11 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel6);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 2032);
+            panel1.Location = new Point(16, 2064);
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(1966, 984);
+            panel1.Size = new Size(1966, 952);
             panel1.TabIndex = 32;
             // 
             // tableLayoutPanel6
@@ -163,7 +163,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel6.Size = new Size(1934, 952);
+            tableLayoutPanel6.Size = new Size(1934, 920);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label9
@@ -174,7 +174,7 @@
             label9.Location = new Point(1162, 2);
             label9.Margin = new Padding(2, 0, 2, 10);
             label9.Name = "label9";
-            label9.Size = new Size(189, 32);
+            label9.Size = new Size(218, 38);
             label9.TabIndex = 32;
             label9.Text = "Nhập liệu quận";
             // 
@@ -186,7 +186,7 @@
             label14.Location = new Point(4, 2);
             label14.Margin = new Padding(2, 0, 2, 10);
             label14.Name = "label14";
-            label14.Size = new Size(196, 32);
+            label14.Size = new Size(226, 38);
             label14.TabIndex = 16;
             label14.Text = "Danh sách quận";
             // 
@@ -200,23 +200,23 @@
             tableLayoutPanel9.Controls.Add(txtQuan, 1, 0);
             tableLayoutPanel9.Controls.Add(label1, 0, 0);
             tableLayoutPanel9.Controls.Add(flowLayoutPanel3, 1, 1);
-            tableLayoutPanel9.Location = new Point(1163, 66);
+            tableLayoutPanel9.Location = new Point(1163, 72);
             tableLayoutPanel9.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle());
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel9.Size = new Size(766, 108);
+            tableLayoutPanel9.Size = new Size(766, 518);
             tableLayoutPanel9.TabIndex = 33;
             // 
             // txtQuan
             // 
             txtQuan.Dock = DockStyle.Fill;
             txtQuan.Font = new Font("Segoe UI", 12F);
-            txtQuan.Location = new Point(106, 3);
+            txtQuan.Location = new Point(131, 3);
             txtQuan.Name = "txtQuan";
-            txtQuan.Size = new Size(657, 34);
+            txtQuan.Size = new Size(632, 39);
             txtQuan.TabIndex = 7;
             // 
             // label1
@@ -226,7 +226,7 @@
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(97, 28);
+            label1.Size = new Size(122, 32);
             label1.TabIndex = 0;
             label1.Text = "Tên Quận:";
             // 
@@ -237,7 +237,7 @@
             flowLayoutPanel3.Controls.Add(btnAddQuan);
             flowLayoutPanel3.Controls.Add(btnEditQuan);
             flowLayoutPanel3.Controls.Add(btnXoaQuan);
-            flowLayoutPanel3.Location = new Point(106, 50);
+            flowLayoutPanel3.Location = new Point(131, 55);
             flowLayoutPanel3.Margin = new Padding(3, 10, 3, 3);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(459, 50);
@@ -317,7 +317,7 @@
             dgvQuan.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQuan.EnableHeadersVisualStyles = false;
             dgvQuan.GridColor = Color.White;
-            dgvQuan.Location = new Point(4, 66);
+            dgvQuan.Location = new Point(4, 72);
             dgvQuan.Margin = new Padding(2, 20, 20, 10);
             dgvQuan.Name = "dgvQuan";
             dgvQuan.ReadOnly = true;
@@ -344,11 +344,11 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 1048);
+            panel4.Location = new Point(16, 1074);
             panel4.Margin = new Padding(16, 16, 16, 8);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(16);
-            panel4.Size = new Size(1966, 960);
+            panel4.Size = new Size(1966, 966);
             panel4.TabIndex = 31;
             // 
             // tableLayoutPanel4
@@ -371,7 +371,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(1934, 928);
+            tableLayoutPanel4.Size = new Size(1934, 934);
             tableLayoutPanel4.TabIndex = 17;
             // 
             // tableLayoutPanel8
@@ -384,23 +384,23 @@
             tableLayoutPanel8.Controls.Add(txtDonViTinh, 1, 0);
             tableLayoutPanel8.Controls.Add(label5, 0, 0);
             tableLayoutPanel8.Controls.Add(flowLayoutPanel2, 1, 1);
-            tableLayoutPanel8.Location = new Point(1163, 66);
+            tableLayoutPanel8.Location = new Point(1163, 72);
             tableLayoutPanel8.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle());
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel8.Size = new Size(766, 108);
+            tableLayoutPanel8.Size = new Size(766, 590);
             tableLayoutPanel8.TabIndex = 33;
             // 
             // txtDonViTinh
             // 
             txtDonViTinh.Dock = DockStyle.Fill;
             txtDonViTinh.Font = new Font("Segoe UI", 12F);
-            txtDonViTinh.Location = new Point(153, 3);
+            txtDonViTinh.Location = new Point(189, 3);
             txtDonViTinh.Name = "txtDonViTinh";
-            txtDonViTinh.Size = new Size(610, 34);
+            txtDonViTinh.Size = new Size(574, 39);
             txtDonViTinh.TabIndex = 7;
             // 
             // label5
@@ -410,7 +410,7 @@
             label5.Font = new Font("Segoe UI", 12F);
             label5.Location = new Point(3, 0);
             label5.Name = "label5";
-            label5.Size = new Size(144, 28);
+            label5.Size = new Size(180, 32);
             label5.TabIndex = 0;
             label5.Text = "Tên đơn vị tính:";
             // 
@@ -421,7 +421,7 @@
             flowLayoutPanel2.Controls.Add(btnAddDonViTinh);
             flowLayoutPanel2.Controls.Add(btnEditDonViTinh);
             flowLayoutPanel2.Controls.Add(btnXoaDonViTinh);
-            flowLayoutPanel2.Location = new Point(153, 50);
+            flowLayoutPanel2.Location = new Point(189, 55);
             flowLayoutPanel2.Margin = new Padding(3, 10, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(459, 50);
@@ -480,7 +480,7 @@
             label6.Location = new Point(1162, 2);
             label6.Margin = new Padding(2, 0, 2, 10);
             label6.Name = "label6";
-            label6.Size = new Size(255, 32);
+            label6.Size = new Size(297, 38);
             label6.TabIndex = 32;
             label6.Text = "Nhập liệu đơn vị tính";
             // 
@@ -492,7 +492,7 @@
             label12.Location = new Point(4, 2);
             label12.Margin = new Padding(2, 0, 2, 10);
             label12.Name = "label12";
-            label12.Size = new Size(262, 32);
+            label12.Size = new Size(305, 38);
             label12.TabIndex = 16;
             label12.Text = "Danh sách đơn vị tính";
             // 
@@ -525,7 +525,7 @@
             dgvDVT.DefaultCellStyle = dataGridViewCellStyle5;
             dgvDVT.EnableHeadersVisualStyles = false;
             dgvDVT.GridColor = Color.White;
-            dgvDVT.Location = new Point(4, 66);
+            dgvDVT.Location = new Point(4, 72);
             dgvDVT.Margin = new Padding(2, 20, 20, 10);
             dgvDVT.Name = "dgvDVT";
             dgvDVT.ReadOnly = true;
@@ -552,11 +552,11 @@
             panel3.BackColor = Color.White;
             panel3.Controls.Add(tableLayoutPanel3);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(16, 300);
+            panel3.Location = new Point(16, 320);
             panel3.Margin = new Padding(16, 16, 16, 8);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(16);
-            panel3.Size = new Size(1966, 724);
+            panel3.Size = new Size(1966, 730);
             panel3.TabIndex = 28;
             // 
             // tableLayoutPanel3
@@ -579,7 +579,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1934, 692);
+            tableLayoutPanel3.Size = new Size(1934, 698);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // tableLayoutPanel7
@@ -594,23 +594,23 @@
             tableLayoutPanel7.Controls.Add(txtTenLoaiDaiLy, 1, 0);
             tableLayoutPanel7.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel7.Controls.Add(flowLayoutPanel1, 1, 2);
-            tableLayoutPanel7.Location = new Point(1163, 66);
+            tableLayoutPanel7.Location = new Point(1163, 72);
             tableLayoutPanel7.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 3;
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
-            tableLayoutPanel7.Size = new Size(766, 159);
+            tableLayoutPanel7.Size = new Size(766, 487);
             tableLayoutPanel7.TabIndex = 33;
             // 
             // txtTienNoToiDa
             // 
             txtTienNoToiDa.Dock = DockStyle.Fill;
             txtTienNoToiDa.Font = new Font("Segoe UI", 12F);
-            txtTienNoToiDa.Location = new Point(152, 43);
+            txtTienNoToiDa.Location = new Point(187, 48);
             txtTienNoToiDa.Name = "txtTienNoToiDa";
-            txtTienNoToiDa.Size = new Size(611, 34);
+            txtTienNoToiDa.Size = new Size(576, 39);
             txtTienNoToiDa.TabIndex = 33;
             txtTienNoToiDa.KeyPress += txtTienNoToiDa_KeyPress;
             // 
@@ -619,9 +619,9 @@
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 12F);
-            label15.Location = new Point(3, 40);
+            label15.Location = new Point(3, 45);
             label15.Name = "label15";
-            label15.Size = new Size(136, 28);
+            label15.Size = new Size(168, 32);
             label15.TabIndex = 32;
             label15.Text = "Tiền nợ tối đa:";
             // 
@@ -629,9 +629,9 @@
             // 
             txtTenLoaiDaiLy.Dock = DockStyle.Fill;
             txtTenLoaiDaiLy.Font = new Font("Segoe UI", 12F);
-            txtTenLoaiDaiLy.Location = new Point(152, 3);
+            txtTenLoaiDaiLy.Location = new Point(187, 3);
             txtTenLoaiDaiLy.Name = "txtTenLoaiDaiLy";
-            txtTenLoaiDaiLy.Size = new Size(611, 34);
+            txtTenLoaiDaiLy.Size = new Size(576, 39);
             txtTenLoaiDaiLy.TabIndex = 7;
             // 
             // lblTenDaiLy
@@ -641,7 +641,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(143, 28);
+            lblTenDaiLy.Size = new Size(178, 32);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Loại Đại Lý:";
             // 
@@ -652,7 +652,7 @@
             flowLayoutPanel1.Controls.Add(btnAddLoaiDaiLy);
             flowLayoutPanel1.Controls.Add(btnEditLoaiDaiLy);
             flowLayoutPanel1.Controls.Add(btnXoaLoaiDaiLy);
-            flowLayoutPanel1.Location = new Point(152, 90);
+            flowLayoutPanel1.Location = new Point(187, 100);
             flowLayoutPanel1.Margin = new Padding(3, 10, 3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(459, 50);
@@ -711,7 +711,7 @@
             label10.Location = new Point(1162, 2);
             label10.Margin = new Padding(2, 0, 2, 10);
             label10.Name = "label10";
-            label10.Size = new Size(242, 32);
+            label10.Size = new Size(280, 38);
             label10.TabIndex = 32;
             label10.Text = "Nhập liệu loại đại lý";
             // 
@@ -723,7 +723,7 @@
             label4.Location = new Point(4, 2);
             label4.Margin = new Padding(2, 0, 2, 10);
             label4.Name = "label4";
-            label4.Size = new Size(249, 32);
+            label4.Size = new Size(288, 38);
             label4.TabIndex = 16;
             label4.Text = "Danh sách loại đại lý";
             // 
@@ -756,7 +756,7 @@
             dgvLoaiDaiLy.DefaultCellStyle = dataGridViewCellStyle8;
             dgvLoaiDaiLy.EnableHeadersVisualStyles = false;
             dgvLoaiDaiLy.GridColor = Color.White;
-            dgvLoaiDaiLy.Location = new Point(4, 66);
+            dgvLoaiDaiLy.Location = new Point(4, 72);
             dgvLoaiDaiLy.Margin = new Padding(2, 20, 20, 10);
             dgvLoaiDaiLy.Name = "dgvLoaiDaiLy";
             dgvLoaiDaiLy.ReadOnly = true;
@@ -787,7 +787,7 @@
             panel2.Margin = new Padding(16, 16, 16, 8);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(1966, 260);
+            panel2.Size = new Size(1966, 280);
             panel2.TabIndex = 25;
             // 
             // tableLayoutPanel2
@@ -809,7 +809,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1934, 228);
+            tableLayoutPanel2.Size = new Size(1934, 248);
             tableLayoutPanel2.TabIndex = 17;
             // 
             // btnThamSo
@@ -818,7 +818,7 @@
             btnThamSo.BackColor = Color.FromArgb(33, 150, 243);
             btnThamSo.FlatStyle = FlatStyle.Flat;
             btnThamSo.Font = new Font("Segoe UI", 12F);
-            btnThamSo.Location = new Point(2, 182);
+            btnThamSo.Location = new Point(2, 202);
             btnThamSo.Margin = new Padding(2, 2, 20, 2);
             btnThamSo.Name = "btnThamSo";
             btnThamSo.Size = new Size(235, 44);
@@ -831,7 +831,7 @@
             // 
             label2.BorderStyle = BorderStyle.Fixed3D;
             label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(0, 42);
+            label2.Location = new Point(0, 48);
             label2.Margin = new Padding(0, 0, 0, 20);
             label2.Name = "label2";
             label2.Size = new Size(1934, 2);
@@ -845,7 +845,7 @@
             lblDanhSachPhieuThu.Location = new Point(2, 0);
             lblDanhSachPhieuThu.Margin = new Padding(2, 0, 2, 10);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(219, 32);
+            lblDanhSachPhieuThu.Size = new Size(255, 38);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Tham số hệ thống";
             // 
@@ -863,14 +863,14 @@
             tableLayoutPanel5.Controls.Add(txtSoQLToiDa, 1, 0);
             tableLayoutPanel5.Controls.Add(lblsdl, 0, 0);
             tableLayoutPanel5.Controls.Add(cbApDungKTQD, 1, 2);
-            tableLayoutPanel5.Location = new Point(2, 66);
+            tableLayoutPanel5.Location = new Point(2, 72);
             tableLayoutPanel5.Margin = new Padding(2, 2, 2, 10);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 3;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1930, 104);
+            tableLayoutPanel5.Size = new Size(1930, 118);
             tableLayoutPanel5.TabIndex = 18;
             // 
             // label8
@@ -878,10 +878,10 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(2, 76);
+            label8.Location = new Point(2, 86);
             label8.Margin = new Padding(2, 0, 10, 0);
             label8.Name = "label8";
-            label8.Size = new Size(245, 28);
+            label8.Size = new Size(302, 32);
             label8.TabIndex = 11;
             label8.Text = "Áp dụng KTQĐ số tiền thu:";
             // 
@@ -889,10 +889,10 @@
             // 
             txtTiLeDGXuat.Dock = DockStyle.Fill;
             txtTiLeDGXuat.Font = new Font("Segoe UI", 12F);
-            txtTiLeDGXuat.Location = new Point(303, 40);
+            txtTiLeDGXuat.Location = new Point(369, 45);
             txtTiLeDGXuat.Margin = new Padding(2);
             txtTiLeDGXuat.Name = "txtTiLeDGXuat";
-            txtTiLeDGXuat.Size = new Size(1625, 34);
+            txtTiLeDGXuat.Size = new Size(1559, 39);
             txtTiLeDGXuat.TabIndex = 10;
             // 
             // label7
@@ -900,10 +900,10 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(2, 38);
+            label7.Location = new Point(2, 43);
             label7.Margin = new Padding(2, 0, 10, 0);
             label7.Name = "label7";
-            label7.Size = new Size(289, 28);
+            label7.Size = new Size(355, 32);
             label7.TabIndex = 9;
             label7.Text = "Tỉ lệ đơn giá xuất/đơn giá nhập:";
             // 
@@ -911,10 +911,10 @@
             // 
             txtSoQLToiDa.Dock = DockStyle.Fill;
             txtSoQLToiDa.Font = new Font("Segoe UI", 12F);
-            txtSoQLToiDa.Location = new Point(303, 2);
+            txtSoQLToiDa.Location = new Point(369, 2);
             txtSoQLToiDa.Margin = new Padding(2);
             txtSoQLToiDa.Name = "txtSoQLToiDa";
-            txtSoQLToiDa.Size = new Size(1625, 34);
+            txtSoQLToiDa.Size = new Size(1559, 39);
             txtSoQLToiDa.TabIndex = 8;
             // 
             // lblsdl
@@ -925,7 +925,7 @@
             lblsdl.Location = new Point(2, 0);
             lblsdl.Margin = new Padding(2, 0, 10, 0);
             lblsdl.Name = "lblsdl";
-            lblsdl.Size = new Size(250, 28);
+            lblsdl.Size = new Size(304, 32);
             lblsdl.TabIndex = 1;
             lblsdl.Text = "Số đại lý tối đa trong quận:";
             // 
@@ -933,10 +933,10 @@
             // 
             cbApDungKTQD.AutoSize = true;
             cbApDungKTQD.Font = new Font("Segoe UI", 12F);
-            cbApDungKTQD.Location = new Point(303, 78);
+            cbApDungKTQD.Location = new Point(369, 88);
             cbApDungKTQD.Margin = new Padding(2);
             cbApDungKTQD.Name = "cbApDungKTQD";
-            cbApDungKTQD.Size = new Size(18, 17);
+            cbApDungKTQD.Size = new Size(22, 21);
             cbApDungKTQD.TabIndex = 12;
             cbApDungKTQD.UseVisualStyleBackColor = true;
             // 

@@ -28,6 +28,10 @@ namespace BUS_Library
             services.AddScoped<IBUS_BaoCaoCongNo, BUS_BaoCaoCongNo>();
             services.AddScoped<IBUS_PhieuThu, BUS_PhieuThu>();
             services.AddScoped<IBUS_ThamSo, BUS_ThamSo>();
+            services.AddScoped<IBUS_NhomNguoiDung, BUS_NhomNguoiDung>();
+            services.AddScoped<IBUS_NguoiDung, BUS_NguoiDung>();
+            services.AddScoped<IBUS_ChiTietPhanQuyen, BUS_ChiTietPhanQuyen>();
+            services.AddScoped<IBUS_ChucNang, BUS_ChucNang>();
 
             return services;
         }
