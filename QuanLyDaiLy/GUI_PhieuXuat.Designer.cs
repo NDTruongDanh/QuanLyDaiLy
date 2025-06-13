@@ -13,9 +13,9 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
@@ -166,7 +166,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1571, 138);
+            tableLayoutPanel2.Size = new Size(1571, 123);
             tableLayoutPanel2.TabIndex = 21;
             // 
             // label5
@@ -176,7 +176,7 @@
             label5.Font = new Font("Segoe UI", 12F);
             label5.Location = new Point(3, 82);
             label5.Name = "label5";
-            label5.Size = new Size(158, 56);
+            label5.Size = new Size(158, 41);
             label5.TabIndex = 10;
             label5.Text = "Số tiền trả trước:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,6 +228,8 @@
             // 
             // txtTraTruoc
             // 
+            txtTraTruoc.BackColor = Color.White;
+            txtTraTruoc.BorderStyle = BorderStyle.FixedSingle;
             txtTraTruoc.Dock = DockStyle.Fill;
             txtTraTruoc.Font = new Font("Segoe UI", 12F);
             txtTraTruoc.Location = new Point(167, 85);
@@ -315,37 +317,37 @@
             dgvPhieuXuat.BorderStyle = BorderStyle.None;
             dgvPhieuXuat.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvPhieuXuat.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPhieuXuat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPhieuXuat.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPhieuXuat.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPhieuXuat.EnableHeadersVisualStyles = false;
             dgvPhieuXuat.GridColor = Color.White;
             dgvPhieuXuat.Location = new Point(15, 85);
             dgvPhieuXuat.Margin = new Padding(5);
             dgvPhieuXuat.Name = "dgvPhieuXuat";
             dgvPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPhieuXuat.RowHeadersVisible = false;
             dgvPhieuXuat.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
