@@ -53,6 +53,7 @@
             menuTransition1 = new System.Windows.Forms.Timer(components);
             panel8 = new Panel();
             pbPhanQuyen = new PictureBox();
+            tbTimKiem = new TextBox();
             pbSettingThamSo = new PictureBox();
             lblFormName = new Label();
             panelMain = new Panel();
@@ -338,6 +339,7 @@
             // 
             panel8.BackColor = Color.White;
             panel8.Controls.Add(pbPhanQuyen);
+            panel8.Controls.Add(tbTimKiem);
             panel8.Controls.Add(pbSettingThamSo);
             panel8.Controls.Add(lblFormName);
             panel8.Dock = DockStyle.Top;
@@ -358,6 +360,18 @@
             pbPhanQuyen.TabIndex = 3;
             pbPhanQuyen.TabStop = false;
             pbPhanQuyen.Click += pbPhanQuyen_Click;
+            // 
+            // tbTimKiem
+            // 
+            tbTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbTimKiem.BackColor = Color.FromArgb(236, 240, 241);
+            tbTimKiem.BorderStyle = BorderStyle.None;
+            tbTimKiem.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbTimKiem.Location = new Point(406, 16);
+            tbTimKiem.Name = "tbTimKiem";
+            tbTimKiem.Size = new Size(553, 31);
+            tbTimKiem.TabIndex = 2;
+            tbTimKiem.Text = "       Tìm kiếm...";
             // 
             // pbSettingThamSo
             // 
@@ -449,6 +463,7 @@
         private Panel panel8;
         private Label lblFormName;
         private PictureBox pbSettingThamSo;
+        private TextBox tbTimKiem;
         private Panel panelMain;
         private Panel panelMatHang;
         private Button btnProduct;
