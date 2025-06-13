@@ -14,9 +14,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             notifyIcon1 = new NotifyIcon(components);
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
@@ -217,36 +217,36 @@
             dgvChiTietPhieuXuat.BorderStyle = BorderStyle.None;
             dgvChiTietPhieuXuat.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvChiTietPhieuXuat.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvChiTietPhieuXuat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuXuat.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuXuat.DefaultCellStyle = dataGridViewCellStyle2;
             dgvChiTietPhieuXuat.EnableHeadersVisualStyles = false;
             dgvChiTietPhieuXuat.GridColor = Color.White;
             dgvChiTietPhieuXuat.Location = new Point(3, 3);
             dgvChiTietPhieuXuat.Name = "dgvChiTietPhieuXuat";
             dgvChiTietPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvChiTietPhieuXuat.RowHeadersVisible = false;
             dgvChiTietPhieuXuat.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvChiTietPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -258,8 +258,8 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 6;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.66667F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.6329117F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.6160336F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.4641352F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.1181431F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.4683552F));
@@ -274,11 +274,12 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1185, 50);
+            tableLayoutPanel1.Size = new Size(1185, 42);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // txtDaiLy
             // 
+            txtDaiLy.BackColor = Color.White;
             txtDaiLy.Dock = DockStyle.Fill;
             txtDaiLy.Font = new Font("Segoe UI", 12F);
             txtDaiLy.Location = new Point(521, 3);
@@ -290,33 +291,36 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.Dock = DockStyle.Fill;
             label11.Font = new Font("Segoe UI", 12F);
             label11.Location = new Point(397, 3);
             label11.Margin = new Padding(3);
             label11.Name = "label11";
-            label11.Size = new Size(61, 28);
+            label11.Size = new Size(118, 36);
             label11.TabIndex = 14;
             label11.Text = "Đại lý";
             label11.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtMaPhieuXuat
             // 
+            txtMaPhieuXuat.BackColor = Color.White;
             txtMaPhieuXuat.Dock = DockStyle.Fill;
             txtMaPhieuXuat.Font = new Font("Segoe UI", 12F);
-            txtMaPhieuXuat.Location = new Point(200, 3);
+            txtMaPhieuXuat.Location = new Point(129, 3);
             txtMaPhieuXuat.Name = "txtMaPhieuXuat";
             txtMaPhieuXuat.ReadOnly = true;
-            txtMaPhieuXuat.Size = new Size(191, 34);
+            txtMaPhieuXuat.Size = new Size(262, 34);
             txtMaPhieuXuat.TabIndex = 13;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 12F);
             label3.Location = new Point(3, 3);
             label3.Margin = new Padding(3);
             label3.Name = "label3";
-            label3.Size = new Size(89, 28);
+            label3.Size = new Size(120, 36);
             label3.TabIndex = 12;
             label3.Text = "Số phiếu";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -324,11 +328,12 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(712, 3);
             label1.Margin = new Padding(3);
             label1.Name = "label1";
-            label1.Size = new Size(145, 28);
+            label1.Size = new Size(201, 36);
             label1.TabIndex = 11;
             label1.Text = "Ngày lập phiếu";
             label1.TextAlign = ContentAlignment.MiddleLeft;

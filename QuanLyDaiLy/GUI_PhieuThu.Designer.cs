@@ -51,22 +51,26 @@
             // lblNgayThuTien
             // 
             lblNgayThuTien.AutoSize = true;
+            lblNgayThuTien.Dock = DockStyle.Fill;
             lblNgayThuTien.Font = new Font("Segoe UI", 12F);
             lblNgayThuTien.Location = new Point(3, 42);
             lblNgayThuTien.Name = "lblNgayThuTien";
-            lblNgayThuTien.Size = new Size(141, 28);
+            lblNgayThuTien.Size = new Size(141, 40);
             lblNgayThuTien.TabIndex = 2;
             lblNgayThuTien.Text = "Ngày Thu Tiền:";
+            lblNgayThuTien.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblSoTienThu
             // 
             lblSoTienThu.AutoSize = true;
+            lblSoTienThu.Dock = DockStyle.Fill;
             lblSoTienThu.Font = new Font("Segoe UI", 12F);
             lblSoTienThu.Location = new Point(3, 82);
             lblSoTienThu.Name = "lblSoTienThu";
-            lblSoTienThu.Size = new Size(117, 28);
+            lblSoTienThu.Size = new Size(141, 39);
             lblSoTienThu.TabIndex = 4;
             lblSoTienThu.Text = "Số Tiền Thu:";
+            lblSoTienThu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dtpNgayThuTien
             // 
@@ -197,7 +201,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1564, 148);
+            tableLayoutPanel1.Size = new Size(1564, 121);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cmbDaiLy
@@ -226,12 +230,14 @@
             // 
             lblTenDaiLy.AutoSize = true;
             lblTenDaiLy.BackColor = Color.Transparent;
+            lblTenDaiLy.Dock = DockStyle.Fill;
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(102, 28);
+            lblTenDaiLy.Size = new Size(141, 42);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại Lý:";
+            lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblThongTinPhieuThu
             // 
