@@ -107,14 +107,14 @@
             flpSidebar.Location = new Point(0, 0);
             flpSidebar.Margin = new Padding(0);
             flpSidebar.Name = "flpSidebar";
-            flpSidebar.Size = new Size(312, 1055);
+            flpSidebar.Size = new Size(312, 1024);
             flpSidebar.TabIndex = 3;
             // 
             // panelDaiLy
             // 
             panelDaiLy.Controls.Add(btnDaily);
             panelDaiLy.Location = new Point(4, 118);
-            panelDaiLy.Margin = new Padding(4, 4, 4, 4);
+            panelDaiLy.Margin = new Padding(4);
             panelDaiLy.Name = "panelDaiLy";
             panelDaiLy.Padding = new Padding(0, 25, 0, 0);
             panelDaiLy.Size = new Size(312, 85);
@@ -128,7 +128,7 @@
             btnDaily.Image = (Image)resources.GetObject("btnDaily.Image");
             btnDaily.ImageAlign = ContentAlignment.MiddleLeft;
             btnDaily.Location = new Point(-15, -54);
-            btnDaily.Margin = new Padding(4, 4, 4, 4);
+            btnDaily.Margin = new Padding(4);
             btnDaily.Name = "btnDaily";
             btnDaily.Padding = new Padding(38, 0, 0, 0);
             btnDaily.Size = new Size(372, 195);
@@ -142,7 +142,7 @@
             // 
             panelPhieuNhap.Controls.Add(btnPhieuNhapHang);
             panelPhieuNhap.Location = new Point(4, 211);
-            panelPhieuNhap.Margin = new Padding(4, 4, 4, 4);
+            panelPhieuNhap.Margin = new Padding(4);
             panelPhieuNhap.Name = "panelPhieuNhap";
             panelPhieuNhap.Padding = new Padding(0, 25, 0, 0);
             panelPhieuNhap.Size = new Size(312, 85);
@@ -156,7 +156,7 @@
             btnPhieuNhapHang.Image = (Image)resources.GetObject("btnPhieuNhapHang.Image");
             btnPhieuNhapHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuNhapHang.Location = new Point(-15, -54);
-            btnPhieuNhapHang.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuNhapHang.Margin = new Padding(4);
             btnPhieuNhapHang.Name = "btnPhieuNhapHang";
             btnPhieuNhapHang.Padding = new Padding(38, 0, 0, 0);
             btnPhieuNhapHang.Size = new Size(390, 195);
@@ -170,7 +170,7 @@
             // 
             panelPhieuXuat.Controls.Add(btnPhieuXuatHang);
             panelPhieuXuat.Location = new Point(4, 304);
-            panelPhieuXuat.Margin = new Padding(4, 4, 4, 4);
+            panelPhieuXuat.Margin = new Padding(4);
             panelPhieuXuat.Name = "panelPhieuXuat";
             panelPhieuXuat.Padding = new Padding(0, 38, 0, 0);
             panelPhieuXuat.Size = new Size(312, 85);
@@ -184,7 +184,7 @@
             btnPhieuXuatHang.Image = (Image)resources.GetObject("btnPhieuXuatHang.Image");
             btnPhieuXuatHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuXuatHang.Location = new Point(-15, -54);
-            btnPhieuXuatHang.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuXuatHang.Margin = new Padding(4);
             btnPhieuXuatHang.Name = "btnPhieuXuatHang";
             btnPhieuXuatHang.Padding = new Padding(38, 0, 0, 0);
             btnPhieuXuatHang.Size = new Size(366, 195);
@@ -198,7 +198,7 @@
             // 
             panelPhieuThu.Controls.Add(btnPhieuThuTien);
             panelPhieuThu.Location = new Point(4, 397);
-            panelPhieuThu.Margin = new Padding(4, 4, 4, 4);
+            panelPhieuThu.Margin = new Padding(4);
             panelPhieuThu.Name = "panelPhieuThu";
             panelPhieuThu.Padding = new Padding(0, 38, 0, 0);
             panelPhieuThu.Size = new Size(312, 85);
@@ -212,7 +212,7 @@
             btnPhieuThuTien.Image = (Image)resources.GetObject("btnPhieuThuTien.Image");
             btnPhieuThuTien.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuThuTien.Location = new Point(-15, -54);
-            btnPhieuThuTien.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuThuTien.Margin = new Padding(4);
             btnPhieuThuTien.Name = "btnPhieuThuTien";
             btnPhieuThuTien.Padding = new Padding(38, 0, 0, 0);
             btnPhieuThuTien.Size = new Size(366, 195);
@@ -226,7 +226,7 @@
             // 
             panelMatHang.Controls.Add(btnProduct);
             panelMatHang.Location = new Point(4, 490);
-            panelMatHang.Margin = new Padding(4, 4, 4, 4);
+            panelMatHang.Margin = new Padding(4);
             panelMatHang.Name = "panelMatHang";
             panelMatHang.Padding = new Padding(0, 25, 0, 0);
             panelMatHang.Size = new Size(312, 85);
@@ -240,7 +240,7 @@
             btnProduct.Image = (Image)resources.GetObject("btnProduct.Image");
             btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
             btnProduct.Location = new Point(-16, -55);
-            btnProduct.Margin = new Padding(4, 4, 4, 4);
+            btnProduct.Margin = new Padding(4);
             btnProduct.Name = "btnProduct";
             btnProduct.Padding = new Padding(38, 0, 0, 0);
             btnProduct.Size = new Size(372, 195);
@@ -257,7 +257,7 @@
             reportContainer.Controls.Add(panelBaoCaoDoanhSo);
             reportContainer.Controls.Add(panelBaoCaoCongNo);
             reportContainer.Location = new Point(4, 583);
-            reportContainer.Margin = new Padding(4, 4, 4, 4);
+            reportContainer.Margin = new Padding(4);
             reportContainer.Name = "reportContainer";
             reportContainer.Size = new Size(312, 85);
             reportContainer.TabIndex = 5;
@@ -280,7 +280,7 @@
             btnReport.Image = (Image)resources.GetObject("btnReport.Image");
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
             btnReport.Location = new Point(-15, -54);
-            btnReport.Margin = new Padding(4, 4, 4, 4);
+            btnReport.Margin = new Padding(4);
             btnReport.Name = "btnReport";
             btnReport.Padding = new Padding(38, 0, 0, 0);
             btnReport.Size = new Size(350, 195);
@@ -308,7 +308,7 @@
             btnBaoCaoDoanhSo.Image = (Image)resources.GetObject("btnBaoCaoDoanhSo.Image");
             btnBaoCaoDoanhSo.ImageAlign = ContentAlignment.MiddleLeft;
             btnBaoCaoDoanhSo.Location = new Point(-15, -54);
-            btnBaoCaoDoanhSo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoDoanhSo.Margin = new Padding(4);
             btnBaoCaoDoanhSo.Name = "btnBaoCaoDoanhSo";
             btnBaoCaoDoanhSo.Padding = new Padding(38, 0, 0, 0);
             btnBaoCaoDoanhSo.Size = new Size(376, 195);
@@ -336,7 +336,7 @@
             btnBaoCaoCongNo.Image = (Image)resources.GetObject("btnBaoCaoCongNo.Image");
             btnBaoCaoCongNo.ImageAlign = ContentAlignment.MiddleLeft;
             btnBaoCaoCongNo.Location = new Point(-15, -54);
-            btnBaoCaoCongNo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoCongNo.Margin = new Padding(4);
             btnBaoCaoCongNo.Name = "btnBaoCaoCongNo";
             btnBaoCaoCongNo.Padding = new Padding(38, 0, 0, 0);
             btnBaoCaoCongNo.Size = new Size(410, 195);
@@ -362,7 +362,7 @@
             panel8.Location = new Point(312, 0);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(1612, 76);
+            panel8.Size = new Size(1586, 76);
             panel8.TabIndex = 4;
             // 
             // pbPhanQuyen
@@ -370,8 +370,8 @@
             pbPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbPhanQuyen.Image = (Image)resources.GetObject("pbPhanQuyen.Image");
             pbPhanQuyen.InitialImage = (Image)resources.GetObject("pbPhanQuyen.InitialImage");
-            pbPhanQuyen.Location = new Point(1479, 20);
-            pbPhanQuyen.Margin = new Padding(4, 4, 4, 4);
+            pbPhanQuyen.Location = new Point(1453, 20);
+            pbPhanQuyen.Margin = new Padding(4);
             pbPhanQuyen.Name = "pbPhanQuyen";
             pbPhanQuyen.Size = new Size(52, 40);
             pbPhanQuyen.TabIndex = 3;
@@ -385,9 +385,9 @@
             tbTimKiem.BorderStyle = BorderStyle.None;
             tbTimKiem.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbTimKiem.Location = new Point(508, 20);
-            tbTimKiem.Margin = new Padding(4, 4, 4, 4);
+            tbTimKiem.Margin = new Padding(4);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(719, 37);
+            tbTimKiem.Size = new Size(693, 37);
             tbTimKiem.TabIndex = 2;
             tbTimKiem.Text = "       Tìm kiếm...";
             // 
@@ -396,8 +396,8 @@
             pbSettingThamSo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbSettingThamSo.Image = (Image)resources.GetObject("pbSettingThamSo.Image");
             pbSettingThamSo.InitialImage = (Image)resources.GetObject("pbSettingThamSo.InitialImage");
-            pbSettingThamSo.Location = new Point(1539, 20);
-            pbSettingThamSo.Margin = new Padding(4, 4, 4, 4);
+            pbSettingThamSo.Location = new Point(1513, 20);
+            pbSettingThamSo.Margin = new Padding(4);
             pbSettingThamSo.Name = "pbSettingThamSo";
             pbSettingThamSo.Size = new Size(40, 40);
             pbSettingThamSo.TabIndex = 1;
@@ -424,20 +424,20 @@
             panelMain.Location = new Point(312, 76);
             panelMain.Margin = new Padding(0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1612, 979);
+            panelMain.Size = new Size(1586, 948);
             panelMain.TabIndex = 5;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1898, 1024);
             Controls.Add(panelMain);
             Controls.Add(panel8);
             Controls.Add(flpSidebar);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "Menu";
             Text = "Quản lý đại lý ";
             flpSidebar.ResumeLayout(false);
