@@ -588,6 +588,7 @@
             ClientSize = new Size(1258, 904);
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_ChiTietPhieuXuat";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản Lý Chi Tiết Phiếu Xuất";
             FormClosed += GUI_ChiTietPhieuXuat_FormClosed;
             Load += GUI_ChiTietPhieuXuat_Load;

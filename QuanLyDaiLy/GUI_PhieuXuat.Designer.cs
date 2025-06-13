@@ -358,6 +358,7 @@
             ClientSize = new Size(1634, 940);
             Controls.Add(tableLayoutPanel1);
             Name = "GUI_PhieuXuat";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản Lý Phiếu Xuất";
             Load += GUI_PhieuXuat_Load;
             panel2.ResumeLayout(false);
