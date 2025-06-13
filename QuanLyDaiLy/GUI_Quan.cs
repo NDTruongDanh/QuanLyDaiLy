@@ -72,6 +72,8 @@ namespace GUI_QuanLy
         private void ClearInputFields()
         {
             txtTenQuan.Clear();
+
+            dgvQuan.ClearSelection();
         }
 
         private void ValidateInputFields()

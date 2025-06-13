@@ -84,6 +84,8 @@ namespace GUI_QuanLy
         private void ClearInputFields()
         {
             txtDonViTinh.Clear();
+
+            dgvDVT.ClearSelection();
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)

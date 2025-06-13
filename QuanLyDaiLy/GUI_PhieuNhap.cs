@@ -103,7 +103,7 @@ namespace GUI_QuanLy
                 var data = await _busPhieuNhap.GetPhieuNhapListAsync();
                 _bindingSource.DataSource = data;
                 ModifyDataGridViewColumns();
-
+                dgvPhieuNhap.ClearSelection();
             }
             catch (BusException busEx)
             {
