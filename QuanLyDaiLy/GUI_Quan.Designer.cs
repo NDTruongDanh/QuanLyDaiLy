@@ -22,24 +22,24 @@
             dgvQuan = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            txtTenQuan = new TextBox();
-            lblTenDaiLy = new Label();
-            lblThongTinPhieuThu = new Label();
-            label4 = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
             btnRefresh = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            txtTenQuan = new TextBox();
+            lblTenDaiLy = new Label();
+            lblThongTinPhieuThu = new Label();
+            label4 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).BeginInit();
             panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -142,77 +142,6 @@
             panel2.Size = new Size(1602, 390);
             panel2.TabIndex = 25;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(txtTenQuan, 1, 0);
-            tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
-            tableLayoutPanel1.Location = new Point(16, 77);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1564, 45);
-            tableLayoutPanel1.TabIndex = 19;
-            // 
-            // txtTenQuan
-            // 
-            txtTenQuan.Dock = DockStyle.Fill;
-            txtTenQuan.Font = new Font("Segoe UI", 12F);
-            txtTenQuan.Location = new Point(106, 3);
-            txtTenQuan.Name = "txtTenQuan";
-            txtTenQuan.Size = new Size(1455, 34);
-            txtTenQuan.TabIndex = 7;
-            // 
-            // lblTenDaiLy
-            // 
-            lblTenDaiLy.AutoSize = true;
-            lblTenDaiLy.BackColor = Color.Transparent;
-            lblTenDaiLy.Font = new Font("Segoe UI", 12F);
-            lblTenDaiLy.Location = new Point(3, 0);
-            lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(97, 28);
-            lblTenDaiLy.TabIndex = 0;
-            lblTenDaiLy.Text = "Tên Quận:";
-            // 
-            // lblThongTinPhieuThu
-            // 
-            lblThongTinPhieuThu.AutoSize = true;
-            lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblThongTinPhieuThu.Location = new Point(16, 13);
-            lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(192, 32);
-            lblThongTinPhieuThu.TabIndex = 16;
-            lblThongTinPhieuThu.Text = "Nhập liệu Quận";
-            // 
-            // label4
-            // 
-            label4.BorderStyle = BorderStyle.Fixed3D;
-            label4.Location = new Point(0, 51);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(3000, 2);
-            label4.TabIndex = 15;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel2.Controls.Add(panel2, 0, 1);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.9574471F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.0425529F));
-            tableLayoutPanel2.Size = new Size(1634, 940);
-            tableLayoutPanel2.TabIndex = 26;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -296,6 +225,77 @@
             btnRefresh.Text = "🔄 Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(txtTenQuan, 1, 0);
+            tableLayoutPanel1.Controls.Add(lblTenDaiLy, 0, 0);
+            tableLayoutPanel1.Location = new Point(16, 77);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(1564, 45);
+            tableLayoutPanel1.TabIndex = 19;
+            // 
+            // txtTenQuan
+            // 
+            txtTenQuan.Dock = DockStyle.Fill;
+            txtTenQuan.Font = new Font("Segoe UI", 12F);
+            txtTenQuan.Location = new Point(106, 3);
+            txtTenQuan.Name = "txtTenQuan";
+            txtTenQuan.Size = new Size(1455, 34);
+            txtTenQuan.TabIndex = 7;
+            // 
+            // lblTenDaiLy
+            // 
+            lblTenDaiLy.AutoSize = true;
+            lblTenDaiLy.BackColor = Color.Transparent;
+            lblTenDaiLy.Font = new Font("Segoe UI", 12F);
+            lblTenDaiLy.Location = new Point(3, 0);
+            lblTenDaiLy.Name = "lblTenDaiLy";
+            lblTenDaiLy.Size = new Size(97, 28);
+            lblTenDaiLy.TabIndex = 0;
+            lblTenDaiLy.Text = "Tên Quận:";
+            // 
+            // lblThongTinPhieuThu
+            // 
+            lblThongTinPhieuThu.AutoSize = true;
+            lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblThongTinPhieuThu.Location = new Point(16, 13);
+            lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
+            lblThongTinPhieuThu.Size = new Size(192, 32);
+            lblThongTinPhieuThu.TabIndex = 16;
+            lblThongTinPhieuThu.Text = "Nhập liệu Quận";
+            // 
+            // label4
+            // 
+            label4.BorderStyle = BorderStyle.Fixed3D;
+            label4.Location = new Point(0, 51);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(3000, 2);
+            label4.TabIndex = 15;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel2.Controls.Add(panel2, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.9574471F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.0425529F));
+            tableLayoutPanel2.Size = new Size(1634, 940);
+            tableLayoutPanel2.TabIndex = 26;
+            // 
             // GUI_Quan
             // 
             ClientSize = new Size(1634, 940);
@@ -307,11 +307,11 @@
             ((System.ComponentModel.ISupportInitialize)dgvQuan).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 

@@ -27,7 +27,7 @@ namespace GUI_QuanLy
 
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            SetPlaceholder(tbTimKiem, "     Tìm kiếm...");
+
             this.WindowState = FormWindowState.Maximized;
 
             hideNonePermissionComponents();

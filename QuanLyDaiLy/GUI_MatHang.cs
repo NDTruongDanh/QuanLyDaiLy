@@ -79,7 +79,7 @@ namespace GUI_QuanLy
 
 
                 btnAdd.Visible = permission.Them;
-                btnUpdate.Visible = permission.Sua;
+                btnRefresh.Visible = permission.Sua;
                 btnDelete.Visible = permission.Xoa;
 
 
