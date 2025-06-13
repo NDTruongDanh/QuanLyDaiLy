@@ -70,6 +70,9 @@ namespace GUI_QuanLy
             var SettingsPermission = await permissionService.GetPermissionCurrentUserAsync("Settings");
             pbSettingThamSo.Visible = SettingsPermission != null && SettingsPermission.Xem;
 
+
+            reportContainer.Visible = panelBaoCaoCongNo.Visible ||panelMatHang.Visible;
+
         }
         private void menuTransition1_Tick(object sender, EventArgs e)
         {
