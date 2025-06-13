@@ -22,7 +22,7 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
-            button1 = new Button();
+            btnRefresh = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             label5 = new Label();
             label4 = new Label();
@@ -68,10 +68,10 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(809, 220);
+            flowLayoutPanel1.Controls.Add(btnRefresh);
+            flowLayoutPanel1.Location = new Point(829, 223);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(774, 52);
+            flowLayoutPanel1.Size = new Size(754, 52);
             flowLayoutPanel1.TabIndex = 28;
             // 
             // btnAdd
@@ -134,19 +134,19 @@
             btnFind.UseVisualStyleBackColor = false;
             btnFind.Click += btnFind_Click;
             // 
-            // button1
+            // btnRefresh
             // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(33, 150, 243);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(613, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(158, 44);
-            button1.TabIndex = 24;
-            button1.Text = "🔍 Làm mới";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnRefresh_Click;
+            btnRefresh.AutoSize = true;
+            btnRefresh.BackColor = Color.FromArgb(221, 121, 115);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F);
+            btnRefresh.Location = new Point(613, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(136, 44);
+            btnRefresh.TabIndex = 24;
+            btnRefresh.Text = "🔄 Làm mới";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -166,7 +166,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1571, 138);
+            tableLayoutPanel2.Size = new Size(1571, 123);
             tableLayoutPanel2.TabIndex = 21;
             // 
             // label5
@@ -176,7 +176,7 @@
             label5.Font = new Font("Segoe UI", 12F);
             label5.Location = new Point(3, 82);
             label5.Name = "label5";
-            label5.Size = new Size(158, 56);
+            label5.Size = new Size(158, 41);
             label5.TabIndex = 10;
             label5.Text = "Số tiền trả trước:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,6 +228,8 @@
             // 
             // txtTraTruoc
             // 
+            txtTraTruoc.BackColor = Color.White;
+            txtTraTruoc.BorderStyle = BorderStyle.FixedSingle;
             txtTraTruoc.Dock = DockStyle.Fill;
             txtTraTruoc.Font = new Font("Segoe UI", 12F);
             txtTraTruoc.Location = new Point(167, 85);
@@ -392,14 +394,13 @@
         private DataGridView dgvPhieuXuat;
         private Label label2;
         private Label label6;
+        private ComboBox cmbDaiLy;
+        private TextBox txtTraTruoc;
         private FlowLayoutPanel flowLayoutPanel1;
-
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
-        private Button button1;
-        private ComboBox cmbDaiLy;
-        private TextBox txtTraTruoc;
+        private Button btnRefresh;
     }
 }

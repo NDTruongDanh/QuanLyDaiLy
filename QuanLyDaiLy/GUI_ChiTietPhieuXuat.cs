@@ -437,6 +437,8 @@ namespace GUI_QuanLy
             _phieuXuat.ConLai = decimal.TryParse(txtConLai.Text, out decimal conLai) ? conLai : 0;
             _phieuXuat.TongTien = decimal.TryParse(txtTongTien.Text, out decimal tongTien) ? tongTien : 0;
         }
+
+
     }
 }
 
