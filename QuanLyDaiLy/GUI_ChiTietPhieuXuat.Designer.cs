@@ -101,6 +101,7 @@
             panel1.Padding = new Padding(16, 16, 16, 8);
             panel1.Size = new Size(1226, 564);
             panel1.TabIndex = 24;
+            panel1.Paint += panel1_Paint;
             // 
             // tableLayoutPanel4
             // 
@@ -257,12 +258,12 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 6;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.66667F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.4641352F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.1181431F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.4683552F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.5316448F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.101266F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.27848F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.907173F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.4599152F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.8270044F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.42616F));
             tableLayoutPanel1.Controls.Add(txtDaiLy, 3, 0);
             tableLayoutPanel1.Controls.Add(label11, 2, 0);
             tableLayoutPanel1.Controls.Add(txtMaPhieuXuat, 1, 0);
@@ -273,72 +274,77 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1185, 50);
+            tableLayoutPanel1.Size = new Size(1185, 40);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // txtDaiLy
             // 
+            txtDaiLy.BackColor = Color.White;
             txtDaiLy.Dock = DockStyle.Fill;
             txtDaiLy.Font = new Font("Segoe UI", 12F);
-            txtDaiLy.Location = new Point(521, 3);
+            txtDaiLy.Location = new Point(433, 3);
             txtDaiLy.Name = "txtDaiLy";
             txtDaiLy.ReadOnly = true;
-            txtDaiLy.Size = new Size(185, 34);
+            txtDaiLy.Size = new Size(272, 34);
             txtDaiLy.TabIndex = 15;
             // 
             // label11
             // 
             label11.AutoSize = true;
+            label11.Dock = DockStyle.Fill;
             label11.Font = new Font("Segoe UI", 12F);
-            label11.Location = new Point(397, 3);
+            label11.Location = new Point(363, 3);
             label11.Margin = new Padding(3);
             label11.Name = "label11";
-            label11.Size = new Size(61, 28);
+            label11.Size = new Size(64, 34);
             label11.TabIndex = 14;
             label11.Text = "Đại lý";
-            label11.TextAlign = ContentAlignment.MiddleLeft;
+            label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtMaPhieuXuat
             // 
+            txtMaPhieuXuat.BackColor = Color.White;
             txtMaPhieuXuat.Dock = DockStyle.Fill;
             txtMaPhieuXuat.Font = new Font("Segoe UI", 12F);
-            txtMaPhieuXuat.Location = new Point(200, 3);
+            txtMaPhieuXuat.Location = new Point(99, 3);
             txtMaPhieuXuat.Name = "txtMaPhieuXuat";
             txtMaPhieuXuat.ReadOnly = true;
-            txtMaPhieuXuat.Size = new Size(191, 34);
+            txtMaPhieuXuat.Size = new Size(258, 34);
             txtMaPhieuXuat.TabIndex = 13;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 12F);
             label3.Location = new Point(3, 3);
             label3.Margin = new Padding(3);
             label3.Name = "label3";
-            label3.Size = new Size(89, 28);
+            label3.Size = new Size(90, 34);
             label3.TabIndex = 12;
             label3.Text = "Số phiếu";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(712, 3);
+            label1.Location = new Point(711, 3);
             label1.Margin = new Padding(3);
             label1.Name = "label1";
-            label1.Size = new Size(145, 28);
+            label1.Size = new Size(146, 34);
             label1.TabIndex = 11;
             label1.Text = "Ngày lập phiếu";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dtpNgayLap
             // 
             dtpNgayLap.Dock = DockStyle.Fill;
             dtpNgayLap.Font = new Font("Segoe UI", 12F);
-            dtpNgayLap.Location = new Point(919, 3);
+            dtpNgayLap.Location = new Point(863, 3);
             dtpNgayLap.Name = "dtpNgayLap";
-            dtpNgayLap.Size = new Size(263, 34);
+            dtpNgayLap.Size = new Size(319, 34);
             dtpNgayLap.TabIndex = 10;
             // 
             // lblDanhSachPhieuThu
