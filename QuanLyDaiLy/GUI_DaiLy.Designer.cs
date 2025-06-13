@@ -228,6 +228,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -242,6 +243,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -256,6 +258,7 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnFind
             // 
@@ -270,6 +273,7 @@
             btnFind.TabIndex = 23;
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
+            btnFind.Click += btnFind_Click;
             // 
             // btnRefresh
             // 
@@ -283,6 +287,7 @@
             btnRefresh.TabIndex = 24;
             btnRefresh.Text = "🔄 Làm mới";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += button1_Click;
             // 
             // tableLayoutPanel1
             // 
