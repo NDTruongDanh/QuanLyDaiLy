@@ -13,9 +13,6 @@ using BUS_QuanLy;
 using Microsoft.Extensions.Logging;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
-using DTO_QuanLy;
-using GUI_QuanLy.AddedClasses;
-using Microsoft.Extensions.DependencyInjection;
 
 
 namespace GUI_QuanLy
@@ -26,17 +23,16 @@ namespace GUI_QuanLy
         private readonly IBUS_BaoCaoCongNo _busBaoCaoCongNo;
         private readonly ILogger _logger;
         private readonly BindingSource _bindingSource = new BindingSource();
-        private readonly IServiceProvider _service;
+
         private int _prevMonth = 0;
         private int _prevYear = 0;
-        private DTO_ChiTietPhanQuyen? permission;
+
         private Dictionary<string, decimal> _congNoDictionary = [];
-        public GUI_BaoCaoCongNo(IBUS_DaiLy busDaiLy, IBUS_BaoCaoCongNo busBaoCaoCongNo, ILogger<GUI_BaoCaoCongNo> logger,IServiceProvider service)
+        public GUI_BaoCaoCongNo(IBUS_DaiLy busDaiLy, IBUS_BaoCaoCongNo busBaoCaoCongNo, ILogger<GUI_BaoCaoCongNo> logger)
         {
             _busDaiLy = busDaiLy;
             _busBaoCaoCongNo = busBaoCaoCongNo;
             _logger = logger;
-            _service = service;
             InitializeComponent();
             dgvBaoCaoCongNo.DataSource = _bindingSource;
 
@@ -52,7 +48,6 @@ namespace GUI_QuanLy
         {
             try
             {
-                await permissionLoadAsync();
                 await LoadBaoCaoCongNoAsync(_prevMonth, _prevYear);
                 LoadContent(_prevMonth, _prevYear);
             }
@@ -67,40 +62,7 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Error);
             }
         }
-        private async Task permissionLoadAsync()
-        {
-            try
-            {
-                var permissionService = _service.GetRequiredService<PermissionService>();
 
-
-                permission = await permissionService.GetPermissionCurrentUserAsync("BaoCaoCongNo");
-
-                if (permission == null || permission.Xem == false)
-                {
-                    _logger.LogWarning("No permission found for BaoCaoCongNo.");
-                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    this.Close();
-                    return;
-                }
-
-
-
-
-
-            }
-            catch
-            {
-                _logger.LogError("Failed to load permissions for BaoCaoCongNo.");
-                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
         private async Task LoadBaoCaoCongNoAsync(int thang, int nam)
         {
             try

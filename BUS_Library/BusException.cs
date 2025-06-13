@@ -138,33 +138,5 @@ namespace BUS_Library
         public const int UpdateThamSoFailure = 1004;
         public const int GetThamSoFailure = 1005;
 
-
-        //NhomNguoiDung
-        public const int GetNhomNguoiDungListFailure = 1101;
-        public const int AddNhomNguoiDungFailure = 1102;
-        public const int UpdateNhomNguoiDungFailure = 1103;
-        public const int DeleteNhomNguoiDungFailure = 1104;
-
-
-        //NguoiDung
-        public const int GetNguoiDungListFailure = 1201;
-        public const int GetNguoiDungFailure = 1202;
-        public const int AddNguoiDungFailure = 1203;
-        public const int UpdateNguoiDungFailure = 1204;
-        public const int DeleteNguoiDungFailure = 1205;
-        public const int GetDataTableNguoiDungListFailure = 1206;
-        public const int GetDataTableNguoiDungByTenMatKhauFailure = 1207;
-
-
-        //ChucNang
-        public const int GetChucNangListFailure = 1301;
-
-
-        //ChiTietPhanQuyen
-        public const int GetDataTableCTPhanQuyenFailure = 1401;
-        public const int AddCTPhanQuyenFailure = 1402;
-        public const int UpdateCTPhanQuyenFailure = 1403;
-        public const int DeleteCTPhanQuyenFailure = 1404;
-
     }
 }

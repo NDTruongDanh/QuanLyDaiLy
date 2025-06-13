@@ -32,121 +32,61 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             Seperator = new Label();
             label1 = new Label();
-            flpSidebar = new FlowLayoutPanel();
-            panelDaiLy = new Panel();
-            btnDaily = new Button();
-            panelPhieuNhap = new Panel();
             btnPhieuNhapHang = new Button();
-            panelPhieuXuat = new Panel();
+            panel2 = new Panel();
+            flpSidebar = new FlowLayoutPanel();
+            panel5 = new Panel();
+            btnDaily = new Button();
+            panel1 = new Panel();
             btnPhieuXuatHang = new Button();
-            panelPhieuThu = new Panel();
+            panel3 = new Panel();
             btnPhieuThuTien = new Button();
-            panelMatHang = new Panel();
+            panel9 = new Panel();
             btnProduct = new Button();
             reportContainer = new FlowLayoutPanel();
             panel7 = new Panel();
             btnReport = new Button();
-            panelBaoCaoDoanhSo = new Panel();
+            panel6 = new Panel();
             btnBaoCaoDoanhSo = new Button();
-            panelBaoCaoCongNo = new Panel();
+            panel4 = new Panel();
             btnBaoCaoCongNo = new Button();
             menuTransition1 = new System.Windows.Forms.Timer(components);
             panel8 = new Panel();
-            pbPhanQuyen = new PictureBox();
             tbTimKiem = new TextBox();
             pbSettingThamSo = new PictureBox();
             lblFormName = new Label();
             panelMain = new Panel();
+            panel2.SuspendLayout();
             flpSidebar.SuspendLayout();
-            panelDaiLy.SuspendLayout();
-            panelPhieuNhap.SuspendLayout();
-            panelPhieuXuat.SuspendLayout();
-            panelPhieuThu.SuspendLayout();
-            panelMatHang.SuspendLayout();
+            panel5.SuspendLayout();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            panel9.SuspendLayout();
             reportContainer.SuspendLayout();
             panel7.SuspendLayout();
-            panelBaoCaoDoanhSo.SuspendLayout();
-            panelBaoCaoCongNo.SuspendLayout();
+            panel6.SuspendLayout();
+            panel4.SuspendLayout();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).BeginInit();
             SuspendLayout();
             // 
             // Seperator
             // 
             Seperator.BorderStyle = BorderStyle.Fixed3D;
-            Seperator.Location = new Point(4, 112);
-            Seperator.Margin = new Padding(4, 0, 4, 0);
+            Seperator.Location = new Point(3, 90);
             Seperator.Name = "Seperator";
-            Seperator.Size = new Size(312, 2);
+            Seperator.Size = new Size(250, 2);
             Seperator.TabIndex = 2;
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(4, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(294, 112);
+            label1.Size = new Size(235, 90);
             label1.TabIndex = 1;
             label1.Text = "QUẢN LÝ ĐẠI LÝ ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // flpSidebar
-            // 
-            flpSidebar.BackColor = Color.FromArgb(44, 62, 80);
-            flpSidebar.Controls.Add(label1);
-            flpSidebar.Controls.Add(Seperator);
-            flpSidebar.Controls.Add(panelDaiLy);
-            flpSidebar.Controls.Add(panelPhieuNhap);
-            flpSidebar.Controls.Add(panelPhieuXuat);
-            flpSidebar.Controls.Add(panelPhieuThu);
-            flpSidebar.Controls.Add(panelMatHang);
-            flpSidebar.Controls.Add(reportContainer);
-            flpSidebar.Dock = DockStyle.Left;
-            flpSidebar.Location = new Point(0, 0);
-            flpSidebar.Margin = new Padding(0);
-            flpSidebar.Name = "flpSidebar";
-            flpSidebar.Size = new Size(312, 1055);
-            flpSidebar.TabIndex = 3;
-            // 
-            // panelDaiLy
-            // 
-            panelDaiLy.Controls.Add(btnDaily);
-            panelDaiLy.Location = new Point(4, 118);
-            panelDaiLy.Margin = new Padding(4, 4, 4, 4);
-            panelDaiLy.Name = "panelDaiLy";
-            panelDaiLy.Padding = new Padding(0, 25, 0, 0);
-            panelDaiLy.Size = new Size(312, 85);
-            panelDaiLy.TabIndex = 4;
-            // 
-            // btnDaily
-            // 
-            btnDaily.BackColor = Color.FromArgb(44, 62, 80);
-            btnDaily.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDaily.ForeColor = Color.White;
-            btnDaily.Image = (Image)resources.GetObject("btnDaily.Image");
-            btnDaily.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDaily.Location = new Point(-15, -54);
-            btnDaily.Margin = new Padding(4, 4, 4, 4);
-            btnDaily.Name = "btnDaily";
-            btnDaily.Padding = new Padding(38, 0, 0, 0);
-            btnDaily.Size = new Size(372, 195);
-            btnDaily.TabIndex = 1;
-            btnDaily.Text = "       Đại lý ";
-            btnDaily.TextAlign = ContentAlignment.MiddleLeft;
-            btnDaily.UseVisualStyleBackColor = false;
-            btnDaily.Click += btnDaily_Click;
-            // 
-            // panelPhieuNhap
-            // 
-            panelPhieuNhap.Controls.Add(btnPhieuNhapHang);
-            panelPhieuNhap.Location = new Point(4, 211);
-            panelPhieuNhap.Margin = new Padding(4, 4, 4, 4);
-            panelPhieuNhap.Name = "panelPhieuNhap";
-            panelPhieuNhap.Padding = new Padding(0, 25, 0, 0);
-            panelPhieuNhap.Size = new Size(312, 85);
-            panelPhieuNhap.TabIndex = 2;
             // 
             // btnPhieuNhapHang
             // 
@@ -155,26 +95,77 @@
             btnPhieuNhapHang.ForeColor = Color.White;
             btnPhieuNhapHang.Image = (Image)resources.GetObject("btnPhieuNhapHang.Image");
             btnPhieuNhapHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPhieuNhapHang.Location = new Point(-15, -54);
-            btnPhieuNhapHang.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuNhapHang.Location = new Point(-12, -43);
             btnPhieuNhapHang.Name = "btnPhieuNhapHang";
-            btnPhieuNhapHang.Padding = new Padding(38, 0, 0, 0);
-            btnPhieuNhapHang.Size = new Size(390, 195);
+            btnPhieuNhapHang.Padding = new Padding(30, 0, 0, 0);
+            btnPhieuNhapHang.Size = new Size(312, 156);
             btnPhieuNhapHang.TabIndex = 1;
             btnPhieuNhapHang.Text = "       Phiếu nhập hàng ";
             btnPhieuNhapHang.TextAlign = ContentAlignment.MiddleLeft;
             btnPhieuNhapHang.UseVisualStyleBackColor = false;
             btnPhieuNhapHang.Click += btnPhieuNhapHang_Click;
             // 
-            // panelPhieuXuat
+            // panel2
             // 
-            panelPhieuXuat.Controls.Add(btnPhieuXuatHang);
-            panelPhieuXuat.Location = new Point(4, 304);
-            panelPhieuXuat.Margin = new Padding(4, 4, 4, 4);
-            panelPhieuXuat.Name = "panelPhieuXuat";
-            panelPhieuXuat.Padding = new Padding(0, 38, 0, 0);
-            panelPhieuXuat.Size = new Size(312, 85);
-            panelPhieuXuat.TabIndex = 3;
+            panel2.Controls.Add(btnPhieuNhapHang);
+            panel2.Location = new Point(3, 169);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(0, 20, 0, 0);
+            panel2.Size = new Size(250, 68);
+            panel2.TabIndex = 2;
+            // 
+            // flpSidebar
+            // 
+            flpSidebar.BackColor = Color.FromArgb(44, 62, 80);
+            flpSidebar.Controls.Add(label1);
+            flpSidebar.Controls.Add(Seperator);
+            flpSidebar.Controls.Add(panel5);
+            flpSidebar.Controls.Add(panel2);
+            flpSidebar.Controls.Add(panel1);
+            flpSidebar.Controls.Add(panel3);
+            flpSidebar.Controls.Add(panel9);
+            flpSidebar.Controls.Add(reportContainer);
+            flpSidebar.Dock = DockStyle.Left;
+            flpSidebar.Location = new Point(0, 0);
+            flpSidebar.Margin = new Padding(0);
+            flpSidebar.Name = "flpSidebar";
+            flpSidebar.Size = new Size(250, 1033);
+            flpSidebar.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(btnDaily);
+            panel5.Location = new Point(3, 95);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(0, 20, 0, 0);
+            panel5.Size = new Size(250, 68);
+            panel5.TabIndex = 4;
+            // 
+            // btnDaily
+            // 
+            btnDaily.BackColor = Color.FromArgb(44, 62, 80);
+            btnDaily.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDaily.ForeColor = Color.White;
+            btnDaily.Image = (Image)resources.GetObject("btnDaily.Image");
+            btnDaily.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDaily.Location = new Point(-12, -43);
+            btnDaily.Name = "btnDaily";
+            btnDaily.Padding = new Padding(30, 0, 0, 0);
+            btnDaily.Size = new Size(298, 156);
+            btnDaily.TabIndex = 1;
+            btnDaily.Text = "       Đại lý ";
+            btnDaily.TextAlign = ContentAlignment.MiddleLeft;
+            btnDaily.UseVisualStyleBackColor = false;
+            btnDaily.Click += btnDaily_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnPhieuXuatHang);
+            panel1.Location = new Point(3, 243);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(0, 30, 0, 0);
+            panel1.Size = new Size(250, 68);
+            panel1.TabIndex = 3;
             // 
             // btnPhieuXuatHang
             // 
@@ -183,26 +174,24 @@
             btnPhieuXuatHang.ForeColor = Color.White;
             btnPhieuXuatHang.Image = (Image)resources.GetObject("btnPhieuXuatHang.Image");
             btnPhieuXuatHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPhieuXuatHang.Location = new Point(-15, -54);
-            btnPhieuXuatHang.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuXuatHang.Location = new Point(-12, -43);
             btnPhieuXuatHang.Name = "btnPhieuXuatHang";
-            btnPhieuXuatHang.Padding = new Padding(38, 0, 0, 0);
-            btnPhieuXuatHang.Size = new Size(366, 195);
+            btnPhieuXuatHang.Padding = new Padding(30, 0, 0, 0);
+            btnPhieuXuatHang.Size = new Size(293, 156);
             btnPhieuXuatHang.TabIndex = 1;
             btnPhieuXuatHang.Text = "       Phiếu xuất hàng ";
             btnPhieuXuatHang.TextAlign = ContentAlignment.MiddleLeft;
             btnPhieuXuatHang.UseVisualStyleBackColor = false;
             btnPhieuXuatHang.Click += btnPhieuXuatHang_Click;
             // 
-            // panelPhieuThu
+            // panel3
             // 
-            panelPhieuThu.Controls.Add(btnPhieuThuTien);
-            panelPhieuThu.Location = new Point(4, 397);
-            panelPhieuThu.Margin = new Padding(4, 4, 4, 4);
-            panelPhieuThu.Name = "panelPhieuThu";
-            panelPhieuThu.Padding = new Padding(0, 38, 0, 0);
-            panelPhieuThu.Size = new Size(312, 85);
-            panelPhieuThu.TabIndex = 3;
+            panel3.Controls.Add(btnPhieuThuTien);
+            panel3.Location = new Point(3, 317);
+            panel3.Name = "panel3";
+            panel3.Padding = new Padding(0, 30, 0, 0);
+            panel3.Size = new Size(250, 68);
+            panel3.TabIndex = 3;
             // 
             // btnPhieuThuTien
             // 
@@ -211,26 +200,24 @@
             btnPhieuThuTien.ForeColor = Color.White;
             btnPhieuThuTien.Image = (Image)resources.GetObject("btnPhieuThuTien.Image");
             btnPhieuThuTien.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPhieuThuTien.Location = new Point(-15, -54);
-            btnPhieuThuTien.Margin = new Padding(4, 4, 4, 4);
+            btnPhieuThuTien.Location = new Point(-12, -43);
             btnPhieuThuTien.Name = "btnPhieuThuTien";
-            btnPhieuThuTien.Padding = new Padding(38, 0, 0, 0);
-            btnPhieuThuTien.Size = new Size(366, 195);
+            btnPhieuThuTien.Padding = new Padding(30, 0, 0, 0);
+            btnPhieuThuTien.Size = new Size(293, 156);
             btnPhieuThuTien.TabIndex = 1;
             btnPhieuThuTien.Text = "       Phiếu thu tiền ";
             btnPhieuThuTien.TextAlign = ContentAlignment.MiddleLeft;
             btnPhieuThuTien.UseVisualStyleBackColor = false;
             btnPhieuThuTien.Click += btnPhieuThuTien_Click;
             // 
-            // panelMatHang
+            // panel9
             // 
-            panelMatHang.Controls.Add(btnProduct);
-            panelMatHang.Location = new Point(4, 490);
-            panelMatHang.Margin = new Padding(4, 4, 4, 4);
-            panelMatHang.Name = "panelMatHang";
-            panelMatHang.Padding = new Padding(0, 25, 0, 0);
-            panelMatHang.Size = new Size(312, 85);
-            panelMatHang.TabIndex = 5;
+            panel9.Controls.Add(btnProduct);
+            panel9.Location = new Point(3, 391);
+            panel9.Name = "panel9";
+            panel9.Padding = new Padding(0, 20, 0, 0);
+            panel9.Size = new Size(250, 68);
+            panel9.TabIndex = 5;
             // 
             // btnProduct
             // 
@@ -239,11 +226,10 @@
             btnProduct.ForeColor = Color.White;
             btnProduct.Image = (Image)resources.GetObject("btnProduct.Image");
             btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProduct.Location = new Point(-16, -55);
-            btnProduct.Margin = new Padding(4, 4, 4, 4);
+            btnProduct.Location = new Point(-13, -44);
             btnProduct.Name = "btnProduct";
-            btnProduct.Padding = new Padding(38, 0, 0, 0);
-            btnProduct.Size = new Size(372, 195);
+            btnProduct.Padding = new Padding(30, 0, 0, 0);
+            btnProduct.Size = new Size(298, 156);
             btnProduct.TabIndex = 1;
             btnProduct.Text = "       Mặt hàng";
             btnProduct.TextAlign = ContentAlignment.MiddleLeft;
@@ -254,12 +240,11 @@
             // 
             reportContainer.BackColor = Color.FromArgb(60, 84, 108);
             reportContainer.Controls.Add(panel7);
-            reportContainer.Controls.Add(panelBaoCaoDoanhSo);
-            reportContainer.Controls.Add(panelBaoCaoCongNo);
-            reportContainer.Location = new Point(4, 583);
-            reportContainer.Margin = new Padding(4, 4, 4, 4);
+            reportContainer.Controls.Add(panel6);
+            reportContainer.Controls.Add(panel4);
+            reportContainer.Location = new Point(3, 465);
             reportContainer.Name = "reportContainer";
-            reportContainer.Size = new Size(312, 85);
+            reportContainer.Size = new Size(250, 68);
             reportContainer.TabIndex = 5;
             // 
             // panel7
@@ -268,8 +253,8 @@
             panel7.Location = new Point(0, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
-            panel7.Padding = new Padding(0, 38, 0, 0);
-            panel7.Size = new Size(312, 85);
+            panel7.Padding = new Padding(0, 30, 0, 0);
+            panel7.Size = new Size(250, 68);
             panel7.TabIndex = 5;
             // 
             // btnReport
@@ -279,26 +264,25 @@
             btnReport.ForeColor = Color.White;
             btnReport.Image = (Image)resources.GetObject("btnReport.Image");
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReport.Location = new Point(-15, -54);
-            btnReport.Margin = new Padding(4, 4, 4, 4);
+            btnReport.Location = new Point(-12, -43);
             btnReport.Name = "btnReport";
-            btnReport.Padding = new Padding(38, 0, 0, 0);
-            btnReport.Size = new Size(350, 195);
+            btnReport.Padding = new Padding(30, 0, 0, 0);
+            btnReport.Size = new Size(280, 156);
             btnReport.TabIndex = 1;
             btnReport.Text = "       Báo cáo";
             btnReport.TextAlign = ContentAlignment.MiddleLeft;
             btnReport.UseVisualStyleBackColor = false;
             btnReport.Click += btnReport_Click;
             // 
-            // panelBaoCaoDoanhSo
+            // panel6
             // 
-            panelBaoCaoDoanhSo.Controls.Add(btnBaoCaoDoanhSo);
-            panelBaoCaoDoanhSo.Location = new Point(0, 85);
-            panelBaoCaoDoanhSo.Margin = new Padding(0);
-            panelBaoCaoDoanhSo.Name = "panelBaoCaoDoanhSo";
-            panelBaoCaoDoanhSo.Padding = new Padding(0, 38, 0, 0);
-            panelBaoCaoDoanhSo.Size = new Size(312, 85);
-            panelBaoCaoDoanhSo.TabIndex = 4;
+            panel6.Controls.Add(btnBaoCaoDoanhSo);
+            panel6.Location = new Point(0, 68);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(0, 30, 0, 0);
+            panel6.Size = new Size(250, 68);
+            panel6.TabIndex = 4;
             // 
             // btnBaoCaoDoanhSo
             // 
@@ -307,26 +291,25 @@
             btnBaoCaoDoanhSo.ForeColor = Color.White;
             btnBaoCaoDoanhSo.Image = (Image)resources.GetObject("btnBaoCaoDoanhSo.Image");
             btnBaoCaoDoanhSo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBaoCaoDoanhSo.Location = new Point(-15, -54);
-            btnBaoCaoDoanhSo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoDoanhSo.Location = new Point(-12, -43);
             btnBaoCaoDoanhSo.Name = "btnBaoCaoDoanhSo";
-            btnBaoCaoDoanhSo.Padding = new Padding(38, 0, 0, 0);
-            btnBaoCaoDoanhSo.Size = new Size(376, 195);
+            btnBaoCaoDoanhSo.Padding = new Padding(30, 0, 0, 0);
+            btnBaoCaoDoanhSo.Size = new Size(301, 156);
             btnBaoCaoDoanhSo.TabIndex = 1;
             btnBaoCaoDoanhSo.Text = "       Báo cáo doanh số ";
             btnBaoCaoDoanhSo.TextAlign = ContentAlignment.MiddleLeft;
             btnBaoCaoDoanhSo.UseVisualStyleBackColor = false;
             btnBaoCaoDoanhSo.Click += btnBaoCaoDoanhSo_Click;
             // 
-            // panelBaoCaoCongNo
+            // panel4
             // 
-            panelBaoCaoCongNo.Controls.Add(btnBaoCaoCongNo);
-            panelBaoCaoCongNo.Location = new Point(0, 170);
-            panelBaoCaoCongNo.Margin = new Padding(0);
-            panelBaoCaoCongNo.Name = "panelBaoCaoCongNo";
-            panelBaoCaoCongNo.Padding = new Padding(0, 38, 0, 0);
-            panelBaoCaoCongNo.Size = new Size(312, 85);
-            panelBaoCaoCongNo.TabIndex = 3;
+            panel4.Controls.Add(btnBaoCaoCongNo);
+            panel4.Location = new Point(0, 136);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(0, 30, 0, 0);
+            panel4.Size = new Size(250, 68);
+            panel4.TabIndex = 3;
             // 
             // btnBaoCaoCongNo
             // 
@@ -335,11 +318,10 @@
             btnBaoCaoCongNo.ForeColor = Color.White;
             btnBaoCaoCongNo.Image = (Image)resources.GetObject("btnBaoCaoCongNo.Image");
             btnBaoCaoCongNo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBaoCaoCongNo.Location = new Point(-15, -54);
-            btnBaoCaoCongNo.Margin = new Padding(4, 4, 4, 4);
+            btnBaoCaoCongNo.Location = new Point(-12, -43);
             btnBaoCaoCongNo.Name = "btnBaoCaoCongNo";
-            btnBaoCaoCongNo.Padding = new Padding(38, 0, 0, 0);
-            btnBaoCaoCongNo.Size = new Size(410, 195);
+            btnBaoCaoCongNo.Padding = new Padding(30, 0, 0, 0);
+            btnBaoCaoCongNo.Size = new Size(328, 156);
             btnBaoCaoCongNo.TabIndex = 1;
             btnBaoCaoCongNo.Text = "       Báo cáo Công nợ ";
             btnBaoCaoCongNo.TextAlign = ContentAlignment.MiddleLeft;
@@ -354,29 +336,15 @@
             // panel8
             // 
             panel8.BackColor = Color.White;
-            panel8.Controls.Add(pbPhanQuyen);
             panel8.Controls.Add(tbTimKiem);
             panel8.Controls.Add(pbSettingThamSo);
             panel8.Controls.Add(lblFormName);
             panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(312, 0);
+            panel8.Location = new Point(250, 0);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(1612, 76);
+            panel8.Size = new Size(1652, 61);
             panel8.TabIndex = 4;
-            // 
-            // pbPhanQuyen
-            // 
-            pbPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pbPhanQuyen.Image = (Image)resources.GetObject("pbPhanQuyen.Image");
-            pbPhanQuyen.InitialImage = (Image)resources.GetObject("pbPhanQuyen.InitialImage");
-            pbPhanQuyen.Location = new Point(1479, 20);
-            pbPhanQuyen.Margin = new Padding(4, 4, 4, 4);
-            pbPhanQuyen.Name = "pbPhanQuyen";
-            pbPhanQuyen.Size = new Size(52, 40);
-            pbPhanQuyen.TabIndex = 3;
-            pbPhanQuyen.TabStop = false;
-            pbPhanQuyen.Click += pbPhanQuyen_Click;
             // 
             // tbTimKiem
             // 
@@ -384,10 +352,9 @@
             tbTimKiem.BackColor = Color.FromArgb(236, 240, 241);
             tbTimKiem.BorderStyle = BorderStyle.None;
             tbTimKiem.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbTimKiem.Location = new Point(508, 20);
-            tbTimKiem.Margin = new Padding(4, 4, 4, 4);
+            tbTimKiem.Location = new Point(406, 16);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(719, 37);
+            tbTimKiem.Size = new Size(937, 31);
             tbTimKiem.TabIndex = 2;
             tbTimKiem.Text = "       Tìm kiếm...";
             // 
@@ -396,10 +363,9 @@
             pbSettingThamSo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbSettingThamSo.Image = (Image)resources.GetObject("pbSettingThamSo.Image");
             pbSettingThamSo.InitialImage = (Image)resources.GetObject("pbSettingThamSo.InitialImage");
-            pbSettingThamSo.Location = new Point(1539, 20);
-            pbSettingThamSo.Margin = new Padding(4, 4, 4, 4);
+            pbSettingThamSo.Location = new Point(1593, 16);
             pbSettingThamSo.Name = "pbSettingThamSo";
-            pbSettingThamSo.Size = new Size(40, 40);
+            pbSettingThamSo.Size = new Size(32, 32);
             pbSettingThamSo.TabIndex = 1;
             pbSettingThamSo.TabStop = false;
             pbSettingThamSo.Click += pbSettingThamSo_Click_1;
@@ -410,10 +376,9 @@
             lblFormName.AutoSize = true;
             lblFormName.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFormName.ForeColor = Color.Black;
-            lblFormName.Location = new Point(11, 11);
-            lblFormName.Margin = new Padding(4, 0, 4, 0);
+            lblFormName.Location = new Point(9, 9);
             lblFormName.Name = "lblFormName";
-            lblFormName.Size = new Size(299, 45);
+            lblFormName.Size = new Size(255, 38);
             lblFormName.TabIndex = 0;
             lblFormName.Text = "Tên Form Hiện Tại";
             // 
@@ -421,38 +386,37 @@
             // 
             panelMain.Dock = DockStyle.Fill;
             panelMain.ForeColor = Color.Black;
-            panelMain.Location = new Point(312, 76);
+            panelMain.Location = new Point(250, 61);
             panelMain.Margin = new Padding(0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1612, 979);
+            panelMain.Size = new Size(1652, 972);
             panelMain.TabIndex = 5;
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(panelMain);
             Controls.Add(panel8);
             Controls.Add(flpSidebar);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(4);
             Name = "Menu";
             Text = "Quản lý đại lý ";
+            panel2.ResumeLayout(false);
             flpSidebar.ResumeLayout(false);
-            panelDaiLy.ResumeLayout(false);
-            panelPhieuNhap.ResumeLayout(false);
-            panelPhieuXuat.ResumeLayout(false);
-            panelPhieuThu.ResumeLayout(false);
-            panelMatHang.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             reportContainer.ResumeLayout(false);
             panel7.ResumeLayout(false);
-            panelBaoCaoDoanhSo.ResumeLayout(false);
-            panelBaoCaoCongNo.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel4.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPhanQuyen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSettingThamSo).EndInit();
             ResumeLayout(false);
         }
@@ -465,17 +429,19 @@
         #endregion
         private Label label1;
         private Label Seperator;
+        private Button btnPhieuNhapHang;
+        private Panel panel2;
         private FlowLayoutPanel flpSidebar;
-        private Panel panelDaiLy;
+        private Panel panel5;
         private Button btnDaily;
-        private Panel panelPhieuXuat;
+        private Panel panel1;
         private Button btnPhieuXuatHang;
-        private Panel panelPhieuThu;
+        private Panel panel3;
         private Button btnPhieuThuTien;
-        private Panel panelBaoCaoCongNo;
+        private Panel panel4;
         private Button btnBaoCaoCongNo;
         private FlowLayoutPanel reportContainer;
-        private Panel panelBaoCaoDoanhSo;
+        private Panel panel6;
         private Button btnBaoCaoDoanhSo;
         private Panel panel7;
         private Button btnReport;
@@ -485,10 +451,7 @@
         private PictureBox pbSettingThamSo;
         private TextBox tbTimKiem;
         private Panel panelMain;
-        private Panel panelMatHang;
+        private Panel panel9;
         private Button btnProduct;
-        private Panel panelPhieuNhap;
-        private Button btnPhieuNhapHang;
-        private PictureBox pbPhanQuyen;
     }
 }
