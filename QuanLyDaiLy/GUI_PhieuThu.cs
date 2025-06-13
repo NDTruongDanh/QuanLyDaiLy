@@ -6,15 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS_Library;
 using BUS_QuanLy;
 using DTO_QuanLy;
-using GUI_QuanLy.AddedClasses;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace GUI_QuanLy
@@ -32,7 +29,7 @@ namespace GUI_QuanLy
 
         private DTO_DaiLy _daiLy = new DTO_DaiLy();
         private int _maPhieuThu = 0;
-        private DTO_ChiTietPhanQuyen? permission;
+
         public GUI_PhieuThu(IBUS_PhieuThu busPhieuThu, IBUS_DaiLy busDaiLy, IServiceProvider service, ILogger<GUI_PhieuThu> logger)
         {
             _busPhieuThu = busPhieuThu;
@@ -57,11 +54,8 @@ namespace GUI_QuanLy
         {
             try
             {
-                await permissionLoadAsync();
                 await LoadComboBoxDaiLyAsync();
                 await LoadPhieuThuListByDaiLyAsync();
-                
-
             }
             catch (Exception ex)
             {
@@ -75,42 +69,6 @@ namespace GUI_QuanLy
             }
         }
 
-        private async Task permissionLoadAsync()
-        {
-            try
-            {
-                var permissionService = _service.GetRequiredService<PermissionService>();
-              
-
-                permission = await permissionService.GetPermissionCurrentUserAsync("PhieuThu");
-
-                if (permission == null || permission.Xem == false)
-                {
-                    _logger.LogWarning("No permission found for PhieuThu.");
-                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    this.Close();
-                    return;
-                }
-
-
-                btnAdd.Visible = permission.Them;
-                btnEdit.Visible = permission.Sua;
-                btnDelete.Visible = permission.Xoa;
-
-
-            }
-            catch
-            {
-                _logger.LogError("Failed to load permissions for PhieuXuat.");
-                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
 
         private async Task LoadPhieuThuListByDaiLyAsync()
         {

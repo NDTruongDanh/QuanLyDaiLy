@@ -59,7 +59,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(183, 45);
+            lblTenDaiLy.Size = new Size(146, 40);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Mặt hàng:";
             lblTenDaiLy.TextAlign = ContentAlignment.MiddleLeft;
@@ -68,9 +68,9 @@
             // 
             txtTenMatHang.Dock = DockStyle.Fill;
             txtTenMatHang.Font = new Font("Segoe UI", 12F);
-            txtTenMatHang.Location = new Point(192, 3);
+            txtTenMatHang.Location = new Point(155, 3);
             txtTenMatHang.Name = "txtTenMatHang";
-            txtTenMatHang.Size = new Size(1374, 39);
+            txtTenMatHang.Size = new Size(1411, 34);
             txtTenMatHang.TabIndex = 7;
             // 
             // dgvMatHang
@@ -139,7 +139,7 @@
             lblDanhSachDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachDaiLy.Location = new Point(15, 15);
             lblDanhSachDaiLy.Name = "lblDanhSachDaiLy";
-            lblDanhSachDaiLy.Size = new Size(287, 38);
+            lblDanhSachDaiLy.Size = new Size(247, 32);
             lblDanhSachDaiLy.TabIndex = 16;
             lblDanhSachDaiLy.Text = "Danh sách Mặt hàng";
             // 
@@ -279,9 +279,9 @@
             cmbDonViTinh.Dock = DockStyle.Fill;
             cmbDonViTinh.Font = new Font("Segoe UI", 12F);
             cmbDonViTinh.FormattingEnabled = true;
-            cmbDonViTinh.Location = new Point(192, 48);
+            cmbDonViTinh.Location = new Point(155, 43);
             cmbDonViTinh.Name = "cmbDonViTinh";
-            cmbDonViTinh.Size = new Size(1374, 40);
+            cmbDonViTinh.Size = new Size(1411, 36);
             cmbDonViTinh.TabIndex = 13;
             // 
             // label1
@@ -290,9 +290,9 @@
             label1.BackColor = Color.Transparent;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 45);
+            label1.Location = new Point(3, 40);
             label1.Name = "label1";
-            label1.Size = new Size(183, 47);
+            label1.Size = new Size(146, 52);
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -303,7 +303,7 @@
             lblThongTinDaiLy.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinDaiLy.Location = new Point(18, 15);
             lblThongTinDaiLy.Name = "lblThongTinDaiLy";
-            lblThongTinDaiLy.Size = new Size(279, 38);
+            lblThongTinDaiLy.Size = new Size(240, 32);
             lblThongTinDaiLy.TabIndex = 16;
             lblThongTinDaiLy.Text = "Nhập liệu Mặt hàng";
             // 
@@ -338,18 +338,18 @@
             contextMenuStrip1.ImeMode = ImeMode.NoControl;
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnItemPhieuXuat, mnItemPhieuThu });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(214, 68);
+            contextMenuStrip1.Size = new Size(186, 52);
             // 
             // mnItemPhieuXuat
             // 
             mnItemPhieuXuat.Name = "mnItemPhieuXuat";
-            mnItemPhieuXuat.Size = new Size(213, 32);
+            mnItemPhieuXuat.Size = new Size(185, 24);
             mnItemPhieuXuat.Text = "Phiếu Xuất hàng";
             // 
             // mnItemPhieuThu
             // 
             mnItemPhieuThu.Name = "mnItemPhieuThu";
-            mnItemPhieuThu.Size = new Size(213, 32);
+            mnItemPhieuThu.Size = new Size(185, 24);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             // 
             // GUI_MatHang

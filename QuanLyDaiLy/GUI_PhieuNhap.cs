@@ -16,7 +16,6 @@ using BUS_Library;
 using Microsoft.Extensions.DependencyInjection;
 using System.Security.Cryptography;
 using System.ComponentModel.DataAnnotations;
-using GUI_QuanLy.AddedClasses;
 
 namespace GUI_QuanLy
 {
@@ -30,7 +29,7 @@ namespace GUI_QuanLy
 
         private decimal _tongTien = 0;
         private int _maPhieuNhap = 0;
-        private DTO_ChiTietPhanQuyen? permission;
+
         public GUI_PhieuNhap(IBUS_PhieuNhap busPhieuNhap, IBUS_ChiTietPhieuNhap busCTPN, ILogger<GUI_PhieuNhap> logger, IServiceProvider services)
         {
             _busPhieuNhap = busPhieuNhap;
@@ -45,7 +44,6 @@ namespace GUI_QuanLy
         {
             try
             {
-                await permissionLoadAsync();
                 await LoadPhieuNhapAsync();
             }
             catch (Exception ex)
@@ -54,42 +52,6 @@ namespace GUI_QuanLy
 
                 MessageBox.Show(
                     "Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-        private async Task permissionLoadAsync()
-        {
-            try
-            {
-                var permissionService = _services.GetRequiredService<PermissionService>();
-
-
-                permission = await permissionService.GetPermissionCurrentUserAsync("PhieuNhap");
-
-                if (permission == null || permission.Xem == false)
-                {
-                    _logger.LogWarning("No permission found for PhieuNhap.");
-                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    this.Close();
-                    return;
-                }
-
-
-                btnAdd.Visible = permission.Them;
-                btnEdit.Visible = permission.Sua;
-                btnDelete.Visible = permission.Xoa;
-
-
-            }
-            catch
-            {
-                _logger.LogError("Failed to load permissions for PhieuNhap.");
-                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -324,10 +286,6 @@ namespace GUI_QuanLy
             this.Close();
         }
 
-        private void openChiTietPhieuXuat(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
 

@@ -230,8 +230,6 @@ CREATE TABLE CHUCNANG
 MaChucNang INT IDENTITY(1,1) PRIMARY KEY,
 TenManHinhDuocLoad CHAR(30),
 
-
-
 );
 
 
@@ -1091,8 +1089,34 @@ BEGIN
 END
 
 
-
 GO
+CREATE TRIGGER t36 ON NHOMNGUOIDUNG
+FOR INSERT
+AS
+BEGIN
+		 SET NOCOUNT ON;
+
+    -- Chèn dòng phân quyền mặc định (Xem, Thêm, Xóa, Sửa = 0) cho mỗi chức năng
+    INSERT INTO PHANQUYEN (MaNhom, MaChucNang, Xem, Them, Xoa, Sua)
+    SELECT 
+        i.MaNhom, 
+        c.MaChucNang,
+        0, 0, 0, 0
+    FROM INSERTED i
+    CROSS JOIN CHUCNANG c
+	WHERE i.MaNhom <> 1
+
+	
+    INSERT INTO PHANQUYEN (MaNhom, MaChucNang, Xem, Them, Xoa, Sua)
+    SELECT 
+        i.MaNhom, 
+        c.MaChucNang,
+        1,1,1,1
+    FROM INSERTED i
+    CROSS JOIN CHUCNANG c
+	WHERE i.MaNhom = 1
+	
+END
 
 
 

@@ -25,10 +25,6 @@ namespace DAL_QuanLy
             services.AddScoped<IDAL_ChiTietBaoCaoDoanhSo, DAL_ChiTietBaoCaoDoanhSo>();
             services.AddScoped<IDAL_BaoCaoCongNo, DAL_BaoCaoCongNo>();
             services.AddScoped<IDAL_ThamSo, DAL_ThamSo>();
-            services.AddScoped<IDAL_NhomNguoiDung, DAL_NhomNguoiDung>();
-            services.AddScoped<IDAL_NguoiDung, DAL_NguoiDung>();
-            services.AddScoped<IDAL_ChiTietPhanQuyen, DAL_ChiTietPhanQuyen>();
-            services.AddScoped<IDAL_ChucNang, DAL_ChucNang>();
 
             return services;
         }
