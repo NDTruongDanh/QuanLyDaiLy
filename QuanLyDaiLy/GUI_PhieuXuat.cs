@@ -192,6 +192,7 @@ namespace GUI_QuanLy
                 }
 
                 ModifyDataGridViewColumns();
+                ClearInputFields();
 
             }
             catch (BusException busEx)
