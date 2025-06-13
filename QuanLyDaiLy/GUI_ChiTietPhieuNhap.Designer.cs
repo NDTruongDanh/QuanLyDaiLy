@@ -30,9 +30,9 @@ namespace GUI_QuanLy
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -41,13 +41,17 @@ namespace GUI_QuanLy
             txtTongTien = new TextBox();
             label10 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            txtMaPhieuNhap = new TextBox();
             label3 = new Label();
-            label1 = new Label();
             dtpNgayLap = new DateTimePicker();
+            label1 = new Label();
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
             panel2 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            button5 = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
             txtThanhTien = new TextBox();
             label9 = new Label();
@@ -63,11 +67,7 @@ namespace GUI_QuanLy
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            button5 = new Button();
+            txtMaPhieuNhap = new TextBox();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -75,8 +75,8 @@ namespace GUI_QuanLy
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -136,37 +136,37 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.BorderStyle = BorderStyle.None;
             dgvChiTietPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvChiTietPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle13.ForeColor = Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle13.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.White;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle14.ForeColor = Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle14.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle14;
             dgvChiTietPhieuNhap.EnableHeadersVisualStyles = false;
             dgvChiTietPhieuNhap.GridColor = Color.White;
             dgvChiTietPhieuNhap.Location = new Point(2, 2);
             dgvChiTietPhieuNhap.Margin = new Padding(2);
             dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
             dgvChiTietPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dgvChiTietPhieuNhap.RowHeadersVisible = false;
             dgvChiTietPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvChiTietPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -221,52 +221,30 @@ namespace GUI_QuanLy
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
-            tableLayoutPanel1.Controls.Add(txtMaPhieuNhap, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 0);
-            tableLayoutPanel1.Controls.Add(label1, 2, 0);
             tableLayoutPanel1.Controls.Add(dtpNgayLap, 3, 0);
+            tableLayoutPanel1.Controls.Add(label1, 2, 0);
+            tableLayoutPanel1.Controls.Add(txtMaPhieuNhap, 1, 0);
             tableLayoutPanel1.Location = new Point(15, 50);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(952, 40);
+            tableLayoutPanel1.Size = new Size(952, 41);
             tableLayoutPanel1.TabIndex = 17;
-            // 
-            // txtMaPhieuNhap
-            // 
-            txtMaPhieuNhap.Dock = DockStyle.Fill;
-            txtMaPhieuNhap.Font = new Font("Segoe UI", 12F);
-            txtMaPhieuNhap.Location = new Point(95, 2);
-            txtMaPhieuNhap.Margin = new Padding(2);
-            txtMaPhieuNhap.Name = "txtMaPhieuNhap";
-            txtMaPhieuNhap.ReadOnly = true;
-            txtMaPhieuNhap.Size = new Size(232, 34);
-            txtMaPhieuNhap.TabIndex = 13;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 12F);
             label3.Location = new Point(2, 2);
             label3.Margin = new Padding(2);
             label3.Name = "label3";
-            label3.Size = new Size(89, 28);
+            label3.Size = new Size(89, 37);
             label3.TabIndex = 12;
             label3.Text = "Số phiếu";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(331, 2);
-            label1.Margin = new Padding(2);
-            label1.Name = "label1";
-            label1.Size = new Size(145, 28);
-            label1.TabIndex = 11;
-            label1.Text = "Ngày lập phiếu";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dtpNgayLap
             // 
@@ -277,6 +255,19 @@ namespace GUI_QuanLy
             dtpNgayLap.Name = "dtpNgayLap";
             dtpNgayLap.Size = new Size(470, 34);
             dtpNgayLap.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(331, 2);
+            label1.Margin = new Padding(2);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 37);
+            label1.TabIndex = 11;
+            label1.Text = "Ngày lập phiếu";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblDanhSachPhieuThu
             // 
@@ -307,10 +298,78 @@ namespace GUI_QuanLy
             panel2.Controls.Add(label4);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(13, 483);
-            panel2.Margin = new Padding(13, 13, 13, 13);
+            panel2.Margin = new Padding(13);
             panel2.Name = "panel2";
             panel2.Size = new Size(980, 227);
             panel2.TabIndex = 25;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Location = new Point(365, 171);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(602, 52);
+            flowLayoutPanel1.TabIndex = 34;
+            // 
+            // btnAdd
+            // 
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "✏️ Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.AutoSize = true;
+            button5.BackColor = Color.FromArgb(221, 121, 115);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.Location = new Point(462, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(136, 44);
+            button5.TabIndex = 24;
+            button5.Text = "🔄 Làm mới";
+            button5.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel3
             // 
@@ -340,13 +399,15 @@ namespace GUI_QuanLy
             // 
             // txtThanhTien
             // 
+            txtThanhTien.BackColor = Color.White;
+            txtThanhTien.BorderStyle = BorderStyle.None;
             txtThanhTien.Dock = DockStyle.Fill;
             txtThanhTien.Font = new Font("Segoe UI", 12F);
             txtThanhTien.Location = new Point(109, 80);
             txtThanhTien.Margin = new Padding(2);
             txtThanhTien.Name = "txtThanhTien";
             txtThanhTien.ReadOnly = true;
-            txtThanhTien.Size = new Size(374, 34);
+            txtThanhTien.Size = new Size(374, 27);
             txtThanhTien.TabIndex = 23;
             txtThanhTien.Text = "0";
             // 
@@ -364,24 +425,26 @@ namespace GUI_QuanLy
             // 
             // txtDonGiaNhap
             // 
+            txtDonGiaNhap.BorderStyle = BorderStyle.None;
             txtDonGiaNhap.Dock = DockStyle.Fill;
             txtDonGiaNhap.Font = new Font("Segoe UI", 12F);
             txtDonGiaNhap.Location = new Point(572, 42);
             txtDonGiaNhap.Margin = new Padding(2);
             txtDonGiaNhap.Name = "txtDonGiaNhap";
-            txtDonGiaNhap.Size = new Size(375, 34);
+            txtDonGiaNhap.Size = new Size(375, 27);
             txtDonGiaNhap.TabIndex = 20;
             txtDonGiaNhap.Text = "0";
             txtDonGiaNhap.TextChanged += txtDonGiaNhap_TextChanged;
             // 
             // txtSoLuong
             // 
+            txtSoLuong.BorderStyle = BorderStyle.None;
             txtSoLuong.Dock = DockStyle.Fill;
             txtSoLuong.Font = new Font("Segoe UI", 12F);
             txtSoLuong.Location = new Point(109, 42);
             txtSoLuong.Margin = new Padding(2);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(374, 34);
+            txtSoLuong.Size = new Size(374, 27);
             txtSoLuong.TabIndex = 19;
             txtSoLuong.Text = "0";
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
@@ -512,73 +575,17 @@ namespace GUI_QuanLy
             button4.Text = "🔍 Làm mới";
             button4.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
+            // txtMaPhieuNhap
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAdd);
-            flowLayoutPanel1.Controls.Add(btnEdit);
-            flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Controls.Add(button5);
-            flowLayoutPanel1.Location = new Point(365, 171);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(602, 52);
-            flowLayoutPanel1.TabIndex = 34;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Margin = new Padding(3, 3, 20, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 44);
-            btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSize = true;
-            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(160, 3);
-            btnEdit.Margin = new Padding(3, 3, 20, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 44);
-            btnEdit.TabIndex = 21;
-            btnEdit.Text = "✏️ Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSize = true;
-            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(311, 3);
-            btnDelete.Margin = new Padding(3, 3, 20, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 44);
-            btnDelete.TabIndex = 20;
-            btnDelete.Text = "🗑 Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.AutoSize = true;
-            button5.BackColor = Color.FromArgb(221, 121, 115);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(462, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(136, 44);
-            button5.TabIndex = 24;
-            button5.Text = "🔄 Làm mới";
-            button5.UseVisualStyleBackColor = false;
+            txtMaPhieuNhap.BackColor = Color.White;
+            txtMaPhieuNhap.BorderStyle = BorderStyle.None;
+            txtMaPhieuNhap.Font = new Font("Segoe UI", 12F);
+            txtMaPhieuNhap.Location = new Point(95, 2);
+            txtMaPhieuNhap.Margin = new Padding(2);
+            txtMaPhieuNhap.Name = "txtMaPhieuNhap";
+            txtMaPhieuNhap.ReadOnly = true;
+            txtMaPhieuNhap.Size = new Size(232, 27);
+            txtMaPhieuNhap.TabIndex = 13;
             // 
             // GUI_ChiTietPhieuNhap
             // 
@@ -600,10 +607,10 @@ namespace GUI_QuanLy
             tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -624,7 +631,6 @@ namespace GUI_QuanLy
         private Label label1;
         private DateTimePicker dtpNgayLap;
         private Label label3;
-        private TextBox txtMaPhieuNhap;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label6;
         private Label label5;
@@ -643,5 +649,6 @@ namespace GUI_QuanLy
         private Button btnEdit;
         private Button btnDelete;
         private Button button5;
+        private TextBox txtMaPhieuNhap;
     }
 }

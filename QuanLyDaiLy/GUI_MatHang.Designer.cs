@@ -27,6 +27,12 @@
             lblDanhSachDaiLy = new Label();
             label2 = new Label();
             pnlInput = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnFind = new Button();
+            btnUpdate = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             cmbDonViTinh = new ComboBox();
             label1 = new Label();
@@ -36,19 +42,13 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             mnItemPhieuXuat = new ToolStripMenuItem();
             mnItemPhieuThu = new ToolStripMenuItem();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            btnFind = new Button();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMatHang).BeginInit();
             pnlData.SuspendLayout();
             pnlInput.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblTenDaiLy
@@ -167,6 +167,89 @@
             pnlInput.Size = new Size(1602, 285);
             pnlInput.TabIndex = 22;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(btnFind);
+            flowLayoutPanel1.Controls.Add(btnUpdate);
+            flowLayoutPanel1.Location = new Point(833, 215);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(754, 52);
+            flowLayoutPanel1.TabIndex = 28;
+            // 
+            // btnAdd
+            // 
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "✏️ Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnFind
+            // 
+            btnFind.AutoSize = true;
+            btnFind.BackColor = Color.FromArgb(33, 150, 243);
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Segoe UI", 12F);
+            btnFind.Location = new Point(462, 3);
+            btnFind.Margin = new Padding(3, 3, 20, 3);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 44);
+            btnFind.TabIndex = 23;
+            btnFind.Text = "🔍 Tìm ";
+            btnFind.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.AutoSize = true;
+            btnUpdate.BackColor = Color.FromArgb(221, 121, 115);
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 12F);
+            btnUpdate.Location = new Point(613, 3);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(136, 44);
+            btnUpdate.TabIndex = 24;
+            btnUpdate.Text = "🔄 Làm mới";
+            btnUpdate.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -265,89 +348,6 @@
             mnItemPhieuThu.Size = new Size(185, 24);
             mnItemPhieuThu.Text = "Phiếu Thu tiền";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAdd);
-            flowLayoutPanel1.Controls.Add(btnEdit);
-            flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(833, 215);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(754, 52);
-            flowLayoutPanel1.TabIndex = 28;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Margin = new Padding(3, 3, 20, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 44);
-            btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSize = true;
-            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(160, 3);
-            btnEdit.Margin = new Padding(3, 3, 20, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 44);
-            btnEdit.TabIndex = 21;
-            btnEdit.Text = "✏️ Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSize = true;
-            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(311, 3);
-            btnDelete.Margin = new Padding(3, 3, 20, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 44);
-            btnDelete.TabIndex = 20;
-            btnDelete.Text = "🗑 Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(462, 3);
-            btnFind.Margin = new Padding(3, 3, 20, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(128, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "🔍 Tìm ";
-            btnFind.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(221, 121, 115);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(613, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 44);
-            button1.TabIndex = 24;
-            button1.Text = "🔄 Làm mới";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // GUI_MatHang
             // 
             BackColor = Color.FromArgb(236, 240, 241);
@@ -361,12 +361,12 @@
             pnlData.PerformLayout();
             pnlInput.ResumeLayout(false);
             pnlInput.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -388,6 +388,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
-        private Button button1;
+        private Button btnUpdate;
     }
 }
