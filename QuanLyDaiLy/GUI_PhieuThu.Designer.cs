@@ -32,7 +32,7 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnFind = new Button();
-            btnRefresh = new Button();
+            button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             cmbDaiLy = new ComboBox();
             txtSoTienThu = new TextBox();
@@ -52,9 +52,9 @@
             // 
             lblNgayThuTien.AutoSize = true;
             lblNgayThuTien.Font = new Font("Segoe UI", 12F);
-            lblNgayThuTien.Location = new Point(3, 46);
+            lblNgayThuTien.Location = new Point(3, 42);
             lblNgayThuTien.Name = "lblNgayThuTien";
-            lblNgayThuTien.Size = new Size(176, 32);
+            lblNgayThuTien.Size = new Size(141, 28);
             lblNgayThuTien.TabIndex = 2;
             lblNgayThuTien.Text = "Ngày Thu Tiền:";
             // 
@@ -62,9 +62,9 @@
             // 
             lblSoTienThu.AutoSize = true;
             lblSoTienThu.Font = new Font("Segoe UI", 12F);
-            lblSoTienThu.Location = new Point(3, 91);
+            lblSoTienThu.Location = new Point(3, 82);
             lblSoTienThu.Name = "lblSoTienThu";
-            lblSoTienThu.Size = new Size(147, 32);
+            lblSoTienThu.Size = new Size(117, 28);
             lblSoTienThu.TabIndex = 4;
             lblSoTienThu.Text = "Số Tiền Thu:";
             // 
@@ -72,9 +72,9 @@
             // 
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
-            dtpNgayThuTien.Location = new Point(185, 49);
+            dtpNgayThuTien.Location = new Point(150, 45);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
-            dtpNgayThuTien.Size = new Size(1376, 39);
+            dtpNgayThuTien.Size = new Size(1411, 34);
             dtpNgayThuTien.TabIndex = 3;
             // 
             // panel1
@@ -97,7 +97,7 @@
             lblDanhSachPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDanhSachPhieuThu.Location = new Point(16, 16);
             lblDanhSachPhieuThu.Name = "lblDanhSachPhieuThu";
-            lblDanhSachPhieuThu.Size = new Size(420, 38);
+            lblDanhSachPhieuThu.Size = new Size(363, 32);
             lblDanhSachPhieuThu.TabIndex = 16;
             lblDanhSachPhieuThu.Text = "Danh sách phiếu thu của đại lý";
             // 
@@ -179,11 +179,11 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
-            flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(809, 220);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(826, 220);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(774, 52);
-            flowLayoutPanel1.TabIndex = 29;
+            flowLayoutPanel1.Size = new Size(754, 52);
+            flowLayoutPanel1.TabIndex = 28;
             // 
             // btnAdd
             // 
@@ -198,7 +198,6 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -213,7 +212,6 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -228,7 +226,6 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnFind
             // 
@@ -244,19 +241,18 @@
             btnFind.Text = "🔍 Tìm ";
             btnFind.UseVisualStyleBackColor = false;
             // 
-            // btnRefresh
+            // button1
             // 
-            btnRefresh.AutoSize = true;
-            btnRefresh.BackColor = Color.FromArgb(33, 150, 243);
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.Font = new Font("Segoe UI", 12F);
-            btnRefresh.Location = new Point(613, 3);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(158, 44);
-            btnRefresh.TabIndex = 24;
-            btnRefresh.Text = "🔍 Làm mới";
-            btnRefresh.UseVisualStyleBackColor = false;
-            btnRefresh.Click += btnRefresh_Click;
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(221, 121, 115);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(613, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 44);
+            button1.TabIndex = 24;
+            button1.Text = "🔄 Làm mới";
+            button1.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel1
             // 
@@ -294,18 +290,18 @@
             cmbDaiLy.Dock = DockStyle.Fill;
             cmbDaiLy.Font = new Font("Segoe UI", 12F);
             cmbDaiLy.FormattingEnabled = true;
-            cmbDaiLy.Location = new Point(185, 3);
+            cmbDaiLy.Location = new Point(150, 3);
             cmbDaiLy.Name = "cmbDaiLy";
-            cmbDaiLy.Size = new Size(1376, 40);
+            cmbDaiLy.Size = new Size(1411, 36);
             cmbDaiLy.TabIndex = 12;
             // 
             // txtSoTienThu
             // 
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
-            txtSoTienThu.Location = new Point(185, 94);
+            txtSoTienThu.Location = new Point(150, 85);
             txtSoTienThu.Name = "txtSoTienThu";
-            txtSoTienThu.Size = new Size(1376, 39);
+            txtSoTienThu.Size = new Size(1411, 34);
             txtSoTienThu.TabIndex = 5;
             txtSoTienThu.KeyPress += txtSoTienThu_KeyPress;
             // 
@@ -316,7 +312,7 @@
             lblTenDaiLy.Font = new Font("Segoe UI", 12F);
             lblTenDaiLy.Location = new Point(3, 0);
             lblTenDaiLy.Name = "lblTenDaiLy";
-            lblTenDaiLy.Size = new Size(128, 32);
+            lblTenDaiLy.Size = new Size(102, 28);
             lblTenDaiLy.TabIndex = 0;
             lblTenDaiLy.Text = "Tên Đại Lý:";
             // 
@@ -326,7 +322,7 @@
             lblThongTinPhieuThu.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThongTinPhieuThu.Location = new Point(19, 13);
             lblThongTinPhieuThu.Name = "lblThongTinPhieuThu";
-            lblThongTinPhieuThu.Size = new Size(257, 38);
+            lblThongTinPhieuThu.Size = new Size(221, 32);
             lblThongTinPhieuThu.TabIndex = 16;
             lblThongTinPhieuThu.Text = "Lập Phiếu thu tiền";
             // 
@@ -392,6 +388,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnFind;
-        private Button btnRefresh;
+        private Button button1;
     }
 }

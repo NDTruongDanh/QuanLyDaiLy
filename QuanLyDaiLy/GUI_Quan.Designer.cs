@@ -23,10 +23,10 @@
             Column1 = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnAddQuan = new Button();
-            btnEditQuan = new Button();
-            btnXoaQuan = new Button();
-            btnRefreshQuan = new Button();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            button5 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             txtTenQuan = new TextBox();
             lblTenDaiLy = new Label();
@@ -145,69 +145,69 @@
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAddQuan);
-            flowLayoutPanel1.Controls.Add(btnEditQuan);
-            flowLayoutPanel1.Controls.Add(btnXoaQuan);
-            flowLayoutPanel1.Controls.Add(btnRefreshQuan);
-            flowLayoutPanel1.Location = new Point(960, 319);
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Location = new Point(981, 319);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(623, 52);
-            flowLayoutPanel1.TabIndex = 30;
+            flowLayoutPanel1.Size = new Size(602, 52);
+            flowLayoutPanel1.TabIndex = 35;
             // 
-            // btnAddQuan
+            // btnAdd
             // 
-            btnAddQuan.AutoSize = true;
-            btnAddQuan.BackColor = Color.FromArgb(76, 175, 80);
-            btnAddQuan.FlatStyle = FlatStyle.Flat;
-            btnAddQuan.Font = new Font("Segoe UI", 12F);
-            btnAddQuan.Location = new Point(3, 3);
-            btnAddQuan.Margin = new Padding(3, 3, 20, 3);
-            btnAddQuan.Name = "btnAddQuan";
-            btnAddQuan.Size = new Size(134, 44);
-            btnAddQuan.TabIndex = 22;
-            btnAddQuan.Text = "➕  Thêm";
-            btnAddQuan.UseVisualStyleBackColor = false;
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
-            // btnEditQuan
+            // btnEdit
             // 
-            btnEditQuan.AutoSize = true;
-            btnEditQuan.BackColor = Color.FromArgb(255, 152, 0);
-            btnEditQuan.FlatStyle = FlatStyle.Flat;
-            btnEditQuan.Font = new Font("Segoe UI", 12F);
-            btnEditQuan.Location = new Point(160, 3);
-            btnEditQuan.Margin = new Padding(3, 3, 20, 3);
-            btnEditQuan.Name = "btnEditQuan";
-            btnEditQuan.Size = new Size(128, 44);
-            btnEditQuan.TabIndex = 21;
-            btnEditQuan.Text = "✏️ Sửa";
-            btnEditQuan.UseVisualStyleBackColor = false;
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "✏️ Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
             // 
-            // btnXoaQuan
+            // btnDelete
             // 
-            btnXoaQuan.AutoSize = true;
-            btnXoaQuan.BackColor = Color.FromArgb(244, 67, 54);
-            btnXoaQuan.FlatStyle = FlatStyle.Flat;
-            btnXoaQuan.Font = new Font("Segoe UI", 12F);
-            btnXoaQuan.Location = new Point(311, 3);
-            btnXoaQuan.Margin = new Padding(3, 3, 20, 3);
-            btnXoaQuan.Name = "btnXoaQuan";
-            btnXoaQuan.Size = new Size(128, 44);
-            btnXoaQuan.TabIndex = 20;
-            btnXoaQuan.Text = "🗑 Xóa";
-            btnXoaQuan.UseVisualStyleBackColor = false;
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnRefreshQuan
+            // button5
             // 
-            btnRefreshQuan.AutoSize = true;
-            btnRefreshQuan.BackColor = Color.FromArgb(33, 150, 243);
-            btnRefreshQuan.FlatStyle = FlatStyle.Flat;
-            btnRefreshQuan.Font = new Font("Segoe UI", 12F);
-            btnRefreshQuan.Location = new Point(462, 3);
-            btnRefreshQuan.Name = "btnRefreshQuan";
-            btnRefreshQuan.Size = new Size(158, 44);
-            btnRefreshQuan.TabIndex = 24;
-            btnRefreshQuan.Text = "🔍 Làm mới";
-            btnRefreshQuan.UseVisualStyleBackColor = false;
+            button5.AutoSize = true;
+            button5.BackColor = Color.FromArgb(221, 121, 115);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.Location = new Point(462, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(136, 44);
+            button5.TabIndex = 24;
+            button5.Text = "🔄 Làm mới";
+            button5.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel1
             // 
@@ -312,9 +312,9 @@
         private DataGridViewTextBoxColumn Column1;
         private TextBox txtTenQuan;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button btnAddQuan;
-        private Button btnEditQuan;
-        private Button btnXoaQuan;
-        private Button btnRefreshQuan;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Button button5;
     }
 }
