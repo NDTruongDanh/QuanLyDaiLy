@@ -184,6 +184,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(754, 52);
             flowLayoutPanel1.TabIndex = 28;
+            flowLayoutPanel1.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -198,6 +199,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "➕  Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -212,6 +214,7 @@
             btnEdit.TabIndex = 21;
             btnEdit.Text = "✏️ Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -226,6 +229,7 @@
             btnDelete.TabIndex = 20;
             btnDelete.Text = "🗑 Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnFind
             // 
@@ -253,6 +257,7 @@
             button1.TabIndex = 24;
             button1.Text = "🔄 Làm mới";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnRefresh_Click;
             // 
             // tableLayoutPanel1
             // 

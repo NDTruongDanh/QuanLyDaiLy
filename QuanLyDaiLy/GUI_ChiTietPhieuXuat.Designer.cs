@@ -39,6 +39,11 @@
             lblDanhSachPhieuThu = new Label();
             label2 = new Label();
             panel2 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            button1 = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
             txtThanhTien = new TextBox();
             label9 = new Label();
@@ -50,11 +55,6 @@
             label8 = new Label();
             lblThongTinPhieuThu = new Label();
             label4 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            button1 = new Button();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -62,8 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvChiTietPhieuXuat).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // notifyIcon1
@@ -374,6 +374,78 @@
             panel2.Size = new Size(1226, 284);
             panel2.TabIndex = 25;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(603, 229);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(604, 52);
+            flowLayoutPanel1.TabIndex = 34;
+            // 
+            // btnAdd
+            // 
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 12F);
+            btnAdd.Location = new Point(3, 3);
+            btnAdd.Margin = new Padding(3, 3, 20, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 44);
+            btnAdd.TabIndex = 22;
+            btnAdd.Text = "➕  Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Font = new Font("Segoe UI", 12F);
+            btnEdit.Location = new Point(160, 3);
+            btnEdit.Margin = new Padding(3, 3, 20, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(128, 44);
+            btnEdit.TabIndex = 21;
+            btnEdit.Text = "✏️ Sửa";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(311, 3);
+            btnDelete.Margin = new Padding(3, 3, 20, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(128, 44);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "🗑 Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(221, 121, 115);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(462, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 44);
+            button1.TabIndex = 24;
+            button1.Text = "🔄 Làm mới";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnRefresh_Click;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -511,74 +583,6 @@
             label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(btnAdd);
-            flowLayoutPanel1.Controls.Add(btnEdit);
-            flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Location = new Point(603, 229);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(604, 52);
-            flowLayoutPanel1.TabIndex = 34;
-            // 
-            // btnAdd
-            // 
-            btnAdd.AutoSize = true;
-            btnAdd.BackColor = Color.FromArgb(76, 175, 80);
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F);
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Margin = new Padding(3, 3, 20, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 44);
-            btnAdd.TabIndex = 22;
-            btnAdd.Text = "➕  Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSize = true;
-            btnEdit.BackColor = Color.FromArgb(255, 152, 0);
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 12F);
-            btnEdit.Location = new Point(160, 3);
-            btnEdit.Margin = new Padding(3, 3, 20, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(128, 44);
-            btnEdit.TabIndex = 21;
-            btnEdit.Text = "✏️ Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSize = true;
-            btnDelete.BackColor = Color.FromArgb(244, 67, 54);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 12F);
-            btnDelete.Location = new Point(311, 3);
-            btnDelete.Margin = new Padding(3, 3, 20, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(128, 44);
-            btnDelete.TabIndex = 20;
-            btnDelete.Text = "🗑 Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.FromArgb(221, 121, 115);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(462, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 44);
-            button1.TabIndex = 24;
-            button1.Text = "🔄 Làm mới";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // GUI_ChiTietPhieuXuat
             // 
             ClientSize = new Size(1258, 904);
@@ -598,10 +602,10 @@
             tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
