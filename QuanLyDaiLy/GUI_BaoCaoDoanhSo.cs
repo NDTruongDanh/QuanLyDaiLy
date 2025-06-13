@@ -12,6 +12,8 @@ using BUS_QuanLy;
 using DTO_QuanLy;
 using BUS_Library;
 using Microsoft.Extensions.Logging;
+using GUI_QuanLy.AddedClasses;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GUI_QuanLy
 {
@@ -22,10 +24,11 @@ namespace GUI_QuanLy
         private readonly ILogger<GUI_BaoCaoDoanhSo> _logger;
         private readonly IServiceProvider _service;
         private readonly BindingSource _bindingSource = new BindingSource();
-
+        
         private DTO_BaoCaoDoanhSo _baoCaoDoanhSo = new DTO_BaoCaoDoanhSo();
         private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
 
+        private DTO_ChiTietPhanQuyen? permission;
         private int _maBaoCaoDoanhSo = 0;
         private int _prevMonth = 0;
         private int _prevYear = 0;
@@ -49,6 +52,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                await permissionLoadAsync();
                 await AutoCreateBaoCaoAsync();
                 await LoadChiTietBaoCaoDoanhSoAsync(_prevMonth, _prevYear);
                 ShowCharBaoCao();
@@ -68,7 +72,40 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Error);
             }
         }
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _service.GetRequiredService<PermissionService>();
 
+
+                permission = await permissionService.GetPermissionCurrentUserAsync("BaoCaoDoanhSo");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for BaoCaoDoanhSo.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+
+
+               
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for BaoCaoDoanhSo.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
 
         private async Task AutoCreateBaoCaoAsync()
         {

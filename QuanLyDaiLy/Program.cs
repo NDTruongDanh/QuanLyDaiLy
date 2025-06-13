@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Runtime.InteropServices;
+using DTO_QuanLy;
 
 namespace QuanLyDaiLy
 {
@@ -15,31 +16,43 @@ namespace QuanLyDaiLy
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool AllocConsole();
 
-
         [STAThread]
         static void Main()
         {
-            AllocConsole(); // Mở console
+            AllocConsole();
             ApplicationConfiguration.Initialize();
 
             var host = Host.CreateDefaultBuilder()
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
-                    logging.AddConsole();                              // Console sink
-                    logging.SetMinimumLevel(LogLevel.Debug);      // Default level
+                    logging.AddConsole();
+                    logging.SetMinimumLevel(LogLevel.Debug);
                 })
                 .ConfigureServices((_, services) =>
                 {
-                    services.AddDALDependencies()           //registers IDAL => DAL
-                            .AddBUSDependencies()           //registers IBUS => BUS
-                            .AddGUI();                      //register Forms
+                    services.AddDALDependencies()
+                            .AddBUSDependencies()
+                            .AddGUI();
                 })
                 .Build();
 
             using var scope = host.Services.CreateScope();
-            var form = scope.ServiceProvider.GetRequiredService<Menu>();
-            Application.Run(form);
+            var serviceProvider = scope.ServiceProvider;
+
+            // Lấy Login form từ DI
+            var loginForm = serviceProvider.GetRequiredService<Login>();
+            if (loginForm.ShowDialog() == DialogResult.OK && loginForm.LoggedInUser != null)
+            {
+                // Đăng nhập thành công, truyền user vào Menu
+                var menuForm = ActivatorUtilities.CreateInstance<Menu>(serviceProvider, loginForm.LoggedInUser);
+                Application.Run((Form)menuForm);
+            }
+            else
+            {
+                // Đăng nhập thất bại hoặc bị đóng
+                Application.Exit();
+            }
         }
     }
 }
