@@ -120,3 +120,32 @@ END CATCH;
 
 SELECT * FROM THAMSO
 SELECT * FROM PHIEUTHU
+
+
+
+
+
+DELETE FROM NHOMNGUOIDUNG;
+DBCC CHECKIDENT('NHOMNGUOIDUNG', RESEED, 0);
+INSERT INTO NHOMNGUOIDUNG (TenNhom) VALUES (N'Quản lý'),(N'Nhập liệu'), (N'Kế toán');
+
+DELETE FROM NGUOIDUNG
+
+INSERT INTO NGUOIDUNG(TenNguoiDung,MatKhau,MaNhom) VALUES('admin','123',1),('user1','123',2),('user2','123',3);
+
+DELETE FROM CHUCNANG;
+DBCC CHECKIDENT('CHUCNANG', RESEED, 0);
+INSERT INTO CHUCNANG(TenManHinhDuocLoad) VALUES('Settings'),('DaiLy'),('MatHang'),('PhieuXuat'),('PhieuNhap'),('ChiTietPhieuXuat'),('ChiTietPhieuNhap'),('BaoCaoCongNo'), ('BaoCaoDoanhSo'), ('PhieuThu'), ('PhanQuyen');
+
+DELETE FROM PHANQUYEN;
+INSERT INTO PHANQUYEN (MaNhom, MaChucNang) VALUES
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11),
+(2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (2, 9), (2, 10), (2, 11),
+(3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8), (3, 9), (3, 10), (3, 11);
+
+
+SELECT * FROM NGUOIDUNG
+SELECT * FROM NHOMNGUOIDUNG
+SELECT * FROM CHUCNANG
+SELECT * FROM PHANQUYEN
+
