@@ -13,6 +13,8 @@ using BUS_QuanLy;
 using DTO_QuanLy;
 using BUS_Library;
 using System.ComponentModel.DataAnnotations;
+using GUI_QuanLy.AddedClasses;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GUI_QuanLy
 {
@@ -22,16 +24,17 @@ namespace GUI_QuanLy
         private readonly IBUS_DonViTinh _busDonViTinh;
         private readonly ILogger<GUI_MatHang> _logger;
         private readonly BindingSource _bindingSource = new BindingSource();
-
+        private readonly IServiceProvider _services;
         private int _maMatHang = 0;
-
-        public GUI_MatHang(IBUS_MatHang busMatHang, IBUS_DonViTinh busDonViTinh, ILogger<GUI_MatHang> logger)
+        private DTO_ChiTietPhanQuyen? permission;
+        public GUI_MatHang(IBUS_MatHang busMatHang, IBUS_DonViTinh busDonViTinh, ILogger<GUI_MatHang> logger, IServiceProvider services)
         {
             _busMatHang = busMatHang;
             _busDonViTinh = busDonViTinh;
             _logger = logger;
             InitializeComponent();
             dgvMatHang.DataSource = _bindingSource;
+            _services = services;
         }
 
 
@@ -39,6 +42,7 @@ namespace GUI_QuanLy
         {
             try
             {
+                await permissionLoadAsync();
                 await LoadComboBoxDonViTinhAsync();
                 await LoadMatHangAsync();
             }
@@ -53,7 +57,42 @@ namespace GUI_QuanLy
                     MessageBoxIcon.Error);
             }
         }
+        private async Task permissionLoadAsync()
+        {
+            try
+            {
+                var permissionService = _services.GetRequiredService<PermissionService>();
 
+
+                permission = await permissionService.GetPermissionCurrentUserAsync("MatHang");
+
+                if (permission == null || permission.Xem == false)
+                {
+                    _logger.LogWarning("No permission found for MatHang.");
+                    MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+
+
+                btnAdd.Visible = permission.Them;
+                btnUpdate.Visible = permission.Sua;
+                btnDelete.Visible = permission.Xoa;
+
+
+            }
+            catch
+            {
+                _logger.LogError("Failed to load permissions for MatHang.");
+                MessageBox.Show("Lỗi khi tải quyền truy cập. Vui lòng thử lại sau.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
         private async Task LoadMatHangAsync()
         {
             try
