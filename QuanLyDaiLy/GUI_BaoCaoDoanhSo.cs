@@ -217,11 +217,11 @@ namespace GUI_QuanLy
                     totalPhieu += invoices;
 
                 // Parse tổng trị giá (loại bỏ ký tự tiền tệ và dấu chấm)
-                string ? valueStr = dgvrow.Cells["TongTriGia"].Value?.ToString()?.Replace("₫", "").Trim();
+                string? valueStr = dgvrow.Cells["TongTriGia"].Value?.ToString()?.Replace("₫", "").Trim();
                 if (decimal.TryParse(valueStr, out decimal value))
                     totalDoanhThu += value;
             }
-            
+
             lblTongDoanhSo_Num.Text = totalDoanhThu.ToString("N0") + " ₫";
             lblTongSoDaiLy_Num.Text = totalDaiLy.ToString();
             lblTongSoPhieuXuat_Num.Text = totalPhieu.ToString();
@@ -299,6 +299,11 @@ namespace GUI_QuanLy
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void pcThongKeDoanhSo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

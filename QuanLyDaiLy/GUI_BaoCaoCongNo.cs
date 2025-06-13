@@ -195,7 +195,7 @@ namespace GUI_QuanLy
             decimal totalPhatSinh = 0;
             decimal totalNoCuoi = 0;
 
-            for(int i = 0; i < dgvBaoCaoCongNo.Rows.Count; i++)
+            for (int i = 0; i < dgvBaoCaoCongNo.Rows.Count; i++)
             {
                 var dgvrow = dgvBaoCaoCongNo.Rows[i];
 
@@ -255,7 +255,7 @@ namespace GUI_QuanLy
                 pcThongKeCongNo.Invalidate();
                 return;
             }
-       
+
 
             // --- Xóa sạch và Cấu hình biểu đồ cơ bản ---  
             pcThongKeCongNo.Series.Clear();
@@ -267,7 +267,7 @@ namespace GUI_QuanLy
             chartArea.AxisX.Title = "Tên Đại Lý";
             chartArea.AxisY.Title = "Công nợ cuối kỳ (VND)";
             chartArea.AxisX.Interval = 1;
-       
+
             pcThongKeCongNo.ChartAreas.Add(chartArea);
             //chartArea.AxisX.StripLines.Clear();
 
@@ -296,7 +296,7 @@ namespace GUI_QuanLy
 
 
             var topDaiLyDataForColumns = congNoDataList.OrderBy(x => x.Value).Take(10).Reverse().ToList();
-           // MessageBox.Show($"{topDaiLyDataForColumns}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // MessageBox.Show($"{topDaiLyDataForColumns}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (!topDaiLyDataForColumns.Any())
             {
                 Title emptyDataTitle = new Title("Không có dữ liệu công nợ để hiển thị", Docking.Top, new Font("Arial", 12), Color.Gray);
@@ -316,14 +316,14 @@ namespace GUI_QuanLy
                 XValueType = ChartValueType.String, // Ensure categorical X axis
                 YValueType = ChartValueType.Auto,
                 IsXValueIndexed = false,
-           
+
             };
 
-           
-            
+
+
             foreach (var dataPoint in topDaiLyDataForColumns)
             {
-                
+
                 int pointIdx = seriesDaiLy.Points.AddXY(topDaiLyDataForColumns.IndexOf(dataPoint), dataPoint.Value);
                 seriesDaiLy.Points[pointIdx].Color = Color.FromArgb(150, 220, 220, 220); // Màu xám rất nhạt, hơi trong suốt  
                 seriesDaiLy.Points[pointIdx].BorderColor = Color.DimGray; // Viền đậm hơn cho cột  
@@ -333,10 +333,10 @@ namespace GUI_QuanLy
 
             if (seriesDaiLy.Points.Count > 0)
             {
-              
+
                 pcThongKeCongNo.Series.Add(seriesDaiLy);
             }
-          
+
             // --- Cấu hình trục của biểu đồ ---  
             chartArea.AxisX.Title = "Tên Đại Lý";
             chartArea.AxisX.Interval = 1;
@@ -384,6 +384,11 @@ namespace GUI_QuanLy
             customLegend.CustomItems.Add(legendItemCao);
             customLegend.CustomItems.Add(legendItemTrungBinh);
             customLegend.CustomItems.Add(legendItemThap);
+        }
+
+        private void pnHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
