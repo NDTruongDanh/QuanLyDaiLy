@@ -101,7 +101,6 @@
             panel1.Padding = new Padding(16, 16, 16, 8);
             panel1.Size = new Size(1226, 564);
             panel1.TabIndex = 24;
-            panel1.Paint += panel1_Paint;
             // 
             // tableLayoutPanel4
             // 
