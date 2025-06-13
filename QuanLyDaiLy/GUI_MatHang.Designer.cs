@@ -66,6 +66,7 @@
             // 
             // txtTenMatHang
             // 
+            txtTenMatHang.BorderStyle = BorderStyle.FixedSingle;
             txtTenMatHang.Dock = DockStyle.Fill;
             txtTenMatHang.Font = new Font("Segoe UI", 12F);
             txtTenMatHang.Location = new Point(155, 3);
@@ -265,7 +266,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1569, 92);
+            tableLayoutPanel1.Size = new Size(1569, 82);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cmbDonViTinh
@@ -288,7 +289,7 @@
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(3, 40);
             label1.Name = "label1";
-            label1.Size = new Size(146, 52);
+            label1.Size = new Size(146, 42);
             label1.TabIndex = 8;
             label1.Text = "Tên Đơn vị tính:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
