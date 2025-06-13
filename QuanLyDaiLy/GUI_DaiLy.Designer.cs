@@ -322,7 +322,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1572, 317);
+            tableLayoutPanel1.Size = new Size(1572, 281);
             tableLayoutPanel1.TabIndex = 19;
             // 
             // cboLoaiDaiLy
@@ -392,7 +392,7 @@
             lblNgayTiepNhan.Font = new Font("Segoe UI", 12F);
             lblNgayTiepNhan.Location = new Point(3, 244);
             lblNgayTiepNhan.Name = "lblNgayTiepNhan";
-            lblNgayTiepNhan.Size = new Size(150, 73);
+            lblNgayTiepNhan.Size = new Size(150, 40);
             lblNgayTiepNhan.TabIndex = 6;
             lblNgayTiepNhan.Text = "Ngày tiếp nhận:";
             lblNgayTiepNhan.TextAlign = ContentAlignment.MiddleLeft;
