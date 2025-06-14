@@ -146,7 +146,8 @@ namespace GUI_QuanLy
             panelMain.Controls.Clear();
             panelMain.Controls.Add(childControl);
             panelMain.Tag = childControl;
-            lblFormName.Text = childControl.Name;
+            var title = (childControl as dynamic)?.Title ?? "";
+            lblFormName.Text = title;
             panelMain.AutoScroll = true;
             childControl.Dock = DockStyle.Top;
         }

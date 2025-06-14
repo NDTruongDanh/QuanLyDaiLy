@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using GUI_QuanLy.AddedClasses;
+using System.Runtime.CompilerServices;
 
 namespace GUI_QuanLy
 {
@@ -31,9 +32,8 @@ namespace GUI_QuanLy
         private readonly BindingSource _bindingSourceQuan = new BindingSource();
 
         private DTO_ChiTietPhanQuyen? permission;
-
-
-
+        public string Title { get; set; } = "Cài đặt hệ thống";
+        
         private DTO_ThamSo _thamSo;
         public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, IBUS_Quan busQuan, ILogger<Settings> logger, IServiceProvider services)
         {
@@ -47,6 +47,7 @@ namespace GUI_QuanLy
             dgvLoaiDaiLy.DataSource = _bindingSourceLDL;
             dgvDVT.DataSource = _bindingSourceDVT;
             dgvQuan.DataSource = _bindingSourceQuan;
+            
         }
 
         private async void Settings_Load(object sender, EventArgs e)
@@ -93,10 +94,11 @@ namespace GUI_QuanLy
             }
         }
 
-
+        
 
         private void LoadControlsContent()
         {
+            
             txtSoQLToiDa.Text = _thamSo.DaiLyToiDa.ToString();
             txtTiLeDGXuat.Text = _thamSo.TiLeTinhDonGiaXuat.ToString();
             if (_thamSo.ApDungQDKiemTraTienThu)

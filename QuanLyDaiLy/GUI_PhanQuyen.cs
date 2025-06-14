@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 
 namespace GUI_QuanLy
@@ -31,7 +32,7 @@ namespace GUI_QuanLy
         private readonly BindingSource _bindingSourceNguoiDung = new BindingSource();
         private readonly BindingSource _bindingSourceChucNang = new BindingSource();
         private readonly BindingSource _bindingSourceCTPhanQuyen = new BindingSource();
-
+        public string Title { get; set; } = "Phân quyền người dùng";
         private DTO_ChiTietPhanQuyen? permission;
         public GUI_PhanQuyen(IBUS_NhomNguoiDung busNhomNguoiDung, IBUS_NguoiDung busNguoiDung, IBUS_ChucNang busChucNang, IBUS_ChiTietPhanQuyen busCTPhanQuyen, ILogger<GUI_PhanQuyen> logger,IServiceProvider service)
         {
