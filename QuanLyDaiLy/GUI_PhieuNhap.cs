@@ -124,6 +124,8 @@ namespace GUI_QuanLy
             dgvPhieuNhap.Columns["MaPhieuNhap"].HeaderText = "Mã Phiếu Nhập";
             dgvPhieuNhap.Columns["NgayLapPhieu"].HeaderText = "Ngày Lập Phiếu";
             dgvPhieuNhap.Columns["TongTien"].HeaderText = "Tổng Tiền";
+            dgvPhieuNhap.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+
 
             foreach (DataGridViewColumn dataColumn in dgvPhieuNhap.Columns)
             {
