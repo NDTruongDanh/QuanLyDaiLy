@@ -278,7 +278,7 @@ namespace GUI_QuanLy
                         if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
                         {
                             MessageBox.Show("Thêm Phiếu xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            await LoadDataGridViewAsync();
+                            
                             scope.Complete();
                         }
                         else
@@ -311,10 +311,11 @@ namespace GUI_QuanLy
                 }
                 finally
                 {
-                    await LoadDataGridViewAsync();
+                    
 
                 }
             }
+                await LoadDataGridViewAsync();
         }
 
         private async void btnEdit_Click(object sender, EventArgs e)
@@ -367,7 +368,7 @@ namespace GUI_QuanLy
                                 if (await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat))
                                 {
                                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    scope.Complete();
+                                    
                                    
                                 }
                                 else
@@ -392,9 +393,11 @@ namespace GUI_QuanLy
                         }
                         finally
                         {
-                            await LoadDataGridViewAsync();
+                           
                         }
                     }
+
+                    await LoadDataGridViewAsync();
                 }
             }
             else
