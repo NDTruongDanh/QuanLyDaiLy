@@ -157,7 +157,9 @@ namespace GUI_QuanLy
             dgvChiTietPhieuXuat.Columns["Display"].HeaderText = "Mặt Hàng";
             dgvChiTietPhieuXuat.Columns["SoLuongXuat"].HeaderText = "Số Lượng";
             dgvChiTietPhieuXuat.Columns["DonGiaXuat"].HeaderText = "Đơn Giá";
+            dgvChiTietPhieuXuat.Columns["DonGiaXuat"].DefaultCellStyle.Format = "N0";
             dgvChiTietPhieuXuat.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+            dgvChiTietPhieuXuat.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
             dgvChiTietPhieuXuat.Columns["MaMatHang"].Visible = false;
 
             foreach (DataGridViewColumn dataColumn in dgvChiTietPhieuXuat.Columns)

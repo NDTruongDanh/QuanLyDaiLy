@@ -150,6 +150,7 @@ namespace GUI_QuanLy
             dgvPhieuThu.Columns["MaPhieuThu"].HeaderText = "Mã phiếu thu";
             dgvPhieuThu.Columns["NgayThuTien"].HeaderText = "Ngày thu tiền";
             dgvPhieuThu.Columns["SoTienThu"].HeaderText = "Số tiền thu";
+            dgvPhieuThu.Columns["SoTienThu"].DefaultCellStyle.Format = "N0";
             dgvPhieuThu.Columns["TenDaiLy"].HeaderText = "Tên Đại Lý";
             dgvPhieuThu.Columns["MaDaiLy"].Visible = false;
 

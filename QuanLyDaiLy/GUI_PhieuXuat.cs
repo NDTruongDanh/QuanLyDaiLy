@@ -221,8 +221,11 @@ namespace GUI_QuanLy
             dgvPhieuXuat.Columns["TenDaiLy"].HeaderText = "Tên Đại Lý";
             dgvPhieuXuat.Columns["NgayLapPhieu"].HeaderText = "Ngày Lập Phiếu";
             dgvPhieuXuat.Columns["TongTien"].HeaderText = "Tổng Tiền";
+            dgvPhieuXuat.Columns["TongTien"].DefaultCellStyle.Format = "N0";
             dgvPhieuXuat.Columns["TienTra"].HeaderText = "Tiền Trả";
+            dgvPhieuXuat.Columns["TienTra"].DefaultCellStyle.Format = "N0";
             dgvPhieuXuat.Columns["ConLai"].HeaderText = "Còn Lại";
+            dgvPhieuXuat.Columns["ConLai"].DefaultCellStyle.Format = "N0";
             dgvPhieuXuat.Columns["MaDaiLy"].Visible = false;
 
             if (_daiLy.MaDaiLy != 0)

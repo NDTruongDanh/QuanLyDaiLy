@@ -140,6 +140,8 @@ namespace GUI_QuanLy
             dgvDaiLy.Columns["TenQuan"].HeaderText = "Quận";
             dgvDaiLy.Columns["NgayTiepNhan"].HeaderText = "Ngày tiếp nhận";
             dgvDaiLy.Columns["TongNo"].HeaderText = "Tổng nợ";
+            dgvDaiLy.Columns["TongNo"].DefaultCellStyle.Format = "N0";
+
             dgvDaiLy.Columns["MaDaiLy"].Visible = false;
 
             foreach (DataGridViewColumn dataColumn in dgvDaiLy.Columns)

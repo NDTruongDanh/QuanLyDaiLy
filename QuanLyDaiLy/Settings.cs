@@ -185,6 +185,7 @@ namespace GUI_QuanLy
             dgvLoaiDaiLy.Columns["MaLoaiDaiLy"].Visible = false;
             dgvLoaiDaiLy.Columns["TenLoaiDaiLy"].HeaderText = "Tên Loại Đại Lý";
             dgvLoaiDaiLy.Columns["TienNoToiDa"].HeaderText = "Tiền nợ tối đa";
+            dgvLoaiDaiLy.Columns["TienNoToiDa"].DefaultCellStyle.Format = "N0";
 
             foreach (DataGridViewColumn dataColumn in dgvLoaiDaiLy.Columns)
             {
