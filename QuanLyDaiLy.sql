@@ -364,6 +364,20 @@ BEGIN
 				WHERE I.MaDaiLy=DAILY.MaDaiLy
 END 
 
+GO
+CREATE TRIGGER t40 ON PHIEUXUAT
+AFTER DELETE
+AS
+BEGIN
+				UPDATE DAILY
+				SET TongNo = TongNo -  (SELECT SUM(ConLai)
+										FROM DELETED D
+										WHERE D.MaDaiLy=DAILY.MaDaiLy
+										)
+				FROM DELETED D
+				WHERE D.MaDaiLy=DAILY.MaDaiLy
+END 
+
 
 GO
 CREATE TRIGGER t6 ON PHIEUXUAT
@@ -372,6 +386,16 @@ AS
 BEGIN
 		IF UPDATE(MaDaiLy) OR UPDATE(ConLai)
 			BEGIN
+				
+				UPDATE DAILY
+				SET TongNo = TongNo -  (SELECT SUM(ConLai)
+										FROM DELETED D
+										WHERE D.MaDaiLy=DAILY.MaDaiLy
+										)
+				FROM DELETED D 
+				WHERE D.MaDaiLy=DAILY.MaDaiLy
+
+
 				UPDATE DAILY
 				SET TongNo = TongNo +  (SELECT SUM(ConLai)
 										FROM INSERTED I
@@ -380,16 +404,8 @@ BEGIN
 				FROM INSERTED I
 				WHERE I.MaDaiLy=DAILY.MaDaiLy
 
-				UPDATE DAILY
-				SET TongNo = TongNo -  (SELECT SUM(ConLai)
-										FROM DELETED D
-										WHERE D.MaDaiLy=DAILY.MaDaiLy
-										)
-				FROM DELETED D 
-				WHERE D.MaDaiLy=DAILY.MaDaiLy
 			END
 END 
-
 ----
 
 GO
@@ -639,7 +655,7 @@ END
 PHIEUNHAP				 +(0:CODE)		 -		 + (TongTien = READONLY)
 CHITIET_PHIEUNHAP		 +				 +		 + (ThanhTien = READONLY)
 */
-
+/* TẮT CÁC TRIGGER TÍNH TỔNG TIỀN NÀY NHA
 GO
 CREATE TRIGGER t19 ON CHITIET_PHIEUNHAP
 AFTER INSERT
@@ -757,6 +773,7 @@ BEGIN
 				WHERE D.MaPhieuXuat=PHIEUXUAT.MaPhieuXuat
 			END
 END
+*/
 
 -- 13.DAILY.NgayTiepNhan ≤ PHIEUXUAT.NgayLapPhieu --
 /*				Thêm	Xoá		Sửa
