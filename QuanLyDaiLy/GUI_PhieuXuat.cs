@@ -16,6 +16,9 @@ using System.Transactions;
 using System.Security.Cryptography;
 using GUI_QuanLy.AddedClasses;
 
+using Microsoft.Data.SqlClient;
+using DAL_QuanLy;
+
 namespace GUI_QuanLy
 {
     public partial class GUI_PhieuXuat : Form
@@ -40,6 +43,9 @@ namespace GUI_QuanLy
 
         private int _maDaiLy = 0;
         private int _maPhieuXuat = 0;
+
+        
+
 
         public GUI_PhieuXuat(IBUS_DaiLy busDaiLy, IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, ILogger<GUI_PhieuXuat> logger, IServiceProvider service)
         {
@@ -242,58 +248,73 @@ namespace GUI_QuanLy
         }
 
 
+        SqlConnection conn = new SqlConnection(DBConnect.connString);
+        SqlTransaction tran;
+
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                int maDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue);
-                string tenDaiLy = cmbDaiLy.Text;
-                DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat(0, maDaiLy, dtpNgayLapPhieu.Value, 0, 0, 0);
-
-                phieuXuat.MaPhieuXuat = await _busPhieuXuat.GetMaPhieuXuatDefaultAsync(phieuXuat);
-
-                using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
+                try
                 {
-                    this.Enabled = false;
-                    CTPX.SetPhieuXuat(phieuXuat);
-                    CTPX.SetTenDaiLy(tenDaiLy);
-                    CTPX.ShowDialog();
-                    phieuXuat = CTPX.GetPhieuXuat();
-                    this.Enabled = true;
-                }
-                if (phieuXuat.TongTien != 0)
-                {
-                    if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+
+                    int maDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue);
+                    string tenDaiLy = cmbDaiLy.Text;
+                    DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat(0, maDaiLy, dtpNgayLapPhieu.Value, 0, 0, 0);
+
+                    phieuXuat.MaPhieuXuat = await _busPhieuXuat.GetMaPhieuXuatDefaultAsync(phieuXuat);
+
+                    using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
                     {
-                        MessageBox.Show("Thêm Phiếu xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        await LoadDataGridViewAsync();
+                        this.Enabled = false;
+                        CTPX.SetPhieuXuat(phieuXuat);
+                        CTPX.SetTenDaiLy(tenDaiLy);
+                        CTPX.ShowDialog();
+                        phieuXuat = CTPX.GetPhieuXuat();
+                        this.Enabled = true;
+                    }
+                    if (phieuXuat.TongTien != 0)
+                    {
+                        if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+                        {
+                            MessageBox.Show("Thêm Phiếu xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await LoadDataGridViewAsync();
+                            scope.Complete();
+                        }
+                        else
+                        {
+                            
+                            MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat);
+                        MessageBox.Show("Thêm Phiếu xuất thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                else
+                catch (BusException busEx)
                 {
-                    await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat);
-                    MessageBox.Show("Thêm Phiếu xuất thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                    _logger.LogError(busEx,
+                        "BusException in Add button");
+
+                    MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                   
+                    _logger.LogCritical(ex,
+                        "Unexpected exception in Add button");
+
+                    MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    await LoadDataGridViewAsync();
+
                 }
             }
-            catch (BusException busEx)
-            {
-                _logger.LogError(busEx,
-                    "BusException in Add button");
-
-                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogCritical(ex,
-                    "Unexpected exception in Add button");
-
-                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private async void btnEdit_Click(object sender, EventArgs e)
@@ -303,67 +324,76 @@ namespace GUI_QuanLy
                 DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn sửa Phiếu xuất này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
-                    try
+                    using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                     {
-                        DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat
+                        try
                         {
-                            MaPhieuXuat = _maPhieuXuat,
-                            MaDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue),
-                            NgayLapPhieu = dtpNgayLapPhieu.Value,
-                            TongTien = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TongTien"].Value),
-                            TienTra = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value),
-                            ConLai = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["ConLai"].Value)
-                        };
-
-                        string tenDaiLy = cmbDaiLy.Text;
-
-                        using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
-                        {
-                            this.Enabled = false;
-                            CTPX.SetPhieuXuat(phieuXuat);
-                            CTPX.SetTenDaiLy(tenDaiLy);
-                            CTPX.ShowDialog();
-                            phieuXuat = CTPX.GetPhieuXuat();
-                            this.Enabled = true;
-                        }
-                        if (phieuXuat.TongTien != 0)
-                        {
-                            if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+                            DTO_PhieuXuat phieuXuat = new DTO_PhieuXuat
                             {
-                                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                await LoadDataGridViewAsync();
+                                MaPhieuXuat = _maPhieuXuat,
+                                MaDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue),
+                                NgayLapPhieu = dtpNgayLapPhieu.Value,
+                                TongTien = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TongTien"].Value),
+                                TienTra = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["TienTra"].Value),
+                                ConLai = Convert.ToDecimal(dgvPhieuXuat.SelectedRows[0].Cells["ConLai"].Value)
+                            };
+
+                            string tenDaiLy = cmbDaiLy.Text;
+
+                            using (var CTPX = _services.GetRequiredService<GUI_ChiTietPhieuXuat>())
+                            {
+                                this.Enabled = false;
+                                CTPX.SetPhieuXuat(phieuXuat);
+                                CTPX.SetTenDaiLy(tenDaiLy);
+                                CTPX.ShowDialog();
+                                phieuXuat = CTPX.GetPhieuXuat();
+                                this.Enabled = true;
+                            }
+                            if (phieuXuat.TongTien != 0)
+                            {
+                                if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
+                                {
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    scope.Complete();
+                                    
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                if (await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat))
+                                {
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    scope.Complete();
+                                   
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
                             }
                         }
-                        else
+                        catch (BusException busEx)
                         {
-                            if (await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat))
-                            {
-                                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                await LoadDataGridViewAsync();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            _logger.LogError(busEx,
+                                "BusException in Edit button");
+
+                            MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    catch (BusException busEx)
-                    {
-                        _logger.LogError(busEx,
-                            "BusException in Edit button");
+                        catch (Exception ex)
+                        {
+                            _logger.LogCritical(ex,
+                                "Unexpected exception in Edit button");
 
-                        MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogCritical(ex,
-                            "Unexpected exception in Edit button");
-
-                        MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            await LoadDataGridViewAsync();
+                        }
                     }
                 }
             }
