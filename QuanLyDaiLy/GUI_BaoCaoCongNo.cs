@@ -87,6 +87,7 @@ namespace GUI_QuanLy
                     return;
                 }
 
+                btnDelete.Visible = permission.Them && permission.Sua && permission.Xoa;
 
 
 
@@ -135,11 +136,11 @@ namespace GUI_QuanLy
             {
                 if (await _busBaoCaoCongNo.AddBaoCaoCongNoByTimeAsync(thang, nam))
                 {
-                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {thang}/{nam} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Thêm Báo cáo Công nợ cho {thang}/{nam} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {thang}/{nam} thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Thêm Báo cáo Công nợ cho {thang}/{nam} thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (BusException busEx)

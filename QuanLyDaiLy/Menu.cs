@@ -71,7 +71,7 @@ namespace GUI_QuanLy
             pbSettingThamSo.Visible = SettingsPermission != null && SettingsPermission.Xem;
 
 
-            reportContainer.Visible = panelBaoCaoCongNo.Visible || panelMatHang.Visible;
+            reportContainer.Visible = panelBaoCaoCongNo.Visible || panelBaoCaoDoanhSo.Visible;
 
         }
         private void menuTransition1_Tick(object sender, EventArgs e)

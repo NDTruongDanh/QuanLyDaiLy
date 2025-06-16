@@ -357,6 +357,7 @@
             dgvPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPhieuXuat.Size = new Size(1566, 495);
             dgvPhieuXuat.TabIndex = 19;
+            dgvPhieuXuat.CellContentClick += dgvPhieuXuat_CellContentClick;
             dgvPhieuXuat.SelectionChanged += dgvPhieuXuat_SelectionChanged;
             // 
             // GUI_PhieuXuat

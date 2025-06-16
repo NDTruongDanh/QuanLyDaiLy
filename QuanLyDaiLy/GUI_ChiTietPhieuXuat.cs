@@ -220,7 +220,7 @@ namespace GUI_QuanLy
 
                 if (await _busCTPX.AddChiTietPhieuXuatAsync(chiTietPhieuXuat))
                 {
-                    MessageBox.Show("Thêm Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm Chi Tiet Phieu Xuat thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _phieuXuat.TongTien += thanhTien;
                     txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
                     await LoadChiTietPhieuXuatAsync();
@@ -229,7 +229,7 @@ namespace GUI_QuanLy
                 }
                 else
                 {
-                    MessageBox.Show("Thêm Đại lý thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Thêm Chi Tiet Phieu Xuat thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (ValidationException valEx)
@@ -283,7 +283,7 @@ namespace GUI_QuanLy
 
                         if (await _busCTPX.UpdateChiTietPhieuXuatAsync(chiTietPhieuXuat))
                         {
-                            MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Cập nhật Chi Tiet Phieu Xuat thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _phieuXuat.TongTien += thanhTien;
                             _phieuXuat.TongTien -= thanhTienCu;
                             txtTongTien.Text = _phieuXuat.TongTien.ToString("N0");
@@ -293,7 +293,7 @@ namespace GUI_QuanLy
                         }
                         else
                         {
-                            MessageBox.Show("Cập nhật Chi Tiet Phieu Nhap thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Cập nhật Chi Tiet Phieu Xuat thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -323,7 +323,7 @@ namespace GUI_QuanLy
         {
             if (dgvChiTietPhieuXuat.SelectedRows.Count > 0)
             {
-                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa Chi tiết phiếu nhập này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa Chi tiết phiếu xuất này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
                     try

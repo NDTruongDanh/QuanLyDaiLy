@@ -256,8 +256,8 @@ namespace GUI_QuanLy
                 {
                     try
                     {
-                        if (await _busCTPN.DeleteChiTietPhieuNhapByMPNAsync(_maPhieuNhap))
-                        {
+                        //if (await _busCTPN.DeleteChiTietPhieuNhapByMPNAsync(_maPhieuNhap))
+                        //{
                             if (await _busPhieuNhap.DeletePhieuNhapAsync(_maPhieuNhap))
                             {
                                 MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -267,11 +267,11 @@ namespace GUI_QuanLy
                             {
                                 MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Xoá Chi tiết phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        //}
+                        ////else
+                        ////{
+                        ////    MessageBox.Show("Xoá Chi tiết phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ////}
                     }
                     catch (BusException busEx)
                     {
@@ -341,6 +341,11 @@ namespace GUI_QuanLy
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             ClearInputfields();
+        }
+
+        private void dgvPhieuNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

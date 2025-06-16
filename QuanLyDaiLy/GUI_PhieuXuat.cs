@@ -44,7 +44,7 @@ namespace GUI_QuanLy
         private int _maDaiLy = 0;
         private int _maPhieuXuat = 0;
 
-        
+
 
 
         public GUI_PhieuXuat(IBUS_DaiLy busDaiLy, IBUS_PhieuXuat busPhieuXuat, IBUS_ChiTietPhieuXuat busCTPX, ILogger<GUI_PhieuXuat> logger, IServiceProvider service)
@@ -93,7 +93,7 @@ namespace GUI_QuanLy
             try
             {
                 var permissionService = _services.GetRequiredService<PermissionService>();
-               
+
                 permission = await permissionService.GetPermissionCurrentUserAsync("PhieuXuat");
 
                 if (permission == null || permission.Xem == false)
@@ -110,7 +110,7 @@ namespace GUI_QuanLy
 
                 btnAdd.Visible = permission.Them;
                 btnEdit.Visible = permission.Sua;
-                btnDelete.Visible= permission.Xoa;
+                btnDelete.Visible = permission.Xoa;
 
 
             }
@@ -180,7 +180,7 @@ namespace GUI_QuanLy
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
-        } 
+        }
 
         private async Task LoadDataGridViewAsync()
         {
@@ -247,7 +247,6 @@ namespace GUI_QuanLy
             {
                 cmbDaiLy.SelectedIndex = -1;
             }
-
             dtpNgayLapPhieu.Value = DateTime.Now;
             txtTraTruoc.Clear();
 
@@ -285,12 +284,12 @@ namespace GUI_QuanLy
                         if (await _busPhieuXuat.UpdatePhieuXuatAsync(phieuXuat))
                         {
                             MessageBox.Show("Thêm Phiếu xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
+
                             scope.Complete();
                         }
                         else
                         {
-                            
+
                             MessageBox.Show("Thêm Phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
@@ -302,7 +301,7 @@ namespace GUI_QuanLy
                 }
                 catch (BusException busEx)
                 {
-                    
+
                     _logger.LogError(busEx,
                         "BusException in Add button");
 
@@ -310,7 +309,7 @@ namespace GUI_QuanLy
                 }
                 catch (Exception ex)
                 {
-                   
+
                     _logger.LogCritical(ex,
                         "Unexpected exception in Add button");
 
@@ -318,11 +317,11 @@ namespace GUI_QuanLy
                 }
                 finally
                 {
-                    
+
 
                 }
             }
-                await LoadDataGridViewAsync();
+            await LoadDataGridViewAsync();
         }
 
         private async void btnEdit_Click(object sender, EventArgs e)
@@ -363,7 +362,7 @@ namespace GUI_QuanLy
                                 {
                                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     scope.Complete();
-                                    
+
                                 }
                                 else
                                 {
@@ -375,8 +374,8 @@ namespace GUI_QuanLy
                                 if (await _busPhieuXuat.DeletePhieuXuatAsync(phieuXuat.MaPhieuXuat))
                                 {
                                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    
-                                   
+
+
                                 }
                                 else
                                 {
@@ -400,7 +399,7 @@ namespace GUI_QuanLy
                         }
                         finally
                         {
-                           
+
                         }
                     }
 
@@ -510,6 +509,11 @@ namespace GUI_QuanLy
 
             if (decimal.TryParse(txtTraTruoc.Text, out decimal traTruoc))
                 filters.Add($"TienTra = {traTruoc}");
+        }
+
+        private void dgvPhieuXuat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

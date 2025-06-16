@@ -569,7 +569,7 @@ namespace GUI_QuanLy
             if (!string.IsNullOrEmpty(tenQuan))
                 filters.Add($"TenQuan LIKE '%{tenQuan}%'");
 
-            //string ngayTiepNhan = dtpNgayTiepNhan.Value.ToString("yyyy-MM-dd");
+            //string ngayTiepNhan = dtpNgayTiepNhan.Value.ToString("yyyy-MM");
             //if (!string.IsNullOrEmpty(ngayTiepNhan))
             //    filters.Add($"NgayTiepNhan. = '{ngayTiepNhan}'");
 

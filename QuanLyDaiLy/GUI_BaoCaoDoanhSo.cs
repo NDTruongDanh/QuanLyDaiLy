@@ -93,6 +93,8 @@ namespace GUI_QuanLy
                     return;
                 }
 
+                btnDelete.Visible = permission.Them && permission.Sua && permission.Xoa;
+
 
 
 
@@ -192,7 +194,8 @@ namespace GUI_QuanLy
             dgvChiTietBaoCaoDoanhSo.Columns["SoLuongPhieuXuat"].HeaderText = "Số lượng Phiếu xuất";
             dgvChiTietBaoCaoDoanhSo.Columns["TongTriGia"].HeaderText = "Tổng trị giá";
             dgvChiTietBaoCaoDoanhSo.Columns["TiLe"].HeaderText = "Tỷ lệ";
-
+            
+                dgvChiTietBaoCaoDoanhSo.Columns["TiLe"].DefaultCellStyle.Format = "P";
             dgvChiTietBaoCaoDoanhSo.Columns["MaBaoCaoDoanhSo"].Visible = false;
 
             foreach (DataGridViewColumn dataColumn in dgvChiTietBaoCaoDoanhSo.Columns)
