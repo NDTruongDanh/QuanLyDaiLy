@@ -34,6 +34,7 @@
             lblTenDaiLy = new Label();
             label1 = new Label();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            btnVisible = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,7 +63,6 @@
             txtMatKhau.Location = new Point(112, 62);
             txtMatKhau.Margin = new Padding(2);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.PasswordChar = '*';
             txtMatKhau.Size = new Size(216, 34);
             txtMatKhau.TabIndex = 9;
             txtMatKhau.UseSystemPasswordChar = true;
@@ -121,11 +121,23 @@
             materialButton1.UseVisualStyleBackColor = true;
             materialButton1.Click += materialButton1_Click;
             // 
+            // btnVisible
+            // 
+            btnVisible.BackColor = Color.White;
+            btnVisible.Location = new Point(497, 165);
+            btnVisible.Name = "btnVisible";
+            btnVisible.Size = new Size(56, 34);
+            btnVisible.TabIndex = 3;
+            btnVisible.Text = "Hiện";
+            btnVisible.UseVisualStyleBackColor = false;
+            btnVisible.Click += btnVisible_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(640, 360);
+            Controls.Add(btnVisible);
             Controls.Add(materialButton1);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
@@ -146,5 +158,6 @@
         private TextBox txtMatKhau;
         private TextBox txtTenDangNhap;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private Button btnVisible;
     }
 }
