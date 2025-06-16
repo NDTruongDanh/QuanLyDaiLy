@@ -91,6 +91,7 @@
             // 
             // txtTenDaiLy
             // 
+            txtTenDaiLy.BorderStyle = BorderStyle.FixedSingle;
             txtTenDaiLy.Dock = DockStyle.Fill;
             txtTenDaiLy.Font = new Font("Segoe UI", 12F);
             txtTenDaiLy.Location = new Point(159, 3);
@@ -100,6 +101,7 @@
             // 
             // txtDiaChi
             // 
+            txtDiaChi.BorderStyle = BorderStyle.FixedSingle;
             txtDiaChi.Dock = DockStyle.Fill;
             txtDiaChi.Font = new Font("Segoe UI", 12F);
             txtDiaChi.Location = new Point(159, 85);
@@ -405,6 +407,7 @@
             // 
             // txtSDT
             // 
+            txtSDT.BorderStyle = BorderStyle.FixedSingle;
             txtSDT.Dock = DockStyle.Fill;
             txtSDT.Font = new Font("Segoe UI", 12F);
             txtSDT.Location = new Point(159, 167);
@@ -427,6 +430,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Dock = DockStyle.Fill;
             txtEmail.Font = new Font("Segoe UI", 12F);
             txtEmail.Location = new Point(159, 207);

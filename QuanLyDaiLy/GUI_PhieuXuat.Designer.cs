@@ -230,6 +230,7 @@
             // txtTraTruoc
             // 
             txtTraTruoc.BackColor = Color.White;
+            txtTraTruoc.BorderStyle = BorderStyle.FixedSingle;
             txtTraTruoc.Dock = DockStyle.Fill;
             txtTraTruoc.Font = new Font("Segoe UI", 12F);
             txtTraTruoc.Location = new Point(167, 85);

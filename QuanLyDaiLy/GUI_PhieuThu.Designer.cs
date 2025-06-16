@@ -310,6 +310,7 @@
             // 
             // txtSoTienThu
             // 
+            txtSoTienThu.BorderStyle = BorderStyle.FixedSingle;
             txtSoTienThu.Dock = DockStyle.Fill;
             txtSoTienThu.Font = new Font("Segoe UI", 12F);
             txtSoTienThu.Location = new Point(150, 85);

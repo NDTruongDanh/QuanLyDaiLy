@@ -66,6 +66,7 @@
             // 
             // txtTenMatHang
             // 
+            txtTenMatHang.BorderStyle = BorderStyle.FixedSingle;
             txtTenMatHang.Dock = DockStyle.Fill;
             txtTenMatHang.Font = new Font("Segoe UI", 12F);
             txtTenMatHang.Location = new Point(155, 3);
