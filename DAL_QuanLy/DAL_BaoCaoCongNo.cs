@@ -9,12 +9,12 @@ namespace DAL_QuanLy
     public interface IDAL_BaoCaoCongNo
     {
         Task<List<DTO_BaoCaoCongNo>> GetAllBaoCaoCongNoAsync();
-        Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam);
+        Task<DTO_BaoCaoCongNo> GetBaoCaoCongNoByThangAsync(int thang, int nam);
         Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> AddBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
         Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam);
         Task<bool> UpdateBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
-        Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy);
+        Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> IsExistedBaoCaoAsync(int thang, int nam);
 
     }
@@ -69,11 +69,11 @@ namespace DAL_QuanLy
         }
 
         //Get BaoCaoCongNo by Thang and Nam
-        public async Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam)
+        public async Task<DTO_BaoCaoCongNo> GetBaoCaoCongNoByThangAsync(int thang, int nam)
         {
             try
             {
-                var list = new List<DTO_BaoCaoCongNo>();
+                DTO_BaoCaoCongNo baocao = new DTO_BaoCaoCongNo();
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
@@ -93,7 +93,7 @@ namespace DAL_QuanLy
                                 int phatSinhIndex = reader.GetOrdinal("PhatSinh");
                                 int noCuoiIndex = reader.GetOrdinal("NoCuoi");
 
-                                list.Add(new DTO_BaoCaoCongNo
+                                baocao = new DTO_BaoCaoCongNo
                                 {
                                     Thang = reader.GetInt32(thangIndex),
                                     Nam = reader.GetInt32(namIndex),
@@ -101,12 +101,12 @@ namespace DAL_QuanLy
                                     NoDau = reader.GetDecimal(noDauIndex),
                                     PhatSinh = reader.GetDecimal(phatSinhIndex),
                                     NoCuoi = reader.GetDecimal(noCuoiIndex)
-                                });
+                                };
                             }
                         }
                     }
                 }
-                return list;
+                return baocao;
             }
 
             catch (SqlException sqlEx)
@@ -269,18 +269,18 @@ namespace DAL_QuanLy
         }
 
         //Delete BaoCaoCongNo
-        public async Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy)
+        public async Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam)
         {
             try
             {
                 using (var conn = new SqlConnection(_connectionString))
                 {
                     await conn.OpenAsync().ConfigureAwait(false);
-                    using (var cmd = new SqlCommand("DELETE FROM BAOCAO_CONGNO WHERE Thang = @Thang AND Nam = @Nam AND MaDaiLy = @MaDaiLy", conn))
+                    using (var cmd = new SqlCommand("DELETE FROM BAOCAO_CONGNO WHERE Thang = @Thang AND Nam = @Nam", conn))
                     {
                         cmd.Parameters.Add("@Thang", SqlDbType.Int).Value = thang;
                         cmd.Parameters.Add("@Nam", SqlDbType.Int).Value = nam;
-                        cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = maDaiLy;
+                        //cmd.Parameters.Add("@MaDaiLy", SqlDbType.Int).Value = maDaiLy;
 
                         return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false) > 0;
                     }

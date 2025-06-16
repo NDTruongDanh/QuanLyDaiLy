@@ -11,12 +11,12 @@ namespace BUS_QuanLy
     public interface IBUS_BaoCaoCongNo
     {
         Task<List<DTO_BaoCaoCongNo>> GetAllBaoCaoCongNoAsync();
-        Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam);
+        Task<DTO_BaoCaoCongNo> GetBaoCaoCongNoByThangAsync(int thang, int nam);
         Task<DataTable> GetDataTableBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> AddBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
         Task<bool> AddBaoCaoCongNoByTimeAsync(int thang, int nam);
         Task<bool> UpdateBaoCaoCongNoAsync(DTO_BaoCaoCongNo baoCaoCongNo);
-        Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy);
+        Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam);
         Task<bool> IsExistedBaoCaoAsync(int thang, int nam);
 
     }
@@ -79,7 +79,7 @@ namespace BUS_QuanLy
             int ErrorCode,
             string ErrorMessage,
             Exception ex);
-        public async Task<List<DTO_BaoCaoCongNo>> GetBaoCaoCongNoByThangAsync(int thang, int nam)
+        public async Task<DTO_BaoCaoCongNo> GetBaoCaoCongNoByThangAsync(int thang, int nam)
         {
             using (_logger.BeginScope("BUS_BaoCaoCongNo.GetBaoCaoCongNoByThangAsync at {Time}", DateTime.UtcNow))
             {
@@ -262,13 +262,13 @@ namespace BUS_QuanLy
             int ErrorCode,
             string ErrorMessage,
             Exception ex);
-        public async Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam, int maDaiLy)
+        public async Task<bool> DeleteBaoCaoCongNoAsync(int thang, int nam)
         {
             using (_logger.BeginScope("BUS_BaoCaoCongNo.DeleteBaoCaoCongNoAsync at {Time}", DateTime.UtcNow))
             {
                 try
                 {
-                    return await _dalBaoCaoCongNo.DeleteBaoCaoCongNoAsync(thang, nam, maDaiLy);
+                    return await _dalBaoCaoCongNo.DeleteBaoCaoCongNoAsync(thang, nam);
                 }
                 catch (DalException dalEx)
                 {

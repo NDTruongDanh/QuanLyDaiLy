@@ -408,9 +408,22 @@ namespace GUI_QuanLy
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
+            DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn tạo mới Báo cáo công nợ này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                int thang = cmbThang.SelectedIndex + 1;
+                int nam = Convert.ToInt32(txtNam.Text);
 
+                DTO_BaoCaoCongNo baoCaoCongNo = await _busBaoCaoCongNo.GetBaoCaoCongNoByThangAsync(thang, nam);
+
+                if (await _busBaoCaoCongNo.DeleteBaoCaoCongNoAsync(thang, nam))
+                {
+                    await LoadBaoCaoCongNoAsync(thang, nam);
+                    LoadContent(thang, nam);
+                }
+            }
         }
     }
 }
