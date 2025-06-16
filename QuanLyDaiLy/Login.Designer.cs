@@ -62,8 +62,10 @@
             txtMatKhau.Location = new Point(112, 62);
             txtMatKhau.Margin = new Padding(2);
             txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.PasswordChar = '*';
             txtMatKhau.Size = new Size(216, 34);
             txtMatKhau.TabIndex = 9;
+            txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTenDangNhap
             // 

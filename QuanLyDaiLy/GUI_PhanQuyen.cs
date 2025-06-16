@@ -180,6 +180,7 @@ namespace GUI_QuanLy
                 {
                     MessageBox.Show("Thêm Nhóm người dùng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadNhomNguoiDungListAsync();
+                    await LoadCTPhanQuyenListAsync();
                     ClearNhomNguoiDungInputFields();
                 }
                 else
@@ -237,6 +238,7 @@ namespace GUI_QuanLy
                 {
                     MessageBox.Show("Cập nhật Nhóm người dùng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadNhomNguoiDungListAsync();
+                    await LoadCTPhanQuyenListAsync();
                     ClearNhomNguoiDungInputFields();
                 }
                 else
@@ -280,6 +282,7 @@ namespace GUI_QuanLy
                 {
                     MessageBox.Show("Xóa Nhóm người dùng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadNhomNguoiDungListAsync();
+                    await LoadCTPhanQuyenListAsync();
                     ClearNhomNguoiDungInputFields();
                 }
                 else

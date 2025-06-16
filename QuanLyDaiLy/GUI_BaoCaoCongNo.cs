@@ -224,9 +224,11 @@ namespace GUI_QuanLy
         {
             try
             {
-                int thang = cmbThang.SelectedIndex + 1; // Tháng 1 là index 0
+               
+                int thang = cmbThang.SelectedIndex + 1;
                 int nam = int.Parse(txtNam.Text);
 
+                MessageBox.Show($"{thang}");
 
                 DateTime userInputDate = new DateTime(nam, thang, 1);
                 DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
