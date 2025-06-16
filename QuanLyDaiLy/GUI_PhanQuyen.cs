@@ -34,7 +34,7 @@ namespace GUI_QuanLy
         private readonly BindingSource _bindingSourceCTPhanQuyen = new BindingSource();
         public string Title { get; set; } = "Phân quyền người dùng";
         private DTO_ChiTietPhanQuyen? permission;
-        public GUI_PhanQuyen(IBUS_NhomNguoiDung busNhomNguoiDung, IBUS_NguoiDung busNguoiDung, IBUS_ChucNang busChucNang, IBUS_ChiTietPhanQuyen busCTPhanQuyen, ILogger<GUI_PhanQuyen> logger,IServiceProvider service)
+        public GUI_PhanQuyen(IBUS_NhomNguoiDung busNhomNguoiDung, IBUS_NguoiDung busNguoiDung, IBUS_ChucNang busChucNang, IBUS_ChiTietPhanQuyen busCTPhanQuyen, ILogger<GUI_PhanQuyen> logger, IServiceProvider service)
         {
             _busNhomNguoiDung = busNhomNguoiDung;
             _busNguoiDung = busNguoiDung;
@@ -89,7 +89,7 @@ namespace GUI_QuanLy
                         "Thông báo",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
-                    
+
                     return;
                 }
 
@@ -849,6 +849,11 @@ namespace GUI_QuanLy
                     MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
