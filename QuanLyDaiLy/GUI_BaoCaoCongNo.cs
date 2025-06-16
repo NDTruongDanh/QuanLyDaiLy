@@ -31,7 +31,7 @@ namespace GUI_QuanLy
         private int _prevYear = 0;
         private DTO_ChiTietPhanQuyen? permission;
         private Dictionary<string, decimal> _congNoDictionary = [];
-        public GUI_BaoCaoCongNo(IBUS_DaiLy busDaiLy, IBUS_BaoCaoCongNo busBaoCaoCongNo, ILogger<GUI_BaoCaoCongNo> logger,IServiceProvider service)
+        public GUI_BaoCaoCongNo(IBUS_DaiLy busDaiLy, IBUS_BaoCaoCongNo busBaoCaoCongNo, ILogger<GUI_BaoCaoCongNo> logger, IServiceProvider service)
         {
             _busDaiLy = busDaiLy;
             _busBaoCaoCongNo = busBaoCaoCongNo;
@@ -224,7 +224,7 @@ namespace GUI_QuanLy
         {
             try
             {
-               
+
                 int thang = cmbThang.SelectedIndex + 1;
                 int nam = int.Parse(txtNam.Text);
 
@@ -404,6 +404,11 @@ namespace GUI_QuanLy
         }
 
         private void pnHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
         }

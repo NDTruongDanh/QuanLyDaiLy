@@ -109,6 +109,7 @@ namespace GUI_QuanLy
             flowLayoutPanel1 = new FlowLayoutPanel();
             dgvBaoCaoCongNo = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
+            btnDelete = new Button();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flpTongPhatSinh.SuspendLayout();
@@ -122,6 +123,7 @@ namespace GUI_QuanLy
             // pnHeader
             // 
             pnHeader.BackColor = Color.WhiteSmoke;
+            pnHeader.Controls.Add(btnDelete);
             pnHeader.Controls.Add(txtNam);
             pnHeader.Controls.Add(btnFind);
             pnHeader.Controls.Add(cmbThang);
@@ -137,7 +139,7 @@ namespace GUI_QuanLy
             // txtNam
             // 
             txtNam.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNam.Location = new Point(1335, 11);
+            txtNam.Location = new Point(1206, 11);
             txtNam.Name = "txtNam";
             txtNam.Size = new Size(106, 34);
             txtNam.TabIndex = 27;
@@ -163,7 +165,7 @@ namespace GUI_QuanLy
             cmbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbThang.FormattingEnabled = true;
             cmbThang.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
-            cmbThang.Location = new Point(1212, 9);
+            cmbThang.Location = new Point(1077, 9);
             cmbThang.Margin = new Padding(10, 12, 20, 12);
             cmbThang.Name = "cmbThang";
             cmbThang.Size = new Size(106, 36);
@@ -401,6 +403,20 @@ namespace GUI_QuanLy
             tableLayoutPanel2.Size = new Size(1634, 925);
             tableLayoutPanel2.TabIndex = 8;
             // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(221, 121, 115);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(1334, 7);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(136, 44);
+            btnDelete.TabIndex = 28;
+            btnDelete.Text = "🔄 Tạo mới";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // GUI_BaoCaoCongNo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -431,5 +447,6 @@ namespace GUI_QuanLy
         private Button btnFind;
         private TextBox txtNam;
         private TableLayoutPanel tableLayoutPanel2;
+        private Button btnDelete;
     }
 }

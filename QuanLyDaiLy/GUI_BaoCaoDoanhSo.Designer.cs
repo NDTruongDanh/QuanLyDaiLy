@@ -99,10 +99,11 @@ namespace GUI_QuanLy
             lblTongSoDaiLy_Num = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             pcThongKeDoanhSo = new Chart();
-            tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             lblThongKeDoanhThu = new Label();
             dgvChiTietBaoCaoDoanhSo = new DataGridView();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnDelete = new Button();
             pnHeader.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flpTongSoPhieuXuat.SuspendLayout();
@@ -110,13 +111,14 @@ namespace GUI_QuanLy
             flpTongSoDaiLy.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).BeginInit();
-            tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChiTietBaoCaoDoanhSo).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // pnHeader
             // 
+            pnHeader.Controls.Add(btnDelete);
             pnHeader.Controls.Add(txtNam);
             pnHeader.Controls.Add(btnFind);
             pnHeader.Controls.Add(cbbThang);
@@ -131,7 +133,7 @@ namespace GUI_QuanLy
             // txtNam
             // 
             txtNam.Font = new Font("Segoe UI", 12F);
-            txtNam.Location = new Point(1338, 9);
+            txtNam.Location = new Point(1193, 9);
             txtNam.Name = "txtNam";
             txtNam.Size = new Size(106, 34);
             txtNam.TabIndex = 25;
@@ -159,7 +161,7 @@ namespace GUI_QuanLy
             cbbThang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbThang.FormattingEnabled = true;
             cbbThang.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
-            cbbThang.Location = new Point(1209, 9);
+            cbbThang.Location = new Point(1064, 9);
             cbbThang.Margin = new Padding(10, 12, 20, 12);
             cbbThang.Name = "cbbThang";
             cbbThang.Size = new Size(106, 36);
@@ -342,23 +344,6 @@ namespace GUI_QuanLy
             pcThongKeDoanhSo.Titles.Add(title1);
             pcThongKeDoanhSo.Click += pcThongKeDoanhSo_Click;
             // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(pnHeader, 0, 0);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 8.216216F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5135136F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 74.1706161F));
-            tableLayoutPanel2.Size = new Size(1634, 925);
-            tableLayoutPanel2.TabIndex = 9;
-            // 
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.BackColor = Color.White;
@@ -419,6 +404,37 @@ namespace GUI_QuanLy
             dgvChiTietBaoCaoDoanhSo.Size = new Size(790, 605);
             dgvChiTietBaoCaoDoanhSo.TabIndex = 8;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(pnHeader, 0, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 8.216216F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5135136F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 74.1706161F));
+            tableLayoutPanel2.Size = new Size(1634, 925);
+            tableLayoutPanel2.TabIndex = 9;
+            // 
+            // btnDelete
+            // 
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.FromArgb(221, 121, 115);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 12F);
+            btnDelete.Location = new Point(1319, 4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(136, 44);
+            btnDelete.TabIndex = 27;
+            btnDelete.Text = "🔄 Tạo mới";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // GUI_BaoCaoDoanhSo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -440,10 +456,10 @@ namespace GUI_QuanLy
             flpTongSoDaiLy.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcThongKeDoanhSo).EndInit();
-            tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChiTietBaoCaoDoanhSo).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -455,5 +471,6 @@ namespace GUI_QuanLy
         private TableLayoutPanel tableLayoutPanel4;
         private DataGridView dgvChiTietBaoCaoDoanhSo;
         private Label lblThongKeDoanhThu;
+        private Button btnDelete;
     }
 }

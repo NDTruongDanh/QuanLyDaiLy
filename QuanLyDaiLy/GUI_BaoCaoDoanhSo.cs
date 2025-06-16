@@ -14,6 +14,7 @@ using BUS_Library;
 using Microsoft.Extensions.Logging;
 using GUI_QuanLy.AddedClasses;
 using Microsoft.Extensions.DependencyInjection;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI_QuanLy
 {
@@ -24,7 +25,7 @@ namespace GUI_QuanLy
         private readonly ILogger<GUI_BaoCaoDoanhSo> _logger;
         private readonly IServiceProvider _service;
         private readonly BindingSource _bindingSource = new BindingSource();
-        
+
         private DTO_BaoCaoDoanhSo _baoCaoDoanhSo = new DTO_BaoCaoDoanhSo();
         private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
 
@@ -93,7 +94,7 @@ namespace GUI_QuanLy
                 }
 
 
-               
+
 
 
             }
@@ -321,6 +322,44 @@ namespace GUI_QuanLy
         private void pcThongKeDoanhSo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn tạo mới Báo cáo doanh thu này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    int thang = cbbThang.SelectedIndex + 1;
+                    int nam = Convert.ToInt32(txtNam.Text);
+
+                    _baoCaoDoanhSo = await _busBaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync(thang, nam);
+
+                    if (await _busBaoCaoDoanhSo.DeleteBaoCaoDoanhSoAsync(_baoCaoDoanhSo.MaBaoCaoDoanhSo)) ;
+                    {
+                        MessageBox.Show("Tạo lại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await AutoCreateBaoCaoAsync(thang, nam);
+                        await LoadChiTietBaoCaoDoanhSoAsync(thang, nam);
+                        LoadContent();
+                        ShowCharBaoCao();
+                    }
+                }
+            }
+            catch (BusException busEx)
+            {
+                _logger.LogError(busEx,
+                    "BusException in ReCreate button");
+
+                MessageBox.Show($"Lỗi nghiệp vụ: {busEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex,
+                    "Unexpected exception in ReCreate button");
+
+                MessageBox.Show("Lỗi hệ thông! Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
