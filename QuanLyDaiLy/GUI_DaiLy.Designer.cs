@@ -109,6 +109,8 @@
             // 
             // dgvDaiLy
             // 
+            dgvDaiLy.AllowUserToAddRows = false;
+            dgvDaiLy.AllowUserToDeleteRows = false;
             dgvDaiLy.AllowUserToResizeColumns = false;
             dgvDaiLy.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDaiLy.BackgroundColor = Color.White;
@@ -136,6 +138,7 @@
             dgvDaiLy.GridColor = Color.White;
             dgvDaiLy.Location = new Point(18, 81);
             dgvDaiLy.Name = "dgvDaiLy";
+            dgvDaiLy.ReadOnly = true;
             dgvDaiLy.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;

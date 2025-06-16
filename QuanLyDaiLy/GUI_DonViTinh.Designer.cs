@@ -77,6 +77,8 @@
             // 
             // dgvDVT
             // 
+            dgvDVT.AllowUserToAddRows = false;
+            dgvDVT.AllowUserToDeleteRows = false;
             dgvDVT.AllowUserToResizeColumns = false;
             dgvDVT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDVT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -106,6 +108,7 @@
             dgvDVT.GridColor = Color.White;
             dgvDVT.Location = new Point(13, 77);
             dgvDVT.Name = "dgvDVT";
+            dgvDVT.ReadOnly = true;
             dgvDVT.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -127,6 +130,7 @@
             Column1.HeaderText = "Tên Đơn Vị Tính";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // panel2
             // 

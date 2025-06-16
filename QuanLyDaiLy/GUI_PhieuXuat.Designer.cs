@@ -309,6 +309,8 @@
             // 
             // dgvPhieuXuat
             // 
+            dgvPhieuXuat.AllowUserToAddRows = false;
+            dgvPhieuXuat.AllowUserToDeleteRows = false;
             dgvPhieuXuat.AllowUserToResizeColumns = false;
             dgvPhieuXuat.AllowUserToResizeRows = false;
             dgvPhieuXuat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -339,6 +341,7 @@
             dgvPhieuXuat.Location = new Point(15, 85);
             dgvPhieuXuat.Margin = new Padding(5);
             dgvPhieuXuat.Name = "dgvPhieuXuat";
+            dgvPhieuXuat.ReadOnly = true;
             dgvPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;

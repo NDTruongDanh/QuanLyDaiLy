@@ -210,6 +210,8 @@
             // 
             // dgvChiTietPhieuXuat
             // 
+            dgvChiTietPhieuXuat.AllowUserToAddRows = false;
+            dgvChiTietPhieuXuat.AllowUserToDeleteRows = false;
             dgvChiTietPhieuXuat.AllowUserToResizeColumns = false;
             dgvChiTietPhieuXuat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvChiTietPhieuXuat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -238,6 +240,7 @@
             dgvChiTietPhieuXuat.GridColor = Color.White;
             dgvChiTietPhieuXuat.Location = new Point(3, 3);
             dgvChiTietPhieuXuat.Name = "dgvChiTietPhieuXuat";
+            dgvChiTietPhieuXuat.ReadOnly = true;
             dgvChiTietPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
