@@ -266,6 +266,7 @@
             // txtTongTien
             // 
             txtTongTien.BackColor = Color.White;
+            txtTongTien.BorderStyle = BorderStyle.FixedSingle;
             txtTongTien.Dock = DockStyle.Fill;
             txtTongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTongTien.Location = new Point(154, 41);

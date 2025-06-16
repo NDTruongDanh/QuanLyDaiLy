@@ -30,9 +30,9 @@ namespace GUI_QuanLy
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -139,23 +139,23 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.BorderStyle = BorderStyle.None;
             dgvChiTietPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvChiTietPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
             dgvChiTietPhieuNhap.EnableHeadersVisualStyles = false;
             dgvChiTietPhieuNhap.GridColor = Color.White;
             dgvChiTietPhieuNhap.Location = new Point(2, 2);
@@ -163,14 +163,14 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
             dgvChiTietPhieuNhap.ReadOnly = true;
             dgvChiTietPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvChiTietPhieuNhap.RowHeadersVisible = false;
             dgvChiTietPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvChiTietPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -433,8 +433,10 @@ namespace GUI_QuanLy
             // 
             // txtThanhTien
             // 
+            txtThanhTien.BorderStyle = BorderStyle.FixedSingle;
             txtThanhTien.Dock = DockStyle.Fill;
             txtThanhTien.Font = new Font("Segoe UI", 12F);
+            txtThanhTien.ForeColor = SystemColors.WindowText;
             txtThanhTien.Location = new Point(109, 80);
             txtThanhTien.Margin = new Padding(2);
             txtThanhTien.Name = "txtThanhTien";
@@ -457,8 +459,10 @@ namespace GUI_QuanLy
             // 
             // txtDonGiaNhap
             // 
+            txtDonGiaNhap.BorderStyle = BorderStyle.FixedSingle;
             txtDonGiaNhap.Dock = DockStyle.Fill;
             txtDonGiaNhap.Font = new Font("Segoe UI", 12F);
+            txtDonGiaNhap.ForeColor = SystemColors.WindowText;
             txtDonGiaNhap.Location = new Point(574, 42);
             txtDonGiaNhap.Margin = new Padding(2);
             txtDonGiaNhap.Name = "txtDonGiaNhap";
@@ -469,8 +473,10 @@ namespace GUI_QuanLy
             // 
             // txtSoLuong
             // 
+            txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
             txtSoLuong.Dock = DockStyle.Fill;
             txtSoLuong.Font = new Font("Segoe UI", 12F);
+            txtSoLuong.ForeColor = SystemColors.WindowText;
             txtSoLuong.Location = new Point(109, 42);
             txtSoLuong.Margin = new Padding(2);
             txtSoLuong.Name = "txtSoLuong";

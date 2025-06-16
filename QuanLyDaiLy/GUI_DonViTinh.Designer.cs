@@ -251,6 +251,7 @@
             // 
             // txtDonViTinh
             // 
+            txtDonViTinh.BorderStyle = BorderStyle.FixedSingle;
             txtDonViTinh.Dock = DockStyle.Fill;
             txtDonViTinh.Font = new Font("Segoe UI", 12F);
             txtDonViTinh.Location = new Point(155, 3);

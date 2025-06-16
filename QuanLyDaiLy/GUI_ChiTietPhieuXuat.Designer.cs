@@ -500,6 +500,7 @@
             // txtThanhTien
             // 
             txtThanhTien.BackColor = Color.White;
+            txtThanhTien.BorderStyle = BorderStyle.FixedSingle;
             txtThanhTien.Dock = DockStyle.Fill;
             txtThanhTien.Font = new Font("Segoe UI", 12F);
             txtThanhTien.Location = new Point(112, 85);
@@ -523,6 +524,7 @@
             // txtDonGiaXuat
             // 
             txtDonGiaXuat.BackColor = Color.White;
+            txtDonGiaXuat.BorderStyle = BorderStyle.FixedSingle;
             txtDonGiaXuat.Dock = DockStyle.Fill;
             txtDonGiaXuat.Font = new Font("Segoe UI", 12F);
             txtDonGiaXuat.Location = new Point(695, 45);
@@ -533,6 +535,7 @@
             // 
             // txtSoLuong
             // 
+            txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
             txtSoLuong.Dock = DockStyle.Fill;
             txtSoLuong.Font = new Font("Segoe UI", 12F);
             txtSoLuong.Location = new Point(112, 45);

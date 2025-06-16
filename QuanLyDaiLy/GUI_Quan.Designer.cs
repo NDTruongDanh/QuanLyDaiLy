@@ -250,6 +250,7 @@
             // 
             // txtTenQuan
             // 
+            txtTenQuan.BorderStyle = BorderStyle.FixedSingle;
             txtTenQuan.Dock = DockStyle.Fill;
             txtTenQuan.Font = new Font("Segoe UI", 12F);
             txtTenQuan.Location = new Point(106, 3);
