@@ -66,13 +66,6 @@
             tableLayoutPanel6 = new TableLayoutPanel();
             label9 = new Label();
             label14 = new Label();
-            tableLayoutPanel9 = new TableLayoutPanel();
-            txtQuan = new TextBox();
-            label1 = new Label();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            btnAddQuan = new Button();
-            btnEditQuan = new Button();
-            btnXoaQuan = new Button();
             dgvQuan = new DataGridView();
             panel4 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -109,8 +102,6 @@
             flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhanQuyen).BeginInit();
             tableLayoutPanel6.SuspendLayout();
-            tableLayoutPanel9.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).BeginInit();
             panel4.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -141,7 +132,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1598, 2419);
+            tableLayoutPanel1.Size = new Size(1988, 1539);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -152,12 +143,13 @@
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(tableLayoutPanel6);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(13, 1414);
+            panel1.Location = new Point(13, 915);
             panel1.Margin = new Padding(13, 13, 13, 6);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(13);
-            panel1.Size = new Size(1572, 776);
+            panel1.Size = new Size(1962, 602);
             panel1.TabIndex = 32;
+            panel1.Paint += panel1_Paint;
             // 
             // tableLayoutPanel2
             // 
@@ -179,7 +171,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel2.Size = new Size(1546, 750);
+            tableLayoutPanel2.Size = new Size(1936, 576);
             tableLayoutPanel2.TabIndex = 18;
             // 
             // tableLayoutPanel5
@@ -202,7 +194,7 @@
             tableLayoutPanel5.Controls.Add(label18, 0, 5);
             tableLayoutPanel5.Controls.Add(flowLayoutPanel4, 1, 6);
             tableLayoutPanel5.Controls.Add(chkXem, 1, 2);
-            tableLayoutPanel5.Location = new Point(930, 60);
+            tableLayoutPanel5.Location = new Point(1164, 60);
             tableLayoutPanel5.Margin = new Padding(2, 16, 2, 2);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 7;
@@ -213,7 +205,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(612, 472);
+            tableLayoutPanel5.Size = new Size(768, 273);
             tableLayoutPanel5.TabIndex = 33;
             // 
             // chkSua
@@ -256,7 +248,7 @@
             cbxChucNang.Location = new Point(181, 42);
             cbxChucNang.Margin = new Padding(2);
             cbxChucNang.Name = "cbxChucNang";
-            cbxChucNang.Size = new Size(429, 36);
+            cbxChucNang.Size = new Size(585, 36);
             cbxChucNang.TabIndex = 37;
             // 
             // cbxNhomNguoiDungPhanQuyen
@@ -269,7 +261,7 @@
             cbxNhomNguoiDungPhanQuyen.Location = new Point(181, 2);
             cbxNhomNguoiDungPhanQuyen.Margin = new Padding(2);
             cbxNhomNguoiDungPhanQuyen.Name = "cbxNhomNguoiDungPhanQuyen";
-            cbxNhomNguoiDungPhanQuyen.Size = new Size(429, 36);
+            cbxNhomNguoiDungPhanQuyen.Size = new Size(585, 36);
             cbxNhomNguoiDungPhanQuyen.TabIndex = 36;
             // 
             // label7
@@ -417,7 +409,7 @@
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(930, 2);
+            label13.Location = new Point(1164, 2);
             label13.Margin = new Padding(2, 0, 2, 8);
             label13.Name = "label13";
             label13.Size = new Size(268, 32);
@@ -439,7 +431,7 @@
             // dgvPhanQuyen
             // 
             dgvPhanQuyen.AllowUserToResizeColumns = false;
-            dgvPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvPhanQuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhanQuyen.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvPhanQuyen.BackgroundColor = Color.White;
@@ -481,7 +473,7 @@
             dgvPhanQuyen.RowHeadersVisible = false;
             dgvPhanQuyen.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvPhanQuyen.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPhanQuyen.Size = new Size(906, 680);
+            dgvPhanQuyen.Size = new Size(1140, 506);
             dgvPhanQuyen.TabIndex = 17;
             dgvPhanQuyen.SelectionChanged += dgvPhanQuyen_SelectionChanged;
             // 
@@ -494,7 +486,6 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tableLayoutPanel6.Controls.Add(label9, 1, 0);
             tableLayoutPanel6.Controls.Add(label14, 0, 0);
-            tableLayoutPanel6.Controls.Add(tableLayoutPanel9, 1, 1);
             tableLayoutPanel6.Controls.Add(dgvQuan, 0, 1);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(13, 13);
@@ -504,7 +495,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel6.Size = new Size(1546, 750);
+            tableLayoutPanel6.Size = new Size(1936, 576);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label9
@@ -512,7 +503,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(930, 2);
+            label9.Location = new Point(1164, 2);
             label9.Margin = new Padding(2, 0, 2, 8);
             label9.Name = "label9";
             label9.Size = new Size(189, 32);
@@ -530,103 +521,6 @@
             label14.Size = new Size(196, 32);
             label14.TabIndex = 16;
             label14.Text = "Danh sách quận";
-            // 
-            // tableLayoutPanel9
-            // 
-            tableLayoutPanel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel9.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel9.ColumnCount = 2;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Controls.Add(txtQuan, 1, 0);
-            tableLayoutPanel9.Controls.Add(label1, 0, 0);
-            tableLayoutPanel9.Controls.Add(flowLayoutPanel3, 1, 1);
-            tableLayoutPanel9.Location = new Point(930, 60);
-            tableLayoutPanel9.Margin = new Padding(2, 16, 2, 2);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 2;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle());
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel9.Size = new Size(612, 414);
-            tableLayoutPanel9.TabIndex = 33;
-            // 
-            // txtQuan
-            // 
-            txtQuan.Dock = DockStyle.Fill;
-            txtQuan.Font = new Font("Segoe UI", 12F);
-            txtQuan.Location = new Point(103, 2);
-            txtQuan.Margin = new Padding(2);
-            txtQuan.Name = "txtQuan";
-            txtQuan.Size = new Size(507, 34);
-            txtQuan.TabIndex = 7;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(2, 0);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Tên Quận:";
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.AutoSize = true;
-            flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel3.Controls.Add(btnAddQuan);
-            flowLayoutPanel3.Controls.Add(btnEditQuan);
-            flowLayoutPanel3.Controls.Add(btnXoaQuan);
-            flowLayoutPanel3.Location = new Point(103, 46);
-            flowLayoutPanel3.Margin = new Padding(2, 8, 2, 2);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(367, 44);
-            flowLayoutPanel3.TabIndex = 31;
-            // 
-            // btnAddQuan
-            // 
-            btnAddQuan.AutoSize = true;
-            btnAddQuan.BackColor = Color.FromArgb(76, 175, 80);
-            btnAddQuan.FlatStyle = FlatStyle.Flat;
-            btnAddQuan.Font = new Font("Segoe UI", 12F);
-            btnAddQuan.Location = new Point(2, 2);
-            btnAddQuan.Margin = new Padding(2, 2, 16, 2);
-            btnAddQuan.Name = "btnAddQuan";
-            btnAddQuan.Size = new Size(109, 40);
-            btnAddQuan.TabIndex = 22;
-            btnAddQuan.Text = "➕  Thêm";
-            btnAddQuan.UseVisualStyleBackColor = false;
-            // 
-            // btnEditQuan
-            // 
-            btnEditQuan.AutoSize = true;
-            btnEditQuan.BackColor = Color.FromArgb(255, 152, 0);
-            btnEditQuan.FlatStyle = FlatStyle.Flat;
-            btnEditQuan.Font = new Font("Segoe UI", 12F);
-            btnEditQuan.Location = new Point(129, 2);
-            btnEditQuan.Margin = new Padding(2, 2, 16, 2);
-            btnEditQuan.Name = "btnEditQuan";
-            btnEditQuan.Size = new Size(102, 40);
-            btnEditQuan.TabIndex = 21;
-            btnEditQuan.Text = "✏️ Sửa";
-            btnEditQuan.UseVisualStyleBackColor = false;
-            // 
-            // btnXoaQuan
-            // 
-            btnXoaQuan.AutoSize = true;
-            btnXoaQuan.BackColor = Color.FromArgb(244, 67, 54);
-            btnXoaQuan.FlatStyle = FlatStyle.Flat;
-            btnXoaQuan.Font = new Font("Segoe UI", 12F);
-            btnXoaQuan.Location = new Point(249, 2);
-            btnXoaQuan.Margin = new Padding(2, 2, 16, 2);
-            btnXoaQuan.Name = "btnXoaQuan";
-            btnXoaQuan.Size = new Size(102, 40);
-            btnXoaQuan.TabIndex = 20;
-            btnXoaQuan.Text = "🗑 Xóa";
-            btnXoaQuan.UseVisualStyleBackColor = false;
             // 
             // dgvQuan
             // 
@@ -673,7 +567,7 @@
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(906, 785);
+            dgvQuan.Size = new Size(1140, 785);
             dgvQuan.TabIndex = 17;
             // 
             // panel4
@@ -683,11 +577,11 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(13, 619);
+            panel4.Location = new Point(13, 417);
             panel4.Margin = new Padding(13, 13, 13, 6);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(13);
-            panel4.Size = new Size(1572, 776);
+            panel4.Size = new Size(1962, 479);
             panel4.TabIndex = 31;
             // 
             // tableLayoutPanel4
@@ -710,7 +604,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel4.Size = new Size(1546, 750);
+            tableLayoutPanel4.Size = new Size(1936, 453);
             tableLayoutPanel4.TabIndex = 17;
             // 
             // tableLayoutPanel8
@@ -727,7 +621,7 @@
             tableLayoutPanel8.Controls.Add(label5, 0, 0);
             tableLayoutPanel8.Controls.Add(flowLayoutPanel2, 1, 3);
             tableLayoutPanel8.Controls.Add(label3, 0, 2);
-            tableLayoutPanel8.Location = new Point(930, 60);
+            tableLayoutPanel8.Location = new Point(1164, 60);
             tableLayoutPanel8.Margin = new Padding(2, 16, 2, 2);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 4;
@@ -735,7 +629,7 @@
             tableLayoutPanel8.RowStyles.Add(new RowStyle());
             tableLayoutPanel8.RowStyles.Add(new RowStyle());
             tableLayoutPanel8.RowStyles.Add(new RowStyle());
-            tableLayoutPanel8.Size = new Size(612, 472);
+            tableLayoutPanel8.Size = new Size(768, 224);
             tableLayoutPanel8.TabIndex = 33;
             // 
             // cbxNhomNguoiDung
@@ -748,7 +642,7 @@
             cbxNhomNguoiDung.Location = new Point(239, 78);
             cbxNhomNguoiDung.Margin = new Padding(2);
             cbxNhomNguoiDung.Name = "cbxNhomNguoiDung";
-            cbxNhomNguoiDung.Size = new Size(371, 36);
+            cbxNhomNguoiDung.Size = new Size(527, 36);
             cbxNhomNguoiDung.TabIndex = 35;
             // 
             // txtMatKhau
@@ -758,7 +652,7 @@
             txtMatKhau.Location = new Point(239, 40);
             txtMatKhau.Margin = new Padding(2);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(371, 34);
+            txtMatKhau.Size = new Size(527, 34);
             txtMatKhau.TabIndex = 34;
             // 
             // label2
@@ -780,7 +674,7 @@
             txtTenTaiKhoan.Location = new Point(239, 2);
             txtTenTaiKhoan.Margin = new Padding(2);
             txtTenTaiKhoan.Name = "txtTenTaiKhoan";
-            txtTenTaiKhoan.Size = new Size(371, 34);
+            txtTenTaiKhoan.Size = new Size(527, 34);
             txtTenTaiKhoan.TabIndex = 7;
             // 
             // label5
@@ -870,7 +764,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(930, 2);
+            label6.Location = new Point(1164, 2);
             label6.Margin = new Padding(2, 0, 2, 8);
             label6.Name = "label6";
             label6.Size = new Size(217, 32);
@@ -892,7 +786,7 @@
             // dgvNguoiDung
             // 
             dgvNguoiDung.AllowUserToResizeColumns = false;
-            dgvNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNguoiDung.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvNguoiDung.BackgroundColor = Color.White;
@@ -934,7 +828,7 @@
             dgvNguoiDung.RowHeadersVisible = false;
             dgvNguoiDung.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNguoiDung.Size = new Size(906, 680);
+            dgvNguoiDung.Size = new Size(1140, 383);
             dgvNguoiDung.TabIndex = 17;
             dgvNguoiDung.SelectionChanged += dgvNguoiDung_SelectionChanged;
             // 
@@ -949,7 +843,7 @@
             panel3.Margin = new Padding(13, 13, 13, 6);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(13);
-            panel3.Size = new Size(1572, 587);
+            panel3.Size = new Size(1962, 385);
             panel3.TabIndex = 28;
             // 
             // tableLayoutPanel3
@@ -972,7 +866,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel3.Size = new Size(1546, 561);
+            tableLayoutPanel3.Size = new Size(1936, 359);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // tableLayoutPanel7
@@ -985,14 +879,14 @@
             tableLayoutPanel7.Controls.Add(txtTenNhomNguoiDung, 1, 0);
             tableLayoutPanel7.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel7.Controls.Add(flowLayoutPanel1, 1, 1);
-            tableLayoutPanel7.Location = new Point(930, 60);
+            tableLayoutPanel7.Location = new Point(1164, 60);
             tableLayoutPanel7.Margin = new Padding(2, 16, 2, 2);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tableLayoutPanel7.Size = new Size(612, 390);
+            tableLayoutPanel7.Size = new Size(768, 144);
             tableLayoutPanel7.TabIndex = 33;
             // 
             // txtTenNhomNguoiDung
@@ -1002,7 +896,7 @@
             txtTenNhomNguoiDung.Location = new Point(211, 2);
             txtTenNhomNguoiDung.Margin = new Padding(2);
             txtTenNhomNguoiDung.Name = "txtTenNhomNguoiDung";
-            txtTenNhomNguoiDung.Size = new Size(399, 34);
+            txtTenNhomNguoiDung.Size = new Size(555, 34);
             txtTenNhomNguoiDung.TabIndex = 7;
             // 
             // lblTenDaiLy
@@ -1090,7 +984,7 @@
             // dgvNhomNguoiDung
             // 
             dgvNhomNguoiDung.AllowUserToResizeColumns = false;
-            dgvNhomNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvNhomNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhomNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhomNguoiDung.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvNhomNguoiDung.BackgroundColor = Color.White;
@@ -1132,7 +1026,7 @@
             dgvNhomNguoiDung.RowHeadersVisible = false;
             dgvNhomNguoiDung.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvNhomNguoiDung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNhomNguoiDung.Size = new Size(906, 491);
+            dgvNhomNguoiDung.Size = new Size(1140, 289);
             dgvNhomNguoiDung.TabIndex = 17;
             dgvNhomNguoiDung.SelectionChanged += dgvNhomNguoiDung_SelectionChanged;
             // 
@@ -1141,7 +1035,7 @@
             label10.AutoSize = true;
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(930, 2);
+            label10.Location = new Point(1164, 2);
             label10.Margin = new Padding(2, 0, 2, 8);
             label10.Name = "label10";
             label10.Size = new Size(339, 32);
@@ -1155,7 +1049,7 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
             Name = "GUI_PhanQuyen";
-            Size = new Size(1598, 2419);
+            Size = new Size(1988, 1539);
             Load += GUI_PhanQuyen_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -1170,10 +1064,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvPhanQuyen).EndInit();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
-            tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
@@ -1203,13 +1093,6 @@
         private TableLayoutPanel tableLayoutPanel6;
         private Label label9;
         private Label label14;
-        private TableLayoutPanel tableLayoutPanel9;
-        private TextBox txtQuan;
-        private Label label1;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private Button btnAddQuan;
-        private Button btnEditQuan;
-        private Button btnXoaQuan;
         private DataGridView dgvQuan;
         private Panel panel4;
         private TableLayoutPanel tableLayoutPanel4;
