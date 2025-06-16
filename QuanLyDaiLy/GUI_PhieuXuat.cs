@@ -243,7 +243,11 @@ namespace GUI_QuanLy
 
         private void ClearInputFields()
         {
-            cmbDaiLy.SelectedIndex = -1;
+            if (_daiLy.MaDaiLy == 0)
+            {
+                cmbDaiLy.SelectedIndex = -1;
+            }
+
             dtpNgayLapPhieu.Value = DateTime.Now;
             txtTraTruoc.Clear();
 

@@ -18,7 +18,7 @@ namespace GUI_QuanLy
     public partial class Menu : Form
     {
         private readonly IServiceProvider _services;
-        
+
         public Menu(IServiceProvider serviceProvider, DTO_NguoiDung currentUser)
         {
             _services = serviceProvider;
@@ -42,8 +42,8 @@ namespace GUI_QuanLy
         {
             PermissionService permissionService = _services.GetRequiredService<PermissionService>();
             // Kiểm tra quyền truy cập cho từng nút và ẩn nếu không có quyền  
-            
-            var DaiLyPermission =  await  permissionService.GetPermissionCurrentUserAsync("DaiLy");
+
+            var DaiLyPermission = await permissionService.GetPermissionCurrentUserAsync("DaiLy");
             panelDaiLy.Visible = DaiLyPermission != null && DaiLyPermission.Xem;
 
             var PhieuNhapPermission = await permissionService.GetPermissionCurrentUserAsync("PhieuNhap");
@@ -65,13 +65,13 @@ namespace GUI_QuanLy
             panelMatHang.Visible = MatHangPermission != null && MatHangPermission.Xem;
 
             var PhanQuyenPermission = await permissionService.GetPermissionCurrentUserAsync("PhanQuyen");
-             pbPhanQuyen.Visible = PhanQuyenPermission != null && PhanQuyenPermission.Xem;
+            pbPhanQuyen.Visible = PhanQuyenPermission != null && PhanQuyenPermission.Xem;
 
             var SettingsPermission = await permissionService.GetPermissionCurrentUserAsync("Settings");
             pbSettingThamSo.Visible = SettingsPermission != null && SettingsPermission.Xem;
 
 
-            reportContainer.Visible = panelBaoCaoCongNo.Visible ||panelMatHang.Visible;
+            reportContainer.Visible = panelBaoCaoCongNo.Visible || panelMatHang.Visible;
 
         }
         private void menuTransition1_Tick(object sender, EventArgs e)
@@ -206,7 +206,7 @@ namespace GUI_QuanLy
 
         private void pbPhanQuyen_Click(object sender, EventArgs e)
         {
-           var form_PhanQuyen = _services.GetRequiredService<GUI_PhanQuyen>();
+            var form_PhanQuyen = _services.GetRequiredService<GUI_PhanQuyen>();
             OpenChildControl(form_PhanQuyen);
         }
     }

@@ -42,16 +42,36 @@ namespace QuanLyDaiLy
 
             // Lấy Login form từ DI
             var loginForm = serviceProvider.GetRequiredService<Login>();
-            if (loginForm.ShowDialog() == DialogResult.OK && loginForm.LoggedInUser != null)
+
+            while (true) // Bắt đầu vòng lặp quản lý ứng dụng
             {
-                // Đăng nhập thành công, truyền user vào Menu
-                var menuForm = ActivatorUtilities.CreateInstance<Menu>(serviceProvider, loginForm.LoggedInUser);
-                Application.Run((Form)menuForm);
-            }
-            else
-            {
-                // Đăng nhập thất bại hoặc bị đóng
-                Application.Exit();
+                // Hiển thị form Login. ShowDialog() sẽ block cho đến khi form Login được đóng.
+                DialogResult loginResult = loginForm.ShowDialog();
+
+                if (loginResult == DialogResult.OK && loginForm.LoggedInUser != null)
+                {
+                    // Đăng nhập thành công, tạo và hiển thị form Menu
+                    // Sử dụng using để đảm bảo form Menu được giải phóng bộ nhớ sau khi đóng
+                    using (var menuForm = ActivatorUtilities.CreateInstance<Menu>(serviceProvider, loginForm.LoggedInUser))
+                    {
+                        // Ẩn form Login đi thay vì đóng nó
+                        loginForm.Hide();
+
+                        // Hiển thị form Menu. Dòng này cũng sẽ block cho đến khi Menu đóng.
+                        menuForm.ShowDialog();
+
+                        // >>> SAU KHI MENU ĐÓNG, CODE SẼ TIẾP TỤC TỪ ĐÂY <<<
+                    }
+
+                    // Sau khi form Menu đóng, chúng ta không làm gì cả, 
+                    // vòng lặp while sẽ quay lại từ đầu và hiển thị lại form Login.
+                }
+                else
+                {
+                    // Nếu đăng nhập thất bại hoặc người dùng đóng form Login,
+                    // thoát khỏi vòng lặp để kết thúc ứng dụng.
+                    break;
+                }
             }
         }
     }

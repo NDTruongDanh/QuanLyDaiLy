@@ -163,7 +163,7 @@ namespace GUI_QuanLy
         private void ClearInputFields()
         {
             cbbMatHang.SelectedIndex = -1;
-            txtSoLuong.Text = "0";
+            txtSoLuong.Text = "1";
             txtDonGiaNhap.Text = "0";
             txtThanhTien.Text = "0";
 

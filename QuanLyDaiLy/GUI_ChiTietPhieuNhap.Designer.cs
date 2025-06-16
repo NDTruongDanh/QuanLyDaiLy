@@ -476,7 +476,7 @@ namespace GUI_QuanLy
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(376, 34);
             txtSoLuong.TabIndex = 19;
-            txtSoLuong.Text = "0";
+            txtSoLuong.Text = "1";
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // cbbMatHang

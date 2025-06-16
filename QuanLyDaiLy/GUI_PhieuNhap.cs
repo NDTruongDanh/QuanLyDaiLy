@@ -103,7 +103,7 @@ namespace GUI_QuanLy
                 var data = await _busPhieuNhap.GetPhieuNhapListAsync();
                 _bindingSource.DataSource = data;
                 ModifyDataGridViewColumns();
-                dgvPhieuNhap.ClearSelection();
+                ClearInputfields();
             }
             catch (BusException busEx)
             {
@@ -331,9 +331,16 @@ namespace GUI_QuanLy
 
         }
 
+        private void ClearInputfields()
+        {
+            dtpNgayLapPhieu.Value = DateTime.Now; // Đặt lại ngày lập phiếu về ngày hiện tại
+            txtTongTien.Text = "0"; // Đặt lại tổng tiền về 0
+
+            dgvPhieuNhap.ClearSelection();
+        }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-           
+            ClearInputfields();
         }
     }
 }
