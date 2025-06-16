@@ -50,12 +50,13 @@ namespace GUI_QuanLy
             if (txtMatKhau.UseSystemPasswordChar)
             {
                 // thì hiển thị icon con mắt ĐÓNG
-                btnVisible.Text = "Ẩn";
+                btnVisible.Image = Properties.Resources.eye_open;
             }
             else
             {
                 // Ngược lại (mật khẩu đang ĐƯỢC HIỆN), thì hiển thị icon con mắt MỞ
-                btnVisible.Text = "Hiện";
+                btnVisible.Image = Properties.Resources.eye_close;
+
             }
         }
     }
