@@ -127,30 +127,28 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1998, 3024);
+            tableLayoutPanel1.Size = new Size(1980, 1230);
             tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // panel1
             // 
-            panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel6);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(16, 2049);
+            panel1.Location = new Point(16, 921);
             panel1.Margin = new Padding(16, 16, 16, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(16);
-            panel1.Size = new Size(1966, 967);
+            panel1.Size = new Size(1948, 281);
             panel1.TabIndex = 32;
             // 
             // tableLayoutPanel6
             // 
-            tableLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel6.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             tableLayoutPanel6.ColumnCount = 2;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.1282043F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.8717957F));
             tableLayoutPanel6.Controls.Add(label9, 1, 0);
             tableLayoutPanel6.Controls.Add(label14, 0, 0);
             tableLayoutPanel6.Controls.Add(tableLayoutPanel9, 1, 1);
@@ -162,8 +160,7 @@
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel6.Size = new Size(1934, 935);
+            tableLayoutPanel6.Size = new Size(1916, 249);
             tableLayoutPanel6.TabIndex = 17;
             // 
             // label9
@@ -171,7 +168,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(1162, 2);
+            label9.Location = new Point(1058, 2);
             label9.Margin = new Padding(2, 0, 2, 10);
             label9.Name = "label9";
             label9.Size = new Size(189, 32);
@@ -200,14 +197,14 @@
             tableLayoutPanel9.Controls.Add(txtQuan, 1, 0);
             tableLayoutPanel9.Controls.Add(label1, 0, 0);
             tableLayoutPanel9.Controls.Add(flowLayoutPanel3, 1, 1);
-            tableLayoutPanel9.Location = new Point(1163, 66);
+            tableLayoutPanel9.Location = new Point(1059, 66);
             tableLayoutPanel9.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle());
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel9.Size = new Size(766, 518);
+            tableLayoutPanel9.Size = new Size(852, 132);
             tableLayoutPanel9.TabIndex = 33;
             // 
             // txtQuan
@@ -216,7 +213,7 @@
             txtQuan.Font = new Font("Segoe UI", 12F);
             txtQuan.Location = new Point(106, 3);
             txtQuan.Name = "txtQuan";
-            txtQuan.Size = new Size(657, 34);
+            txtQuan.Size = new Size(743, 34);
             txtQuan.TabIndex = 7;
             // 
             // label1
@@ -291,7 +288,7 @@
             // dgvQuan
             // 
             dgvQuan.AllowUserToResizeColumns = false;
-            dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvQuan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQuan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvQuan.BackgroundColor = Color.White;
@@ -333,32 +330,29 @@
             dgvQuan.RowHeadersVisible = false;
             dgvQuan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvQuan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQuan.Size = new Size(1134, 981);
+            dgvQuan.Size = new Size(1030, 159);
             dgvQuan.TabIndex = 17;
             dgvQuan.SelectionChanged += dgvQuan_SelectionChanged;
             // 
             // panel4
             // 
-            panel4.AutoSize = true;
             panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel4.BackColor = Color.White;
             panel4.Controls.Add(tableLayoutPanel4);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 1065);
+            panel4.Location = new Point(16, 636);
             panel4.Margin = new Padding(16, 16, 16, 8);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(16);
-            panel4.Size = new Size(1966, 960);
+            panel4.Size = new Size(1948, 261);
             panel4.TabIndex = 31;
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.1201668F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.8798332F));
             tableLayoutPanel4.Controls.Add(tableLayoutPanel8, 1, 1);
             tableLayoutPanel4.Controls.Add(label6, 1, 0);
             tableLayoutPanel4.Controls.Add(label12, 0, 0);
@@ -370,8 +364,7 @@
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(1934, 928);
+            tableLayoutPanel4.Size = new Size(1916, 229);
             tableLayoutPanel4.TabIndex = 17;
             // 
             // tableLayoutPanel8
@@ -384,14 +377,14 @@
             tableLayoutPanel8.Controls.Add(txtDonViTinh, 1, 0);
             tableLayoutPanel8.Controls.Add(label5, 0, 0);
             tableLayoutPanel8.Controls.Add(flowLayoutPanel2, 1, 1);
-            tableLayoutPanel8.Location = new Point(1163, 66);
+            tableLayoutPanel8.Location = new Point(1059, 66);
             tableLayoutPanel8.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle());
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel8.Size = new Size(766, 590);
+            tableLayoutPanel8.Size = new Size(852, 119);
             tableLayoutPanel8.TabIndex = 33;
             // 
             // txtDonViTinh
@@ -400,7 +393,7 @@
             txtDonViTinh.Font = new Font("Segoe UI", 12F);
             txtDonViTinh.Location = new Point(153, 3);
             txtDonViTinh.Name = "txtDonViTinh";
-            txtDonViTinh.Size = new Size(610, 34);
+            txtDonViTinh.Size = new Size(696, 34);
             txtDonViTinh.TabIndex = 7;
             // 
             // label5
@@ -477,7 +470,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(1162, 2);
+            label6.Location = new Point(1058, 2);
             label6.Margin = new Padding(2, 0, 2, 10);
             label6.Name = "label6";
             label6.Size = new Size(255, 32);
@@ -499,7 +492,7 @@
             // dgvDVT
             // 
             dgvDVT.AllowUserToResizeColumns = false;
-            dgvDVT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDVT.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvDVT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDVT.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDVT.BackgroundColor = Color.White;
@@ -541,32 +534,30 @@
             dgvDVT.RowHeadersVisible = false;
             dgvDVT.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvDVT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDVT.Size = new Size(1134, 850);
+            dgvDVT.Size = new Size(1030, 159);
             dgvDVT.TabIndex = 17;
             dgvDVT.SelectionChanged += dgvDVT_SelectionChanged;
             // 
             // panel3
             // 
-            panel3.AutoSize = true;
             panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel3.BackColor = Color.White;
             panel3.Controls.Add(tableLayoutPanel3);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(16, 317);
+            panel3.Location = new Point(16, 319);
             panel3.Margin = new Padding(16, 16, 16, 8);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(16);
-            panel3.Size = new Size(1966, 724);
+            panel3.Size = new Size(1948, 293);
             panel3.TabIndex = 28;
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.1201668F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.8798332F));
             tableLayoutPanel3.Controls.Add(tableLayoutPanel7, 1, 1);
             tableLayoutPanel3.Controls.Add(label10, 1, 0);
             tableLayoutPanel3.Controls.Add(label4, 0, 0);
@@ -578,8 +569,7 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1934, 692);
+            tableLayoutPanel3.Size = new Size(1916, 261);
             tableLayoutPanel3.TabIndex = 17;
             // 
             // tableLayoutPanel7
@@ -594,14 +584,14 @@
             tableLayoutPanel7.Controls.Add(txtTenLoaiDaiLy, 1, 0);
             tableLayoutPanel7.Controls.Add(lblTenDaiLy, 0, 0);
             tableLayoutPanel7.Controls.Add(flowLayoutPanel1, 1, 2);
-            tableLayoutPanel7.Location = new Point(1163, 66);
+            tableLayoutPanel7.Location = new Point(1059, 66);
             tableLayoutPanel7.Margin = new Padding(3, 20, 3, 3);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 3;
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
             tableLayoutPanel7.RowStyles.Add(new RowStyle());
-            tableLayoutPanel7.Size = new Size(766, 487);
+            tableLayoutPanel7.Size = new Size(852, 162);
             tableLayoutPanel7.TabIndex = 33;
             // 
             // txtTienNoToiDa
@@ -610,7 +600,7 @@
             txtTienNoToiDa.Font = new Font("Segoe UI", 12F);
             txtTienNoToiDa.Location = new Point(152, 43);
             txtTienNoToiDa.Name = "txtTienNoToiDa";
-            txtTienNoToiDa.Size = new Size(611, 34);
+            txtTienNoToiDa.Size = new Size(697, 34);
             txtTienNoToiDa.TabIndex = 33;
             txtTienNoToiDa.KeyPress += txtTienNoToiDa_KeyPress;
             // 
@@ -631,7 +621,7 @@
             txtTenLoaiDaiLy.Font = new Font("Segoe UI", 12F);
             txtTenLoaiDaiLy.Location = new Point(152, 3);
             txtTenLoaiDaiLy.Name = "txtTenLoaiDaiLy";
-            txtTenLoaiDaiLy.Size = new Size(611, 34);
+            txtTenLoaiDaiLy.Size = new Size(697, 34);
             txtTenLoaiDaiLy.TabIndex = 7;
             // 
             // lblTenDaiLy
@@ -708,7 +698,7 @@
             label10.AutoSize = true;
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(1162, 2);
+            label10.Location = new Point(1058, 2);
             label10.Margin = new Padding(2, 0, 2, 10);
             label10.Name = "label10";
             label10.Size = new Size(242, 32);
@@ -730,7 +720,7 @@
             // dgvLoaiDaiLy
             // 
             dgvLoaiDaiLy.AllowUserToResizeColumns = false;
-            dgvLoaiDaiLy.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvLoaiDaiLy.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvLoaiDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLoaiDaiLy.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvLoaiDaiLy.BackgroundColor = Color.White;
@@ -772,13 +762,12 @@
             dgvLoaiDaiLy.RowHeadersVisible = false;
             dgvLoaiDaiLy.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvLoaiDaiLy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLoaiDaiLy.Size = new Size(1134, 614);
+            dgvLoaiDaiLy.Size = new Size(1030, 183);
             dgvLoaiDaiLy.TabIndex = 17;
             dgvLoaiDaiLy.SelectionChanged += dgvLoaiDaiLy_SelectionChanged;
             // 
             // panel2
             // 
-            panel2.AutoSize = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(tableLayoutPanel2);
@@ -787,15 +776,14 @@
             panel2.Margin = new Padding(16, 16, 16, 8);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(16);
-            panel2.Size = new Size(1966, 277);
+            panel2.Size = new Size(1948, 279);
             panel2.TabIndex = 25;
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.Controls.Add(btnThamSo, 0, 3);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Controls.Add(lblDanhSachPhieuThu, 0, 0);
@@ -809,7 +797,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1934, 245);
+            tableLayoutPanel2.Size = new Size(1916, 247);
             tableLayoutPanel2.TabIndex = 17;
             // 
             // btnThamSo
@@ -834,7 +822,7 @@
             label2.Location = new Point(0, 42);
             label2.Margin = new Padding(0, 0, 0, 20);
             label2.Name = "label2";
-            label2.Size = new Size(1934, 2);
+            label2.Size = new Size(1942, 2);
             label2.TabIndex = 15;
             // 
             // lblDanhSachPhieuThu
@@ -870,7 +858,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1930, 105);
+            tableLayoutPanel5.Size = new Size(1938, 105);
             tableLayoutPanel5.TabIndex = 18;
             // 
             // label8
@@ -887,12 +875,11 @@
             // 
             // txtTiLeDGXuat
             // 
-            txtTiLeDGXuat.Dock = DockStyle.Fill;
             txtTiLeDGXuat.Font = new Font("Segoe UI", 12F);
             txtTiLeDGXuat.Location = new Point(303, 40);
             txtTiLeDGXuat.Margin = new Padding(2);
             txtTiLeDGXuat.Name = "txtTiLeDGXuat";
-            txtTiLeDGXuat.Size = new Size(1625, 34);
+            txtTiLeDGXuat.Size = new Size(149, 34);
             txtTiLeDGXuat.TabIndex = 10;
             // 
             // label7
@@ -909,12 +896,11 @@
             // 
             // txtSoQLToiDa
             // 
-            txtSoQLToiDa.Dock = DockStyle.Fill;
             txtSoQLToiDa.Font = new Font("Segoe UI", 12F);
             txtSoQLToiDa.Location = new Point(303, 2);
             txtSoQLToiDa.Margin = new Padding(2);
             txtSoQLToiDa.Name = "txtSoQLToiDa";
-            txtSoQLToiDa.Size = new Size(1625, 34);
+            txtSoQLToiDa.Size = new Size(149, 34);
             txtSoQLToiDa.TabIndex = 8;
             // 
             // lblsdl
@@ -948,10 +934,9 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
             Name = "Settings";
-            Size = new Size(1998, 3024);
+            Size = new Size(1980, 1230);
             Load += Settings_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
@@ -961,7 +946,6 @@
             flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQuan).EndInit();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             tableLayoutPanel8.ResumeLayout(false);
@@ -970,7 +954,6 @@
             flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDVT).EndInit();
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
@@ -979,7 +962,6 @@
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLoaiDaiLy).EndInit();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);

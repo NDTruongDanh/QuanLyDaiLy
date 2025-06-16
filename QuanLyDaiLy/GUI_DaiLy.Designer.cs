@@ -365,8 +365,10 @@
             // 
             // dtpNgayTiepNhan
             // 
+            dtpNgayTiepNhan.CustomFormat = "dddd, dd/MM/yyyy";
             dtpNgayTiepNhan.Dock = DockStyle.Fill;
             dtpNgayTiepNhan.Font = new Font("Segoe UI", 12F);
+            dtpNgayTiepNhan.Format = DateTimePickerFormat.Custom;
             dtpNgayTiepNhan.Location = new Point(159, 247);
             dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
             dtpNgayTiepNhan.Size = new Size(1410, 34);

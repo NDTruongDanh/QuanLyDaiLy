@@ -340,8 +340,10 @@
             // 
             // dtpNgayLap
             // 
+            dtpNgayLap.CustomFormat = "dddd, dd/MM/yyyy";
             dtpNgayLap.Dock = DockStyle.Fill;
             dtpNgayLap.Font = new Font("Segoe UI", 12F);
+            dtpNgayLap.Format = DateTimePickerFormat.Custom;
             dtpNgayLap.Location = new Point(919, 3);
             dtpNgayLap.Name = "dtpNgayLap";
             dtpNgayLap.Size = new Size(263, 34);

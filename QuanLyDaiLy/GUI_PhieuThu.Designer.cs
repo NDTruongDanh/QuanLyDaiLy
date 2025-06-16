@@ -74,8 +74,10 @@
             // 
             // dtpNgayThuTien
             // 
+            dtpNgayThuTien.CustomFormat = "dddd, dd/MM/yyyy";
             dtpNgayThuTien.Dock = DockStyle.Fill;
             dtpNgayThuTien.Font = new Font("Segoe UI", 12F);
+            dtpNgayThuTien.Format = DateTimePickerFormat.Custom;
             dtpNgayThuTien.Location = new Point(150, 45);
             dtpNgayThuTien.Name = "dtpNgayThuTien";
             dtpNgayThuTien.Size = new Size(1411, 34);
