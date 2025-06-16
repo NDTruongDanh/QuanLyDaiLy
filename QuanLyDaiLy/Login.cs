@@ -33,11 +33,29 @@ namespace GUI_QuanLy
                 LoggedInUser = nguoiDung;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-                
+
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnVisible_Click(object sender, EventArgs e)
+        {
+            txtMatKhau.UseSystemPasswordChar = !txtMatKhau.UseSystemPasswordChar;
+
+            // Thay đổi icon của Button cho phù hợp với trạng thái mới
+            // Nếu UseSystemPasswordChar là true (mật khẩu đang BỊ ẨN)
+            if (txtMatKhau.UseSystemPasswordChar)
+            {
+                // thì hiển thị icon con mắt ĐÓNG
+                btnVisible.Text = "Ẩn";
+            }
+            else
+            {
+                // Ngược lại (mật khẩu đang ĐƯỢC HIỆN), thì hiển thị icon con mắt MỞ
+                btnVisible.Text = "Hiện";
             }
         }
     }
