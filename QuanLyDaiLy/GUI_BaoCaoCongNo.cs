@@ -105,9 +105,9 @@ namespace GUI_QuanLy
         {
             try
             {
-                if (!await CheckBaoCaoAsync())
+                if (!await CheckBaoCaoAsync(thang, nam))
                 {
-                    await TuDongTaoBaoCaoAsync();
+                    await TuDongTaoBaoCaoAsync(thang, nam);
                 }
 
                 var dataTable = await _busBaoCaoCongNo.GetDataTableBaoCaoCongNoAsync(thang, nam);
@@ -129,17 +129,17 @@ namespace GUI_QuanLy
             }
         }
 
-        private async Task TuDongTaoBaoCaoAsync()
+        private async Task TuDongTaoBaoCaoAsync(int thang, int nam)
         {
             try
             {
-                if (await _busBaoCaoCongNo.AddBaoCaoCongNoByTimeAsync(_prevMonth, _prevYear))
+                if (await _busBaoCaoCongNo.AddBaoCaoCongNoByTimeAsync(thang, nam))
                 {
-                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {_prevMonth}/{_prevYear} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {thang}/{nam} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {_prevMonth}/{_prevYear} thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Tự động thêm Báo cáo Công nợ cho {thang}/{nam} thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (BusException busEx)
@@ -155,11 +155,11 @@ namespace GUI_QuanLy
             }
         }
 
-        private async Task<bool> CheckBaoCaoAsync()
+        private async Task<bool> CheckBaoCaoAsync(int thanng, int nam)
         {
             try
             {
-                return await _busBaoCaoCongNo.IsExistedBaoCaoAsync(_prevMonth, _prevYear);
+                return await _busBaoCaoCongNo.IsExistedBaoCaoAsync(thanng, nam);
             }
             catch (BusException busEx)
             {
@@ -226,6 +226,21 @@ namespace GUI_QuanLy
             {
                 int thang = cmbThang.SelectedIndex + 1; // Tháng 1 là index 0
                 int nam = int.Parse(txtNam.Text);
+
+
+                DateTime userInputDate = new DateTime(nam, thang, 1);
+                DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+                if (userInputDate > currentDate)
+                {
+                    MessageBox.Show("Bạn không thể xem báo cáo công nợ trong tương lai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (userInputDate == currentDate)
+                {
+                    MessageBox.Show("Bạn không thể xem báo cáo công nợ vì hiện tại chưa hết tháng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 await LoadBaoCaoCongNoAsync(thang, nam);
                 LoadContent(thang, nam);

@@ -53,7 +53,7 @@ namespace GUI_QuanLy
             try
             {
                 await permissionLoadAsync();
-                await AutoCreateBaoCaoAsync();
+                await AutoCreateBaoCaoAsync(_prevMonth, _prevYear);
                 await LoadChiTietBaoCaoDoanhSoAsync(_prevMonth, _prevYear);
                 ShowCharBaoCao();
                 LoadContent();
@@ -107,16 +107,16 @@ namespace GUI_QuanLy
             }
         }
 
-        private async Task AutoCreateBaoCaoAsync()
+        private async Task AutoCreateBaoCaoAsync(int month, int year)
         {
             try
             {
-                if (await _busBaoCaoDoanhSo.AddBaoCaoDoanhSoAutoAsync(_prevMonth, _prevYear))
+                if (await _busBaoCaoDoanhSo.AddBaoCaoDoanhSoAutoAsync(month, year))
                 {
-                    _baoCaoDoanhSo = await _busBaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync(_prevMonth, _prevYear);
+                    _baoCaoDoanhSo = await _busBaoCaoDoanhSo.GetBaoCaoDoanhSoByTimeAsync(month, year);
                     if (await AutoCreateChiTietBaoCaoDoanhSoAsync(_baoCaoDoanhSo))
                     {
-                        MessageBox.Show($"Báo cáo Doanh số tháng {_prevMonth} năm {_prevYear} đã được tạo tự động thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Báo cáo Doanh số tháng {month} năm {year} đã được tạo tự động thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -286,7 +286,24 @@ namespace GUI_QuanLy
             {
                 int thang = cbbThang.SelectedIndex + 1;
                 int nam = int.Parse(txtNam.Text);
+
+                DateTime userInputDate = new DateTime(nam, thang, 1);
+                DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+                if (userInputDate > currentDate)
+                {
+                    MessageBox.Show("Bạn không thể xem báo cáo doanh số trong tương lai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (userInputDate == currentDate)
+                {
+                    MessageBox.Show("Bạn không thể xem báo cáo doanh số vì hiện tại chưa hết tháng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                await AutoCreateBaoCaoAsync(thang, nam);
                 await LoadChiTietBaoCaoDoanhSoAsync(thang, nam);
+                LoadContent();
                 ShowCharBaoCao();
             }
             catch (Exception ex)
