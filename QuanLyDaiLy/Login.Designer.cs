@@ -124,11 +124,11 @@
             // btnVisible
             // 
             btnVisible.BackColor = Color.White;
+            btnVisible.Image = Properties.Resources.eye_open;
             btnVisible.Location = new Point(497, 165);
             btnVisible.Name = "btnVisible";
-            btnVisible.Size = new Size(56, 34);
+            btnVisible.Size = new Size(34, 34);
             btnVisible.TabIndex = 3;
-            btnVisible.Text = "Hiện";
             btnVisible.UseVisualStyleBackColor = false;
             btnVisible.Click += btnVisible_Click;
             // 
