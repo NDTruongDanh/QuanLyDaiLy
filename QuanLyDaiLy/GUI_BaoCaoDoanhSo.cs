@@ -338,7 +338,6 @@ namespace GUI_QuanLy
 
                     if (await _busBaoCaoDoanhSo.DeleteBaoCaoDoanhSoAsync(_baoCaoDoanhSo.MaBaoCaoDoanhSo)) ;
                     {
-                        MessageBox.Show("Tạo lại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await AutoCreateBaoCaoAsync(thang, nam);
                         await LoadChiTietBaoCaoDoanhSoAsync(thang, nam);
                         LoadContent();
