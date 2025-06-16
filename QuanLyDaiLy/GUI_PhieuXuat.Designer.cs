@@ -206,8 +206,10 @@
             // 
             // dtpNgayLapPhieu
             // 
+            dtpNgayLapPhieu.CustomFormat = "dddd, dd/MM/yyyy";
             dtpNgayLapPhieu.Dock = DockStyle.Fill;
             dtpNgayLapPhieu.Font = new Font("Segoe UI", 12F);
+            dtpNgayLapPhieu.Format = DateTimePickerFormat.Custom;
             dtpNgayLapPhieu.Location = new Point(167, 45);
             dtpNgayLapPhieu.Name = "dtpNgayLapPhieu";
             dtpNgayLapPhieu.Size = new Size(1401, 34);

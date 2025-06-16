@@ -33,7 +33,7 @@ namespace GUI_QuanLy
 
         private DTO_ChiTietPhanQuyen? permission;
         public string Title { get; set; } = "Cài đặt hệ thống";
-        
+
         private DTO_ThamSo _thamSo;
         public Settings(IBUS_ThamSo busThamSo, IBUS_LoaiDaiLy busLoaiDaiLy, IBUS_DonViTinh busDonViTinh, IBUS_Quan busQuan, ILogger<Settings> logger, IServiceProvider services)
         {
@@ -47,7 +47,7 @@ namespace GUI_QuanLy
             dgvLoaiDaiLy.DataSource = _bindingSourceLDL;
             dgvDVT.DataSource = _bindingSourceDVT;
             dgvQuan.DataSource = _bindingSourceQuan;
-            
+
         }
 
         private async void Settings_Load(object sender, EventArgs e)
@@ -94,11 +94,11 @@ namespace GUI_QuanLy
             }
         }
 
-        
+
 
         private void LoadControlsContent()
         {
-            
+
             txtSoQLToiDa.Text = _thamSo.DaiLyToiDa.ToString();
             txtTiLeDGXuat.Text = _thamSo.TiLeTinhDonGiaXuat.ToString();
             if (_thamSo.ApDungQDKiemTraTienThu)
@@ -126,7 +126,7 @@ namespace GUI_QuanLy
                         "Thông báo",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
-                    
+
                     return;
                 }
 
@@ -141,7 +141,7 @@ namespace GUI_QuanLy
                 btnEditQuan.Enabled = permission.Sua;
                 btnXoaQuan.Enabled = permission.Xoa;
                 btnThamSo.Enabled = permission.Sua;
-                
+
 
 
             }
@@ -938,6 +938,11 @@ namespace GUI_QuanLy
                     MessageBox.Show("Hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ hỗ trợ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -30,9 +30,9 @@ namespace GUI_QuanLy
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -94,7 +94,7 @@ namespace GUI_QuanLy
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 65.13076F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 34.86924F));
-            tableLayoutPanel2.Size = new Size(1006, 723);
+            tableLayoutPanel2.Size = new Size(1006, 803);
             tableLayoutPanel2.TabIndex = 33;
             // 
             // panel1
@@ -109,7 +109,7 @@ namespace GUI_QuanLy
             panel1.Margin = new Padding(13, 13, 13, 6);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(13, 13, 13, 6);
-            panel1.Size = new Size(980, 451);
+            panel1.Size = new Size(980, 504);
             panel1.TabIndex = 24;
             // 
             // tableLayoutPanel4
@@ -125,7 +125,7 @@ namespace GUI_QuanLy
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 89.17051F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10.8294935F));
-            tableLayoutPanel4.Size = new Size(952, 340);
+            tableLayoutPanel4.Size = new Size(952, 393);
             tableLayoutPanel4.TabIndex = 18;
             // 
             // dgvChiTietPhieuNhap
@@ -137,41 +137,41 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.BorderStyle = BorderStyle.None;
             dgvChiTietPhieuNhap.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvChiTietPhieuNhap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
             dgvChiTietPhieuNhap.EnableHeadersVisualStyles = false;
             dgvChiTietPhieuNhap.GridColor = Color.White;
             dgvChiTietPhieuNhap.Location = new Point(2, 2);
             dgvChiTietPhieuNhap.Margin = new Padding(2);
             dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
             dgvChiTietPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvChiTietPhieuNhap.RowHeadersVisible = false;
             dgvChiTietPhieuNhap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvChiTietPhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvChiTietPhieuNhap.Size = new Size(948, 299);
+            dgvChiTietPhieuNhap.Size = new Size(948, 346);
             dgvChiTietPhieuNhap.TabIndex = 14;
             dgvChiTietPhieuNhap.SelectionChanged += dgvChiTietPhieuNhap_SelectionChanged;
             // 
@@ -183,12 +183,12 @@ namespace GUI_QuanLy
             tableLayoutPanel5.Controls.Add(txtTongTien, 1, 0);
             tableLayoutPanel5.Controls.Add(label10, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Right;
-            tableLayoutPanel5.Location = new Point(640, 305);
+            tableLayoutPanel5.Location = new Point(640, 352);
             tableLayoutPanel5.Margin = new Padding(2);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(310, 33);
+            tableLayoutPanel5.Size = new Size(310, 39);
             tableLayoutPanel5.TabIndex = 15;
             // 
             // txtTongTien
@@ -271,8 +271,10 @@ namespace GUI_QuanLy
             // 
             // dtpNgayLap
             // 
+            dtpNgayLap.CustomFormat = "dddd, dd/MM/yyyy";
             dtpNgayLap.Dock = DockStyle.Fill;
             dtpNgayLap.Font = new Font("Segoe UI", 12F);
+            dtpNgayLap.Format = DateTimePickerFormat.Custom;
             dtpNgayLap.Location = new Point(480, 2);
             dtpNgayLap.Margin = new Padding(2);
             dtpNgayLap.Name = "dtpNgayLap";
@@ -307,10 +309,10 @@ namespace GUI_QuanLy
             panel2.Controls.Add(lblThongTinPhieuThu);
             panel2.Controls.Add(label4);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(13, 483);
+            panel2.Location = new Point(13, 536);
             panel2.Margin = new Padding(13);
             panel2.Name = "panel2";
-            panel2.Size = new Size(980, 227);
+            panel2.Size = new Size(980, 254);
             panel2.TabIndex = 25;
             // 
             // flowLayoutPanel1
@@ -322,7 +324,7 @@ namespace GUI_QuanLy
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(189, 164);
+            flowLayoutPanel1.Location = new Point(189, 191);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(778, 52);
             flowLayoutPanel1.TabIndex = 34;
@@ -423,7 +425,7 @@ namespace GUI_QuanLy
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(949, 107);
+            tableLayoutPanel3.Size = new Size(952, 121);
             tableLayoutPanel3.TabIndex = 33;
             // 
             // txtThanhTien
@@ -434,7 +436,7 @@ namespace GUI_QuanLy
             txtThanhTien.Margin = new Padding(2);
             txtThanhTien.Name = "txtThanhTien";
             txtThanhTien.ReadOnly = true;
-            txtThanhTien.Size = new Size(374, 34);
+            txtThanhTien.Size = new Size(376, 34);
             txtThanhTien.TabIndex = 23;
             txtThanhTien.Text = "0";
             // 
@@ -454,10 +456,10 @@ namespace GUI_QuanLy
             // 
             txtDonGiaNhap.Dock = DockStyle.Fill;
             txtDonGiaNhap.Font = new Font("Segoe UI", 12F);
-            txtDonGiaNhap.Location = new Point(572, 42);
+            txtDonGiaNhap.Location = new Point(574, 42);
             txtDonGiaNhap.Margin = new Padding(2);
             txtDonGiaNhap.Name = "txtDonGiaNhap";
-            txtDonGiaNhap.Size = new Size(375, 34);
+            txtDonGiaNhap.Size = new Size(376, 34);
             txtDonGiaNhap.TabIndex = 20;
             txtDonGiaNhap.Text = "0";
             txtDonGiaNhap.TextChanged += txtDonGiaNhap_TextChanged;
@@ -469,7 +471,7 @@ namespace GUI_QuanLy
             txtSoLuong.Location = new Point(109, 42);
             txtSoLuong.Margin = new Padding(2);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(374, 34);
+            txtSoLuong.Size = new Size(376, 34);
             txtSoLuong.TabIndex = 19;
             txtSoLuong.Text = "0";
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
@@ -485,7 +487,7 @@ namespace GUI_QuanLy
             cbbMatHang.Location = new Point(109, 2);
             cbbMatHang.Margin = new Padding(2);
             cbbMatHang.Name = "cbbMatHang";
-            cbbMatHang.Size = new Size(838, 36);
+            cbbMatHang.Size = new Size(841, 36);
             cbbMatHang.TabIndex = 17;
             // 
             // label5
@@ -516,7 +518,7 @@ namespace GUI_QuanLy
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(487, 42);
+            label8.Location = new Point(489, 42);
             label8.Margin = new Padding(2);
             label8.Name = "label8";
             label8.Size = new Size(81, 28);
@@ -604,7 +606,7 @@ namespace GUI_QuanLy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 723);
+            ClientSize = new Size(1006, 803);
             Controls.Add(tableLayoutPanel2);
             Name = "GUI_ChiTietPhieuNhap";
             StartPosition = FormStartPosition.CenterScreen;
