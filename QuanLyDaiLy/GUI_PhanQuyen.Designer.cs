@@ -430,6 +430,8 @@
             // 
             // dgvPhanQuyen
             // 
+            dgvPhanQuyen.AllowUserToAddRows = false;
+            dgvPhanQuyen.AllowUserToDeleteRows = false;
             dgvPhanQuyen.AllowUserToResizeColumns = false;
             dgvPhanQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvPhanQuyen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -785,6 +787,8 @@
             // 
             // dgvNguoiDung
             // 
+            dgvNguoiDung.AllowUserToAddRows = false;
+            dgvNguoiDung.AllowUserToDeleteRows = false;
             dgvNguoiDung.AllowUserToResizeColumns = false;
             dgvNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -983,6 +987,8 @@
             // 
             // dgvNhomNguoiDung
             // 
+            dgvNhomNguoiDung.AllowUserToAddRows = false;
+            dgvNhomNguoiDung.AllowUserToDeleteRows = false;
             dgvNhomNguoiDung.AllowUserToResizeColumns = false;
             dgvNhomNguoiDung.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhomNguoiDung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

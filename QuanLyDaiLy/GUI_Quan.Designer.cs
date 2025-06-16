@@ -77,6 +77,8 @@
             // 
             // dgvQuan
             // 
+            dgvQuan.AllowUserToAddRows = false;
+            dgvQuan.AllowUserToDeleteRows = false;
             dgvQuan.AllowUserToResizeColumns = false;
             dgvQuan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvQuan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -106,6 +108,7 @@
             dgvQuan.GridColor = Color.White;
             dgvQuan.Location = new Point(19, 77);
             dgvQuan.Name = "dgvQuan";
+            dgvQuan.ReadOnly = true;
             dgvQuan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -126,6 +129,7 @@
             Column1.HeaderText = "Tên Quận";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // panel2
             // 

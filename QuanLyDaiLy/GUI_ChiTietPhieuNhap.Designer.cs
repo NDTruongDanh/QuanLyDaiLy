@@ -130,6 +130,8 @@ namespace GUI_QuanLy
             // 
             // dgvChiTietPhieuNhap
             // 
+            dgvChiTietPhieuNhap.AllowUserToAddRows = false;
+            dgvChiTietPhieuNhap.AllowUserToDeleteRows = false;
             dgvChiTietPhieuNhap.AllowUserToResizeColumns = false;
             dgvChiTietPhieuNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvChiTietPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -159,6 +161,7 @@ namespace GUI_QuanLy
             dgvChiTietPhieuNhap.Location = new Point(2, 2);
             dgvChiTietPhieuNhap.Margin = new Padding(2);
             dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
+            dgvChiTietPhieuNhap.ReadOnly = true;
             dgvChiTietPhieuNhap.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;

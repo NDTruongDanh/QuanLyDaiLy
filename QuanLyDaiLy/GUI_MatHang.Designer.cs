@@ -75,6 +75,8 @@
             // 
             // dgvMatHang
             // 
+            dgvMatHang.AllowUserToAddRows = false;
+            dgvMatHang.AllowUserToDeleteRows = false;
             dgvMatHang.AllowUserToResizeColumns = false;
             dgvMatHang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvMatHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -103,6 +105,7 @@
             dgvMatHang.GridColor = Color.White;
             dgvMatHang.Location = new Point(12, 69);
             dgvMatHang.Name = "dgvMatHang";
+            dgvMatHang.ReadOnly = true;
             dgvMatHang.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;

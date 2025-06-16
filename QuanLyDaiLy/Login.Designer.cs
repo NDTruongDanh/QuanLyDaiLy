@@ -128,6 +128,7 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
