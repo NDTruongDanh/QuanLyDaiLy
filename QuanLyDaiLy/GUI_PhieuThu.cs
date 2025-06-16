@@ -229,7 +229,7 @@ namespace GUI_QuanLy
 
                 decimal soTienThu = Convert.ToDecimal(txtSoTienThu.Text);
                 int maDaiLy = Convert.ToInt32(cmbDaiLy.SelectedValue);
-                DTO_PhieuThu phieuThu = new DTO_PhieuThu(0, maDaiLy, DateTime.Now, soTienThu);
+                DTO_PhieuThu phieuThu = new DTO_PhieuThu(0, maDaiLy, dtpNgayThuTien.Value, soTienThu);
 
                 if (await _busPhieuThu.AddPhieuThuAsync(phieuThu))
                 {
