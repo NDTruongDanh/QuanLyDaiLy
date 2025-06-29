@@ -21,7 +21,6 @@
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
-            btnFind = new Button();
             btnRefresh = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             label5 = new Label();
@@ -67,11 +66,10 @@
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
-            flowLayoutPanel1.Controls.Add(btnFind);
             flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(805, 223);
+            flowLayoutPanel1.Location = new Point(964, 220);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(778, 52);
+            flowLayoutPanel1.Size = new Size(619, 52);
             flowLayoutPanel1.TabIndex = 28;
             // 
             // btnAdd
@@ -119,27 +117,13 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnFind
-            // 
-            btnFind.AutoSize = true;
-            btnFind.BackColor = Color.FromArgb(33, 150, 243);
-            btnFind.FlatStyle = FlatStyle.Flat;
-            btnFind.Font = new Font("Segoe UI", 12F);
-            btnFind.Location = new Point(480, 3);
-            btnFind.Margin = new Padding(3, 3, 20, 3);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(136, 44);
-            btnFind.TabIndex = 23;
-            btnFind.Text = "🔍 Tìm ";
-            btnFind.UseVisualStyleBackColor = false;
-            // 
             // btnRefresh
             // 
             btnRefresh.AutoSize = true;
             btnRefresh.BackColor = Color.FromArgb(221, 121, 115);
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 12F);
-            btnRefresh.Location = new Point(639, 3);
+            btnRefresh.Location = new Point(480, 3);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(136, 44);
             btnRefresh.TabIndex = 24;
@@ -405,7 +389,6 @@
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
-        private Button btnFind;
         private Button btnRefresh;
     }
 }
