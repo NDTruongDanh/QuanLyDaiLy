@@ -220,7 +220,7 @@ namespace GUI_QuanLy
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn dòng cần xoá", "Thông bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
