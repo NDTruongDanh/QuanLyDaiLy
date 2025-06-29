@@ -68,6 +68,7 @@ namespace GUI_QuanLy
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            button5 = new Button();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -325,9 +326,10 @@ namespace GUI_QuanLy
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(342, 199);
+            flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Location = new Point(183, 199);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(619, 52);
+            flowLayoutPanel1.Size = new Size(778, 52);
             flowLayoutPanel1.TabIndex = 34;
             // 
             // btnAdd
@@ -382,6 +384,7 @@ namespace GUI_QuanLy
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 12F);
             btnRefresh.Location = new Point(480, 3);
+            btnRefresh.Margin = new Padding(3, 3, 20, 3);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(136, 44);
             btnRefresh.TabIndex = 24;
@@ -595,6 +598,19 @@ namespace GUI_QuanLy
             button4.Text = "🔍 Làm mới";
             button4.UseVisualStyleBackColor = false;
             // 
+            // button5
+            // 
+            button5.AutoSize = true;
+            button5.BackColor = Color.FromArgb(103, 58, 183);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.Location = new Point(639, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(136, 44);
+            button5.TabIndex = 26;
+            button5.Text = "💾 Lưu";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // GUI_ChiTietPhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -659,5 +675,6 @@ namespace GUI_QuanLy
         private Button btnEdit;
         private Button btnDelete;
         private Button btnRefresh;
+        private Button button5;
     }
 }
