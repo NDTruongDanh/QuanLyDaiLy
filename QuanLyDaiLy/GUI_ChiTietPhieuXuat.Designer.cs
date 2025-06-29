@@ -14,9 +14,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             notifyIcon1 = new NotifyIcon(components);
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
@@ -55,6 +55,7 @@
             label8 = new Label();
             lblThongTinPhieuThu = new Label();
             label4 = new Label();
+            button1 = new Button();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -218,37 +219,37 @@
             dgvChiTietPhieuXuat.BorderStyle = BorderStyle.None;
             dgvChiTietPhieuXuat.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgvChiTietPhieuXuat.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(196, 196, 196);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(196, 196, 196);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuXuat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvChiTietPhieuXuat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 155, 249);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvChiTietPhieuXuat.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 155, 249);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvChiTietPhieuXuat.DefaultCellStyle = dataGridViewCellStyle5;
             dgvChiTietPhieuXuat.EnableHeadersVisualStyles = false;
             dgvChiTietPhieuXuat.GridColor = Color.White;
             dgvChiTietPhieuXuat.Location = new Point(3, 3);
             dgvChiTietPhieuXuat.Name = "dgvChiTietPhieuXuat";
             dgvChiTietPhieuXuat.ReadOnly = true;
             dgvChiTietPhieuXuat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvChiTietPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvChiTietPhieuXuat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvChiTietPhieuXuat.RowHeadersVisible = false;
             dgvChiTietPhieuXuat.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvChiTietPhieuXuat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -392,9 +393,10 @@
             flowLayoutPanel1.Controls.Add(btnEdit);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnRefresh);
-            flowLayoutPanel1.Location = new Point(588, 229);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(429, 229);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(619, 52);
+            flowLayoutPanel1.Size = new Size(778, 52);
             flowLayoutPanel1.TabIndex = 34;
             // 
             // btnAdd
@@ -449,6 +451,7 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 12F);
             btnRefresh.Location = new Point(480, 3);
+            btnRefresh.Margin = new Padding(3, 3, 20, 3);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(136, 44);
             btnRefresh.TabIndex = 24;
@@ -598,6 +601,19 @@
             label4.Size = new Size(3000, 2);
             label4.TabIndex = 15;
             // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.BackColor = Color.FromArgb(103, 58, 183);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(639, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 44);
+            button1.TabIndex = 25;
+            button1.Text = "💾 Lưu";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // GUI_ChiTietPhieuXuat
             // 
             ClientSize = new Size(1258, 904);
@@ -663,5 +679,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnRefresh;
+        private Button button1;
     }
 }
